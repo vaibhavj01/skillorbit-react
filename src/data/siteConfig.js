@@ -1,4 +1,5 @@
 // Sourced from the original SkillOrbit static site (js/config.js)
+
 export const SITE_URL = "https://www.skillorbit.in";
 
 export const CONTACT = {
@@ -12,12 +13,44 @@ export const CONTACT = {
   location: "Pune, Maharashtra, India",
 };
 
+
 export const STATS = [
-  { key: "students", label: "Students Trained", value: 10000, suffix: "+" },
-  { key: "partners", label: "Hiring Partners (Aim)", value: 300, suffix: "+" },
-  { key: "placementRate", label: "Placement Support", value: 95, suffix: "%" },
-  { key: "courses", label: "Courses Offered", value: 50, suffix: "+" },
+  {
+    key: "students",
+    label: "Students Trained",
+    value: 10000,
+    suffix: "+",
+  },
+
+  {
+    key: "partners",
+    label: "Hiring Partners (Aim)",
+    value: 300,
+    suffix: "+",
+  },
+
+  {
+    key: "placementRate",
+    label: "Placement Support",
+    value: 95,
+    suffix: "%",
+  },
+
+  {
+    key: "courses",
+    label: "Courses Offered",
+    value: 50,
+    suffix: "+",
+  },
+
+  {
+    key: "experts",
+    label: "Industry Experts",
+    value: 100,
+    suffix: "+",
+  },
 ];
+
 
 export const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -29,6 +62,7 @@ export const NAV_LINKS = [
   { label: "Contact", to: "/contact" },
 ];
 
+
 export const FOOTER_LINKS = {
   SkillOrbit: [
     { label: "About", to: "/about" },
@@ -37,6 +71,7 @@ export const FOOTER_LINKS = {
     { label: "Distance Learning", to: "/distance-learning" },
     { label: "Contact", to: "/contact" },
   ],
+
   Learning: [
     { label: "Classroom", to: "/courses" },
     { label: "Online", to: "/courses" },
@@ -44,11 +79,13 @@ export const FOOTER_LINKS = {
     { label: "Self-Paced", to: "/courses" },
     { label: "Distance Learning", to: "/distance-learning" },
   ],
+
   Resources: [
     { label: "Blog", to: "/blog" },
     { label: "Career Guide", to: "/blog" },
     { label: "FAQs", to: "/#faq" },
   ],
+
   Company: [
     { label: "About Us", to: "/about" },
     { label: "Careers", to: "/careers" },
@@ -57,6 +94,7 @@ export const FOOTER_LINKS = {
     { label: "Refund Policy", to: "/refund" },
   ],
 };
+
 
 export const ASSETS = {
   logo: "/assets/logo/skillorbit-logo.png",
