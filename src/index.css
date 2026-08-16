@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  @apply font-body text-ink bg-surface-bg antialiased;
+}
+
+::selection {
+  background: #E8F7EB;
+  color: #0D4D2B;
+}
+
+/* Anchor scroll offset for the fixed header */
+section[id], main[id] {
+  scroll-margin-top: 84px;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
