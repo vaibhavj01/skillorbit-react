@@ -5,6 +5,7 @@ import Reveal from "../common/Reveal";
 import Button from "../common/Button";
 import { batches } from "../../data/batches";
 import { getCourseBySlug } from "../../data/courses";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 
 const STATUS_STYLE = {
   open: { dot: "bg-brand-500", bg: "bg-brand-100", text: "text-brand-700", label: "Seats open" },
@@ -23,7 +24,7 @@ function BatchCard({ batch, delay }) {
 
   return (
     <Reveal delay={delay}>
-      <div className="h-full p-6 rounded-2xl border border-line bg-white flex flex-col gap-4">
+      <div className="flex h-full flex-col gap-4 rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-6">
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-base font-bold leading-snug font-display text-ink">{batch.courseName}</h3>
           <span className={`shrink-0 flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full ${s.bg} ${s.text}`}>
@@ -59,8 +60,9 @@ function BatchCard({ batch, delay }) {
 
 export default function Batches() {
   return (
-    <section id="batches" className="py-20 md:py-28 bg-white">
-      <Container>
+    <section id="batches" className="relative overflow-hidden bg-[#E7F7F0] py-20 md:py-28">
+      <OrbitBackdrop variant="mint" />
+      <Container className="relative z-10">
         <SectionHeading eyebrow="Schedule" title="Upcoming Batches" subtitle="New classroom, online and distance learning seats open regularly." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {batches.map((b, i) => (

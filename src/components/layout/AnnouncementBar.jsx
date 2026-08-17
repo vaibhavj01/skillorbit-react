@@ -2,53 +2,20 @@ import { Link } from "react-router-dom";
 import { X, ChevronRight } from "lucide-react";
 
 const ANNOUNCEMENT_LINKS = [
-  {
-    label: "Certificate",
-    to: "/certificates",
-  },
-  {
-    label: "Webinar",
-    to: "/webinar",
-  },
-  {
-    label: "Corporate",
-    to: "/corporate",
-  },
-  {
-    label: "CSR",
-    to: "/csr",
-  },
-  {
-    label: "Blogs",
-    to: "/blog",
-  },
-  {
-    label: "Students Reviews",
-    to: "/#testimonials",
-  },
-  {
-    label: "Referral",
-    to: "/referral",
-  },
-  {
-    label: "Free Courses",
-    to: "/courses",
-  },
-  {
-    label: "Feedback",
-    to: "/feedback",
-  },
-  {
-    label: "Careers",
-    to: "/careers",
-  },
-  {
-    label: "Contact Us",
-    to: "/contact",
-  },
+  { label: "Certificate", to: "/certificates" },
+  { label: "Webinar", to: "/webinar" },
+  { label: "Corporate", to: "/corporate" },
+  { label: "CSR", to: "/csr" },
+  { label: "Blogs", to: "/blog" },
+  { label: "Students Reviews", to: "/#testimonials" },
+  { label: "Referral", to: "/referral" },
+  { label: "Feedback", to: "/feedback" },
+  { label: "Careers", to: "/careers" },
+  { label: "Contact Us", to: "/contact" },
 ];
 
 export default function AnnouncementBar({
+  hidden = false,
   mobileOpen = false,
   onClose = () => {},
 }) {
@@ -56,27 +23,66 @@ export default function AnnouncementBar({
     <>
       {/* ================= DESKTOP ANNOUNCEMENT BAR ================= */}
 
-      <div className="hidden h-9 bg-[#071313] md:block">
-        <div className="mx-auto flex h-full max-w-7xl items-center justify-end px-5 md:px-8">
-          <nav className="flex items-center text-[12px] font-semibold">
-            {ANNOUNCEMENT_LINKS.map((item, index) => (
-              <div key={item.label} className="flex items-center">
-                <Link
-                  to={item.to}
-                  className="
-                    px-2
-                    text-[#EFFFFB]
-                    transition-colors
-                    hover:text-[#7CFF00]
-                  "
-                >
-                  {item.label}
-                </Link>
+      <div
+        className={`
+          fixed
+          left-0
+          right-0
+          top-0
+          z-[60]
+          hidden
+          h-10
+          md:block
+          transition-transform
+          duration-300
+          ease-out
+          ${hidden ? "-translate-y-full" : "translate-y-0"}
+        `}
+        style={{
+          background:
+            "linear-gradient(90deg, #063F2A 0%, #087A3E 28%, #1AA34A 55%, #239F4A 78%, #35D0A5 100%)",
+        }}
+      >
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-x-0
+            bottom-0
+            h-px
+            bg-gradient-to-r
+            from-transparent
+            via-[#7CFF00]
+            to-transparent
+          "
+        />
 
-                {index !== ANNOUNCEMENT_LINKS.length - 1 && (
-                  <span className="text-[#8BE4FF]/60">|</span>
-                )}
-              </div>
+        <div className="mx-auto flex h-full max-w-7xl items-center justify-end px-5 md:px-8">
+          <nav className="flex items-center gap-1" aria-label="Quick links">
+            {ANNOUNCEMENT_LINKS.map((item) => (
+              <Link
+                key={item.label}
+                to={item.to}
+                className="
+                  rounded-full
+                  px-2.5
+                  py-1
+
+                  text-[11px]
+                  font-bold
+                  tracking-wide
+                  text-white/90
+
+                  transition-all
+                  duration-200
+
+                  hover:bg-[#7CFF00]
+                  hover:text-[#06352C]
+                  hover:shadow-[0_0_16px_rgba(124,255,0,0.45)]
+                "
+              >
+                {item.label}
+              </Link>
             ))}
           </nav>
         </div>
@@ -90,31 +96,21 @@ export default function AnnouncementBar({
           inset-0
           z-[90]
           md:hidden
-          ${
-            mobileOpen
-              ? "pointer-events-auto"
-              : "pointer-events-none"
-          }
+          ${mobileOpen ? "pointer-events-auto" : "pointer-events-none"}
         `}
       >
-        {/* Overlay */}
-
         <div
           onClick={onClose}
           className="
             absolute
             inset-0
-            bg-[#071313]/45
+            bg-[#063F2A]/50
             backdrop-blur-sm
             transition-opacity
             duration-300
           "
-          style={{
-            opacity: mobileOpen ? 1 : 0,
-          }}
+          style={{ opacity: mobileOpen ? 1 : 0 }}
         />
-
-        {/* Drawer */}
 
         <aside
           className="
@@ -126,19 +122,15 @@ export default function AnnouncementBar({
             w-[88%]
             max-w-[360px]
             flex-col
-            bg-white
+            bg-[#F4FFF8]
             shadow-2xl
             transition-transform
             duration-300
           "
           style={{
-            transform: mobileOpen
-              ? "translateX(0)"
-              : "translateX(-100%)",
+            transform: mobileOpen ? "translateX(0)" : "translateX(-100%)",
           }}
         >
-          {/* Drawer Header */}
-
           <div
             className="
               flex
@@ -146,22 +138,17 @@ export default function AnnouncementBar({
               shrink-0
               items-center
               justify-between
-              border-b
-              border-[#35D0A5]/20
-              bg-gradient-to-r
-              from-[#35D0A5]
-              via-[#29C3BE]
-              to-[#1FB8D2]
               px-5
             "
+            style={{
+              background:
+                "linear-gradient(90deg, #087A3E 0%, #239F4A 50%, #35D0A5 100%)",
+            }}
           >
             <div>
-              <p className="text-sm font-bold text-white">
-                SkillOrbit
-              </p>
-
-              <p className="text-[11px] font-medium text-white/80">
-                Explore More
+              <p className="text-sm font-bold text-white">SkillOrbit</p>
+              <p className="mt-0.5 text-[11px] font-medium text-[#E7FF00]/90">
+                Quick links
               </p>
             </div>
 
@@ -176,33 +163,19 @@ export default function AnnouncementBar({
                 items-center
                 justify-center
                 rounded-full
-                bg-white/20
-                text-white
-                backdrop-blur-sm
+                bg-[#7CFF00]
+                text-[#06352C]
+                transition-all
+                duration-200
+                hover:bg-[#E7FF00]
               "
             >
               <X size={19} />
             </button>
           </div>
 
-          {/* Quick Links */}
-
           <div className="flex-1 overflow-y-auto px-4 py-5">
-            <p
-              className="
-                mb-3
-                px-2
-                text-[11px]
-                font-bold
-                uppercase
-                tracking-[0.2em]
-                text-[#239F4A]
-              "
-            >
-              Quick Links
-            </p>
-
-            <nav className="space-y-1">
+            <nav className="space-y-1.5">
               {ANNOUNCEMENT_LINKS.map((item) => (
                 <Link
                   key={item.label}
@@ -213,23 +186,24 @@ export default function AnnouncementBar({
                     items-center
                     justify-between
                     rounded-xl
+                    border
+                    border-[#35D0A5]/15
+                    bg-white
                     px-4
                     py-3.5
                     text-sm
                     font-semibold
-                    text-[#071313]
+                    text-[#063F2A]
+                    shadow-[0_4px_12px_rgba(6,63,42,0.04)]
                     transition-all
                     duration-200
-                    hover:bg-[#7CFF00]/10
-                    hover:text-[#239F4A]
+                    hover:border-[#7CFF00]
+                    hover:bg-[#7CFF00]/15
+                    hover:text-[#087A3E]
                   "
                 >
                   <span>{item.label}</span>
-
-                  <ChevronRight
-                    size={17}
-                    className="text-[#239F4A]"
-                  />
+                  <ChevronRight size={17} className="text-[#239F4A]" />
                 </Link>
               ))}
             </nav>

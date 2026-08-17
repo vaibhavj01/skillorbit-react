@@ -1,6 +1,7 @@
 import Container from "../common/Container";
 import Reveal from "../common/Reveal";
 import { hiringPartners } from "../../data/partners";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 
 /* =========================================================
    COMPANY CARD
@@ -11,88 +12,71 @@ function CompanyCard({ company }) {
     <div
       className="
         group
+        relative
         flex
-        h-[78px]
-        w-[155px]
+        h-[52px]
+        w-[105px]
+        min-w-[105px]
         shrink-0
         items-center
         justify-center
+        overflow-hidden
 
-        rounded-xl
+        rounded-md
 
         border
-        border-white/25
+        border-white/30
 
-        bg-white/[0.10]
+        bg-white
 
-        px-3
-
-        backdrop-blur-md
-
-        shadow-[0_8px_25px_rgba(0,0,0,0.12)]
+        shadow-[0_3px_8px_rgba(0,0,0,0.18)]
 
         transition-all
         duration-300
         ease-out
 
         hover:-translate-y-1
-        hover:border-[#7CFF00]/70
-        hover:bg-white/[0.18]
-        hover:shadow-[0_0_25px_rgba(124,255,0,0.18)]
+        hover:border-[#F97316]
+        hover:shadow-[0_5px_14px_rgba(249,115,22,0.30)]
 
-        sm:h-[84px]
-        sm:w-[170px]
+        sm:h-[54px]
+        sm:w-[110px]
+        sm:min-w-[110px]
 
-        md:h-[90px]
-        md:w-[190px]
-
-        lg:h-[96px]
-        lg:w-[205px]
-
-        xl:h-[100px]
-        xl:w-[215px]
+        md:h-[56px]
+        md:w-[115px]
+        md:min-w-[115px]
       "
     >
       {/* =================================================
-          LOGO
+          COMPANY LOGO
       ================================================== */}
 
       <img
         src={company.logo}
         alt={`${company.name} logo`}
         loading="lazy"
+        width="110"
+        height="52"
+        decoding="async"
         draggable="false"
         className="
           block
-
-          h-[52px]
-          w-[150px]
+          h-full
+          w-full
 
           object-contain
           object-center
 
-          select-none
+          p-1
 
-          opacity-95
+          select-none
 
           transition-all
           duration-300
           ease-out
 
           group-hover:scale-105
-          group-hover:opacity-100
-
-          sm:h-[56px]
-          sm:w-[160px]
-
-          md:h-[60px]
-          md:w-[170px]
-
-          lg:h-[64px]
-          lg:w-[180px]
-
-          xl:h-[68px]
-          xl:w-[185px]
         "
       />
     </div>
@@ -128,73 +112,18 @@ function SlidingRow({
         py-1
       "
     >
-
-      {/* ===================================================
-          LEFT FADE
-      ==================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-0
-          top-0
-          z-20
-
-          h-full
-          w-8
-
-          bg-gradient-to-r
-          from-[#29C3BE]
-          to-transparent
-
-          sm:w-12
-          md:w-20
-          lg:w-28
-        "
-      />
-
-
-      {/* ===================================================
-          RIGHT FADE
-      ==================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          right-0
-          top-0
-          z-20
-
-          h-full
-          w-8
-
-          bg-gradient-to-l
-          from-[#1FB8D2]
-          to-transparent
-
-          sm:w-12
-          md:w-20
-          lg:w-28
-        "
-      />
-
-
-      {/* ===================================================
+      {/* =================================================
           MOVING TRACK
-      ==================================================== */}
+      ================================================== */}
 
       <div
         className={`
           flex
           w-max
-
           gap-3
 
-          sm:gap-4
-          md:gap-5
-          lg:gap-6
+          sm:gap-3
+          md:gap-4
 
           ${
             direction === "left"
@@ -209,16 +138,13 @@ function SlidingRow({
           }
         `}
       >
-
         {items.map((company, index) => (
           <CompanyCard
             key={`${company.id}-${index}`}
             company={company}
           />
         ))}
-
       </div>
-
     </div>
   );
 }
@@ -231,127 +157,91 @@ function SlidingRow({
 export default function Partners() {
 
   /* =======================================================
-     FIVE DIFFERENT ROWS
+     ROW 1
   ======================================================= */
 
   const rowOne = [
-    hiringPartners[0],
-    hiringPartners[1],
-    hiringPartners[2],
-    hiringPartners[3],
-    hiringPartners[4],
-  ];
+  hiringPartners[0],
+  hiringPartners[1],
+  hiringPartners[2],
+  hiringPartners[3],
+  hiringPartners[4],
+  hiringPartners[5],
+  hiringPartners[6],
+  hiringPartners[7],
+  hiringPartners[8],
+  hiringPartners[9],
+  hiringPartners[10],
+  hiringPartners[11],
+];
 
+const rowTwo = [
+  hiringPartners[6],
+  hiringPartners[7],
+  hiringPartners[8],
+  hiringPartners[9],
+  hiringPartners[10],
+  hiringPartners[11],
+  hiringPartners[0],
+  hiringPartners[1],
+  hiringPartners[2],
+  hiringPartners[3],
+  hiringPartners[4],
+  hiringPartners[5],
+];
 
-  const rowTwo = [
-    hiringPartners[5],
-    hiringPartners[6],
-    hiringPartners[7],
-    hiringPartners[8],
-    hiringPartners[9],
-  ];
+const rowThree = [
+  hiringPartners[3],
+  hiringPartners[6],
+  hiringPartners[9],
+  hiringPartners[0],
+  hiringPartners[2],
+  hiringPartners[5],
+  hiringPartners[8],
+  hiringPartners[11],
+  hiringPartners[1],
+  hiringPartners[4],
+  hiringPartners[7],
+  hiringPartners[10],
+];
 
-
-  const rowThree = [
-    hiringPartners[10],
-    hiringPartners[11],
-    hiringPartners[0],
-    hiringPartners[1],
-    hiringPartners[2],
-  ];
-
-
-  const rowFour = [
-    hiringPartners[3],
-    hiringPartners[6],
-    hiringPartners[4],
-    hiringPartners[7],
-    hiringPartners[5],
-  ];
-
-
-  const rowFive = [
-    hiringPartners[8],
-    hiringPartners[9],
-    hiringPartners[10],
-    hiringPartners[0],
-    hiringPartners[11],
-  ];
-
-
+const rowFour = [
+  hiringPartners[5],
+  hiringPartners[9],
+  hiringPartners[1],
+  hiringPartners[11],
+  hiringPartners[4],
+  hiringPartners[7],
+  hiringPartners[0],
+  hiringPartners[3],
+  hiringPartners[6],
+  hiringPartners[8],
+  hiringPartners[2],
+  hiringPartners[10],
+];
   return (
     <section
       id="companies"
       className="
         relative
         overflow-hidden
+        bg-[#35D0A5]
 
-        py-14
+        py-10
 
-        sm:py-16
-        md:py-20
-        lg:py-24
+        sm:py-11
 
-        bg-gradient-to-r
-        from-[#35D0A5]
-        via-[#29C3BE]
-        to-[#1FB8D2]
+        md:py-12
+
+        lg:py-14
       "
     >
-
-      {/* ===================================================
-          BACKGROUND GLOW 1
-      ==================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-
-          left-1/2
-          top-10
-
-          h-[300px]
-          w-[500px]
-
-          -translate-x-1/2
-
-          rounded-full
-
-          bg-[#B8FF00]/10
-
-          blur-3xl
-        "
-      />
+      <OrbitBackdrop variant="mesh" />
 
 
-      {/* ===================================================
-          BACKGROUND GLOW 2
-      ==================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-
-          -right-32
-          bottom-0
-
-          h-[320px]
-          w-[320px]
-
-          rounded-full
-
-          bg-[#8BE4FF]/10
-
-          blur-3xl
-        "
-      />
-
-
-      {/* ===================================================
+      {/* =================================================
           MAIN CONTAINER
-      ==================================================== */}
+      ================================================== */}
 
       <Container
         className="
@@ -361,22 +251,63 @@ export default function Partners() {
         "
       >
 
+{/* LEFT SOFT EDGE */}
+<div
+  className="
+    pointer-events-none
+    absolute
+    left-0
+    top-0
+    z-20
+
+    h-full
+    w-[90px]
+
+    bg-gradient-to-r
+    from-[#35D0A5]
+    via-[#35D0A5]/90
+    to-transparent
+
+    blur-[5px]
+  "
+/>
+
+{/* RIGHT SOFT EDGE */}
+<div
+  className="
+    pointer-events-none
+    absolute
+    right-0
+    top-0
+    z-20
+
+    h-full
+    w-[90px]
+
+    bg-gradient-to-l
+    from-[#35D0A5]
+    via-[#35D0A5]/90
+    to-transparent
+
+    blur-[5px]
+  "
+/>
         {/* =================================================
             HEADING
         ================================================== */}
 
         <Reveal
           className="
-            mb-7
+            mb-6
             text-center
 
-            sm:mb-8
-            md:mb-10
-            lg:mb-12
+            sm:mb-7
+
+            md:mb-8
           "
         >
 
-          {/* Career Network */}
+          {/* Eyebrow */}
 
           <p
             className="
@@ -389,7 +320,6 @@ export default function Partners() {
 
               text-[#E7FF00]
 
-              sm:mb-3
               sm:text-[10px]
 
               md:text-xs
@@ -402,7 +332,7 @@ export default function Partners() {
           </p>
 
 
-          {/* Main Heading */}
+          {/* Heading */}
 
           <h2
             className="
@@ -477,7 +407,7 @@ export default function Partners() {
           <div
             className="
               mx-auto
-              mt-6
+              mt-4
 
               h-1
               w-16
@@ -494,75 +424,68 @@ export default function Partners() {
 
 
         {/* =================================================
-            ROW 1
+            ROW 1 — LEFT
         ================================================== */}
 
         <Reveal delay={0.05}>
-          <div className="mb-3 sm:mb-4 md:mb-5">
+          <div className="mb-2 sm:mb-3">
+
             <SlidingRow
               companies={rowOne}
               direction="left"
               speed="normal"
             />
+
           </div>
         </Reveal>
 
 
         {/* =================================================
-            ROW 2
+            ROW 2 — RIGHT
         ================================================== */}
 
         <Reveal delay={0.08}>
-          <div className="mb-3 sm:mb-4 md:mb-5">
+          <div className="mb-2 sm:mb-3">
+
             <SlidingRow
               companies={rowTwo}
               direction="right"
               speed="slow"
             />
+
           </div>
         </Reveal>
 
 
         {/* =================================================
-            ROW 3
+            ROW 3 — LEFT
         ================================================== */}
 
         <Reveal delay={0.11}>
-          <div className="mb-3 sm:mb-4 md:mb-5">
+          <div className="mb-2 sm:mb-3">
+
             <SlidingRow
               companies={rowThree}
               direction="left"
               speed="normal"
             />
+
           </div>
         </Reveal>
 
 
         {/* =================================================
-            ROW 4
+            ROW 4 — RIGHT
         ================================================== */}
 
         <Reveal delay={0.14}>
-          <div className="mb-3 sm:mb-4 md:mb-5">
-            <SlidingRow
-              companies={rowFour}
-              direction="right"
-              speed="slow"
-            />
-          </div>
-        </Reveal>
 
-
-        {/* =================================================
-            ROW 5
-        ================================================== */}
-
-        <Reveal delay={0.17}>
           <SlidingRow
-            companies={rowFive}
-            direction="left"
-            speed="normal"
+            companies={rowFour}
+            direction="right"
+            speed="slow"
           />
+
         </Reveal>
 
 
@@ -570,15 +493,15 @@ export default function Partners() {
             BOTTOM LABEL
         ================================================== */}
 
-        <Reveal delay={0.20}>
+        <Reveal delay={0.17}>
+
           <div
             className="
-              mt-7
+              mt-6
               flex
               justify-center
 
-              sm:mt-8
-              md:mt-10
+              sm:mt-7
             "
           >
 
@@ -613,7 +536,9 @@ export default function Partners() {
                 backdrop-blur-md
 
                 sm:text-[9px]
+
                 md:text-[10px]
+
                 lg:text-xs
               "
             >
@@ -637,9 +562,11 @@ export default function Partners() {
             </div>
 
           </div>
+
         </Reveal>
 
       </Container>
+
     </section>
   );
 }

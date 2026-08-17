@@ -8,10 +8,10 @@ const SIZES = {
 
 // Buttons are black with a green accent text/icon color, per brand direction.
 const VARIANTS = {
-  primary: "bg-ink text-brand-400 shadow-btn hover:bg-[#22302A]",
-  outline: "bg-transparent text-brand-600 border-[1.5px] border-ink hover:bg-ink hover:text-brand-400",
-  dark: "bg-ink text-brand-400 hover:bg-[#22302A]",
-  ghost: "bg-transparent text-brand-600 hover:text-brand-700",
+  primary: "bg-[#071313] text-[#7CFF00] shadow-btn hover:bg-[#063F2A]",
+  outline: "bg-transparent text-[#087A3E] border-[1.5px] border-[#071313] hover:bg-[#071313] hover:text-[#7CFF00]",
+  dark: "bg-[#071313] text-[#7CFF00] hover:bg-[#063F2A]",
+  ghost: "bg-transparent text-[#087A3E] hover:text-[#063F2A]",
 };
 
 export default function Button({

@@ -4,6 +4,7 @@ import Container from "../components/common/Container";
 import Reveal from "../components/common/Reveal";
 import Button from "../components/common/Button";
 import { CONTACT } from "../data/siteConfig";
+import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 export default function Careers() {
   return (
@@ -11,9 +12,10 @@ export default function Careers() {
       <Seo title="Careers" description="Open roles at SkillOrbit Academy will be listed here. Send your resume to be considered for future openings." path="/careers" />
       <PageHero title="Careers at SkillOrbit" subtitle="We are building a next-generation IT education platform. Open roles will be listed here." />
 
-      <section className="py-16 md:py-24">
-        <Container className="max-w-xl">
-          <Reveal className="text-center p-10 md:p-14 rounded-3xl border border-line bg-white">
+      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-24">
+        <OrbitBackdrop variant="mint" />
+        <Container className="relative z-10 max-w-xl">
+          <Reveal className="rounded-3xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-10 text-center md:p-14">
             <h2 className="font-display font-bold text-xl text-ink mb-2">No open positions right now</h2>
             <p className="text-sm text-ink-muted mb-6 leading-relaxed">
               This is a placeholder careers page. Send your resume to{" "}

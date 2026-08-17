@@ -3,15 +3,30 @@ import Reveal from "./Reveal";
 
 export default function PageHero({ title, subtitle }) {
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden bg-surface-bg">
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-gradient-to-br
+        from-[#35D0A5]
+        via-[#29C3BE]
+        to-[#1FB8D2]
+        pb-16
+        pt-28
+        md:pb-20
+        md:pt-40
+      "
+    >
       <div
-        className="absolute -top-32 -left-32 w-96 h-96 rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(54,168,74,0.3), transparent 70%)" }}
+        className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full opacity-40 blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(124,255,0,0.35), transparent 70%)" }}
       />
-      <Container className="relative text-center max-w-2xl">
+      <Container className="relative max-w-2xl text-center">
         <Reveal>
-          <h1 className="font-display font-bold text-h2 text-ink mb-4">{title}</h1>
-          {subtitle && <p className="text-base md:text-lg text-ink-muted leading-relaxed">{subtitle}</p>}
+          <h1 className="mb-4 font-display text-h2 font-bold tracking-tight text-[#071313]">{title}</h1>
+          {subtitle && (
+            <p className="text-base leading-relaxed text-[#365F6E] md:text-lg">{subtitle}</p>
+          )}
         </Reveal>
       </Container>
     </section>

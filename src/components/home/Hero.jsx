@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { Sparkles, ArrowRight } from "lucide-react";
 import Container from "../common/Container";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
-import OrbitVisual from "./OrbitVisual";
-import { STATS } from "../../data/siteConfig";
+import HeroOrbit from "./HeroOrbit";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 
 export default function Hero() {
   return (
@@ -11,7 +12,11 @@ export default function Hero() {
       id="home"
       className="
           relative
-          overflow-hidden
+           overflow-hidden
+        py-20
+        sm:py-24
+        md:py-28
+        lg:py-32
 
         bg-gradient-to-br
         from-[#35D0A5]
@@ -54,100 +59,7 @@ export default function Hero() {
         xl:pb-20
       "
     >
-        
-      {/* =====================================================
-          BACKGROUND GLOW - LEFT
-      ====================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -left-40
-          -top-40
-
-          h-[350px]
-          w-[350px]
-
-          rounded-full
-          blur-3xl
-          opacity-30
-
-          sm:h-[420px]
-          sm:w-[420px]
-
-          lg:h-[480px]
-          lg:w-[480px]
-        "
-        style={{
-          background:
-            "radial-gradient(circle, rgba(124,255,0,0.30), transparent 70%)",
-        }}
-      />
-
-
-      {/* =====================================================
-          BACKGROUND GLOW - RIGHT
-      ====================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -bottom-32
-          -right-24
-
-          h-[320px]
-          w-[320px]
-
-          rounded-full
-          blur-3xl
-          opacity-25
-
-          sm:h-[380px]
-          sm:w-[380px]
-
-          lg:h-[420px]
-          lg:w-[420px]
-        "
-        style={{
-          background:
-            "radial-gradient(circle, rgba(139,228,255,0.35), transparent 70%)",
-        }}
-      />
-
-
-      {/* =====================================================
-          MOBILE ORBIT GLOW
-      ====================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-[42%]
-
-          h-[280px]
-          w-[280px]
-
-          -translate-x-1/2
-          rounded-full
-          bg-[#7CFF00]/10
-          blur-[75px]
-
-          sm:top-[40%]
-          sm:h-[350px]
-          sm:w-[350px]
-
-          md:top-[38%]
-          md:h-[400px]
-          md:w-[400px]
-
-          lg:hidden
-        "
-      />
-
+      <OrbitBackdrop variant="sky" />
 
       {/* =====================================================
           MAIN CONTAINER
@@ -403,8 +315,8 @@ export default function Hero() {
             "
           >
 
-            <a
-              href="#batches"
+            <Link
+              to="/#batches"
               className="
                 font-semibold
                 text-[#087A3E]
@@ -419,7 +331,7 @@ export default function Hero() {
               "
             >
               View Upcoming Batches
-            </a>
+            </Link>
 
 
             <span className="text-[#087A3E]/50">
@@ -427,8 +339,8 @@ export default function Hero() {
             </span>
 
 
-            <a
-              href="/distance-learning"
+            <Link
+              to="/distance-learning"
               className="
                 font-semibold
                 text-[#087A3E]
@@ -443,7 +355,7 @@ export default function Hero() {
               "
             >
               Explore Distance Learning
-            </a>
+            </Link>
 
           </p>
 
@@ -504,174 +416,21 @@ export default function Hero() {
               relative
               w-full
 
-              max-w-[280px]
+              max-w-[300px]
 
-              sm:max-w-[320px]
+              sm:max-w-[340px]
 
-              md:max-w-[350px]
+              md:max-w-[380px]
 
-              lg:max-w-[365px]
+              lg:max-w-[420px]
 
-              xl:max-w-[400px]
+              xl:max-w-[460px]
 
-              2xl:max-w-[430px]
+              2xl:max-w-[500px]
             "
           >
 
-            <OrbitVisual />
-
-          </div>
-
-
-          {/* =================================================
-              LEARNERS STAT
-          ================================================== */}
-
-          <div
-            className="
-              absolute
-
-              /* Mobile */
-              left-1/2
-              top-[-8px]
-
-              hidden
-
-              -translate-x-1/2
-
-              rounded-xl
-              border
-              border-white/70
-
-              bg-white/90
-
-              px-3
-              py-2.5
-
-              shadow-lg
-
-              backdrop-blur-md
-
-              /* Tablet */
-              md:block
-
-              /* Desktop */
-              lg:left-0
-              lg:top-[-12px]
-              lg:translate-x-0
-
-              /* Large desktop */
-              xl:left-2
-              xl:top-[-16px]
-            "
-          >
-
-            <p
-              className="
-                font-display
-                text-lg
-                font-bold
-                leading-none
-                text-[#071313]
-
-                sm:text-xl
-              "
-            >
-              {STATS[0].value.toLocaleString()}
-              {STATS[0].suffix}
-            </p>
-
-
-            <p
-              className="
-                mt-1
-                whitespace-nowrap
-
-                text-[10px]
-                font-medium
-
-                text-[#55727C]
-
-                sm:text-xs
-              "
-            >
-              Learners guided
-            </p>
-
-          </div>
-
-
-          {/* =================================================
-              PLACEMENT STAT
-          ================================================== */}
-
-          <div
-            className="
-              absolute
-
-              /* Mobile */
-              bottom-[-4px]
-              right-1
-
-              hidden
-
-              rounded-xl
-              border
-              border-white/70
-
-              bg-white/90
-
-              px-3
-              py-2.5
-
-              shadow-lg
-
-              backdrop-blur-md
-
-              /* Tablet */
-              md:block
-
-              /* Desktop */
-              lg:bottom-0
-              lg:right-0
-
-              /* Large desktop */
-              xl:bottom-2
-              xl:right-1
-            "
-          >
-
-            <p
-              className="
-                font-display
-                text-lg
-                font-bold
-                leading-none
-                text-[#071313]
-
-                sm:text-xl
-              "
-            >
-              {STATS[2].value}
-              {STATS[2].suffix}
-            </p>
-
-
-            <p
-              className="
-                mt-1
-                whitespace-nowrap
-
-                text-[10px]
-                font-medium
-
-                text-[#55727C]
-
-                sm:text-xs
-              "
-            >
-              Placement support rate
-            </p>
+            <HeroOrbit />
 
           </div>
 

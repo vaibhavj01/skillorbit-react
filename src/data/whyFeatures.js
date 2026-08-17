@@ -5,6 +5,7 @@ export const whyFeatures = [
     icon: "👥",
     title: "Expert Trainers",
     text: "Learn from experienced industry professionals.",
+    to: "/about",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const whyFeatures = [
     icon: "🛡️",
     title: "Hands-On Projects",
     text: "Build practical projects based on real-world requirements.",
+    to: "/#projects",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const whyFeatures = [
     icon: "💼",
     title: "Placement Assistance",
     text: "Get guidance throughout your job preparation journey.",
+    to: "/placements",
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const whyFeatures = [
     icon: "🤝",
     title: "Mock Interviews",
     text: "Practice interviews and improve your confidence.",
+    to: "/placements",
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const whyFeatures = [
     icon: "🎓",
     title: "Certifications",
     text: "Earn certificates that showcase your skills.",
+    to: "/certificates",
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const whyFeatures = [
     icon: "◷",
     title: "Lifetime Access",
     text: "Continue learning even after completing your course.",
+    to: "/courses",
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const whyFeatures = [
     icon: "→",
     title: "Flexible Batches",
     text: "Choose a schedule that works for you.",
+    to: "/#batches",
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export const whyFeatures = [
     icon: "🌐",
     title: "Online & Offline",
     text: "Learn through flexible online and offline modes.",
+    to: "/distance-learning",
   },
   {
     id: 9,
@@ -61,5 +69,6 @@ export const whyFeatures = [
     icon: "🖥️",
     title: "Digital Access",
     text: "Access your learning resources anytime.",
+    to: "/distance-learning",
   },
 ];

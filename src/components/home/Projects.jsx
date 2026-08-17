@@ -2,16 +2,18 @@ import Container from "../common/Container";
 import SectionHeading from "../common/SectionHeading";
 import Reveal from "../common/Reveal";
 import { projects } from "../../data/projects";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 
 export default function Projects() {
   return (
-    <section className="py-20 md:py-28">
-      <Container>
+    <section id="projects" className="relative overflow-hidden bg-[#E7F7F0] py-20 md:py-28">
+      <OrbitBackdrop variant="mint" />
+      <Container className="relative z-10">
         <SectionHeading eyebrow="Build" title="Projects That Prove Your Skills" subtitle="Portfolio work across web, cloud and AI — illustrative examples for learners." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.slice(0, 3).map((p, i) => (
             <Reveal key={p.id} delay={i * 0.08}>
-              <div className="rounded-2xl overflow-hidden border border-line bg-white group">
+              <div className="group overflow-hidden rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7]">
                 <div className="h-44 flex items-center justify-center" style={{ background: "linear-gradient(155deg, #EAF8EE 0%, #D5F0DC 45%, #BFE8C9 100%)" }}>
                   <img src={p.image} alt={p.title} className="h-20 w-20 object-contain transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                 </div>

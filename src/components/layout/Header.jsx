@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Menu,
   ArrowRight,
@@ -18,7 +18,7 @@ import { ASSETS } from "../../data/siteConfig";
 const DESKTOP_NAV = [
   {
     label: "JOB ORIENTED COURSES",
-    to: "/courses",
+    to: "/courses?category=fullstack",
   },
   {
     label: "IT COURSES",
@@ -26,7 +26,7 @@ const DESKTOP_NAV = [
   },
   {
     label: "DESIGNING COURSES",
-    to: "/courses",
+    to: "/courses?category=web",
   },
   {
     label: "PLACEMENT",
@@ -39,7 +39,10 @@ const DESKTOP_NAV = [
 ];
 
 export default function Header() {
+  const { pathname, search, hash } = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   /* Mobile drawers */
   const [announcementOpen, setAnnouncementOpen] =
@@ -53,24 +56,41 @@ export default function Header() {
   ========================================================= */
 
   useEffect(() => {
+    setHeaderOpen(false);
+    setAnnouncementOpen(false);
+  }, [pathname, search, hash]);
+
+  useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollY.current;
+
+      setScrolled(currentY > 20);
+
+      if (announcementOpen || headerOpen) {
+        setNavHidden(false);
+        lastScrollY.current = currentY;
+        return;
+      }
+
+      if (currentY < 48) {
+        setNavHidden(false);
+      } else if (delta > 6) {
+        setNavHidden(true);
+      } else if (delta < -6) {
+        setNavHidden(false);
+      }
+
+      lastScrollY.current = currentY;
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [announcementOpen, headerOpen]);
 
   /* =========================================================
      PREVENT BODY SCROLL WHEN DRAWER IS OPEN
@@ -131,6 +151,7 @@ export default function Header() {
       ====================================================== */}
 
       <AnnouncementBar
+        hidden={navHidden}
         mobileOpen={announcementOpen}
         onClose={() =>
           setAnnouncementOpen(false)
@@ -142,17 +163,19 @@ export default function Header() {
       ====================================================== */}
 
       <header
-        className="
+        className={`
           fixed
           left-0
           right-0
-          top-9
+          top-10
           z-50
           hidden
           md:block
           transition-all
           duration-300
-        "
+          ease-out
+          ${navHidden ? "-translate-y-[calc(100%+2.5rem)]" : "translate-y-0"}
+        `}
         style={{
           background: scrolled
             ? "rgba(255,255,255,0.94)"
@@ -211,7 +234,7 @@ export default function Header() {
           ================================================== */}
 
           <nav
-            className="
+            className=" 
               ml-auto
               flex
               items-center
@@ -297,7 +320,7 @@ export default function Header() {
       ====================================================== */}
 
       <header
-        className="
+        className={`
           fixed
           left-0
           right-0
@@ -320,8 +343,14 @@ export default function Header() {
 
           backdrop-blur-xl
 
+          transition-transform
+          duration-300
+          ease-out
+
           md:hidden
-        "
+
+          ${navHidden ? "-translate-y-full" : "translate-y-0"}
+        `}
       >
         {/* =================================================
             LEFT HAMBURGER
@@ -609,6 +638,10 @@ export default function Header() {
             >
               Main Navigation
             </p>
+
+            <div className="mb-5">
+              <HeaderSearch variant="mobile" />
+            </div>
 
             {/* Navigation Items */}
 

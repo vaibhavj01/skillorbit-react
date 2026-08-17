@@ -2,12 +2,14 @@ import Container from "../common/Container";
 import SectionHeading from "../common/SectionHeading";
 import Reveal from "../common/Reveal";
 import Button from "../common/Button";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 import { placementProcess } from "../../data/placementProcess";
 
 export default function PlacementProcess() {
   return (
-    <section id="placements" className="py-20 md:py-28 bg-white">
-      <Container>
+    <section id="placements" className="relative overflow-hidden bg-[#E7F7F0] py-20 md:py-28">
+      <OrbitBackdrop variant="mint" />
+      <Container className="relative z-10">
         <SectionHeading eyebrow="Careers" title="Placement Process" subtitle="A clear step-by-step path from skills to interviews — for eligible learners." />
         <div className="relative">
           <div className="hidden lg:block absolute top-6 left-0 right-0 h-px bg-line" />

@@ -2,6 +2,7 @@ import { BookOpen, Users, Target } from "lucide-react";
 import Container from "../common/Container";
 import Reveal from "../common/Reveal";
 import Button from "../common/Button";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 import { Eyebrow } from "../common/SectionHeading";
 
 function DashboardMockup() {
@@ -14,7 +15,7 @@ function DashboardMockup() {
         <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
         <span className="ml-3 text-xs text-white/60">learn.skillorbit.in</span>
       </div>
-      <div className="flex bg-white">
+      <div className="flex bg-[#F3FBF7]">
         <aside className="w-32 shrink-0 py-4 px-3 space-y-1 bg-surface-muted">
           {["My Courses", "Assignments", "Live Sessions", "Career Hub"].map((n, i) => (
             <div key={n} className={`text-xs font-medium px-2.5 py-2 rounded-lg ${i === 0 ? "bg-brand-500 text-white" : "text-ink-light"}`}>
@@ -49,8 +50,9 @@ export default function DistanceLearningPreview() {
     { icon: Target, title: "Career track", text: "Projects and interview prep built into the journey." },
   ];
   return (
-    <section id="distance" className="py-20 md:py-28 bg-white">
-      <Container className="grid lg:grid-cols-2 gap-14 items-center">
+    <section id="distance" className="relative overflow-hidden bg-[#E7F7F0] py-20 md:py-28">
+      <OrbitBackdrop variant="mint" />
+      <Container className="relative z-10 grid items-center gap-14 lg:grid-cols-2">
         <Reveal>
           <Eyebrow>Distance Learning</Eyebrow>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-5 font-display text-ink tracking-tight">

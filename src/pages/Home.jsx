@@ -10,7 +10,6 @@ import DistanceLearningPreview from "../components/home/DistanceLearningPreview"
 import Projects from "../components/home/Projects";
 import PlacementProcess from "../components/home/PlacementProcess";
 import Testimonials from "../components/home/Testimonials";
-import Trainers from "../components/home/Trainers";
 import BlogPreview from "../components/home/BlogPreview";
 import FAQ from "../components/home/FAQ";
 import CTASection from "../components/home/CTASection";
@@ -34,7 +33,6 @@ export default function Home() {
       <Projects />
       <PlacementProcess />
       <Testimonials />
-      <Trainers />
       <BlogPreview />
       <FAQ />
       <CTASection />

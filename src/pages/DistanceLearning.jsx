@@ -10,6 +10,7 @@ import LearningModels from "../components/home/LearningModels";
 import FAQ from "../components/home/FAQ";
 import CTASection from "../components/home/CTASection";
 import { courses } from "../data/courses";
+import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 const BENEFITS = [
   { icon: BookOpen, title: "Guided curriculum", text: "Week-by-week modules with clear milestones and recorded sessions." },
@@ -36,8 +37,9 @@ export default function DistanceLearning() {
         subtitle="Structured content, mentor check-ins and career guidance — designed for professionals and students who can't attend daily classroom sessions."
       />
 
-      <section className="py-16 md:py-20 bg-white">
-        <Container>
+      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
+        <OrbitBackdrop variant="mint" />
+        <Container className="relative z-10">
           <SectionHeading eyebrow="Why Distance Learning" title="Built for Real Life, Not Just a Classroom" align="left" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {BENEFITS.map((b, i) => (
@@ -55,8 +57,9 @@ export default function DistanceLearning() {
         </Container>
       </section>
 
-      <section className="py-16 md:py-20">
-        <Container>
+      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
+        <OrbitBackdrop variant="mint" />
+        <Container className="relative z-10">
           <SectionHeading eyebrow="Programs" title="Available in Distance Learning" subtitle="These programs currently support the Distance Learning mode." />
           <CourseGrid courses={fallbackCourses} />
           <Reveal className="text-center mt-12">

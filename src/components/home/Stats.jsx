@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Users,
   Handshake,
@@ -9,7 +10,7 @@ import {
 
 import useScrollReveal from "../../hooks/useScrollReveal";
 import useCounter from "../../hooks/useCounter";
-import { STATS, CONTACT } from "../../data/siteConfig";
+import { STATS } from "../../data/siteConfig";
 
 
 /* =========================================================
@@ -217,6 +218,8 @@ export default function Stats() {
         -mt-6
         px-4
 
+        bg-[#35D0A5]
+
         sm:-mt-8
         sm:px-6
 
@@ -344,8 +347,8 @@ export default function Stats() {
               "
             >
 
-              <a
-                href={CONTACT.phoneHref}
+              <Link
+                to="/contact"
                 className="
                   group
 
@@ -396,7 +399,7 @@ export default function Stats() {
                   "
                 />
 
-              </a>
+              </Link>
 
             </div>
 

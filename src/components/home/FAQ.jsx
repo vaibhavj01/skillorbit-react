@@ -5,6 +5,7 @@ import Reveal from "../common/Reveal";
 import Button from "../common/Button";
 import { Eyebrow } from "../common/SectionHeading";
 import { faqs } from "../../data/faqs";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 
 function FAQItem({ item, isOpen, onClick, index }) {
   const panelId = `faq-panel-${index}`;
@@ -25,7 +26,7 @@ function FAQItem({ item, isOpen, onClick, index }) {
           />
         </button>
       </h3>
-      <div id={panelId} className="overflow-hidden transition-all duration-300" style={{ maxHeight: isOpen ? "260px" : "0px" }}>
+      <div id={panelId} className="overflow-hidden transition-all duration-300" style={{ maxHeight: isOpen ? "480px" : "0px" }}>
         <p className="pb-5 text-sm leading-relaxed text-ink-muted">{item.answer}</p>
       </div>
     </div>
@@ -35,8 +36,9 @@ function FAQItem({ item, isOpen, onClick, index }) {
 export default function FAQ() {
   const [open, setOpen] = useState(0);
   return (
-    <section id="faq" className="py-20 md:py-28 bg-white">
-      <Container className="grid lg:grid-cols-5 gap-12">
+    <section id="faq" className="relative overflow-hidden bg-[#E7F7F0] py-20 md:py-28">
+      <OrbitBackdrop variant="mint" />
+      <Container className="relative z-10 grid gap-12 lg:grid-cols-5">
         <Reveal className="lg:col-span-2">
           <Eyebrow>Support</Eyebrow>
           <h2 className="text-3xl font-bold leading-tight mb-4 font-display text-ink tracking-tight">Frequently Asked Questions</h2>

@@ -5,9 +5,9 @@ import Container from "../components/common/Container";
 import Reveal from "../components/common/Reveal";
 import { Eyebrow } from "../components/common/SectionHeading";
 import Stats from "../components/home/Stats";
-import Trainers from "../components/home/Trainers";
 import CTASection from "../components/home/CTASection";
 import { CONTACT, STATS } from "../data/siteConfig";
+import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 const VALUES = [
   { icon: Target, title: "Outcome focus", text: "Every module ties back to skills employers need." },
@@ -28,8 +28,9 @@ export default function About() {
         subtitle="A Pune-based IT training and distance learning institute focused on career-ready skills."
       />
 
-      <section className="py-16 md:py-20 bg-white">
-        <Container className="grid lg:grid-cols-2 gap-14 items-center">
+      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
+        <OrbitBackdrop variant="mint" />
+        <Container className="relative z-10 grid items-center gap-14 lg:grid-cols-2">
           <Reveal className="relative">
             <img
               src="/assets/images/placeholders/hero-students.svg"
@@ -37,7 +38,7 @@ export default function About() {
               className="w-full rounded-3xl border border-line"
               loading="lazy"
             />
-            <div className="absolute -bottom-5 left-5 bg-white rounded-2xl px-5 py-4 shadow-card border border-line">
+            <div className="absolute -bottom-5 left-5 rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] px-5 py-4 shadow-card">
               <p className="text-2xl font-bold font-display text-ink">{STATS[0].value.toLocaleString()}+</p>
               <p className="text-xs text-ink-muted">Learners</p>
             </div>
@@ -76,7 +77,7 @@ export default function About() {
           <div className="grid sm:grid-cols-3 gap-6">
             {VALUES.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.08}>
-                <div className="text-center p-7 rounded-2xl border border-line bg-white">
+                <div className="rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-7 text-center">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 bg-brand-100">
                     <v.icon size={22} className="text-brand-700" />
                   </div>
@@ -90,8 +91,6 @@ export default function About() {
       </section>
 
       <Stats />
-      <div className="pt-8" />
-      <Trainers />
       <CTASection />
     </>
   );

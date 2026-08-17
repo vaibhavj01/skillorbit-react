@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { whyFeatures } from "../../data/whyFeatures";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 
 export default function WhyFeatures() {
   return (
@@ -17,10 +19,9 @@ export default function WhyFeatures() {
         to-[#1FB8D2]
       "
     >
-      {/* Background Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-[#B8FF00]/10 blur-3xl" />
+      <OrbitBackdrop variant="mesh" />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
         {/* ================= HEADING ================= */}
         <div className="mx-auto max-w-5xl text-center">
@@ -111,8 +112,9 @@ export default function WhyFeatures() {
         <div className="mx-auto mt-14 flex max-w-6xl flex-wrap justify-center gap-4 sm:mt-16 md:gap-5">
 
           {whyFeatures.map((item) => (
-            <div
+            <Link
               key={item.id}
+              to={item.to || "/courses"}
               className="
                 group
                 flex
@@ -173,13 +175,14 @@ export default function WhyFeatures() {
               >
                 {item.title}
               </span>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* ================= BOTTOM CTA ================= */}
         <div className="mt-14 flex justify-center sm:mt-16">
-          <button
+          <Link
+            to="/contact"
             className="
               group
               flex
@@ -214,7 +217,7 @@ export default function WhyFeatures() {
             >
               →
             </span>
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -230,7 +233,8 @@ export default function WhyFeatures() {
           sm:block
         "
       >
-        <button
+        <Link
+          to="/placements"
           className="
             relative
             flex
@@ -260,7 +264,7 @@ export default function WhyFeatures() {
               JOB
             </span>
           </span>
-        </button>
+        </Link>
       </div>
     </section>
   );

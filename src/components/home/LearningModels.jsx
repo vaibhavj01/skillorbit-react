@@ -3,15 +3,17 @@ import Container from "../common/Container";
 import SectionHeading from "../common/SectionHeading";
 import Reveal from "../common/Reveal";
 import { learningModels } from "../../data/learningModels";
+import OrbitBackdrop from "../common/OrbitBackdrop";
 
 export default function LearningModels() {
   const featureLabels = learningModels[0]?.features.map((f) => f.label) || [];
 
   return (
-    <section className="py-20 md:py-28">
-      <Container className="max-w-6xl">
+    <section className="relative overflow-hidden bg-[#E7F7F0] py-20 md:py-28">
+      <OrbitBackdrop variant="mint" />
+      <Container className="relative z-10 max-w-6xl">
         <SectionHeading eyebrow="Flexibility" title="Choose Your Learning Model" subtitle="Pick the format that fits your schedule — without compromising outcomes." />
-        <Reveal className="overflow-x-auto rounded-2xl border border-line bg-white">
+        <Reveal className="overflow-x-auto rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7]">
           <table className="w-full min-w-[720px] text-sm">
             <thead>
               <tr className="bg-surface-muted">

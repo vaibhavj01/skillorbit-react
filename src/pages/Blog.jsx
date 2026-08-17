@@ -5,6 +5,7 @@ import PageHero from "../components/common/PageHero";
 import Container from "../components/common/Container";
 import BlogGrid from "../components/blog/BlogGrid";
 import { blogPosts } from "../data/blogs";
+import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 export default function Blog() {
   const [query, setQuery] = useState("");
@@ -27,10 +28,11 @@ export default function Blog() {
       />
       <PageHero title="Career & Learning Insights" subtitle="Guides and tips for choosing courses, building projects and landing your first IT role." />
 
-      <section className="py-16 md:py-24">
-        <Container>
+      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-24">
+        <OrbitBackdrop variant="mint" />
+        <Container className="relative z-10">
           <div className="max-w-md mx-auto mb-8">
-            <div className="flex items-center gap-2 rounded-xl border border-line bg-white px-4 h-12">
+            <div className="flex h-12 items-center gap-2 rounded-xl border border-[#35D0A5]/25 bg-[#F3FBF7] px-4">
               <Search size={16} className="text-ink-muted shrink-0" />
               <input
                 type="search"
@@ -51,7 +53,7 @@ export default function Blog() {
                   key={cat}
                   onClick={() => setCategory(cat)}
                   className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
-                    isActive ? "bg-ink text-brand-400 border-transparent" : "bg-white text-ink-light border-line"
+                    isActive ? "bg-ink text-brand-400 border-transparent" : "bg-[#F3FBF7] text-ink-light border-[#35D0A5]/25"
                   }`}
                 >
                   {cat}

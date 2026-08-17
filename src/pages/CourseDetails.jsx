@@ -11,6 +11,7 @@ import Button from "../components/common/Button";
 import CourseCard from "../components/courses/CourseCard";
 import DemoForm from "../components/forms/DemoForm";
 import { getCourseBySlug, getRelatedCourses, categoryLabel } from "../data/courses";
+import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 export default function CourseDetails() {
   const { slug } = useParams();
@@ -28,8 +29,9 @@ export default function CourseDetails() {
     <>
       <Seo title={course.name} description={course.description} path={`/courses/${course.slug}`} />
 
-      <div className="pt-28 pb-20">
-        <Container>
+      <div className="relative overflow-hidden bg-[#E7F7F0] pb-20 pt-28">
+        <OrbitBackdrop variant="mint" />
+        <Container className="relative z-10">
           <Link to="/courses" className="inline-flex items-center gap-2 text-sm font-semibold mb-8 text-brand-700">
             <ArrowLeft size={16} /> Back to Courses
           </Link>
@@ -68,7 +70,7 @@ export default function CourseDetails() {
                   </h2>
                   <div className="grid sm:grid-cols-2 gap-3 mb-10">
                     {course.whatYouLearn.map((item) => (
-                      <div key={item} className="flex items-start gap-2.5 p-4 rounded-xl border border-line bg-white">
+                      <div key={item} className="flex items-start gap-2.5 rounded-xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-4">
                         <CheckCircle2 size={17} className="shrink-0 mt-0.5 text-brand-500" />
                         <span className="text-sm text-ink-light">{item}</span>
                       </div>
@@ -84,7 +86,7 @@ export default function CourseDetails() {
                   </h2>
                   <ol className="space-y-3 mb-10">
                     {course.curriculum.map((step, i) => (
-                      <li key={step} className="flex items-start gap-3 p-4 rounded-xl border border-line bg-white">
+                      <li key={step} className="flex items-start gap-3 rounded-xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-4">
                         <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white bg-gradient-brand shrink-0 font-display">
                           {i + 1}
                         </span>
@@ -121,7 +123,7 @@ export default function CourseDetails() {
 
             {/* Sidebar */}
             <div className="lg:sticky lg:top-28 space-y-5">
-              <div className="rounded-2xl border border-line bg-white p-6">
+              <div className="rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-6">
                 <p className="text-2xl font-bold mb-1 font-display text-ink">{course.fees || "Contact for fees"}</p>
                 <p className="text-xs mb-6 text-ink-muted">Flexible payment options may be available</p>
 
@@ -154,12 +156,32 @@ export default function CourseDetails() {
                   )}
                 </div>
 
-                <Button href="#demo-form" variant="primary" size="md" className="w-full">
+                <Button
+                  href="#demo-form"
+                  variant="primary"
+                  size="md"
+                  className="w-full"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("demo-form")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }}
+                >
                   Book Free Demo <ArrowRight size={16} />
+                </Button>
+                <Button
+                  to={`/courses/${course.slug}/roadmap`}
+                  variant="outline"
+                  size="md"
+                  className="mt-3 w-full"
+                >
+                  View course roadmap
                 </Button>
               </div>
 
-              <div id="demo-form" className="rounded-2xl border border-line bg-white p-6 scroll-mt-28">
+              <div id="demo-form" className="scroll-mt-28 rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-6">
                 <h3 className="font-display font-bold text-base text-ink mb-4">Book a free demo for this course</h3>
                 <DemoForm defaultCourseId={course.id} />
               </div>

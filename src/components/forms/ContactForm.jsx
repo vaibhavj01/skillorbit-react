@@ -26,8 +26,8 @@ function validate(values) {
   return errors;
 }
 
-export default function ContactForm() {
-  const [values, setValues] = useState(initialValues);
+export default function ContactForm({ defaultMessage = "" }) {
+  const [values, setValues] = useState({ ...initialValues, message: defaultMessage });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | loading | success
 
@@ -47,7 +47,7 @@ export default function ContactForm() {
     // No backend is wired up — this simulates submission for the demo build.
     setTimeout(() => {
       setStatus("success");
-      setValues(initialValues);
+      setValues({ ...initialValues, message: defaultMessage });
     }, 1000);
   };
 

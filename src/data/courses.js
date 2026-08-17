@@ -930,6 +930,50 @@ export function getRelatedCourses(course, limit = 3) {
     .slice(0, limit);
 }
 
+const COURSE_COVERS = {
+  "java-fullstack": "/assets/images/courses/java-fullstack.png",
+  "python-fullstack": "/assets/images/courses/python-fullstack.png",
+  "mern-stack": "/assets/images/courses/mern-stack.png",
+  "react-js": "/assets/images/courses/react-js.png",
+  "core-java": "/assets/images/courses/core-java.png",
+  python: "/assets/images/courses/python.png",
+  javascript: "/assets/images/courses/javascript.png",
+  "machine-learning": "/assets/images/courses/machine-learning.png",
+  "data-analytics": "/assets/images/courses/data-analytics.png",
+  "artificial-intelligence": "/assets/images/courses/artificial-intelligence.png",
+  aws: "/assets/images/courses/aws.png",
+  azure: "/assets/images/courses/azure.png",
+  "google-cloud": "/assets/images/courses/google-cloud.png",
+  docker: "/assets/images/courses/docker.png",
+  kubernetes: "/assets/images/courses/kubernetes.png",
+  "selenium-automation": "/assets/images/courses/selenium-automation.png",
+  cybersecurity: "/assets/images/courses/cybersecurity.png",
+  "soft-skills": "/assets/images/courses/soft-skills.png",
+};
+
+const CATEGORY_COVERS = {
+  fullstack: "/assets/images/courses/java-fullstack.png",
+  programming: "/assets/images/courses/python.png",
+  web: "/assets/images/courses/react-js.png",
+  testing: "/assets/images/courses/selenium-automation.png",
+  datascience: "/assets/images/courses/machine-learning.png",
+  cloud: "/assets/images/courses/aws.png",
+  database: "/assets/images/courses/data-analytics.png",
+  cybersecurity: "/assets/images/courses/cybersecurity.png",
+  softskills: "/assets/images/courses/soft-skills.png",
+  certifications: "/assets/images/courses/aws.png",
+};
+
+export function getCourseCover(course) {
+  if (course.coverImage) return course.coverImage;
+  const src =
+    COURSE_COVERS[course.slug] ||
+    COURSE_COVERS[course.id] ||
+    CATEGORY_COVERS[course.category] ||
+    "/assets/images/courses/python-fullstack.png";
+  return `${src}?v=3`;
+}
+
 export const CATEGORIES = [
   { id: "all", label: "All" },
   { id: "fullstack", label: "Full Stack Development" },

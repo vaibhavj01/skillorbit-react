@@ -6,6 +6,7 @@ import Container from "../components/common/Container";
 import Reveal from "../components/common/Reveal";
 import BlogGrid from "../components/blog/BlogGrid";
 import { getBlogBySlug, blogPosts } from "../data/blogs";
+import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 export default function BlogDetails() {
   const { slug } = useParams();
@@ -22,8 +23,9 @@ export default function BlogDetails() {
   return (
     <>
       <Seo title={post.title} description={post.excerpt} path={`/blog/${post.slug}`} />
-      <div className="pt-28 pb-20">
-        <Container className="max-w-3xl">
+      <div className="relative overflow-hidden bg-[#E7F7F0] pb-20 pt-28">
+        <OrbitBackdrop variant="mint" />
+        <Container className="relative z-10 max-w-3xl">
           <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-semibold mb-8 text-brand-700">
             <ArrowLeft size={16} /> Back to Resources
           </Link>

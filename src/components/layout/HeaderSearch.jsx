@@ -32,12 +32,11 @@ export default function HeaderSearch({ variant = "desktop" }) {
             const searchText = query.toLowerCase();
 
             return (
-              course.name
-                ?.toLowerCase()
-                .includes(searchText) ||
-              course.category
-                ?.toLowerCase()
-                .includes(searchText)
+              course.name?.toLowerCase().includes(searchText) ||
+              course.category?.toLowerCase().includes(searchText) ||
+              (course.technologies || []).some((tech) =>
+                tech.toLowerCase().includes(searchText)
+              )
             );
           })
           .slice(0, 6)
@@ -94,10 +93,10 @@ export default function HeaderSearch({ variant = "desktop" }) {
           ${
             isMobile
               ? `
-                h-8
+                h-10
                 w-full
                 rounded-lg
-                px-2
+                px-3
               `
               : `
                 h-10
@@ -146,7 +145,7 @@ export default function HeaderSearch({ variant = "desktop" }) {
 
             ${
               isMobile
-                ? "ml-1.5 text-[9px]"
+                ? "ml-1.5 text-sm"
                 : "ml-2 text-sm"
             }
           `}

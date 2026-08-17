@@ -5,12 +5,13 @@ import Container from "../components/common/Container";
 import Reveal from "../components/common/Reveal";
 import ContactForm from "../components/forms/ContactForm";
 import { CONTACT } from "../data/siteConfig";
+import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 const CARDS = [
   { icon: Mail, label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
   { icon: Phone, label: "Phone", value: CONTACT.phoneDisplay, href: CONTACT.phoneHref },
   { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: CONTACT.whatsappHref },
-  { icon: MapPin, label: "Location", value: CONTACT.location, href: "#" },
+  { icon: MapPin, label: "Location", value: CONTACT.location, href: "https://www.google.com/maps/search/?api=1&query=SkillOrbit+Academy+Pune" },
 ];
 
 export default function Contact() {
@@ -23,16 +24,17 @@ export default function Contact() {
       />
       <PageHero title="Visit or Message Us" subtitle="We are based in Pune and happy to guide your next learning step." />
 
-      <section className="py-16 md:py-20">
-        <Container className="grid lg:grid-cols-2 gap-10 items-start">
+      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
+        <OrbitBackdrop variant="mint" />
+        <Container className="relative z-10 grid items-start gap-10 lg:grid-cols-2">
           <Reveal className="grid sm:grid-cols-2 gap-4">
             {CARDS.map((c) => (
               <a
                 key={c.label}
                 href={c.href}
-                target={c.label === "WhatsApp" ? "_blank" : undefined}
-                rel={c.label === "WhatsApp" ? "noopener noreferrer" : undefined}
-                className="p-5 rounded-2xl border border-line bg-white flex flex-col gap-2 hover:-translate-y-0.5 transition-transform"
+                target={c.label === "WhatsApp" || c.label === "Location" ? "_blank" : undefined}
+                rel={c.label === "WhatsApp" || c.label === "Location" ? "noopener noreferrer" : undefined}
+                className="flex flex-col gap-2 rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-5 transition-transform hover:-translate-y-0.5"
               >
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-brand-100">
                   <c.icon size={18} className="text-brand-700" />
@@ -46,7 +48,7 @@ export default function Contact() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="p-8 rounded-3xl border border-line bg-white">
+          <Reveal delay={0.1} className="rounded-3xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-8">
             <h3 className="text-lg font-bold mb-2 font-display text-ink">Send us a message</h3>
             <p className="text-sm mb-6 text-ink-muted">Fill in your details and we'll get back to you within one business day.</p>
             <ContactForm />
