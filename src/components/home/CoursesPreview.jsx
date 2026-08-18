@@ -7,7 +7,7 @@ import Button from "../common/Button";
 import CourseGrid from "../courses/CourseGrid";
 import CourseFilter from "../courses/CourseFilter";
 
-import { courses } from "../../data/courses";
+import { courses, orderCourses } from "../../data/courses";
 import OrbitBackdrop from "../common/OrbitBackdrop";
 
 export default function CoursesPreview() {
@@ -20,20 +20,22 @@ export default function CoursesPreview() {
   const filteredCourses = useMemo(() => {
     const search = query.trim().toLowerCase();
 
-    return courses.filter((course) => {
-      const matchesCategory =
-        category === "all" || course.category === category;
+    return orderCourses(
+      courses.filter((course) => {
+        const matchesCategory =
+          category === "all" || course.category === category;
 
-      const matchesSearch =
-        !search ||
-        course.name?.toLowerCase().includes(search) ||
-        course.title?.toLowerCase().includes(search) ||
-        (course.technologies || []).some((technology) =>
-          technology.toLowerCase().includes(search)
-        );
+        const matchesSearch =
+          !search ||
+          course.name?.toLowerCase().includes(search) ||
+          course.title?.toLowerCase().includes(search) ||
+          (course.technologies || []).some((technology) =>
+            technology.toLowerCase().includes(search)
+          );
 
-      return matchesCategory && matchesSearch;
-    });
+        return matchesCategory && matchesSearch;
+      }),
+    );
   }, [category, query]);
 
   /*

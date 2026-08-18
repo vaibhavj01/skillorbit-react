@@ -1,41 +1,51 @@
-import { Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import Reveal from "../common/Reveal";
-import Button from "../common/Button";
-import OrbitBackdrop from "../common/OrbitBackdrop";
-import { CONTACT } from "../../data/siteConfig";
+import Container from "../common/Container";
 
 export default function CTASection() {
   return (
-    <section id="demo" className="relative overflow-hidden bg-[#051912] px-5 py-16 md:px-8 md:py-20">
-      <OrbitBackdrop variant="night" />
-      <Reveal className="relative z-10 mx-auto max-w-6xl">
-        <div className="relative flex flex-col items-center justify-between gap-8 md:flex-row">
-          <div className="text-center md:text-left">
-            <h2 className="mb-2 font-display text-2xl font-bold text-white md:text-3xl">
-              Book a Free Demo Class
-            </h2>
-            <p className="max-w-md text-white/75">
-              Talk to our counsellors, preview the learning model and find the right batch for 2026 admissions.
+    <section id="demo" className="relative overflow-hidden bg-[#071313] px-5 py-16 md:px-8 md:py-20">
+      <Container>
+        <Reveal>
+          <div
+            className="
+              relative mx-auto max-w-5xl overflow-hidden rounded-[28px]
+              border border-[#7CFF00]/35 px-6 py-14 text-center
+              shadow-[0_0_40px_rgba(124,255,0,0.08)]
+              sm:px-12 sm:py-16
+            "
+            style={{
+              background:
+                "radial-gradient(circle at center, #163322 0%, #0b1610 48%, #071313 100%)",
+            }}
+          >
+            <p className="mb-4 text-sm font-medium tracking-wide text-[#B7C4BE] sm:text-base">
+              Ready to start your Career?
             </p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button
+
+            <h2 className="font-roboto text-[28px] font-black leading-tight text-white sm:text-4xl md:text-5xl">
+              Book Your{" "}
+              <span className="relative inline-block text-[#7CFF00]">
+                Free Demo
+                <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-[#7CFF00]" />
+              </span>{" "}
+              Class Today!
+            </h2>
+
+            <Link
               to="/contact"
-              variant="primary"
-              size="lg"
-              className="bg-[#7CFF00] text-[#06352C] hover:bg-[#E7FF00] hover:text-[#06352C]"
+              className="
+                mt-8 inline-flex h-12 items-center justify-center rounded-full
+                bg-white px-8 text-sm font-black uppercase tracking-[0.08em] text-[#071313]
+                transition-transform hover:-translate-y-0.5 hover:bg-[#7CFF00]
+                sm:h-14 sm:px-10 sm:text-[15px]
+              "
             >
-              Book Free Demo
-            </Button>
-            <a
-              href={CONTACT.phoneHref}
-              className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border-2 border-[#7CFF00]/50 px-8 font-semibold text-white transition-colors hover:bg-[#7CFF00]/10"
-            >
-              <Phone size={18} /> Call Us
-            </a>
+              Reserve My Seat Now
+            </Link>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </Container>
     </section>
   );
 }

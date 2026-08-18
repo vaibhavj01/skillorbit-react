@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import Container from "../common/Container";
 import SectionHeading from "../common/SectionHeading";
@@ -80,6 +81,11 @@ export default function Testimonials() {
           subtitle="Hear from learners who trained with SkillOrbit and moved into IT roles."
           light
         />
+        <p className="mb-8 text-center">
+          <Link to="/reviews" className="text-sm font-bold text-[#7CFF00] hover:underline">
+            Read all student reviews
+          </Link>
+        </p>
 
         <Reveal>
           <div className="relative">

@@ -8,10 +8,11 @@ import Batches from "../components/home/Batches";
 import LearningModels from "../components/home/LearningModels";
 import DistanceLearningPreview from "../components/home/DistanceLearningPreview";
 import Projects from "../components/home/Projects";
-import PlacementProcess from "../components/home/PlacementProcess";
+import PlacementRoadmap from "../components/placements/PlacementRoadmap";
 import Testimonials from "../components/home/Testimonials";
 import BlogPreview from "../components/home/BlogPreview";
 import FAQ from "../components/home/FAQ";
+import RoadmapPerks from "../components/home/RoadmapPerks";
 import CTASection from "../components/home/CTASection";
 
 export default function Home() {
@@ -31,10 +32,11 @@ export default function Home() {
       <LearningModels />
       <DistanceLearningPreview />
       <Projects />
-      <PlacementProcess />
+      <PlacementRoadmap />
       <Testimonials />
       <BlogPreview />
       <FAQ />
+      <RoadmapPerks />
       <CTASection />
     </>
   );

@@ -3,14 +3,17 @@
 export const SITE_URL = "https://www.skillorbit.in";
 
 export const CONTACT = {
-  email: "skillorbit@gmail.com",
-  phone: "7588203332",
-  phoneDisplay: "+91 75882 03332",
-  phoneHref: "tel:+917588203332",
-  whatsapp: "917588203332",
-  whatsappHref: "https://wa.me/917588203332",
+  email: "info@skill-orbit.com",
+  inquiryEmail: "vaibhavjondhale0111@gmail.com",
+  phone: "9175479525",
+  phoneDisplay: "+91 91754 79525",
+  phoneHref: "tel:+919175479525",
+  smsHref: "sms:+919175479525",
+  whatsapp: "919175479525",
+  whatsappHref: "https://wa.me/919175479525",
   name: "SKILLORBIT Academy Pvt. Ltd.",
-  location: "Pune, Maharashtra, India",
+  location: "Baner, Hinjawadi & Wakad, Pune",
+  offices: ["Baner", "Hinjawadi", "Wakad"],
 };
 
 
@@ -56,6 +59,7 @@ export const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "Courses", to: "/courses" },
   { label: "Placements", to: "/placements" },
+  { label: "Corporate Training", to: "/corporate" },
   { label: "Distance Learning", to: "/distance-learning" },
   { label: "About Us", to: "/about" },
   { label: "Resources", to: "/blog" },
@@ -68,6 +72,7 @@ export const FOOTER_LINKS = {
     { label: "About", to: "/about" },
     { label: "Placements", to: "/placements" },
     { label: "Courses", to: "/courses" },
+    { label: "Corporate Training", to: "/corporate" },
     { label: "Distance Learning", to: "/distance-learning" },
     { label: "Contact", to: "/contact" },
   ],
@@ -82,12 +87,14 @@ export const FOOTER_LINKS = {
 
   Resources: [
     { label: "Blog", to: "/blog" },
+    { label: "Student Reviews", to: "/reviews" },
     { label: "Career Guide", to: "/blog" },
     { label: "FAQs", to: "/#faq" },
   ],
 
   Company: [
     { label: "About Us", to: "/about" },
+    { label: "Corporate Training", to: "/corporate" },
     { label: "Careers", to: "/careers" },
     { label: "Privacy Policy", to: "/privacy" },
     { label: "Terms", to: "/terms" },

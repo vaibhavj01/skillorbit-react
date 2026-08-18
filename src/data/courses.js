@@ -992,3 +992,11 @@ export function categoryLabel(categoryId) {
   const found = CATEGORIES.find((c) => c.id === categoryId);
   return found ? found.label : categoryId;
 }
+
+export const PINNED_COURSE_IDS = ["data-analytics", "java-fullstack", "python-fullstack"];
+
+export function orderCourses(list) {
+  const pinned = PINNED_COURSE_IDS.map((id) => list.find((course) => course.id === id)).filter(Boolean);
+  const rest = list.filter((course) => !PINNED_COURSE_IDS.includes(course.id));
+  return [...pinned, ...rest];
+}

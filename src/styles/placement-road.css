@@ -1,0 +1,94 @@
+/* =========================================================
+   PLACEMENT ROAD MAP  (infographic)
+========================================================= */
+
+.pp-map {
+  position: relative;
+  width: 100%;
+}
+
+.pp-map__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.pp-map__label {
+  position: absolute;
+  width: 148px;
+  text-align: center;
+  transform: translate(-50%, calc(-100% - 62px));
+  pointer-events: none;
+}
+
+.pp-map__label--start {
+  width: auto;
+  transform: translate(-50%, calc(-100% - 52px));
+}
+
+.pp-map__label--finish {
+  width: 140px;
+  transform: translate(-50%, 18px);
+}
+
+.pp-map__kicker {
+  margin: 0;
+  color: #087a3e;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pp-map__name {
+  margin: 0;
+  color: #071313;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.pp-map__note {
+  margin: 4px 0 0;
+  color: #365f6e;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.pp-map__label--start .pp-map__kicker,
+.pp-map__label--finish .pp-map__kicker {
+  font-size: 16px;
+}
+
+@media (max-width: 1023px) {
+  .pp-map__label {
+    width: min(58%, 220px);
+    transform: translate(28px, -70%);
+    text-align: left;
+  }
+
+  .pp-map__label--start {
+    transform: translate(28px, -80%);
+  }
+
+  .pp-map__label--finish {
+    transform: translate(28px, -10%);
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-map__lane {
+    animation: none;
+  }
+}
+
+.pp-map__lane {
+  animation: pp-lane 1.4s linear infinite;
+}
+
+@keyframes pp-lane {
+  to { stroke-dashoffset: -34; }
+}

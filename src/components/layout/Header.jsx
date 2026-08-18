@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   Menu,
   ArrowRight,
+  ChevronDown,
   X,
 } from "lucide-react";
 
@@ -10,6 +11,7 @@ import Button from "../common/Button";
 import HeaderSearch from "./HeaderSearch";
 import AnnouncementBar from "./AnnouncementBar";
 import { ASSETS } from "../../data/siteConfig";
+import { CORPORATE_PROGRAMS } from "../../data/corporate";
 
 /* =========================================================
    DESKTOP + MOBILE MAIN NAVIGATION
@@ -35,6 +37,13 @@ const DESKTOP_NAV = [
   {
     label: "CORPORATE COURSES",
     to: "/corporate",
+    children: [
+      { label: "Corporate Training", to: "/corporate" },
+      ...CORPORATE_PROGRAMS.map((program) => ({
+        label: program.label,
+        to: `/courses/${program.slug}`,
+      })),
+    ],
   },
 ];
 
@@ -242,30 +251,114 @@ export default function Header() {
             "
             aria-label="Primary navigation"
           >
-            {DESKTOP_NAV.map((item) => (
-              <Link
-                key={item.label}
-                to={item.to}
-                className="
-                  whitespace-nowrap
-                  rounded-lg
-                  px-3
-                  py-3
+            {DESKTOP_NAV.map((item) => {
+              const current = `${pathname}${search}`;
+              const active =
+                pathname === item.to ||
+                current === item.to ||
+                item.children?.some((child) => pathname === child.to);
 
-                  text-[14px]
-                  font-semibold
-                  text-[#071313]
+              if (item.children?.length) {
+                return (
+                  <div key={item.label} className="group relative">
+                    <Link
+                      to={item.to}
+                      className={`
+                        inline-flex
+                        items-center
+                        gap-1
+                        whitespace-nowrap
+                        rounded-lg
+                        px-3
+                        py-3
+                        text-[14px]
+                        font-semibold
+                        transition-all
+                        duration-200
+                        ${
+                          active
+                            ? "bg-[#7CFF00]/15 text-[#239F4A]"
+                            : "text-[#071313] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                        }
+                      `}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={14}
+                        className="transition-transform duration-200 group-hover:rotate-180"
+                      />
+                    </Link>
+                    <div
+                      className="
+                        invisible
+                        absolute
+                        left-0
+                        top-full
+                        z-50
+                        min-w-[220px]
+                        origin-top
+                        pt-1
+                        opacity-0
+                        transition
+                        duration-150
+                        group-hover:visible
+                        group-hover:opacity-100
+                        group-focus-within:visible
+                        group-focus-within:opacity-100
+                      "
+                    >
+                      <div className="overflow-hidden rounded-xl border border-[#35D0A5]/20 bg-white py-2 shadow-[0_16px_40px_rgba(7,19,19,0.12)]">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.to}
+                            to={child.to}
+                            className={`
+                              block
+                              px-4
+                              py-2.5
+                              text-sm
+                              font-semibold
+                              transition
+                              ${
+                                pathname === child.to
+                                  ? "bg-[#7CFF00]/15 text-[#239F4A]"
+                                  : "text-[#071313] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                              }
+                            `}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
 
-                  transition-all
-                  duration-200
-
-                  hover:bg-[#7CFF00]/10
-                  hover:text-[#239F4A]
-                "
-              >
-                {item.label}
-              </Link>
-            ))}
+              return (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className={`
+                    whitespace-nowrap
+                    rounded-lg
+                    px-3
+                    py-3
+                    text-[14px]
+                    font-semibold
+                    transition-all
+                    duration-200
+                    ${
+                      active
+                        ? "bg-[#7CFF00]/15 text-[#239F4A]"
+                        : "text-[#071313] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                    }
+                  `}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* =================================================
@@ -646,63 +739,75 @@ export default function Header() {
             {/* Navigation Items */}
 
             <div className="space-y-1.5">
-              {DESKTOP_NAV.map(
-                (item) => (
-                  <Link
-                    key={item.label}
-                    to={item.to}
-                    onClick={closeHeaderDrawer}
-                    className="
-                      group
+              {DESKTOP_NAV.map((item) => {
+                const current = `${pathname}${search}`;
+                const active =
+                  pathname === item.to ||
+                  current === item.to ||
+                  item.children?.some((child) => pathname === child.to);
 
-                      flex
-                      items-center
-                      justify-between
-
-                      rounded-xl
-
-                      px-4
-                      py-4
-
-                      text-sm
-                      font-bold
-
-                      text-[#071313]
-
-                      transition-all
-                      duration-200
-
-                      hover:bg-[#7CFF00]/10
-                      hover:text-[#239F4A]
-
-                      active:scale-[0.98]
-                    "
-                  >
-                    {/* Nav Label */}
-
-                    <span>
-                      {item.label}
-                    </span>
-
-                    {/* Arrow */}
-
-                    <ArrowRight
-                      size={17}
-                      strokeWidth={2.5}
-                      className="
-                        shrink-0
-
-                        text-[#239F4A]
-
-                        transition-transform
+                return (
+                  <div key={item.label}>
+                    <Link
+                      to={item.to}
+                      onClick={closeHeaderDrawer}
+                      className={`
+                        group
+                        flex
+                        items-center
+                        justify-between
+                        rounded-xl
+                        px-4
+                        py-4
+                        text-sm
+                        font-bold
+                        transition-all
                         duration-200
+                        active:scale-[0.98]
+                        ${
+                          active
+                            ? "bg-[#7CFF00]/15 text-[#239F4A]"
+                            : "text-[#071313] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                        }
+                      `}
+                    >
+                      <span>{item.label}</span>
+                      <ArrowRight
+                        size={17}
+                        strokeWidth={2.5}
+                        className="shrink-0 text-[#239F4A] transition-transform duration-200 group-hover:translate-x-1"
+                      />
+                    </Link>
 
-                        group-hover:translate-x-1
-                      "
-                    />
-                  </Link>
-                )
-              )}
+                    {item.children?.length ? (
+                      <div className="mb-2 ml-3 mt-1 space-y-1 border-l border-[#35D0A5]/25 pl-3">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.to}
+                            to={child.to}
+                            onClick={closeHeaderDrawer}
+                            className={`
+                              block
+                              rounded-lg
+                              px-3
+                              py-2
+                              text-[13px]
+                              font-semibold
+                              ${
+                                pathname === child.to
+                                  ? "bg-[#7CFF00]/15 text-[#239F4A]"
+                                  : "text-[#365F6E] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                              }
+                            `}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
             </div>
           </nav>
 

@@ -7,7 +7,7 @@ const ANNOUNCEMENT_LINKS = [
   { label: "Corporate", to: "/corporate" },
   { label: "CSR", to: "/csr" },
   { label: "Blogs", to: "/blog" },
-  { label: "Students Reviews", to: "/#testimonials" },
+  { label: "Students Reviews", to: "/reviews" },
   { label: "Referral", to: "/referral" },
   { label: "Feedback", to: "/feedback" },
   { label: "Careers", to: "/careers" },

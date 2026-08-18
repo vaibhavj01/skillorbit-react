@@ -11,10 +11,13 @@ import BlogDetails from "./pages/BlogDetails";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Inquiry from "./pages/Inquiry";
+import Corporate from "./pages/Corporate";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Refund from "./pages/Refund";
 import CourseRoadmap from "./pages/CourseRoadmap";
+import Certificates from "./pages/Certificates";
+import Reviews from "./pages/Reviews";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -33,8 +36,9 @@ export default function App() {
           <Route path="/blog/:slug" element={<BlogDetails />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
-          <Route path="/corporate" element={<Inquiry topic="corporate" />} />
-          <Route path="/certificates" element={<Inquiry topic="certificates" />} />
+          <Route path="/corporate" element={<Corporate />} />
+          <Route path="/certificates" element={<Certificates />} />
+          <Route path="/reviews" element={<Reviews />} />
           <Route path="/webinar" element={<Inquiry topic="webinar" />} />
           <Route path="/csr" element={<Inquiry topic="csr" />} />
           <Route path="/referral" element={<Inquiry topic="referral" />} />

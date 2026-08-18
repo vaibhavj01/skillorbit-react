@@ -34,6 +34,8 @@ export default {
       fontFamily: {
         display: ["Syne", "sans-serif"],
         body: ["Manrope", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+        grotesk: ["Space Grotesk", "Manrope", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
       },
       fontSize: {

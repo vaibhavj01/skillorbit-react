@@ -16,7 +16,7 @@ const SECTIONS = [
   },
   {
     heading: "How to request",
-    body: "Email skillorbit@gmail.com with your enrolment details. Our team will respond with next steps.",
+    body: "Email info@skill-orbit.com with your enrolment details. Our team will respond with next steps.",
   },
 ];
 

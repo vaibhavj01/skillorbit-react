@@ -1,112 +1,195 @@
-import { STATS } from "../../data/siteConfig";
+import { useState } from "react";
+import { ASSETS, STATS } from "../../data/siteConfig";
 import useCounter from "../../hooks/useCounter";
 import useScrollReveal from "../../hooks/useScrollReveal";
 
-const ORBITS = [
-  {
-    id: 1,
-    planets: [
-      { name: "Java", color: "#F97316", size: 48, slot: 18 },
-      { name: "Python", color: "#3B82F6", size: 52, slot: 198 },
-    ],
-  },
-  {
-    id: 2,
-    reverse: true,
-    planets: [
-      { name: "React", color: "#22D3EE", size: 54, slot: 55 },
-      { name: "JS", color: "#FACC15", ink: "#1F2937", size: 48, slot: 175 },
-      { name: "SQL", color: "#818CF8", size: 50, slot: 235 },
-      { name: "MERN", color: "#34D399", size: 56, slot: 310 },
-    ],
-  },
-  {
-    id: 3,
-    planets: [
-      { name: "AWS", color: "#FB923C", size: 56, slot: 40 },
-      { name: "Docker", color: "#38BDF8", size: 54, slot: 130 },
-      { name: "K8s", color: "#326CE5", size: 50, slot: 210 },
-      { name: "Azure", color: "#60A5FA", size: 52, slot: 300 },
-    ],
-  },
-  {
-    id: 4,
-    reverse: true,
-    planets: [
-      { name: "AI", color: "#C084FC", size: 60, slot: 8 },
-      { name: "ML", color: "#F472B6", size: 52, slot: 92 },
-      { name: "Data", color: "#2DD4BF", size: 58, slot: 188 },
-      { name: "Cyber", color: "#F87171", size: 54, slot: 278 },
-    ],
-  },
+const ORBIT_RINGS = [
+  { id: 1, size: "34%", duration: "25s", reverse: false, dashed: false },
+  { id: 2, size: "50%", duration: "35s", reverse: true, dashed: true },
+  { id: 3, size: "66%", duration: "45s", reverse: false, dashed: false },
+  { id: 4, size: "82%", duration: "55s", reverse: true, dashed: true },
+  { id: 5, size: "94%", duration: "70s", reverse: false, dashed: false },
 ];
 
-export default function HeroOrbit() {
-  const [ref, visible] = useScrollReveal(0.2);
-  const students = STATS.find((stat) => stat.key === "students");
-  const studentsCount = useCounter(students?.value || 10000, visible);
+const TECHNOLOGIES = [
+  { name: "Java", orbit: 1, angle: 18, hideOnMobile: false },
+  { name: "Python", orbit: 1, angle: 198, hideOnMobile: false },
+  { name: "JavaScript", orbit: 2, angle: 42, hideOnMobile: false },
+  { name: "React", orbit: 2, angle: 128, hideOnMobile: false },
+  { name: "SQL", orbit: 2, angle: 218, hideOnMobile: true },
+  { name: "Git", orbit: 2, angle: 308, hideOnMobile: true },
+  { name: "AWS", orbit: 3, angle: 24, hideOnMobile: false },
+  { name: "Azure", orbit: 3, angle: 108, hideOnMobile: true },
+  { name: "Docker", orbit: 3, angle: 196, hideOnMobile: false },
+  { name: "Spring Boot", orbit: 3, angle: 292, hideOnMobile: true },
+  { name: "Kubernetes", orbit: 4, angle: 56, hideOnMobile: true },
+  { name: "AI", orbit: 4, angle: 168, hideOnMobile: false },
+  { name: "DevOps", orbit: 4, angle: 286, hideOnMobile: true },
+  { name: "Machine Learning", orbit: 5, angle: 78, hideOnMobile: true },
+  { name: "Cybersecurity", orbit: 5, angle: 248, hideOnMobile: true },
+];
+
+function CentralLogo() {
+  const [logoOk, setLogoOk] = useState(false);
 
   return (
-    <div className="hero-orbit-wrapper" ref={ref}>
-      <div id="hero-orbit" className="orbit-stage" data-hero-orbit aria-hidden="true">
-        <div className="orbit-stage__stars" />
-        <div className="orbit-stage__sun-glow" />
+    <div className="so-orbit-logo">
+      <span className="so-orbit-logo__glow" aria-hidden="true" />
+      <span className="so-orbit-logo__core">
+        <img
+          src={ASSETS.orbitMark}
+          alt="SkillOrbit Academy"
+          className="so-orbit-logo__img"
+          onLoad={() => setLogoOk(true)}
+          onError={() => setLogoOk(false)}
+          style={{ display: logoOk ? "block" : "none" }}
+        />
+        {!logoOk && (
+          <svg viewBox="0 0 88 88" className="so-orbit-logo__mark" aria-hidden="true">
+            <path
+              d="M30 54c2.4-13 10-22 22-22 8 0 13.2 3.8 13.2 9.8 0 5.6-4.2 8.8-11.2 10L40 56.4c-2.4.4-3.6 1.8-3.6 3.6 0 2.6 2.6 4.2 7.2 4.2 6 0 10.8-2.4 14.2-6.6"
+              fill="none"
+              stroke="#fff"
+              strokeWidth="5.4"
+              strokeLinecap="round"
+            />
+            <circle cx="60" cy="26" r="3.2" fill="#fff" />
+          </svg>
+        )}
+      </span>
+    </div>
+  );
+}
 
-        <div className="orbit-stage__track orbit-stage__track--1" />
-        <div className="orbit-stage__track orbit-stage__track--2" />
-        <div className="orbit-stage__track orbit-stage__track--3" />
-        <div className="orbit-stage__track orbit-stage__track--4" />
+function OrbitItem({ name, angle, duration, reverse, hideOnMobile }) {
+  const angleStyle = {
+    "--angle": `${angle}deg`,
+    "--orbit-duration": duration,
+    "--orbit-direction": reverse ? "reverse" : "normal",
+  };
 
-        {ORBITS.map((orbit) => (
-          <div
-            key={orbit.id}
-            className={`orbit-stage__ring orbit-stage__ring--${orbit.id}${
-              orbit.reverse ? " orbit-stage__ring--reverse" : ""
-            }`}
-          >
-            {orbit.planets.map((planet) => (
-              <div
-                key={planet.name}
-                className="orbit-stage__slot"
-                style={{ "--slot": `${planet.slot}deg` }}
-              >
-                <div
-                  className="orbit-stage__node"
-                  style={{
-                    "--planet": planet.color,
-                    "--planet-size": `${planet.size}px`,
-                    "--planet-ink": planet.ink || "#ffffff",
-                  }}
-                >
-                  <span className="orbit-stage__planet-sphere" />
-                  <span className="orbit-stage__planet-name">{planet.name}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
+  return (
+    <div
+      className={`so-orbit-item${hideOnMobile ? " so-orbit-item--mobile-hide" : ""}`}
+      style={angleStyle}
+    >
+      <span className="so-orbit-pill" style={angleStyle}>
+        {name}
+      </span>
+    </div>
+  );
+}
 
-        <div className="orbit-stage__center">
-          <span className="orbit-stage__center-flare" />
-          <span className="orbit-stage__center-core" />
-          <span className="orbit-stage__center-label">SkillOrbit</span>
-        </div>
+function OrbitRing({ ring, items }) {
+  return (
+    <div
+      className={`so-orbit-ring${ring.dashed ? " so-orbit-ring--dashed" : ""}`}
+      style={{
+        "--orbit-size": ring.size,
+        "--orbit-duration": ring.duration,
+        "--orbit-direction": ring.reverse ? "reverse" : "normal",
+      }}
+    >
+      {items.map((tech) => (
+        <OrbitItem
+          key={tech.name}
+          name={tech.name}
+          angle={tech.angle}
+          duration={ring.duration}
+          reverse={ring.reverse}
+          hideOnMobile={tech.hideOnMobile}
+        />
+      ))}
+    </div>
+  );
+}
+
+function FloatingStatCard({ value, suffix, label, position, delay = "0s" }) {
+  return (
+    <article className={`so-orbit-stat so-orbit-stat--${position}`} style={{ "--float-delay": delay }}>
+      <p className="so-orbit-stat__value">
+        {value}
+        {suffix}
+      </p>
+      <p className="so-orbit-stat__label">{label}</p>
+    </article>
+  );
+}
+
+function DecorativeParticles() {
+  return (
+    <div className="so-orbit-decor" aria-hidden="true">
+      <span className="so-orbit-decor__arc" />
+      <span className="so-orbit-decor__dot so-orbit-decor__dot--1" />
+      <span className="so-orbit-decor__dot so-orbit-decor__dot--2" />
+      <span className="so-orbit-decor__dot so-orbit-decor__dot--3" />
+      <span className="so-orbit-decor__dot so-orbit-decor__dot--4" />
+      <span className="so-orbit-decor__blob so-orbit-decor__blob--1" />
+      <span className="so-orbit-decor__blob so-orbit-decor__blob--2" />
+      <span className="so-orbit-decor__plus so-orbit-decor__plus--1" />
+      <span className="so-orbit-decor__plus so-orbit-decor__plus--2" />
+    </div>
+  );
+}
+
+function OrbitSystem() {
+  return (
+    <div className="so-orbit-stage">
+      {ORBIT_RINGS.map((ring) => (
+        <OrbitRing
+          key={ring.id}
+          ring={ring}
+          items={TECHNOLOGIES.filter((tech) => tech.orbit === ring.id)}
+        />
+      ))}
+      <CentralLogo />
+    </div>
+  );
+}
+
+export default function HeroOrbit() {
+  const [ref, visible] = useScrollReveal(0.18);
+  const students = STATS.find((stat) => stat.key === "students");
+  const programs = STATS.find((stat) => stat.key === "courses");
+  const placement = STATS.find((stat) => stat.key === "placementRate");
+
+  const studentsCount = useCounter(students?.value || 10000, visible);
+  const programsCount = useCounter(programs?.value || 50, visible);
+  const placementCount = useCounter(placement?.value || 95, visible);
+
+  return (
+    <div className="so-orbit" ref={ref} id="hero-orbit">
+      <div className="so-orbit-bg" aria-hidden="true">
+        <span className="so-orbit-bg__dots" />
       </div>
 
-      <div className="hero__float-card hero__float-card--1">
-        <p className="hero__float-card-value">
-          <span data-stat="students" data-count={students?.value || 10000}>
-            {studentsCount.toLocaleString("en-IN")}
-          </span>
-          {students?.suffix || "+"}
-        </p>
-        <p className="hero__float-card-label">Learners guided</p>
-      </div>
+      <span className="so-orbit-edge so-orbit-edge--card so-orbit-edge--tl" aria-hidden="true" />
+      <span className="so-orbit-edge so-orbit-edge--circle so-orbit-edge--tr" aria-hidden="true" />
+      <span className="so-orbit-edge so-orbit-edge--circle so-orbit-edge--br" aria-hidden="true" />
 
-      <div className="hero__float-card hero__float-card--2">
-        <p className="hero__float-card-value">25%</p>
-        <p className="hero__float-card-label">Placement support rate</p>
-      </div>
+      <DecorativeParticles />
+      <OrbitSystem />
+
+      <FloatingStatCard
+        position="tl"
+        value={studentsCount.toLocaleString("en-IN")}
+        suffix={students?.suffix || "+"}
+        label="Learners guided"
+      />
+      <FloatingStatCard
+        position="ml"
+        value={programsCount}
+        suffix={programs?.suffix || "+"}
+        label="Programs"
+        delay="0.8s"
+      />
+      <FloatingStatCard
+        position="br"
+        value={placementCount}
+        suffix={placement?.suffix || "%"}
+        label="Placement support rate"
+        delay="1.4s"
+      />
     </div>
   );
 }

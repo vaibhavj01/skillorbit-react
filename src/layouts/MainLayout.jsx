@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import FloatingActions from "../components/layout/FloatingActions";
+import GetMeJobLead from "../components/layout/GetMeJobLead";
 
 export default function MainLayout() {
   const { pathname, hash } = useLocation();
@@ -43,6 +44,7 @@ export default function MainLayout() {
         <Outlet />
       </main>
       <Footer />
+      <GetMeJobLead />
       <FloatingActions />
     </div>
   );

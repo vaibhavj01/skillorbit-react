@@ -4,11 +4,11 @@ import LegalPage from "../components/common/LegalPage";
 const SECTIONS = [
   {
     heading: "Overview",
-    body: "This static website stores limited data in your browser (theme preference, cookie consent, wishlist and simulated form submissions). We do not operate a server-side database on this site.",
+    body: "This website may store limited data in your browser (theme preference, cookie consent). Form submissions are saved to a Google Sheet used by the SkillOrbit team. We do not operate a separate server-side database on this site.",
   },
   {
     heading: "Information you provide",
-    body: "When you use contact or demo forms, details are validated and saved locally in your browser for demonstration. For real enquiries, please email or call us using the published contact details.",
+    body: "When you use contact, demo, or callback forms, your details are added to one Google Sheet so the team can follow up. You can also email or call us using the published contact details.",
   },
   {
     heading: "Cookies",
@@ -16,7 +16,7 @@ const SECTIONS = [
   },
   {
     heading: "Contact",
-    body: "For privacy questions, email skillorbit@gmail.com.",
+    body: "For privacy questions, email info@skill-orbit.com.",
   },
 ];
 

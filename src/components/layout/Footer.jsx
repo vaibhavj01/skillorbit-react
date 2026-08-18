@@ -24,8 +24,9 @@ export default function Footer() {
               Premium IT training and distance learning from Pune — learn, build, certify and grow your career.
             </p>
             <ul className="space-y-2 text-sm text-[#063F2A]/80">
-              <li className="flex items-center gap-2">
-                <MapPin size={14} /> {CONTACT.location}
+              <li className="flex items-start gap-2">
+                <MapPin size={14} className="mt-0.5 shrink-0" />
+                <span>Baner, Hinjawadi &amp; Wakad, Pune</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={14} />

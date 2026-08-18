@@ -11,7 +11,7 @@ const CARDS = [
   { icon: Mail, label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
   { icon: Phone, label: "Phone", value: CONTACT.phoneDisplay, href: CONTACT.phoneHref },
   { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: CONTACT.whatsappHref },
-  { icon: MapPin, label: "Location", value: CONTACT.location, href: "https://www.google.com/maps/search/?api=1&query=SkillOrbit+Academy+Pune" },
+  { icon: MapPin, label: "Location", value: CONTACT.location, href: "https://www.google.com/maps/search/?api=1&query=SkillOrbit+Academy+Baner+Hinjawadi+Wakad+Pune" },
 ];
 
 export default function Contact() {
@@ -22,7 +22,7 @@ export default function Contact() {
         description="Get in touch with SkillOrbit Academy — email, phone, WhatsApp or send us a message to book your free demo class."
         path="/contact"
       />
-      <PageHero title="Visit or Message Us" subtitle="We are based in Pune and happy to guide your next learning step." />
+      <PageHero title="Visit or Message Us" subtitle="Train with us in Baner, Hinjawadi or Wakad — or reach us online for a free demo." />
 
       <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
         <OrbitBackdrop variant="mint" />

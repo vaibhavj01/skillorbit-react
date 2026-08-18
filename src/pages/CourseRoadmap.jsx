@@ -7,6 +7,7 @@ import Reveal from "../components/common/Reveal";
 import Button from "../components/common/Button";
 import OrbitBackdrop from "../components/common/OrbitBackdrop";
 import RoadmapPath from "../components/courses/RoadmapPath";
+import RoadmapInclusions from "../components/courses/RoadmapInclusions";
 import { getCourseBySlug, categoryLabel } from "../data/courses";
 import { getCourseRoadmap } from "../data/roadmaps";
 
@@ -74,6 +75,10 @@ export default function CourseRoadmap() {
 
           <Reveal>
             <RoadmapPath title={course.name} stages={roadmap.stages} />
+          </Reveal>
+
+          <Reveal delay={0.08} className="mt-14">
+            <RoadmapInclusions variant="dark" />
           </Reveal>
 
           <Reveal delay={0.1} className="mt-12 flex flex-wrap items-center justify-center gap-3">

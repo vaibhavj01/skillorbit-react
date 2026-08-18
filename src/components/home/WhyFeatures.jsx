@@ -220,52 +220,6 @@ export default function WhyFeatures() {
           </Link>
         </div>
       </div>
-
-      {/* ================= FLOATING JOB TAB ================= */}
-      <div
-        className="
-          fixed
-          left-0
-          top-1/2
-          z-40
-          hidden
-          -translate-y-1/2
-          sm:block
-        "
-      >
-        <Link
-          to="/placements"
-          className="
-            relative
-            flex
-            items-center
-            gap-2
-            rounded-r-xl
-            bg-[#7CFF00]
-            px-4
-            py-3
-            font-extrabold
-            text-[#06352C]
-            shadow-[0_0_25px_rgba(124,255,0,0.30)]
-            transition-all
-            duration-300
-            hover:px-6
-            hover:bg-[#E7FF00]
-            hover:shadow-[0_0_35px_rgba(124,255,0,0.45)]
-          "
-        >
-          <span className="text-lg">▶</span>
-
-          <span className="flex flex-col text-left leading-tight">
-            <span className="text-[11px] font-semibold">
-              Get Me
-            </span>
-            <span className="text-sm font-extrabold">
-              JOB
-            </span>
-          </span>
-        </Link>
-      </div>
     </section>
   );
 }

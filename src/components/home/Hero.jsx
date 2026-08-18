@@ -4,7 +4,6 @@ import Container from "../common/Container";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
 import HeroOrbit from "./HeroOrbit";
-import OrbitBackdrop from "../common/OrbitBackdrop";
 
 export default function Hero() {
   return (
@@ -18,10 +17,8 @@ export default function Hero() {
         md:py-28
         lg:py-32
 
-        bg-gradient-to-br
-        from-[#35D0A5]
-        via-[#29C3BE]
-        to-[#1FB8D2]
+        bg-[#F8FCF8]
+        font-roboto
 
         /* =========================
            MOBILE
@@ -59,7 +56,24 @@ export default function Hero() {
         xl:pb-20
       "
     >
-      <OrbitBackdrop variant="sky" />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 72% 46%, rgba(80,180,80,0.10), transparent 45%), radial-gradient(circle at 18% 20%, rgba(53,208,165,0.07), transparent 36%), #F8FCF8",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: "radial-gradient(rgba(35,159,74,0.16) 1px, transparent 1px)",
+          backgroundSize: "26px 26px",
+          maskImage: "radial-gradient(circle at 70% 48%, black 20%, transparent 72%)",
+          WebkitMaskImage: "radial-gradient(circle at 70% 48%, black 20%, transparent 72%)",
+        }}
+        aria-hidden="true"
+      />
 
       {/* =====================================================
           MAIN CONTAINER
@@ -117,8 +131,8 @@ export default function Hero() {
 
               rounded-full
               border
-              border-white/40
-              bg-white/25
+              border-[#239F4A]/20
+              bg-white/70
 
               px-3
               py-1.5
@@ -159,8 +173,8 @@ export default function Hero() {
 
               max-w-3xl
 
-              font-display
-              font-extrabold
+              font-roboto
+              font-black
 
               leading-[0.98]
               tracking-[-0.04em]
@@ -415,18 +429,14 @@ export default function Hero() {
             className="
               relative
               w-full
+              overflow-visible
 
               max-w-[300px]
-
-              sm:max-w-[340px]
-
-              md:max-w-[380px]
-
-              lg:max-w-[420px]
-
-              xl:max-w-[460px]
-
-              2xl:max-w-[500px]
+              sm:max-w-[380px]
+              md:max-w-[460px]
+              lg:max-w-[540px]
+              xl:max-w-[600px]
+              2xl:max-w-[640px]
             "
           >
 

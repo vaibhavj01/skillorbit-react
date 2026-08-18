@@ -6,7 +6,7 @@ import Container from "../components/common/Container";
 import SectionHeading from "../components/common/SectionHeading";
 import CourseFilter from "../components/courses/CourseFilter";
 import CourseGrid from "../components/courses/CourseGrid";
-import { CATEGORIES, courses } from "../data/courses";
+import { CATEGORIES, courses, orderCourses } from "../data/courses";
 import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 export default function Courses() {
@@ -23,14 +23,16 @@ export default function Courses() {
   };
 
   const filtered = useMemo(() => {
-    return courses.filter((c) => {
-      const matchesCategory = category === "all" || c.category === category;
-      const matchesQuery =
-        !query.trim() ||
-        c.name.toLowerCase().includes(query.toLowerCase()) ||
-        (c.technologies || []).some((t) => t.toLowerCase().includes(query.toLowerCase()));
-      return matchesCategory && matchesQuery;
-    });
+    return orderCourses(
+      courses.filter((c) => {
+        const matchesCategory = category === "all" || c.category === category;
+        const matchesQuery =
+          !query.trim() ||
+          c.name.toLowerCase().includes(query.toLowerCase()) ||
+          (c.technologies || []).some((t) => t.toLowerCase().includes(query.toLowerCase()));
+        return matchesCategory && matchesQuery;
+      }),
+    );
   }, [category, query]);
 
   return (
