@@ -1,17 +1,18 @@
 import Seo from "../components/common/Seo";
 import Hero from "../components/home/Hero";
 import Stats from "../components/home/Stats";
+import GenAIBatchAd from "../components/home/GenAIBatchAd";
 import Partners from "../components/home/Partners";
 import WhyFeatures from "../components/home/WhyFeatures";
 import CoursesPreview from "../components/home/CoursesPreview";
 import Batches from "../components/home/Batches";
-import LearningModels from "../components/home/LearningModels";
-import DistanceLearningPreview from "../components/home/DistanceLearningPreview";
 import Projects from "../components/home/Projects";
-import PlacementProcess from "../components/home/PlacementProcess";
+import PlacementRoadmap from "../components/placements/PlacementRoadmap";
 import Testimonials from "../components/home/Testimonials";
+import IsoCertification from "../components/home/IsoCertification";
 import BlogPreview from "../components/home/BlogPreview";
 import FAQ from "../components/home/FAQ";
+import RoadmapPerks from "../components/home/RoadmapPerks";
 import CTASection from "../components/home/CTASection";
 
 export default function Home() {
@@ -24,17 +25,18 @@ export default function Home() {
       />
       <Hero />
       <Stats />
+      <GenAIBatchAd />
       <Partners />
       <WhyFeatures />
       <CoursesPreview />
       <Batches />
-      <LearningModels />
-      <DistanceLearningPreview />
       <Projects />
-      <PlacementProcess />
+      <PlacementRoadmap />
       <Testimonials />
+      <IsoCertification />
       <BlogPreview />
       <FAQ />
+      <RoadmapPerks />
       <CTASection />
     </>
   );

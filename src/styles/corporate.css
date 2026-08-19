@@ -1,0 +1,34 @@
+.corporate-divider {
+  position: relative;
+  display: block;
+  height: 2px;
+  width: 88px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, #7cff00, transparent);
+}
+
+.corporate-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #7cff00;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px rgba(124, 255, 0, 0.7);
+}
+
+.corporate-glow-card {
+  box-shadow:
+    0 0 0 1px rgba(124, 255, 0, 0.35),
+    0 0 48px rgba(124, 255, 0, 0.22),
+    0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-slide-left {
+    animation: none;
+  }
+}

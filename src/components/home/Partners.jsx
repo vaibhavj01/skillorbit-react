@@ -36,8 +36,8 @@ function CompanyCard({ company }) {
         ease-out
 
         hover:-translate-y-1
-        hover:border-[#F97316]
-        hover:shadow-[0_5px_14px_rgba(249,115,22,0.30)]
+        hover:border-[#7CFF00]
+        hover:shadow-[0_5px_14px_rgba(124,255,0,0.30)]
 
         sm:h-[54px]
         sm:w-[110px]
@@ -101,6 +101,8 @@ function SlidingRow({
   const items = [
     ...companies,
     ...companies,
+    ...companies,
+    ...companies,
   ];
 
   return (
@@ -160,72 +162,17 @@ export default function Partners() {
      ROW 1
   ======================================================= */
 
-  const rowOne = [
-  hiringPartners[0],
-  hiringPartners[1],
-  hiringPartners[2],
-  hiringPartners[3],
-  hiringPartners[4],
-  hiringPartners[5],
-  hiringPartners[6],
-  hiringPartners[7],
-  hiringPartners[8],
-  hiringPartners[9],
-  hiringPartners[10],
-  hiringPartners[11],
-];
-
-const rowTwo = [
-  hiringPartners[6],
-  hiringPartners[7],
-  hiringPartners[8],
-  hiringPartners[9],
-  hiringPartners[10],
-  hiringPartners[11],
-  hiringPartners[0],
-  hiringPartners[1],
-  hiringPartners[2],
-  hiringPartners[3],
-  hiringPartners[4],
-  hiringPartners[5],
-];
-
-const rowThree = [
-  hiringPartners[3],
-  hiringPartners[6],
-  hiringPartners[9],
-  hiringPartners[0],
-  hiringPartners[2],
-  hiringPartners[5],
-  hiringPartners[8],
-  hiringPartners[11],
-  hiringPartners[1],
-  hiringPartners[4],
-  hiringPartners[7],
-  hiringPartners[10],
-];
-
-const rowFour = [
-  hiringPartners[5],
-  hiringPartners[9],
-  hiringPartners[1],
-  hiringPartners[11],
-  hiringPartners[4],
-  hiringPartners[7],
-  hiringPartners[0],
-  hiringPartners[3],
-  hiringPartners[6],
-  hiringPartners[8],
-  hiringPartners[2],
-  hiringPartners[10],
-];
+  const rowOne = hiringPartners.slice(0, 4);
+  const rowTwo = hiringPartners.slice(4, 8);
+  const rowThree = hiringPartners.slice(8, 12);
+  const rowFour = hiringPartners.slice(12, 16);
   return (
     <section
       id="companies"
       className="
         relative
         overflow-hidden
-        bg-[#35D0A5]
+        bg-[#071313]
 
         py-10
 
@@ -264,8 +211,8 @@ const rowFour = [
     w-[90px]
 
     bg-gradient-to-r
-    from-[#35D0A5]
-    via-[#35D0A5]/90
+    from-[#071313]
+    via-[#071313]/90
     to-transparent
 
     blur-[5px]
@@ -285,8 +232,8 @@ const rowFour = [
     w-[90px]
 
     bg-gradient-to-l
-    from-[#35D0A5]
-    via-[#35D0A5]/90
+    from-[#071313]
+    via-[#071313]/90
     to-transparent
 
     blur-[5px]

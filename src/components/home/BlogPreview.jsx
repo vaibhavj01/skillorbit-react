@@ -8,8 +8,8 @@ import OrbitBackdrop from "../common/OrbitBackdrop";
 
 export default function BlogPreview() {
   return (
-    <section className="relative overflow-hidden bg-[#E7F7F0] py-20 md:py-28">
-      <OrbitBackdrop variant="mint" />
+    <section className="relative overflow-hidden bg-[#071313] py-12 md:py-28">
+      <OrbitBackdrop variant="night" />
       <Container className="relative z-10">
         <SectionHeading eyebrow="Resources" title="Career & Learning Insights" subtitle="Guides and tips for IT careers." />
         <BlogGrid posts={blogPosts.slice(0, 3)} />

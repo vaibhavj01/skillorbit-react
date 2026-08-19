@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import Container from "../common/Container";
 import SectionHeading from "../common/SectionHeading";
@@ -71,7 +72,7 @@ export default function Testimonials() {
   if (!total) return null;
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-[#051912] py-20 md:py-28">
+    <section id="testimonials" className="relative overflow-hidden bg-[#051912] py-16 sm:py-20 md:py-28">
       <OrbitBackdrop variant="night" />
       <Container className="relative z-10 max-w-6xl">
         <SectionHeading
@@ -80,6 +81,11 @@ export default function Testimonials() {
           subtitle="Hear from learners who trained with SkillOrbit and moved into IT roles."
           light
         />
+        <p className="mb-8 text-center">
+          <Link to="/reviews" className="text-sm font-bold text-[#7CFF00] hover:underline">
+            Read all student reviews
+          </Link>
+        </p>
 
         <Reveal>
           <div className="relative">
@@ -106,7 +112,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 onClick={() => go(-1)}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#35D0A5]/40 bg-[#071313] text-[#7CFF00] transition-all hover:border-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#06352C]"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#35D0A5]/40 bg-[#071313] text-[#7CFF00] transition-all hover:border-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#071313]"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={20} />
@@ -131,7 +137,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 onClick={() => go(1)}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#35D0A5]/40 bg-[#071313] text-[#7CFF00] transition-all hover:border-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#06352C]"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#35D0A5]/40 bg-[#071313] text-[#7CFF00] transition-all hover:border-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#071313]"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={20} />

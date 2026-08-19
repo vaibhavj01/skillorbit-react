@@ -1,0 +1,42 @@
+.reviews-live-dot {
+  position: relative;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  border-radius: 999px;
+  background: #7cff00;
+  box-shadow: 0 0 10px rgba(124, 255, 0, 0.7);
+}
+
+.reviews-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 255, 0, 0.55);
+  animation: reviews-pulse 1.8s ease-out infinite;
+}
+
+.reviews-quote-glow {
+  box-shadow:
+    0 0 0 1px rgba(124, 255, 0, 0.22),
+    0 0 42px rgba(124, 255, 0, 0.12);
+}
+
+@keyframes reviews-pulse {
+  from {
+    transform: scale(0.7);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-live-dot::after {
+    animation: none;
+    opacity: 0;
+  }
+}

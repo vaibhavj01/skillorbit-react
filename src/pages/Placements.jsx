@@ -1,8 +1,8 @@
 import Seo from "../components/common/Seo";
-import PageHero from "../components/common/PageHero";
+import PlacementDreams from "../components/placements/PlacementDreams";
 import Stats from "../components/home/Stats";
 import Partners from "../components/home/Partners";
-import PlacementProcess from "../components/home/PlacementProcess";
+import PlacementRoadmap from "../components/placements/PlacementRoadmap";
 import Projects from "../components/home/Projects";
 import Testimonials from "../components/home/Testimonials";
 import CTASection from "../components/home/CTASection";
@@ -12,16 +12,13 @@ export default function Placements() {
     <>
       <Seo
         title="Placements"
-        description="SkillOrbit Academy's placement support: resume guidance, mock interviews, hiring partner network and a structured six-step career process."
+        description="SkillOrbit Academy placement support: a 7-step journey from skill assessment to job offers, with resume guidance, mocks, drives and career support."
         path="/placements"
       />
-      <PageHero
-        title="Placement Support That Follows You to Interview Day"
-        subtitle="A structured process — assessment, resume building, projects, mocks, interview prep and placement assistance — for eligible learners."
-      />
+      <PlacementDreams />
       <Stats />
       <div className="pt-8" />
-      <PlacementProcess />
+      <PlacementRoadmap />
       <Partners />
       <Projects />
       <Testimonials />
@@ -29,21 +26,3 @@ export default function Placements() {
     </>
   );
 }
-
-
-
-// import PlacementHero from "../components/placements/PlacementHero";
-// import PlacementStats from "../components/placements/PlacementStats";
-// import WhyPlacementSupport from "../components/placements/WhyPlacementSupport";
-
-// export default function Placements() {
-//   return (
-//     <main>
-//       <PlacementHero />
-
-//       {/* <PlacementStats /> */}
-
-//       <WhyPlacementSupport />
-//     </main>
-//   );
-// }

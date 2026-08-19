@@ -168,20 +168,13 @@ export default function MobileMenu({ open, onClose }) {
           "
         >
           <Button
-            to="/contact"
+            opensDemo
             variant="primary"
             size="md"
-            className="
-              w-full
-              rounded-xl
-              bg-[#FF6B00]
-              font-bold
-              text-white
-              hover:bg-[#FF7A1A]
-            "
+            className="w-full rounded-xl font-bold"
             onClick={onClose}
           >
-            Request Callback
+            Book Free Demo
           </Button>
         </div>
       </div>

@@ -66,7 +66,7 @@ const placementBenefits = [
 
 export default function WhyPlacementSupport() {
   return (
-    <section className="relative overflow-hidden bg-[#F7FAF8] py-20 md:py-28">
+    <section className="relative overflow-hidden bg-[#071313] py-20 md:py-28">
 
       {/* =========================================
           BACKGROUND DECORATION
@@ -87,26 +87,26 @@ export default function WhyPlacementSupport() {
 
           <div className="mb-4 inline-flex items-center gap-2">
 
-            <span className="h-px w-8 bg-green-500" />
+            <span className="h-px w-8 bg-[#7CFF00]/150" />
 
-            <span className="text-xs font-bold uppercase tracking-[0.18em] text-green-600">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#7CFF00]">
               More Than Training
             </span>
 
-            <span className="h-px w-8 bg-green-500" />
+            <span className="h-px w-8 bg-[#7CFF00]/150" />
 
           </div>
 
 
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
             We Prepare You for the{" "}
-            <span className="text-green-600">
+            <span className="text-[#7CFF00]">
               Real World
             </span>
           </h2>
 
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 md:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#C5D5CE] md:text-base">
             Getting a job takes more than completing a course.
             SkillOrbit combines technical learning, practical
             experience and career preparation to help you become
@@ -141,7 +141,7 @@ export default function WhyPlacementSupport() {
 
               {/* Icon */}
 
-              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-lime-300 ring-1 ring-white/10 backdrop-blur-sm">
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0d1c16]/10 text-lime-300 ring-1 ring-white/10 backdrop-blur-sm">
 
                 <BriefcaseBusiness
                   size={25}
@@ -226,7 +226,7 @@ export default function WhyPlacementSupport() {
                   delay={index * 0.06}
                 >
 
-                  <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-green-200 hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
+                  <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-[#0d1c16] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-green-200 hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
 
                     {/* Top number */}
 
@@ -238,7 +238,7 @@ export default function WhyPlacementSupport() {
 
                         <div className="absolute inset-0 rounded-xl bg-green-400/20 blur-lg opacity-0 transition duration-500 group-hover:opacity-100" />
 
-                        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-green-50 text-green-600 transition-all duration-300 group-hover:bg-green-600 group-hover:text-white">
+                        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-[#7CFF00]/15 text-[#7CFF00] transition-all duration-300 group-hover:bg-green-600 group-hover:text-white">
 
                           <Icon
                             size={20}
@@ -261,11 +261,11 @@ export default function WhyPlacementSupport() {
 
                     <div className="mt-5">
 
-                      <h3 className="font-display text-lg font-extrabold text-slate-900">
+                      <h3 className="font-display text-lg font-extrabold text-white">
                         {item.title}
                       </h3>
 
-                      <p className="mt-2 text-sm leading-6 text-slate-500">
+                      <p className="mt-2 text-sm leading-6 text-[#B7C4BE]">
                         {item.description}
                       </p>
 
@@ -274,7 +274,7 @@ export default function WhyPlacementSupport() {
 
                     {/* Hover arrow */}
 
-                    <div className="mt-5 flex items-center gap-1 text-xs font-bold text-green-600 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                    <div className="mt-5 flex items-center gap-1 text-xs font-bold text-[#7CFF00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
 
                       <span>
                         Career focused
@@ -287,7 +287,7 @@ export default function WhyPlacementSupport() {
 
                     {/* Bottom hover line */}
 
-                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-green-500 transition-all duration-500 group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#7CFF00]/150 transition-all duration-500 group-hover:w-full" />
 
                   </div>
 
@@ -310,22 +310,22 @@ export default function WhyPlacementSupport() {
           className="mt-10"
         >
 
-          <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 rounded-2xl border border-green-100 bg-white px-6 py-5 text-center shadow-sm sm:flex-row sm:text-left">
+          <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 rounded-2xl border border-green-100 bg-[#0d1c16] px-6 py-5 text-center shadow-sm sm:flex-row sm:text-left">
 
             <div>
 
-              <p className="text-sm font-extrabold text-slate-900">
+              <p className="text-sm font-extrabold text-white">
                 Your goal isn't just to finish a course.
               </p>
 
-              <p className="mt-1 text-xs leading-5 text-slate-500">
+              <p className="mt-1 text-xs leading-5 text-[#B7C4BE]">
                 It's to become confident enough to use what you learn.
               </p>
 
             </div>
 
 
-            <div className="shrink-0 rounded-xl bg-green-50 px-4 py-2.5 text-xs font-bold text-green-700">
+            <div className="shrink-0 rounded-xl bg-[#7CFF00]/15 px-4 py-2.5 text-xs font-bold text-[#7CFF00]">
               Skills → Projects → Interviews → Career
             </div>
 
@@ -348,7 +348,7 @@ function SupportPoint({ text }) {
   return (
     <div className="flex items-center gap-3">
 
-      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-lime-300">
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#0d1c16]/10 text-lime-300">
 
         <svg
           width="13"

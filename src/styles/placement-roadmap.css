@@ -1,0 +1,87 @@
+.roadmap-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.roadmap-line.is-visible {
+  transform: scaleX(1);
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.roadmap-node {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.roadmap-node.is-visible {
+  animation: roadmap-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.roadmap-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+}
+
+.roadmap-card.is-visible {
+  animation: roadmap-rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.roadmap-card--final {
+  box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.18), 0 12px 32px rgba(22, 163, 74, 0.12);
+}
+
+.roadmap-card--final.is-active,
+.roadmap-card--final:hover,
+.roadmap-card--final:focus-within {
+  box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.35), 0 0 36px rgba(22, 163, 74, 0.22), 0 18px 40px rgba(17, 24, 39, 0.08);
+}
+
+@keyframes roadmap-pop {
+  from {
+    transform: scale(0.72);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes roadmap-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes roadmap-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.12), 0 0 22px rgba(22, 163, 74, 0.28);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(22, 163, 74, 0.18), 0 0 30px rgba(22, 163, 74, 0.4);
+  }
+}
+
+.roadmap-node--final.is-visible {
+  animation: roadmap-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both, roadmap-glow 2.8s ease-in-out 0.6s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roadmap-line,
+  .roadmap-line.is-visible {
+    transform: none;
+    transition: none;
+  }
+
+  .roadmap-node.is-visible,
+  .roadmap-node--final.is-visible,
+  .roadmap-card.is-visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

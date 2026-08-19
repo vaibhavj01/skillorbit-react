@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <>
       <Seo title="Page Not Found" description="The page you're looking for doesn't exist." path="/404" />
-      <section className="bg-[#E7F7F0] pb-24 pt-40 text-center">
+      <section className="bg-[#071313] pb-24 pt-40 text-center">
         <Container className="max-w-md">
           <p className="font-display font-bold text-6xl text-brand-500 mb-4">404</p>
           <h1 className="font-display font-bold text-2xl text-ink mb-3">Page not found</h1>
