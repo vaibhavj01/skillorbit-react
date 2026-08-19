@@ -9,7 +9,7 @@ import {
 
 import Button from "../common/Button";
 import HeaderSearch from "./HeaderSearch";
-import AnnouncementBar from "./AnnouncementBar";
+import AnnouncementBar, { ANNOUNCEMENT_LINKS } from "./AnnouncementBar";
 import { ASSETS } from "../../data/siteConfig";
 import { CORPORATE_PROGRAMS } from "../../data/corporate";
 
@@ -18,24 +18,12 @@ import { CORPORATE_PROGRAMS } from "../../data/corporate";
 ========================================================= */
 
 const DESKTOP_NAV = [
+  { label: "Home", to: "/" },
+  { label: "All Courses", to: "/courses" },
+  { label: "About Us", to: "/about" },
+  { label: "Placement", to: "/placements" },
   {
-    label: "JOB ORIENTED COURSES",
-    to: "/courses?category=fullstack",
-  },
-  {
-    label: "IT COURSES",
-    to: "/courses",
-  },
-  {
-    label: "DESIGNING COURSES",
-    to: "/courses?category=web",
-  },
-  {
-    label: "PLACEMENT",
-    to: "/placements",
-  },
-  {
-    label: "CORPORATE COURSES",
+    label: "Corporate",
     to: "/corporate",
     children: [
       { label: "Corporate Training", to: "/corporate" },
@@ -45,7 +33,42 @@ const DESKTOP_NAV = [
       })),
     ],
   },
+  { label: "Teaching", to: "/about#teaching" },
+  { label: "Contact Us", to: "/contact" },
 ];
+
+function navPath(to = "") {
+  return to.split("#")[0] || "/";
+}
+
+function navHash(to = "") {
+  const index = to.indexOf("#");
+  return index >= 0 ? to.slice(index) : "";
+}
+
+function isNavActive(item, pathname, search, hash) {
+  const path = navPath(item.to);
+  const itemHash = navHash(item.to);
+
+  if (itemHash) {
+    return pathname === path && hash === itemHash;
+  }
+
+  if (path === "/") return pathname === "/";
+  if (path === "/about") return pathname === "/about" && hash !== "#teaching";
+  if (path === "/courses") return pathname === "/courses" || pathname.startsWith("/courses/");
+  if (path === "/placements") return pathname === "/placements";
+  if (path === "/corporate") {
+    return pathname === "/corporate" || item.children?.some((child) => pathname === child.to);
+  }
+  if (path === "/contact") return pathname === "/contact";
+
+  return (
+    pathname === item.to ||
+    `${pathname}${search}` === item.to ||
+    item.children?.some((child) => pathname === child.to)
+  );
+}
 
 export default function Header() {
   const { pathname, search, hash } = useLocation();
@@ -76,7 +99,7 @@ export default function Header() {
 
       setScrolled(currentY > 20);
 
-      if (announcementOpen || headerOpen) {
+      if (announcementOpen || headerOpen || window.innerWidth < 1024) {
         setNavHidden(false);
         lastScrollY.current = currentY;
         return;
@@ -122,16 +145,7 @@ export default function Header() {
   ]);
 
   /* =========================================================
-     OPEN LEFT ANNOUNCEMENT DRAWER
-  ========================================================= */
-
-  const openAnnouncement = () => {
-    setHeaderOpen(false);
-    setAnnouncementOpen(true);
-  };
-
-  /* =========================================================
-     OPEN RIGHT MAIN NAV DRAWER
+     OPEN MAIN NAV DRAWER
   ========================================================= */
 
   const openHeaderDrawer = () => {
@@ -179,7 +193,7 @@ export default function Header() {
           top-10
           z-50
           hidden
-          md:block
+          lg:block
           transition-all
           duration-300
           ease-out
@@ -187,8 +201,8 @@ export default function Header() {
         `}
         style={{
           background: scrolled
-            ? "rgba(255,255,255,0.94)"
-            : "rgba(255,255,255,0.78)",
+            ? "rgba(7,19,19,0.94)"
+            : "rgba(7,19,19,0.78)",
 
           backdropFilter: "blur(16px)",
 
@@ -196,10 +210,10 @@ export default function Header() {
             "blur(16px)",
 
           borderBottom:
-            "1px solid rgba(35,159,74,0.12)",
+            "1px solid rgba(124,255,0,0.18)",
 
           boxShadow: scrolled
-            ? "0 8px 30px rgba(7,19,19,0.08)"
+            ? "0 8px 30px rgba(0,0,0,0.35)"
             : "none",
         }}
       >
@@ -232,8 +246,12 @@ export default function Header() {
               src={ASSETS.logo}
               alt="SkillOrbit Academy"
               className="
-                w-[155px]
+                w-[138px]
                 object-contain
+                brightness-0
+                invert
+                drop-shadow-[0_0_10px_rgba(124,255,0,0.35)]
+                xl:w-[155px]
               "
             />
           </Link>
@@ -252,11 +270,7 @@ export default function Header() {
             aria-label="Primary navigation"
           >
             {DESKTOP_NAV.map((item) => {
-              const current = `${pathname}${search}`;
-              const active =
-                pathname === item.to ||
-                current === item.to ||
-                item.children?.some((child) => pathname === child.to);
+              const active = isNavActive(item, pathname, search, hash);
 
               if (item.children?.length) {
                 return (
@@ -269,16 +283,20 @@ export default function Header() {
                         gap-1
                         whitespace-nowrap
                         rounded-lg
-                        px-3
+                        px-2
                         py-3
-                        text-[14px]
+                        text-[12px]
                         font-semibold
+                        xl:px-2.5
+                        xl:text-[13px]
+                        2xl:px-3
+                        2xl:text-[14px]
                         transition-all
                         duration-200
                         ${
                           active
-                            ? "bg-[#7CFF00]/15 text-[#239F4A]"
-                            : "text-[#071313] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                            ? "bg-[#7CFF00]/15 text-[#7CFF00]"
+                            : "text-white hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
                         }
                       `}
                     >
@@ -307,7 +325,7 @@ export default function Header() {
                         group-focus-within:opacity-100
                       "
                     >
-                      <div className="overflow-hidden rounded-xl border border-[#35D0A5]/20 bg-white py-2 shadow-[0_16px_40px_rgba(7,19,19,0.12)]">
+                      <div className="overflow-hidden rounded-xl border border-[#7CFF00]/20 bg-[#0d1c16] py-2 shadow-[0_16px_40px_rgba(0,0,0,0.45)]">
                         {item.children.map((child) => (
                           <Link
                             key={child.to}
@@ -321,8 +339,8 @@ export default function Header() {
                               transition
                               ${
                                 pathname === child.to
-                                  ? "bg-[#7CFF00]/15 text-[#239F4A]"
-                                  : "text-[#071313] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                                  ? "bg-[#7CFF00]/15 text-[#7CFF00]"
+                                  : "text-white hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
                               }
                             `}
                           >
@@ -342,16 +360,20 @@ export default function Header() {
                   className={`
                     whitespace-nowrap
                     rounded-lg
-                    px-3
+                    px-2
                     py-3
-                    text-[14px]
+                    text-[12px]
                     font-semibold
+                    xl:px-2.5
+                    xl:text-[13px]
+                    2xl:px-3
+                    2xl:text-[14px]
                     transition-all
                     duration-200
                     ${
                       active
-                        ? "bg-[#7CFF00]/15 text-[#239F4A]"
-                        : "text-[#071313] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                        ? "bg-[#7CFF00]/15 text-[#7CFF00]"
+                        : "text-white hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
                     }
                   `}
                 >
@@ -368,7 +390,7 @@ export default function Header() {
               Use default desktop variant here.
           ================================================== */}
 
-          <div className="hidden xl:block">
+          <div className="hidden 2xl:block">
             <HeaderSearch />
           </div>
 
@@ -377,26 +399,15 @@ export default function Header() {
           ================================================== */}
 
           <Button
-            to="/contact"
+            opensDemo
             variant="primary"
             size="sm"
             className="
               shrink-0
               rounded-xl
-
-              bg-[#071313]
-              px-5
-
+              px-4
               font-bold
-              text-[#7CFF00]
-
-              transition-all
-              duration-300
-
-              hover:bg-[#239F4A]
-              hover:text-white
-
-              hover:shadow-[0_8px_25px_rgba(35,159,74,0.25)]
+              xl:px-5
             "
           >
             Book Free Demo
@@ -407,9 +418,9 @@ export default function Header() {
       {/* =====================================================
           MOBILE HEADER
 
-          LEFT   = AnnouncementBar
+          LEFT   = Main navigation
           CENTER = SkillOrbit Logo
-          RIGHT  = Main Header Navigation
+          RIGHT  = Book Free Demo
       ====================================================== */}
 
       <header
@@ -426,9 +437,9 @@ export default function Header() {
           justify-between
 
           border-b
-          border-[#35D0A5]/20
+          border-[#7CFF00]/20
 
-          bg-white/90
+          bg-[#071313]/92
 
           px-3
 
@@ -440,41 +451,34 @@ export default function Header() {
           duration-300
           ease-out
 
-          md:hidden
-
-          ${navHidden ? "-translate-y-full" : "translate-y-0"}
+          lg:hidden
         `}
       >
         {/* =================================================
             LEFT HAMBURGER
-            Opens AnnouncementBar
+            Opens main navigation
         ================================================== */}
 
         <button
           type="button"
-          aria-label="Open announcements"
-          onClick={openAnnouncement}
+          aria-label="Open main navigation"
+          onClick={openHeaderDrawer}
           className="
             flex
-            h-10
-            w-10
+            h-11
+            w-11
             items-center
             justify-center
-
             rounded-xl
-
-            text-[#239F4A]
-
+            text-[#7CFF00]
             transition-all
             duration-200
-
             hover:bg-[#7CFF00]/10
-
             active:scale-95
           "
         >
           <Menu
-            size={23}
+            size={24}
             strokeWidth={2.5}
           />
         </button>
@@ -496,57 +500,35 @@ export default function Header() {
             src={ASSETS.logo}
             alt="SkillOrbit Academy"
             className="
-              w-[125px]
+              w-[108px]
               object-contain
+              brightness-0
+              invert
+              drop-shadow-[0_0_8px_rgba(124,255,0,0.35)]
+              min-[380px]:w-[125px]
             "
           />
         </Link>
 
         {/* =================================================
-            RIGHT ARROW
-            Opens MAIN HEADER NAVIGATION
+            RIGHT CTA
         ================================================== */}
 
-        <button
-          type="button"
-          aria-label="Open main navigation"
-          onClick={openHeaderDrawer}
-          className="
-            flex
-            h-10
-            w-10
-            items-center
-            justify-center
-
-            rounded-xl
-
-            text-[#239F4A]
-
-            transition-all
-            duration-200
-
-            hover:bg-[#7CFF00]/10
-
-            active:scale-95
-          "
+        <Button
+          opensDemo
+          variant="primary"
+          size="sm"
+          className="relative z-10 h-11 min-h-11 shrink-0 rounded-lg px-3 text-xs font-bold min-[380px]:px-3.5 min-[380px]:text-sm"
         >
-          <ArrowRight
-            size={23}
-            strokeWidth={2.5}
-          />
-        </button>
+          <span className="min-[380px]:hidden">Demo</span>
+          <span className="hidden min-[380px]:inline">Free Demo</span>
+        </Button>
       </header>
 
       {/* =====================================================
           RIGHT SIDE MAIN NAVIGATION DRAWER — MOBILE
 
-          Contains ONLY:
-
-          JOB ORIENTED COURSES
-          IT COURSES
-          DESIGNING COURSES
-          PLACEMENT
-          CORPORATE COURSES
+          Contains the main site navigation
       ====================================================== */}
 
       <div
@@ -554,7 +536,7 @@ export default function Header() {
           fixed
           inset-0
           z-[80]
-          md:hidden
+          lg:hidden
 
           ${
             headerOpen
@@ -573,7 +555,7 @@ export default function Header() {
             absolute
             inset-0
 
-            bg-[#071313]/40
+            bg-[#071313]/70
 
             backdrop-blur-[3px]
 
@@ -592,22 +574,20 @@ export default function Header() {
         <aside
           className="
             absolute
-            right-0
+            left-0
             top-0
             bottom-0
 
             flex
-            w-[82%]
-            max-w-[340px]
-            min-w-[270px]
+            w-[min(92vw,340px)]
 
             flex-col
 
             overflow-hidden
 
-            bg-white
+            bg-[#0d1c16]
 
-            shadow-[-12px_0_40px_rgba(7,19,19,0.20)]
+            shadow-[12px_0_40px_rgba(0,0,0,0.45)]
 
             transition-transform
             duration-300
@@ -616,7 +596,7 @@ export default function Header() {
           style={{
             transform: headerOpen
               ? "translateX(0)"
-              : "translateX(100%)",
+              : "translateX(-100%)",
           }}
         >
           {/* =================================================
@@ -632,9 +612,9 @@ export default function Header() {
               justify-between
 
               bg-gradient-to-r
-              from-[#35D0A5]
-              via-[#29C3BE]
-              to-[#1FB8D2]
+              from-[#063F2A]
+              via-[#087A3E]
+              to-[#239F4A]
 
               px-5
             "
@@ -672,8 +652,8 @@ export default function Header() {
               aria-label="Close navigation"
               className="
                 flex
-                h-9
-                w-9
+                h-11
+                w-11
                 items-center
                 justify-center
 
@@ -726,7 +706,7 @@ export default function Header() {
                 uppercase
                 tracking-[0.2em]
 
-                text-[#239F4A]
+                text-[#7CFF00]
               "
             >
               Main Navigation
@@ -740,11 +720,7 @@ export default function Header() {
 
             <div className="space-y-1.5">
               {DESKTOP_NAV.map((item) => {
-                const current = `${pathname}${search}`;
-                const active =
-                  pathname === item.to ||
-                  current === item.to ||
-                  item.children?.some((child) => pathname === child.to);
+                const active = isNavActive(item, pathname, search, hash);
 
                 return (
                   <div key={item.label}>
@@ -766,8 +742,8 @@ export default function Header() {
                         active:scale-[0.98]
                         ${
                           active
-                            ? "bg-[#7CFF00]/15 text-[#239F4A]"
-                            : "text-[#071313] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                            ? "bg-[#7CFF00]/15 text-[#7CFF00]"
+                            : "text-white hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
                         }
                       `}
                     >
@@ -775,12 +751,12 @@ export default function Header() {
                       <ArrowRight
                         size={17}
                         strokeWidth={2.5}
-                        className="shrink-0 text-[#239F4A] transition-transform duration-200 group-hover:translate-x-1"
+                        className="shrink-0 text-[#7CFF00] transition-transform duration-200 group-hover:translate-x-1"
                       />
                     </Link>
 
                     {item.children?.length ? (
-                      <div className="mb-2 ml-3 mt-1 space-y-1 border-l border-[#35D0A5]/25 pl-3">
+                      <div className="mb-2 ml-3 mt-1 space-y-1 border-l border-[#7CFF00]/25 pl-3">
                         {item.children.map((child) => (
                           <Link
                             key={child.to}
@@ -788,15 +764,16 @@ export default function Header() {
                             onClick={closeHeaderDrawer}
                             className={`
                               block
+                              min-h-11
                               rounded-lg
                               px-3
-                              py-2
+                              py-3
                               text-[13px]
                               font-semibold
                               ${
                                 pathname === child.to
-                                  ? "bg-[#7CFF00]/15 text-[#239F4A]"
-                                  : "text-[#365F6E] hover:bg-[#7CFF00]/10 hover:text-[#239F4A]"
+                                  ? "bg-[#7CFF00]/15 text-[#7CFF00]"
+                                  : "text-[#C5D5CE] hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
                               }
                             `}
                           >
@@ -809,6 +786,22 @@ export default function Header() {
                 );
               })}
             </div>
+
+            <p className="mb-2 mt-6 px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#7CFF00]">
+              More
+            </p>
+            <div className="grid grid-cols-2 gap-1.5">
+              {ANNOUNCEMENT_LINKS.filter((link) => !["Corporate", "Contact Us"].includes(link.label)).map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={closeHeaderDrawer}
+                  className="rounded-lg px-3 py-3 text-[13px] font-semibold text-[#C5D5CE] hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </nav>
 
           {/* =================================================
@@ -820,43 +813,23 @@ export default function Header() {
               shrink-0
 
               border-t
-              border-[#35D0A5]/15
+              border-[#7CFF00]/15
 
-              bg-[#F5FFFB]
+              bg-[#071313]
 
               p-4
+              pb-[max(1rem,env(safe-area-inset-bottom))]
             "
           >
-            <Link
-              to="/contact"
+            <Button
+              opensDemo
+              variant="primary"
+              size="md"
               onClick={closeHeaderDrawer}
-              className="
-                flex
-                w-full
-                items-center
-                justify-center
-
-                rounded-xl
-
-                bg-[#071313]
-
-                px-5
-                py-3.5
-
-                text-sm
-                font-bold
-
-                text-[#7CFF00]
-
-                transition-all
-                duration-200
-
-                hover:bg-[#239F4A]
-                hover:text-white
-              "
+              className="w-full rounded-xl font-bold"
             >
               Book Free Demo
-            </Link>
+            </Button>
           </div>
         </aside>
       </div>

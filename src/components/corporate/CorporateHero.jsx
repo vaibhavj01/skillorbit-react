@@ -17,7 +17,7 @@ export default function CorporateHero() {
 
       <Container className="relative z-10">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <h1 className="font-roboto text-4xl font-black tracking-tight text-white sm:text-5xl md:text-6xl">
+          <h1 className="font-roboto text-[1.65rem] font-black tracking-tight text-white sm:text-5xl md:text-6xl">
             Corporate Training
           </h1>
           <p className="mt-4 text-lg text-white sm:text-xl">

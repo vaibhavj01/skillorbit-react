@@ -11,17 +11,29 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 html,
 body,
 #root {
   min-height: 100%;
-  overflow-x: hidden;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
-  @apply font-body text-ink bg-[#E7F7F0] antialiased;
+  @apply font-body text-ink-light bg-[#071313] antialiased;
+  background-image:
+    radial-gradient(circle at 18% 8%, rgba(35, 159, 74, 0.18), transparent 36%),
+    radial-gradient(circle at 88% 92%, rgba(124, 255, 0, 0.07), transparent 32%);
+  background-attachment: scroll;
+}
+
+@media (min-width: 1024px) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 ::selection {
@@ -36,7 +48,14 @@ body {
 
 section[id],
 main[id] {
-  scroll-margin-top: 120px;
+  scroll-margin-top: 72px;
+}
+
+@media (min-width: 1024px) {
+  section[id],
+  main[id] {
+    scroll-margin-top: 120px;
+  }
 }
 
 
@@ -353,17 +372,54 @@ main[id] {
   }
 }
 
+@media (max-width: 430px) {
+  .testimonial-stage {
+    height: 320px;
+  }
+
+  .testimonial-cover {
+    width: min(390px, calc(100vw - 2rem));
+  }
+
+  .testimonial-cover-card {
+    padding: 20px 14px;
+  }
+
+  .testimonial-cover.offset-1,
+  .testimonial-cover.offset--1,
+  .testimonial-cover.offset-2,
+  .testimonial-cover.offset--2 {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .so-backdrop__nebula,
+  .so-backdrop__ring {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .so-orbit-item,
+  .so-orbit-ring,
+  .animate-ping {
+    animation: none !important;
+  }
+}
+
 
 /* =========================================================
    COURSE CATEGORY FILTER
 ========================================================= */
 
 .course-filter-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 12px;
-  scrollbar-width: auto;
-  scrollbar-color: #239f4a #cfeedd;
+  overflow-x: visible;
+  overflow-y: visible;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #7cff00 #0d1c16;
 }
 
 .course-filter-scroll::-webkit-scrollbar {
@@ -578,4 +634,56 @@ main[id] {
 .rm-node--leaf .rm-node__label {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   DEMO MODAL
+========================================================= */
+
+@keyframes demo-modal-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes demo-modal-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.demo-modal-open .demo-modal-backdrop {
+  animation: demo-modal-backdrop-in 0.22s ease-out both;
+}
+
+.demo-modal-open .demo-modal-panel {
+  animation: demo-modal-panel-in 0.24s ease-out both;
+}
+
+.demo-modal-closing .demo-modal-backdrop,
+.demo-modal-closing .demo-modal-panel {
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.demo-modal-closing .demo-modal-panel {
+  transform: translateY(12px) scale(0.98);
+}
+
+@media (max-width: 639px) {
+  @keyframes demo-modal-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

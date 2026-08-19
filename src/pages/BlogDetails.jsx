@@ -23,8 +23,8 @@ export default function BlogDetails() {
   return (
     <>
       <Seo title={post.title} description={post.excerpt} path={`/blog/${post.slug}`} />
-      <div className="relative overflow-hidden bg-[#E7F7F0] pb-20 pt-28">
-        <OrbitBackdrop variant="mint" />
+      <div className="relative overflow-hidden bg-[#071313] pb-20 pt-28">
+        <OrbitBackdrop variant="night" />
         <Container className="relative z-10 max-w-3xl">
           <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-semibold mb-8 text-brand-700">
             <ArrowLeft size={16} /> Back to Resources

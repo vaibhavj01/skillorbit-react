@@ -1,18 +1,20 @@
-import { Link } from "react-router-dom";
+import { useDemoModal } from "../../context/DemoModalContext";
 import Reveal from "../common/Reveal";
 import Container from "../common/Container";
 
 export default function CTASection() {
+  const { openDemo } = useDemoModal();
+
   return (
-    <section id="demo" className="relative overflow-hidden bg-[#071313] px-5 py-16 md:px-8 md:py-20">
+    <section id="demo" className="relative overflow-hidden bg-[#071313] px-4 pb-16 pt-12 sm:px-5 md:px-8 md:pb-24 md:pt-20">
       <Container>
         <Reveal>
           <div
             className="
-              relative mx-auto max-w-5xl overflow-hidden rounded-[28px]
-              border border-[#7CFF00]/35 px-6 py-14 text-center
+              relative mx-auto max-w-5xl overflow-hidden rounded-[22px]
+              border border-[#7CFF00]/35 px-4 py-10 text-center
               shadow-[0_0_40px_rgba(124,255,0,0.08)]
-              sm:px-12 sm:py-16
+              sm:rounded-[28px] sm:px-12 sm:py-16
             "
             style={{
               background:
@@ -23,7 +25,7 @@ export default function CTASection() {
               Ready to start your Career?
             </p>
 
-            <h2 className="font-roboto text-[28px] font-black leading-tight text-white sm:text-4xl md:text-5xl">
+            <h2 className="font-roboto text-[1.5rem] font-black leading-snug text-white sm:text-4xl md:text-5xl">
               Book Your{" "}
               <span className="relative inline-block text-[#7CFF00]">
                 Free Demo
@@ -32,17 +34,18 @@ export default function CTASection() {
               Class Today!
             </h2>
 
-            <Link
-              to="/contact"
+            <button
+              type="button"
+              onClick={() => openDemo()}
               className="
-                mt-8 inline-flex h-12 items-center justify-center rounded-full
-                bg-white px-8 text-sm font-black uppercase tracking-[0.08em] text-[#071313]
+                mt-6 inline-flex min-h-12 w-full max-w-full items-center justify-center rounded-full
+                bg-white px-5 text-[13px] font-black uppercase tracking-[0.06em] text-[#071313]
                 transition-transform hover:-translate-y-0.5 hover:bg-[#7CFF00]
-                sm:h-14 sm:px-10 sm:text-[15px]
+                sm:mt-8 sm:h-14 sm:w-auto sm:px-10 sm:text-[15px]
               "
             >
               Reserve My Seat Now
-            </Link>
+            </button>
           </div>
         </Reveal>
       </Container>

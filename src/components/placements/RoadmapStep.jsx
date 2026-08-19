@@ -14,7 +14,7 @@ export default function RoadmapStep({
     return (
       <li className="relative pl-10">
         <span
-          className={`absolute left-0 top-1 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 bg-white text-[11px] font-bold ${
+          className={`absolute left-0 top-1 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 bg-[#0d1c16] text-[11px] font-bold ${
             featured
               ? "border-[#16A34A] bg-[#16A34A] text-white roadmap-node--final"
               : "border-[#16A34A] text-[#15803D]"
@@ -29,7 +29,7 @@ export default function RoadmapStep({
           onMouseLeave={onDeactivate}
           onFocus={onActivate}
           onBlur={onDeactivate}
-          className={`roadmap-card rounded-2xl border bg-white p-5 outline-none ${
+          className={`roadmap-card rounded-2xl border bg-[#0d1c16] p-5 outline-none ${
             featured ? "roadmap-card--final border-[#16A34A]/30" : "border-[#E5E7EB]"
           } ${active ? "is-active -translate-y-0.5 border-[#16A34A] shadow-[0_16px_36px_rgba(17,24,39,0.08)]" : ""} ${
             visible ? "is-visible" : "opacity-0"
@@ -50,7 +50,7 @@ export default function RoadmapStep({
         onMouseLeave={onDeactivate}
         onFocus={onActivate}
         onBlur={onDeactivate}
-        className={`roadmap-card group flex h-full flex-col rounded-2xl border bg-white p-5 outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A]/40 ${
+        className={`roadmap-card group flex h-full flex-col rounded-2xl border bg-[#0d1c16] p-5 outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A]/40 ${
           featured ? "roadmap-card--final border-[#16A34A]/35" : "border-[#E5E7EB]"
         } ${
           active
@@ -76,7 +76,7 @@ function StepBody({ item, featured, active, compact = false }) {
           Final step
         </p>
       ) : null}
-      <h3 className="font-grotesk text-base font-bold text-[#111827]">{item.title}</h3>
+      <h3 className="font-grotesk text-base font-bold text-white">{item.title}</h3>
       <p className={`mt-2 text-sm leading-6 text-[#4B5563] ${compact ? "" : "min-h-[72px]"}`}>
         {item.description}
       </p>

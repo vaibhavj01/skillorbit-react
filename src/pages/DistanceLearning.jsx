@@ -6,7 +6,6 @@ import SectionHeading from "../components/common/SectionHeading";
 import Reveal from "../components/common/Reveal";
 import Button from "../components/common/Button";
 import CourseGrid from "../components/courses/CourseGrid";
-import LearningModels from "../components/home/LearningModels";
 import FAQ from "../components/home/FAQ";
 import CTASection from "../components/home/CTASection";
 import { courses } from "../data/courses";
@@ -37,8 +36,8 @@ export default function DistanceLearning() {
         subtitle="Structured content, mentor check-ins and career guidance — designed for professionals and students who can't attend daily classroom sessions."
       />
 
-      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
-        <OrbitBackdrop variant="mint" />
+      <section className="relative overflow-hidden bg-[#071313] py-16 md:py-20">
+        <OrbitBackdrop variant="night" />
         <Container className="relative z-10">
           <SectionHeading eyebrow="Why Distance Learning" title="Built for Real Life, Not Just a Classroom" align="left" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -57,8 +56,8 @@ export default function DistanceLearning() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
-        <OrbitBackdrop variant="mint" />
+      <section className="relative overflow-hidden bg-[#071313] py-16 md:py-20">
+        <OrbitBackdrop variant="night" />
         <Container className="relative z-10">
           <SectionHeading eyebrow="Programs" title="Available in Distance Learning" subtitle="These programs currently support the Distance Learning mode." />
           <CourseGrid courses={fallbackCourses} />
@@ -68,7 +67,6 @@ export default function DistanceLearning() {
         </Container>
       </section>
 
-      <LearningModels />
       <FAQ />
       <CTASection />
     </>

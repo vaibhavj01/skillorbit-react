@@ -33,6 +33,7 @@ export default function HeaderSearch({ variant = "desktop" }) {
 
             return (
               course.name?.toLowerCase().includes(searchText) ||
+              course.shortTitle?.toLowerCase().includes(searchText) ||
               course.category?.toLowerCase().includes(searchText) ||
               (course.technologies || []).some((tech) =>
                 tech.toLowerCase().includes(searchText)
@@ -84,8 +85,8 @@ export default function HeaderSearch({ variant = "desktop" }) {
           items-center
           rounded-xl
           border
-          border-[#35D0A5]/30
-          bg-white
+          border-[#7CFF00]/30
+          bg-[#0d1c16]
 
           transition-all
           duration-300
@@ -114,10 +115,10 @@ export default function HeaderSearch({ variant = "desktop" }) {
           strokeWidth={2}
           className="
             shrink-0
-            text-[#239F4A]
+            text-[#7CFF00]
             transition-colors
             duration-200
-            group-focus-within:text-[#35D0A5]
+            group-focus-within:text-[#7CFF00]
           "
         />
 
@@ -138,14 +139,14 @@ export default function HeaderSearch({ variant = "desktop" }) {
             min-w-0
             flex-1
             bg-transparent
-            text-[#071313]
+            text-white
             outline-none
 
-            placeholder:text-[#55727C]
+            placeholder:text-[#8AA0A8]
 
             ${
               isMobile
-                ? "ml-1.5 text-sm"
+                ? "ml-1.5 text-base sm:text-sm"
                 : "ml-2 text-sm"
             }
           `}
@@ -168,7 +169,7 @@ export default function HeaderSearch({ variant = "desktop" }) {
               text-[#55727C]
               transition-colors
               duration-200
-              hover:text-[#239F4A]
+              hover:text-[#7CFF00]
             "
           >
             <X size={isMobile ? 12 : 14} />
@@ -189,9 +190,9 @@ export default function HeaderSearch({ variant = "desktop" }) {
             overflow-hidden
             rounded-xl
             border
-            border-[#35D0A5]/20
-            bg-white
-            shadow-[0_15px_40px_rgba(7,19,19,0.15)]
+            border-[#7CFF00]/20
+            bg-[#0d1c16]
+            shadow-[0_15px_40px_rgba(0,0,0,0.45)]
 
             ${
               isMobile
@@ -263,9 +264,9 @@ export default function HeaderSearch({ variant = "desktop" }) {
                     <span
                       className={`
                         font-bold
-                        text-[#071313]
+                        text-white
                         transition-colors
-                        group-hover:text-[#239F4A]
+                        group-hover:text-[#7CFF00]
 
                         ${
                           isMobile
@@ -281,7 +282,7 @@ export default function HeaderSearch({ variant = "desktop" }) {
 
                     <span
                       className={`
-                        text-[#55727C]
+                        text-[#8AA0A8]
 
                         ${
                           isMobile

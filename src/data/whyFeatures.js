@@ -59,7 +59,7 @@ export const whyFeatures = [
     id: 8,
     number: "08",
     icon: "🌐",
-    title: "Online Learning",
+    title: "Online & Offline",
     text: "Learn through flexible online and offline modes.",
     to: "/distance-learning",
   },

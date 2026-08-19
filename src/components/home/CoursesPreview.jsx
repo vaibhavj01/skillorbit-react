@@ -28,6 +28,7 @@ export default function CoursesPreview() {
         const matchesSearch =
           !search ||
           course.name?.toLowerCase().includes(search) ||
+          course.shortTitle?.toLowerCase().includes(search) ||
           course.title?.toLowerCase().includes(search) ||
           (course.technologies || []).some((technology) =>
             technology.toLowerCase().includes(search)
@@ -49,14 +50,14 @@ export default function CoursesPreview() {
       className="
         relative
         overflow-hidden
-        bg-[#E7F7F0]
-        py-16
+        bg-[#071313]
+        py-12
         sm:py-20
         md:py-24
         lg:py-28
       "
     >
-      <OrbitBackdrop variant="mint" />
+      <OrbitBackdrop variant="night" />
 
       {/* =====================================================
           CONTENT
@@ -64,19 +65,13 @@ export default function CoursesPreview() {
 
       <Container className="relative z-10">
 
-        {/* =================================================
-            SECTION HEADING
-        ================================================== */}
-
         <Reveal>
           <div className="text-center">
-
             <SectionHeading
               eyebrow="Programs"
               title="Learn Skills That Companies Need"
               subtitle="Industry-focused technology programs for students, freshers, working professionals and career switchers. Click any course to view full details."
             />
-
           </div>
         </Reveal>
 
@@ -127,20 +122,20 @@ export default function CoursesPreview() {
                   w-full
                   rounded-2xl
                   border
-                  border-[#35D0A5]/25
-                  bg-[#F3FBF7]
+                  border-[#7CFF00]/25
+                  bg-[#0d1c16]
                   pl-14
                   pr-5
                   text-[15px]
-                  text-[#16324F]
+                  text-white
                   outline-none
                   transition-all
                   duration-300
-                  placeholder:text-[#718096]
+                  placeholder:text-[#8AA0A8]
 
-                  focus:border-[#0F9D78]
+                  focus:border-[#7CFF00]
                   focus:ring-4
-                  focus:ring-[#0F9D78]/10
+                  focus:ring-[#7CFF00]/15
                 "
               />
 
@@ -153,7 +148,7 @@ export default function CoursesPreview() {
             CATEGORY FILTER
         ================================================== */}
 
-        <Reveal delay={0.08}>
+        <Reveal delay={0.08} className="hidden sm:block">
           <div className="mt-8 sm:mt-10">
 
             <CourseFilter
@@ -178,8 +173,8 @@ export default function CoursesPreview() {
                 className="
                   rounded-2xl
                   border
-                  border-[#35D0A5]/20
-                  bg-[#F3FBF7]
+                  border-[#7CFF00]/20
+                  bg-[#0d1c16]
                   px-6
                   py-16
                   text-center
@@ -189,7 +184,7 @@ export default function CoursesPreview() {
                   className="
                     text-xl
                     font-bold
-                    text-[#16324F]
+                    text-white
                   "
                 >
                   No courses found
@@ -228,12 +223,12 @@ export default function CoursesPreview() {
             variant="outline"
             size="md"
             className="
-              border-[#0F9D78]/40
-              text-[#0F9D78]
+              border-[#7CFF00]/40
+              text-[#7CFF00]
 
-              hover:border-[#0F9D78]
-              hover:bg-[#0F9D78]
-              hover:text-white
+              hover:border-[#7CFF00]
+              hover:bg-[#7CFF00]
+              hover:text-[#071313]
             "
           >
             View All Courses

@@ -6,7 +6,7 @@ import "../../styles/placement-dreams.css";
 
 export default function PlacementDreams() {
   return (
-    <section className="relative overflow-hidden bg-[#071313] pb-16 pt-28 md:pb-20 md:pt-36">
+    <section className="relative overflow-hidden bg-[#071313] pb-12 pt-20 sm:pb-16 sm:pt-28 md:pb-20 md:pt-36">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -23,7 +23,7 @@ export default function PlacementDreams() {
             Placement support
           </p>
 
-          <h1 className="max-w-xl font-roboto text-[34px] font-black uppercase leading-[1.05] tracking-tight sm:text-5xl md:text-[56px]">
+          <h1 className="max-w-xl font-roboto text-[1.65rem] font-black uppercase leading-[1.15] tracking-tight sm:text-5xl md:text-[56px]">
             <span className="text-[#7CFF00]">Learn the stack</span>
             <span className="mt-2 block text-white">build the proof</span>
             <span className="mt-3 block w-fit border-b-2 border-[#7CFF00] pb-2 text-[#7CFF00]">
@@ -37,10 +37,10 @@ export default function PlacementDreams() {
             Baner, Hinjawadi, and Wakad.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               to="/contact"
-              className="inline-flex h-12 items-center gap-2 rounded-xl bg-[#7CFF00] px-5 text-sm font-black text-[#071313] transition hover:-translate-y-0.5 hover:bg-[#E7FF00]"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#7CFF00] px-5 text-sm font-black text-[#071313] transition hover:-translate-y-0.5 hover:bg-[#E7FF00] sm:w-auto"
             >
               <GraduationCap size={18} />
               Registration
@@ -48,7 +48,7 @@ export default function PlacementDreams() {
             </Link>
             <Link
               to="/reviews"
-              className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/20 px-5 text-sm font-bold text-white transition hover:border-[#7CFF00] hover:text-[#7CFF00]"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-white/20 px-5 text-sm font-bold text-white transition hover:border-[#7CFF00] hover:text-[#7CFF00] sm:w-auto"
             >
               Testimonial
               <Zap size={16} className="text-[#7CFF00]" fill="currentColor" />

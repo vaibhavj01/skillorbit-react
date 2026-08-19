@@ -12,7 +12,7 @@ const CREDENTIALS = [
 
 export default function CertificateHero() {
   return (
-    <section className="relative overflow-hidden bg-[#071313] pb-16 pt-28 md:pb-20 md:pt-36">
+    <section className="relative overflow-hidden bg-[#071313] pb-12 pt-20 md:pb-20 md:pt-36">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -29,7 +29,7 @@ export default function CertificateHero() {
             Industry-Recognized Credentials
           </p>
 
-          <h1 className="mb-5 max-w-xl font-roboto text-[34px] font-black uppercase leading-[1.05] tracking-tight text-[#7CFF00] sm:text-5xl md:text-[56px]">
+          <h1 className="mb-4 max-w-xl font-roboto text-[1.65rem] font-black uppercase leading-[1.15] tracking-tight text-[#7CFF00] sm:mb-5 sm:text-5xl md:text-[56px]">
             Go confidently toward your dreams
           </h1>
 
@@ -75,14 +75,12 @@ export default function CertificateHero() {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 overflow-hidden rounded-[28px] border-[3px] border-[#7CFF00] p-1.5 shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
-            <div className="overflow-hidden rounded-[22px] border border-[#7CFF00]/50">
-              <img
-                src="/assets/images/certificate-graduate.png"
-                alt="SkillOrbit graduate holding a certificate of achievement"
-                className="h-[380px] w-full object-cover object-[center_20%] sm:h-[440px]"
-              />
-            </div>
+          <div className="relative z-10 overflow-hidden rounded-[22px] border-[3px] border-[#7CFF00] bg-white p-1.5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:rounded-[28px] sm:p-2">
+            <img
+              src="/assets/images/course-certificate.png"
+              alt="Sample SkillOrbit Academy course certificate of completion"
+              className="h-auto w-full rounded-[16px] object-contain sm:rounded-[22px]"
+            />
           </div>
 
           <span className="absolute -bottom-4 -right-2 z-20 flex h-14 w-14 items-center justify-center rounded-full border-4 border-[#071313] bg-[#7CFF00] text-[#071313] shadow-lg sm:h-16 sm:w-16">

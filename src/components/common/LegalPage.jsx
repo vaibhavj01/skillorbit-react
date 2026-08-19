@@ -8,8 +8,8 @@ export default function LegalPage({ title, sections }) {
   return (
     <>
       <PageHero title={title} subtitle="Please read carefully. This is a concise policy summary for our static site." />
-      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
-        <OrbitBackdrop variant="mint" />
+      <section className="relative overflow-hidden bg-[#071313] py-16 md:py-20">
+        <OrbitBackdrop variant="night" />
         <Container className="relative z-10 max-w-2xl">
           {sections.map((s) => (
             <Reveal key={s.heading} className="mb-8">
@@ -19,8 +19,8 @@ export default function LegalPage({ title, sections }) {
           ))}
           <p className="text-sm text-ink-muted pt-4 border-t border-line">
             Questions? Contact{" "}
-            <a href={`mailto:${CONTACT.email}`} className="text-brand-700 underline decoration-dotted">{CONTACT.email}</a>{" "}
-            or call <a href={CONTACT.phoneHref} className="text-brand-700 underline decoration-dotted">{CONTACT.phoneDisplay}</a>.
+            <a href={`mailto:${CONTACT.email}`} className="text-[#7CFF00] underline decoration-dotted">{CONTACT.email}</a>{" "}
+            or call <a href={CONTACT.phoneHref} className="text-[#7CFF00] underline decoration-dotted">{CONTACT.phoneDisplay}</a>.
           </p>
         </Container>
       </section>

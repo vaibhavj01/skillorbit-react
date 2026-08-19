@@ -57,24 +57,23 @@ export const STATS = [
 
 export const NAV_LINKS = [
   { label: "Home", to: "/" },
-  { label: "Courses", to: "/courses" },
-  { label: "Placements", to: "/placements" },
-  { label: "Corporate Training", to: "/corporate" },
-  { label: "Distance Learning", to: "/distance-learning" },
+  { label: "All Courses", to: "/courses" },
   { label: "About Us", to: "/about" },
-  { label: "Resources", to: "/blog" },
-  { label: "Contact", to: "/contact" },
+  { label: "Placement", to: "/placements" },
+  { label: "Corporate", to: "/corporate" },
+  { label: "Teaching", to: "/about#teaching" },
+  { label: "Contact Us", to: "/contact" },
 ];
 
 
 export const FOOTER_LINKS = {
   SkillOrbit: [
-    { label: "About", to: "/about" },
-    { label: "Placements", to: "/placements" },
-    { label: "Courses", to: "/courses" },
-    { label: "Corporate Training", to: "/corporate" },
-    { label: "Distance Learning", to: "/distance-learning" },
-    { label: "Contact", to: "/contact" },
+    { label: "About Us", to: "/about" },
+    { label: "Teaching", to: "/about#teaching" },
+    { label: "All Courses", to: "/courses" },
+    { label: "Placement", to: "/placements" },
+    { label: "Corporate", to: "/corporate" },
+    { label: "Contact Us", to: "/contact" },
   ],
 
   Learning: [

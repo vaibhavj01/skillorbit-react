@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Search } from "lucide-react";
 import Seo from "../components/common/Seo";
 import Container from "../components/common/Container";
-import SectionHeading from "../components/common/SectionHeading";
+import Button from "../components/common/Button";
 import CourseFilter from "../components/courses/CourseFilter";
 import CourseGrid from "../components/courses/CourseGrid";
 import { CATEGORIES, courses, orderCourses } from "../data/courses";
@@ -29,6 +29,7 @@ export default function Courses() {
         const matchesQuery =
           !query.trim() ||
           c.name.toLowerCase().includes(query.toLowerCase()) ||
+          (c.shortTitle || "").toLowerCase().includes(query.toLowerCase()) ||
           (c.technologies || []).some((t) => t.toLowerCase().includes(query.toLowerCase()));
         return matchesCategory && matchesQuery;
       }),
@@ -42,17 +43,29 @@ export default function Courses() {
         description="Browse SkillOrbit Academy's full catalog of IT training programs across full stack development, testing, cloud, data science and more."
         path="/courses"
       />
-      <section className="relative overflow-hidden bg-[#E7F7F0] pb-20 pt-32 md:pb-28 md:pt-40">
-        <OrbitBackdrop variant="mint" />
+      <section className="relative overflow-hidden bg-[#071313] pb-16 pt-20 md:pb-28 md:pt-40">
+        <OrbitBackdrop variant="night" />
         <Container className="relative z-10">
-          <SectionHeading
-            eyebrow="Programs"
-            title="All Courses"
-            subtitle="Filter by category or search to find the right program for your goals. Click any course to view full details."
-          />
+          <div className="mb-8 text-center sm:mb-12">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-[#7CFF00]">
+              Programs
+            </p>
+            <h1 className="font-display text-[1.65rem] font-bold leading-snug text-white sm:text-4xl">
+              All Courses
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#C5D5CE]">
+              Filter by category or search to find the right program for your goals.
+              Click any course to view full details.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <Button opensDemo variant="primary" size="md" className="w-full sm:w-auto">
+                Book Free Demo
+              </Button>
+            </div>
+          </div>
 
           <div className="max-w-md mx-auto mb-8">
-            <div className="flex h-12 items-center gap-2 rounded-xl border border-[#35D0A5]/25 bg-[#F3FBF7] px-4">
+            <div className="flex h-12 items-center gap-2 rounded-xl border border-[#7CFF00]/25 bg-[#0d1c16] px-4">
               <Search size={16} className="text-ink-muted shrink-0" />
               <input
                 type="search"
@@ -60,7 +73,7 @@ export default function Courses() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by course or technology…"
                 aria-label="Search courses"
-                className="w-full bg-transparent outline-none text-sm placeholder:text-ink-muted"
+                className="w-full bg-transparent outline-none text-base text-white placeholder:text-ink-muted sm:text-sm"
               />
             </div>
           </div>

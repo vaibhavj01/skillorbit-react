@@ -4,7 +4,7 @@ export default function Select({ error, className = "", children, ...props }) {
   return (
     <div className="relative">
       <select
-        className={`h-12 w-full appearance-none rounded-xl border px-4 pr-10 text-sm outline-none transition-colors bg-white focus:border-brand-500 ${
+        className={`h-12 w-full appearance-none rounded-xl border px-4 pr-10 text-base outline-none transition-colors bg-[#0d1c16] text-white focus:border-[#7CFF00] sm:text-sm ${
           error ? "border-[#D92D20]" : "border-line"
         } ${className}`}
         {...props}

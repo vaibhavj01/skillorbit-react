@@ -15,7 +15,7 @@ export default function PlacementRoadmap() {
     <section
       id="placements"
       ref={ref}
-      className="relative overflow-hidden bg-[#F6FBF7] py-20 md:py-28"
+      className="relative overflow-hidden bg-[#0d1c16] py-20 md:py-28"
     >
       <Container className="relative z-10">
         <RoadmapHeader />

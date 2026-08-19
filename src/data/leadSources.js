@@ -8,6 +8,7 @@ export const LEAD_SOURCES = {
   CSR: "CSR",
   REFERRAL: "Referral",
   FEEDBACK: "Feedback",
+  GENAI_PROMO: "Data Analytics + GenAI Promo",
 };
 
 export const LEAD_SOURCE_LIST = Object.values(LEAD_SOURCES);

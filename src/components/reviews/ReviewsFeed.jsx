@@ -76,7 +76,7 @@ export default function ReviewsFeed() {
                 </span>
               </div>
 
-              <article className="rounded-2xl bg-white p-5 sm:p-6">
+              <article className="rounded-2xl border border-[#7CFF00]/15 bg-[#0d1c16] p-5 sm:p-6">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <span
@@ -86,11 +86,11 @@ export default function ReviewsFeed() {
                       {initial(active.name)}
                     </span>
                     <div>
-                      <p className="font-roboto text-sm font-black text-[#071313]">{active.name}</p>
-                      <p className="text-xs text-[#365F6E]">{active.date}</p>
+                      <p className="font-roboto text-sm font-black text-white">{active.name}</p>
+                      <p className="text-xs text-[#C5D5CE]">{active.date}</p>
                     </div>
                   </div>
-                  <span className="rounded-md bg-[#E7F7F0] px-2 py-1 text-[10px] font-black uppercase tracking-wide text-[#087A3E]">
+                  <span className="rounded-md bg-[#071313] px-2 py-1 text-[10px] font-black uppercase tracking-wide text-[#7CFF00]">
                     {active.platform}
                   </span>
                 </div>
@@ -102,21 +102,21 @@ export default function ReviewsFeed() {
 
                 <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-[#087A3E]">Course</dt>
-                    <dd className="font-semibold text-[#071313]">{active.course}</dd>
+                    <dt className="text-xs font-bold uppercase tracking-wide text-[#7CFF00]">Course</dt>
+                    <dd className="font-semibold text-white">{active.course}</dd>
                   </div>
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-[#087A3E]">Campus</dt>
-                    <dd className="font-semibold text-[#071313]">{active.campus}</dd>
+                    <dt className="text-xs font-bold uppercase tracking-wide text-[#7CFF00]">Campus</dt>
+                    <dd className="font-semibold text-white">{active.campus}</dd>
                   </div>
                 </dl>
 
-                <p className="mt-4 text-sm leading-7 text-[#365F6E]">{body}</p>
+                <p className="mt-4 text-sm leading-7 text-[#C5D5CE]">{body}</p>
                 {long ? (
                   <button
                     type="button"
                     onClick={() => setExpanded((value) => !value)}
-                    className="mt-2 text-sm font-bold text-[#087A3E]"
+                    className="mt-2 text-sm font-bold text-[#7CFF00]"
                   >
                     {expanded ? "Show less" : "Read more"}
                   </button>

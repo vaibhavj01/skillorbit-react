@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight, Users } from "lucide-react";
 import Container from "../common/Container";
 import { courses, getCourseCover } from "../../data/courses";
+import { useDemoModal } from "../../context/DemoModalContext";
 
 const FEATURED_IDS = [
   "java-fullstack",
@@ -24,6 +25,7 @@ function learnersFor(id) {
 export default function DemandCoursesCarousel() {
   const scroller = useRef(null);
   const [active, setActive] = useState(0);
+  const { openDemo } = useDemoModal();
 
   const featured = useMemo(
     () => FEATURED_IDS.map((id) => courses.find((course) => course.id === id)).filter(Boolean),
@@ -40,7 +42,7 @@ export default function DemandCoursesCarousel() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#071313] py-16 md:py-20">
+    <section className="relative overflow-hidden bg-[#071313] py-16 pb-20 md:py-20 md:pb-24">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -51,7 +53,7 @@ export default function DemandCoursesCarousel() {
       />
 
       <Container className="relative z-10">
-        <h2 className="mb-10 text-center font-roboto text-3xl font-black text-white md:text-4xl">
+        <h2 className="mb-8 text-center font-roboto text-[1.5rem] font-black text-white sm:mb-10 md:text-4xl">
           Explore Other <span className="text-[#7CFF00]">Demanding</span> Courses
         </h2>
 
@@ -90,11 +92,11 @@ export default function DemandCoursesCarousel() {
                     : "border-white/20 hover:border-[#7CFF00] hover:shadow-[0_0_28px_rgba(124,255,0,0.18)]"}
                 `}
               >
-                <div className="relative h-[230px] overflow-hidden">
+                <div className="relative h-[200px] overflow-hidden sm:h-[230px]">
                   <img
                     src={getCourseCover(course)}
                     alt=""
-                    className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover object-center opacity-80 transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071313] via-[#071313]/55 to-black/20" />
                   <div className="absolute inset-x-0 bottom-0 px-5 pb-4 text-center">
@@ -116,18 +118,19 @@ export default function DemandCoursesCarousel() {
                   </Link>
                 </div>
 
-                <div className="flex items-center justify-between border-t border-white/15 px-4 py-3">
-                  <p className="flex items-center gap-2 text-[12px] font-semibold text-white">
-                    <Users size={15} className="text-[#7CFF00]" />
+                <div className="flex flex-col gap-2 border-t border-white/15 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="flex min-w-0 items-center gap-2 text-[12px] font-semibold text-white">
+                    <Users size={15} className="shrink-0 text-[#7CFF00]" />
                     <span className="text-[#7CFF00]">{learnersFor(course.id)}</span>
-                    <span className="text-white/80">Learning Today</span>
+                    <span className="truncate text-white/80">Learning Today</span>
                   </p>
-                  <Link
-                    to="/contact"
-                    className="rounded-full bg-[#7CFF00] px-3.5 py-1.5 text-[11px] font-extrabold text-[#071313] transition hover:bg-[#E7FF00]"
+                  <button
+                    type="button"
+                    onClick={() => openDemo(course.id)}
+                    className="shrink-0 self-start rounded-full bg-[#7CFF00] px-3.5 py-1.5 text-[11px] font-extrabold text-[#071313] transition hover:bg-[#E7FF00] sm:self-auto"
                   >
                     Enroll Now
-                  </Link>
+                  </button>
                 </div>
               </article>
             ))}

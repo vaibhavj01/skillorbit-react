@@ -10,48 +10,18 @@ export default function Hero() {
     <section
       id="home"
       className="
-          relative
-           overflow-hidden
-        py-20
-        sm:py-24
-        md:py-28
-        lg:py-32
-
-        bg-[#F8FCF8]
+        relative
+        overflow-hidden
+        bg-[#071313]
         font-roboto
-
-        /* =========================
-           MOBILE
-        ========================== */
-
-        pt-16
-        pb-10
-
-        /* =========================
-           SMALL TABLET
-        ========================== */
-
-        sm:pt-20
+        pt-20
+        pb-8
+        sm:pt-24
         sm:pb-12
-
-        /* =========================
-           TABLET
-        ========================== */
-
-        md:pt-20
+        md:pt-28
         md:pb-14
-
-        /* =========================
-           LAPTOP
-        ========================== */
-
         lg:pt-16
         lg:pb-16
-
-        /* =========================
-           LARGE DESKTOP
-        ========================== */
-
         xl:pt-20
         xl:pb-20
       "
@@ -60,7 +30,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 72% 46%, rgba(80,180,80,0.10), transparent 45%), radial-gradient(circle at 18% 20%, rgba(53,208,165,0.07), transparent 36%), #F8FCF8",
+            "radial-gradient(circle at 18% 12%, rgba(35,159,74,0.22), transparent 38%), radial-gradient(circle at 88% 78%, rgba(124,255,0,0.08), transparent 34%)",
         }}
         aria-hidden="true"
       />
@@ -131,8 +101,8 @@ export default function Hero() {
 
               rounded-full
               border
-              border-[#239F4A]/20
-              bg-white/70
+              border-[#7CFF00]/25
+              bg-[#7CFF00]/10
 
               px-3
               py-1.5
@@ -142,7 +112,7 @@ export default function Hero() {
               uppercase
               tracking-[0.14em]
 
-              text-[#087A3E]
+              text-[#7CFF00]
 
               backdrop-blur-sm
 
@@ -169,52 +139,34 @@ export default function Hero() {
 
           <h1
             className="
-              mb-5
-
+              mb-4
               max-w-3xl
-
               font-roboto
               font-black
-
-              leading-[0.98]
-              tracking-[-0.04em]
-
-              text-[#071313]
-
-              /* Mobile */
-
-              text-[40px]
-
-              /* Small mobile */
-
-              sm:text-[46px]
-
-              /* Tablet */
-
+              leading-[1.12]
+              tracking-[-0.03em]
+              text-white
+              text-[1.75rem]
+              sm:mb-5
+              sm:text-[2.5rem]
+              sm:leading-[1.08]
               md:text-[56px]
-
-              /* Laptop */
-
               lg:text-[55px]
-
-              /* Large desktop */
-
               xl:text-[66px]
-
               2xl:text-[70px]
             "
           >
 
             Build Skills.
-            <br />
-
+            <br className="hidden sm:block" />
+            {" "}
             Build Careers.
             <br />
 
             <span
               className="
-                text-[#239F4A]
-                drop-shadow-[0_2px_10px_rgba(35,159,74,0.10)]
+                text-[#7CFF00]
+                drop-shadow-[0_2px_18px_rgba(124,255,0,0.35)]
               "
             >
               Build Your Future.
@@ -229,21 +181,16 @@ export default function Hero() {
 
           <p
             className="
-              mb-6
-
+              mb-5
               max-w-xl
-
-              text-[13px]
+              text-[15px]
               font-medium
               leading-6
-
-              text-[#365F6E]
-
+              text-[#C5D5CE]
+              sm:mb-6
               sm:text-sm
               sm:leading-7
-
               md:text-base
-              md:leading-7
 
               lg:text-[15px]
 
@@ -265,12 +212,11 @@ export default function Hero() {
 
           <div
             className="
-              mb-5
-
+              mb-3
               flex
               flex-col
               gap-2.5
-
+              sm:mb-5
               sm:flex-row
               sm:flex-wrap
               sm:gap-3
@@ -278,9 +224,10 @@ export default function Hero() {
           >
 
             <Button
-              to="/contact"
+              opensDemo
               variant="primary"
-              size="lg"
+              size="md"
+              className="group w-full sm:w-auto sm:h-14 sm:px-8 sm:text-base"
             >
               Book Free Demo
 
@@ -299,7 +246,8 @@ export default function Hero() {
             <Button
               to="/courses"
               variant="outline"
-              size="lg"
+              size="md"
+              className="w-full sm:w-auto sm:h-14 sm:px-8 sm:text-base"
             >
               Explore Courses
             </Button>
@@ -316,15 +264,13 @@ export default function Hero() {
               flex
               flex-wrap
               items-center
-              gap-2
-
-              text-[11px]
+              gap-x-3
+              gap-y-1
+              text-[12px]
               font-medium
-
-              text-[#365F6E]
-
+              leading-5
+              text-[#C5D5CE]
               sm:text-xs
-
               md:text-sm
             "
           >
@@ -333,22 +279,19 @@ export default function Hero() {
               to="/#batches"
               className="
                 font-semibold
-                text-[#087A3E]
-
+                text-[#7CFF00]
                 underline
                 decoration-dotted
                 underline-offset-4
-
                 transition-colors
-
-                hover:text-[#063F2A]
+                hover:text-[#C5D5CE]
               "
             >
               View Upcoming Batches
             </Link>
 
 
-            <span className="text-[#087A3E]/50">
+            <span className="hidden text-[#7CFF00]/50 sm:inline">
               ·
             </span>
 
@@ -356,16 +299,15 @@ export default function Hero() {
             <Link
               to="/distance-learning"
               className="
+                hidden
                 font-semibold
-                text-[#087A3E]
-
+                text-[#7CFF00]
                 underline
                 decoration-dotted
                 underline-offset-4
-
                 transition-colors
-
-                hover:text-[#063F2A]
+                hover:text-[#C5D5CE]
+                sm:inline
               "
             >
               Explore Distance Learning
@@ -384,54 +326,23 @@ export default function Hero() {
           delay={0.15}
           className="
             relative
-
+            mt-2
             flex
+            w-full
             items-center
             justify-center
-
-            /* =========================
-               MOBILE
-            ========================== */
-
-            mt-2
-
-            /* =========================
-               SMALL TABLET
-            ========================== */
-
             sm:mt-3
-
-            /* =========================
-               TABLET
-            ========================== */
-
             md:mt-0
-
-            /* =========================
-               DESKTOP
-            ========================== */
-
             lg:-translate-y-5
-
-            /* =========================
-               LARGE DESKTOP
-            ========================== */
-
             xl:-translate-y-7
           "
         >
-
-          {/* =================================================
-              ORBIT CONTAINER
-          ================================================== */}
-
           <div
             className="
               relative
               w-full
+              max-w-[280px]
               overflow-visible
-
-              max-w-[300px]
               sm:max-w-[380px]
               md:max-w-[460px]
               lg:max-w-[540px]
@@ -439,11 +350,8 @@ export default function Hero() {
               2xl:max-w-[640px]
             "
           >
-
             <HeroOrbit />
-
           </div>
-
         </Reveal>
 
       </Container>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { X, ChevronRight } from "lucide-react";
 
-const ANNOUNCEMENT_LINKS = [
+export const ANNOUNCEMENT_LINKS = [
   { label: "Certificate", to: "/certificates" },
   { label: "Webinar", to: "/webinar" },
   { label: "Corporate", to: "/corporate" },
@@ -32,7 +32,7 @@ export default function AnnouncementBar({
           z-[60]
           hidden
           h-10
-          md:block
+          lg:block
           transition-transform
           duration-300
           ease-out
@@ -77,7 +77,7 @@ export default function AnnouncementBar({
                   duration-200
 
                   hover:bg-[#7CFF00]
-                  hover:text-[#06352C]
+                  hover:text-[#071313]
                   hover:shadow-[0_0_16px_rgba(124,255,0,0.45)]
                 "
               >
@@ -95,7 +95,7 @@ export default function AnnouncementBar({
           fixed
           inset-0
           z-[90]
-          md:hidden
+          lg:hidden
           ${mobileOpen ? "pointer-events-auto" : "pointer-events-none"}
         `}
       >
@@ -122,7 +122,7 @@ export default function AnnouncementBar({
             w-[88%]
             max-w-[360px]
             flex-col
-            bg-[#F4FFF8]
+            bg-[#0d1c16]
             shadow-2xl
             transition-transform
             duration-300
@@ -164,7 +164,7 @@ export default function AnnouncementBar({
                 justify-center
                 rounded-full
                 bg-[#7CFF00]
-                text-[#06352C]
+                text-[#071313]
                 transition-all
                 duration-200
                 hover:bg-[#E7FF00]
@@ -187,23 +187,23 @@ export default function AnnouncementBar({
                     justify-between
                     rounded-xl
                     border
-                    border-[#35D0A5]/15
-                    bg-white
+                    border-[#7CFF00]/20
+                    bg-[#071313]
                     px-4
                     py-3.5
                     text-sm
                     font-semibold
-                    text-[#063F2A]
-                    shadow-[0_4px_12px_rgba(6,63,42,0.04)]
+                    text-white
+                    shadow-none
                     transition-all
                     duration-200
                     hover:border-[#7CFF00]
                     hover:bg-[#7CFF00]/15
-                    hover:text-[#087A3E]
+                    hover:text-[#7CFF00]
                   "
                 >
                   <span>{item.label}</span>
-                  <ChevronRight size={17} className="text-[#239F4A]" />
+                  <ChevronRight size={17} className="text-[#7CFF00]" />
                 </Link>
               ))}
             </nav>

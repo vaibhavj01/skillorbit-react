@@ -5,10 +5,10 @@ export default function RoadmapInclusions({ variant = "dark" }) {
   const isDark = variant === "dark";
 
   return (
-    <div className={isDark ? "text-white" : "text-[#071313]"}>
+    <div className={isDark ? "text-white" : "text-white"}>
       <p
         className={`mb-2 text-center text-xs font-bold uppercase tracking-[0.18em] ${
-          isDark ? "text-[#7CFF00]" : "text-[#087A3E]"
+          isDark ? "text-[#7CFF00]" : "text-[#7CFF00]"
         }`}
       >
         Included with every SkillOrbit roadmap
@@ -24,7 +24,7 @@ export default function RoadmapInclusions({ variant = "dark" }) {
             className={`rounded-2xl border p-5 ${
               isDark
                 ? "border-white/10 bg-white/5"
-                : "border-[#35D0A5]/20 bg-white shadow-[0_10px_28px_rgba(6,63,42,0.06)]"
+                : "border-[#7CFF00]/20 bg-[#0d1c16] shadow-card"
             }`}
           >
             <h3 className={`mb-4 text-sm font-extrabold ${isDark ? "text-[#7CFF00]" : "text-[#239F4A]"}`}>
@@ -38,7 +38,7 @@ export default function RoadmapInclusions({ variant = "dark" }) {
                     className={`mt-0.5 shrink-0 ${isDark ? "text-[#7CFF00]" : "text-[#239F4A]"}`}
                     strokeWidth={2.8}
                   />
-                  <span className={isDark ? "text-white/80" : "text-[#365F6E]"}>{item}</span>
+                  <span className={isDark ? "text-white/80" : "text-[#C5D5CE]"}>{item}</span>
                 </li>
               ))}
             </ul>

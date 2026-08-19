@@ -28,11 +28,11 @@ export default function Blog() {
       />
       <PageHero title="Career & Learning Insights" subtitle="Guides and tips for choosing courses, building projects and landing your first IT role." />
 
-      <section className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-24">
-        <OrbitBackdrop variant="mint" />
+      <section className="relative overflow-hidden bg-[#071313] py-16 md:py-24">
+        <OrbitBackdrop variant="night" />
         <Container className="relative z-10">
           <div className="max-w-md mx-auto mb-8">
-            <div className="flex h-12 items-center gap-2 rounded-xl border border-[#35D0A5]/25 bg-[#F3FBF7] px-4">
+            <div className="flex h-12 items-center gap-2 rounded-xl border border-[#7CFF00]/25 bg-[#0d1c16] px-4">
               <Search size={16} className="text-ink-muted shrink-0" />
               <input
                 type="search"
@@ -53,7 +53,7 @@ export default function Blog() {
                   key={cat}
                   onClick={() => setCategory(cat)}
                   className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
-                    isActive ? "bg-ink text-brand-400 border-transparent" : "bg-[#F3FBF7] text-ink-light border-[#35D0A5]/25"
+                    isActive ? "bg-ink text-brand-400 border-transparent" : "bg-[#0d1c16] text-ink-light border-[#7CFF00]/25"
                   }`}
                 >
                   {cat}

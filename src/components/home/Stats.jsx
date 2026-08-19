@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import {
   Users,
   Handshake,
@@ -11,11 +10,7 @@ import {
 import useScrollReveal from "../../hooks/useScrollReveal";
 import useCounter from "../../hooks/useCounter";
 import { STATS } from "../../data/siteConfig";
-
-
-/* =========================================================
-   ICON CONFIG
-========================================================= */
+import { useDemoModal } from "../../context/DemoModalContext";
 
 const statIcons = {
   students: Users,
@@ -25,390 +20,100 @@ const statIcons = {
   experts: UserRoundCheck,
 };
 
-
-/* =========================================================
-   STAT ITEM
-========================================================= */
-
 function StatItem({ stat, index }) {
   const [ref, visible] = useScrollReveal(0.3);
-
-  const value = useCounter(
-    stat.value,
-    visible
-  );
-
-  const Icon =
-    statIcons[stat.key] || Award;
-
+  const value = useCounter(stat.value, visible);
+  const Icon = statIcons[stat.key] || Award;
+  const isLast = index === STATS.length - 1;
+  const isLeftCol = index % 2 === 0 && !isLast;
 
   return (
     <div
       ref={ref}
       className={`
-        group
-        flex
-        min-w-0
-        flex-1
-        items-center
-        gap-2.5
-
-        px-3
-        py-4
-
-        sm:px-4
-        sm:gap-3
-
-        lg:px-3
-        xl:px-4
-
-        transition-all
-        duration-300
-
-        ${
-          index !== STATS.length - 1
-            ? "border-b border-white/[0.08] sm:border-b-0 lg:border-r"
-            : ""
-        }
+        group flex min-w-0 items-center gap-2 px-2.5 py-3
+        sm:gap-3 sm:px-4 sm:py-4
+        md:justify-center lg:col-span-1 lg:flex-1 lg:px-3 xl:px-4
+        ${isLast ? "col-span-2 justify-center lg:justify-center" : ""}
+        ${isLeftCol ? "border-r border-white/[0.08]" : ""}
+        ${index < 4 ? "border-b border-white/[0.08]" : ""}
+        ${isLast ? "lg:border-r-0" : "lg:border-r lg:border-b-0"}
       `}
     >
-
-      {/* =====================================================
-          ICON
-      ===================================================== */}
-
       <div
         className="
-          flex
-          h-9
-          w-9
-          shrink-0
-          items-center
-          justify-center
-
-          rounded-full
-
-          border
-          border-green-500/25
-
-          bg-green-500/[0.08]
-
-          text-green-400
-
-          transition-all
-          duration-300
-
-          group-hover:border-green-400/50
-          group-hover:bg-green-500/15
-          group-hover:text-green-300
-          group-hover:scale-105
-
-          sm:h-10
-          sm:w-10
+          flex h-8 w-8 shrink-0 items-center justify-center rounded-full
+          border border-[#7CFF00]/30 bg-[#7CFF00]/10 text-[#7CFF00]
+          sm:h-10 sm:w-10 lg:h-11 lg:w-11
         "
       >
-
-        <Icon
-          size={18}
-          strokeWidth={1.8}
-        />
-
+        <Icon size={15} strokeWidth={1.8} className="sm:hidden" />
+        <Icon size={18} strokeWidth={1.8} className="hidden sm:block" />
       </div>
-
-
-      {/* =====================================================
-          TEXT
-      ===================================================== */}
 
       <div className="min-w-0">
-
-        {/* Number */}
-
-        <div
-          className="
-            flex
-            items-baseline
-            leading-none
-          "
-        >
-
-          <span
-            className="
-              font-display
-              text-[22px]
-              font-extrabold
-              tracking-tight
-              text-white
-
-              sm:text-[24px]
-
-              lg:text-[23px]
-
-              xl:text-[25px]
-            "
-          >
+        <div className="flex items-baseline leading-none">
+          <span className="font-display text-[18px] font-extrabold tracking-tight text-white sm:text-[24px] lg:text-[23px] xl:text-[25px]">
             {value.toLocaleString("en-IN")}
           </span>
-
-
-          <span
-            className="
-              ml-0.5
-              text-[18px]
-              font-extrabold
-              text-green-400
-
-              sm:text-[19px]
-
-              lg:text-[18px]
-
-              xl:text-[20px]
-            "
-          >
+          <span className="ml-0.5 text-[14px] font-extrabold text-[#7CFF00] sm:text-[19px] lg:text-[18px] xl:text-[20px]">
             {stat.suffix}
           </span>
-
         </div>
-
-
-        {/* Label */}
-
-        <p
-          className="
-            mt-1
-            truncate
-
-            text-[8px]
-            font-bold
-            uppercase
-            tracking-[0.08em]
-
-            text-slate-400
-
-            sm:text-[9px]
-
-            lg:text-[8px]
-
-            xl:text-[9px]
-          "
-        >
+        <p className="mt-0.5 text-[9px] font-bold uppercase leading-snug tracking-[0.04em] text-[#B7C4BE] sm:mt-1 sm:text-[11px] lg:text-[10px] xl:text-[11px]">
           {stat.label}
         </p>
-
       </div>
-
     </div>
   );
 }
 
-
-/* =========================================================
-   MAIN STATS BAR
-========================================================= */
-
 export default function Stats() {
+  const { openDemo } = useDemoModal();
 
   return (
-
-    <section
-      className="
-        relative
-        z-20
-
-        -mt-6
-        px-4
-
-        bg-[#35D0A5]
-
-        sm:-mt-8
-        sm:px-6
-
-        lg:-mt-9
-        lg:px-8
-      "
-    >
-
-      {/* ===================================================
-          CONTAINER
-      ==================================================== */}
-
-      <div
-        className="
-          mx-auto
-          w-full
-
-          max-w-[1320px]
-        "
-      >
-
-        {/* =================================================
-            STATS BAR
-        ================================================= */}
-
+    <section className="relative z-20 -mt-4 bg-[#071313] px-3 sm:-mt-8 sm:px-6 lg:-mt-9 lg:px-8">
+      <div className="mx-auto w-full max-w-[1320px]">
         <div
           className="
-            relative
-            overflow-hidden
-
-            rounded-[1.5rem]
-
-            border
-            border-white/[0.10]
-
-            bg-[#080909]
-
-            shadow-[0_20px_60px_rgba(0,0,0,0.28)]
-
-            lg:rounded-full
+            relative overflow-hidden rounded-2xl border border-white/[0.10]
+            bg-[#080909] shadow-[0_20px_60px_rgba(0,0,0,0.28)]
+            sm:rounded-[1.5rem] lg:rounded-full
           "
         >
-
-          {/* =================================================
-              TOP GREEN GLOW
-          ================================================= */}
-
           <div
-            className="
-              pointer-events-none
-              absolute
-              left-[15%]
-              right-[15%]
-              top-0
-              h-px
-
-              bg-gradient-to-r
-              from-transparent
-              via-green-400/70
-              to-transparent
-
-              blur-[1px]
-            "
+            className="pointer-events-none absolute left-[15%] right-[15%] top-0 h-px bg-gradient-to-r from-transparent via-[#7CFF00]/70 to-transparent blur-[1px]"
           />
 
-
-          {/* =================================================
-              CONTENT
-          ================================================= */}
-
-          <div
-            className="
-              flex
-              flex-col
-
-              lg:flex-row
-              lg:items-center
-            "
-          >
-
-            {/* =================================================
-                STATS
-            ================================================= */}
-
-            <div
-              className="
-                grid
-                grid-cols-2
-
-                sm:grid-cols-3
-
-                lg:flex
-                lg:flex-1
-              "
-            >
-
+          <div className="flex flex-col lg:flex-row lg:items-center">
+            <div className="grid grid-cols-2 lg:flex lg:flex-1">
               {STATS.map((stat, index) => (
-
-                <StatItem
-                  key={stat.key}
-                  stat={stat}
-                  index={index}
-                />
-
+                <StatItem key={stat.key} stat={stat} index={index} />
               ))}
-
             </div>
 
-
-            {/* =================================================
-                CTA
-            ================================================= */}
-
-            <div
-              className="
-                border-t
-                border-white/[0.08]
-
-                p-2.5
-
-                lg:border-l
-                lg:border-t-0
-
-                lg:p-2
-              "
-            >
-
-              <Link
-                to="/contact"
+            <div className="hidden border-t border-white/[0.08] p-3 lg:block lg:border-l lg:border-t-0 lg:p-2">
+              <button
+                type="button"
+                onClick={() => openDemo()}
                 className="
-                  group
-
-                  flex
-                  h-11
-
-                  items-center
-                  justify-center
-                  gap-2
-
-                  rounded-full
-
-                  bg-green-500
-
-                  px-6
-
-                  text-[10px]
-                  font-extrabold
-                  uppercase
-                  tracking-[0.08em]
-
-                  text-white
-
-                  shadow-[0_8px_25px_rgba(34,197,94,0.22)]
-
-                  transition-all
-                  duration-300
-
-                  hover:bg-green-400
-
-                  hover:shadow-[0_10px_30px_rgba(34,197,94,0.32)]
-
-                  sm:text-xs
-
-                  lg:min-w-[150px]
+                  group flex h-11 min-w-[150px] items-center justify-center gap-2 rounded-full
+                  bg-[#7CFF00] px-5 text-xs font-extrabold uppercase tracking-[0.06em]
+                  text-[#071313] shadow-[0_8px_25px_rgba(124,255,0,0.22)]
+                  transition-all duration-300 hover:bg-[#E7FF00]
+                  hover:shadow-[0_10px_30px_rgba(124,255,0,0.32)]
                 "
               >
-
                 Book Free Demo
-
                 <ArrowRight
                   size={14}
-                  className="
-                    transition-transform
-                    duration-300
-
-                    group-hover:translate-x-1
-                  "
+                  className="transition-transform duration-300 group-hover:translate-x-1"
                 />
-
-              </Link>
-
+              </button>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

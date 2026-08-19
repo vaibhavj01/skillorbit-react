@@ -54,8 +54,8 @@ function IconField({ icon: Icon, error, children }) {
 }
 
 const fieldClass = (error) =>
-  `h-11 w-full rounded-lg border bg-white pl-11 pr-4 text-sm text-[#071313] outline-none transition-colors placeholder:text-[#8AA0A8] focus:border-[#239F4A] ${
-    error ? "border-[#D92D20]" : "border-[#D7E4DC]"
+  `h-11 w-full rounded-lg border bg-[#071313] pl-11 pr-4 text-sm text-white outline-none transition-colors placeholder:text-[#8AA0A8] focus:border-[#7CFF00] ${
+    error ? "border-[#D92D20]" : "border-white/10"
   }`;
 
 export default function GetMeJobLead() {
@@ -142,7 +142,7 @@ export default function GetMeJobLead() {
         className="
           fixed left-0 top-1/2 z-40 hidden -translate-y-1/2 sm:flex
           items-center gap-2 rounded-r-xl bg-[#7CFF00] px-4 py-3
-          font-extrabold text-[#06352C]
+          font-extrabold text-[#071313]
           shadow-[0_0_25px_rgba(124,255,0,0.30)]
           transition-all duration-300
           hover:bg-[#E7FF00] hover:px-6 hover:shadow-[0_0_35px_rgba(124,255,0,0.45)]
@@ -175,22 +175,22 @@ export default function GetMeJobLead() {
             aria-labelledby="callback-title"
             className="
               relative z-10 grid max-h-[92vh] w-full max-w-[920px] overflow-hidden
-              rounded-2xl bg-white shadow-[0_30px_80px_rgba(6,63,42,0.28)]
+              rounded-2xl bg-[#0d1c16] shadow-[0_30px_80px_rgba(0,0,0,0.45)]
               md:grid-cols-[0.92fr_1.08fr]
             "
           >
             <aside
               className="
                 relative hidden overflow-hidden md:flex md:flex-col
-                bg-[linear-gradient(180deg,#F3FBF6_0%,#E3F6EA_48%,#D4F0DE_100%)]
+                bg-[linear-gradient(180deg,#0a1a14_0%,#071313_48%,#063F2A_100%)]
               "
             >
               <div className="relative z-10 px-8 pt-8">
-                <h2 className="max-w-[280px] font-roboto text-[22px] font-black uppercase leading-snug tracking-tight text-[#071313]">
+                <h2 className="max-w-[280px] font-roboto text-[22px] font-black uppercase leading-snug tracking-tight text-white">
                   Looking for courses that lead to real job opportunities?
                 </h2>
 
-                <p className="mt-5 flex items-center gap-2.5 font-roboto text-[22px] font-black text-[#071313]">
+                <p className="mt-5 flex items-center gap-2.5 font-roboto text-[22px] font-black text-white">
                   <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#239F4A] text-white">
                     <Briefcase size={18} />
                   </span>
@@ -201,7 +201,8 @@ export default function GetMeJobLead() {
 
               <div className="relative mt-2 flex min-h-[280px] flex-1 items-end justify-center px-2">
                 <img
-                  src="/assets/images/placeholders/certificate.svg"
+                  src="/assets/images/course-certificate.png"
+                  alt="SkillOrbit course certificate of completion"
                   alt=""
                   className="absolute left-4 top-6 h-36 w-auto rotate-[-8deg] rounded-md shadow-lg ring-1 ring-white/70"
                 />
@@ -214,14 +215,14 @@ export default function GetMeJobLead() {
 
               <ul className="relative z-10 space-y-1.5 px-8 pb-3">
                 {["Affordable Learning", "Career Guidance", "Course Curriculum Details"].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm font-semibold text-[#071313]">
+                  <li key={item} className="flex items-center gap-2 text-sm font-semibold text-white">
                     <ChevronsRight size={16} className="text-[#239F4A]" />
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <p className="px-8 pb-4 text-[13px] italic text-[#365F6E]">
+              <p className="px-8 pb-4 text-[13px] italic text-[#C5D5CE]">
                 Take The First Step Toward A Brighter Career.
               </p>
 
@@ -230,7 +231,7 @@ export default function GetMeJobLead() {
               </div>
             </aside>
 
-            <div className="relative flex min-h-0 flex-col overflow-y-auto bg-white px-5 py-6 sm:px-8 sm:py-8">
+            <div className="relative flex min-h-0 flex-col overflow-y-auto bg-[#0d1c16] px-5 py-6 sm:px-8 sm:py-8">
               <button
                 ref={closeRef}
                 type="button"
@@ -244,8 +245,8 @@ export default function GetMeJobLead() {
                 <X size={16} />
               </button>
 
-              <div className="mb-5 rounded-xl bg-[#E7F7F0] px-4 py-3 md:hidden">
-                <p className="font-roboto text-sm font-black uppercase leading-snug text-[#071313]">
+              <div className="mb-5 rounded-xl bg-[#071313] px-4 py-3 md:hidden">
+                <p className="font-roboto text-sm font-black uppercase leading-snug text-white">
                   Looking for courses that lead to real job opportunities?
                 </p>
                 <p className="mt-1 text-xs font-semibold text-[#239F4A]">
@@ -264,8 +265,8 @@ export default function GetMeJobLead() {
               {status === "success" ? (
                 <div className="flex flex-1 flex-col items-center justify-center py-10 text-center">
                   <CheckCircle2 size={42} className="mb-3 text-[#239F4A]" />
-                  <p className="font-roboto text-lg font-black text-[#071313]">Request received</p>
-                  <p className="mt-2 max-w-sm text-sm text-[#365F6E]">
+                  <p className="font-roboto text-lg font-black text-white">Request received</p>
+                  <p className="mt-2 max-w-sm text-sm text-[#C5D5CE]">
                     Thank you! Your enquiry has been received. Our team will contact you shortly.
                   </p>
                   <button
@@ -278,8 +279,8 @@ export default function GetMeJobLead() {
                 </div>
               ) : status === "error" ? (
                 <div className="flex flex-1 flex-col items-center justify-center py-10 text-center">
-                  <p className="font-roboto text-lg font-black text-[#071313]">Could not save your request</p>
-                  <p className="mt-2 max-w-sm text-sm text-[#365F6E]">
+                  <p className="font-roboto text-lg font-black text-white">Could not save your request</p>
+                  <p className="mt-2 max-w-sm text-sm text-[#C5D5CE]">
                     Please try again, or WhatsApp / call SkillOrbit using the contact details on the site.
                   </p>
                   <button

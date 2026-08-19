@@ -68,7 +68,7 @@ function TimelineRow({ items, visible, activeId, setActiveId, delayStart, classN
                   onFocus={() => setActiveId(item.id)}
                   onBlur={() => setActiveId(null)}
                   aria-label={`${item.step}. ${item.title}`}
-                  className={`roadmap-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-4 border-[#F6FBF7] outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A]/50 ${
+                  className={`roadmap-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-4 border-[#0d1c16] outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A]/50 ${
                     item.featured ? "roadmap-node--final" : ""
                   } ${
                     active

@@ -9,17 +9,17 @@ import OrbitBackdrop from "../common/OrbitBackdrop";
 
 export default function CorporateInquiry() {
   return (
-    <section id="corporate-demo" className="relative overflow-hidden bg-[#E7F7F0] py-16 md:py-20">
-      <OrbitBackdrop variant="mint" />
+    <section id="corporate-demo" className="relative overflow-hidden bg-[#071313] py-16 md:py-20">
+      <OrbitBackdrop variant="night" />
       <Container className="relative z-10">
         <Reveal className="mb-10 max-w-2xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#087A3E]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#7CFF00]">
             Plan a cohort
           </p>
-          <h2 className="mb-3 font-roboto text-3xl font-black text-[#071313]">
+          <h2 className="mb-3 font-roboto text-3xl font-black text-white">
             Train with us in Baner, Hinjawadi or Wakad
           </h2>
-          <p className="text-sm leading-7 text-[#365F6E]">
+          <p className="text-sm leading-7 text-[#C5D5CE]">
             Tell us your team size, stack, and preferred campus. We will propose a classroom,
             online, or hybrid plan around Data Analytics, Java Full Stack, or Python Full Stack.
           </p>
@@ -34,11 +34,11 @@ export default function CorporateInquiry() {
                   href={office.map}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-5 transition hover:-translate-y-0.5"
+                  className="rounded-2xl border border-[#7CFF00]/20 bg-[#0d1c16] p-5 transition hover:-translate-y-0.5"
                 >
-                  <MapPin size={18} className="text-[#087A3E]" />
-                  <p className="mt-3 font-roboto text-lg font-black text-[#071313]">{office.name}</p>
-                  <p className="mt-2 text-xs leading-5 text-[#365F6E]">{office.blurb}</p>
+                  <MapPin size={18} className="text-[#7CFF00]" />
+                  <p className="mt-3 font-roboto text-lg font-black text-white">{office.name}</p>
+                  <p className="mt-2 text-xs leading-5 text-[#C5D5CE]">{office.blurb}</p>
                 </a>
               ))}
             </div>
@@ -46,25 +46,25 @@ export default function CorporateInquiry() {
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-2 rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] px-4 py-3 text-sm font-semibold text-[#071313]"
+                className="flex items-center gap-2 rounded-2xl border border-[#7CFF00]/20 bg-[#0d1c16] px-4 py-3 text-sm font-semibold text-white"
               >
-                <Mail size={16} className="shrink-0 text-[#087A3E]" />
+                <Mail size={16} className="shrink-0 text-[#7CFF00]" />
                 <span className="break-all">{CONTACT.email}</span>
               </a>
               <a
                 href={CONTACT.phoneHref}
-                className="flex items-center gap-2 rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] px-4 py-3 text-sm font-semibold text-[#071313]"
+                className="flex items-center gap-2 rounded-2xl border border-[#7CFF00]/20 bg-[#0d1c16] px-4 py-3 text-sm font-semibold text-white"
               >
-                <Phone size={16} className="shrink-0 text-[#087A3E]" />
+                <Phone size={16} className="shrink-0 text-[#7CFF00]" />
                 {CONTACT.phoneDisplay}
               </a>
               <a
                 href={CONTACT.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7] px-4 py-3 text-sm font-semibold text-[#071313]"
+                className="flex items-center gap-2 rounded-2xl border border-[#7CFF00]/20 bg-[#0d1c16] px-4 py-3 text-sm font-semibold text-white"
               >
-                <MessageCircle size={16} className="shrink-0 text-[#087A3E]" />
+                <MessageCircle size={16} className="shrink-0 text-[#7CFF00]" />
                 WhatsApp
               </a>
             </div>
@@ -79,7 +79,7 @@ export default function CorporateInquiry() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.08} className="rounded-3xl border border-[#35D0A5]/20 bg-[#F3FBF7] p-6 sm:p-8">
+          <Reveal delay={0.08} className="rounded-3xl border border-[#7CFF00]/20 bg-[#0d1c16] p-6 sm:p-8">
             <h3 className="mb-2 font-display text-lg font-bold text-ink">Request a corporate demo</h3>
             <p className="mb-6 text-sm text-ink-muted">
               Share your details and our team will get back within one business day.

@@ -5,7 +5,7 @@ import Reveal from "../common/Reveal";
 export default function BlogCard({ post, delay = 0 }) {
   return (
     <Reveal delay={delay}>
-      <Link to={`/blog/${post.slug}`} className="group block overflow-hidden rounded-2xl border border-[#35D0A5]/20 bg-[#F3FBF7]">
+      <Link to={`/blog/${post.slug}`} className="group block overflow-hidden rounded-2xl border border-[#7CFF00]/20 bg-[#0d1c16]">
         <div className="h-36 flex items-center justify-center bg-surface-muted overflow-hidden">
           <img src={post.image} alt="" className="h-16 w-16 object-contain" loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }} />
         </div>

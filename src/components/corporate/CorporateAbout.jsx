@@ -21,8 +21,8 @@ export default function CorporateAbout() {
           </h2>
         </Reveal>
 
-        <Reveal delay={0.08} className="corporate-glow-card mx-auto mt-10 max-w-4xl rounded-3xl bg-white px-6 py-10 sm:px-12 sm:py-12">
-          <div className="space-y-4 text-sm leading-7 text-[#071313] md:text-base">
+        <Reveal delay={0.08} className="corporate-glow-card mx-auto mt-10 max-w-4xl rounded-3xl bg-[#0d1c16] px-6 py-10 sm:px-12 sm:py-12">
+          <div className="space-y-4 text-sm leading-7 text-[#C5D5CE] md:text-base">
             {CORPORATE_ABOUT.short.map((paragraph) => (
               <p key={paragraph.slice(0, 40)}>{paragraph}</p>
             ))}

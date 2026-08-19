@@ -63,7 +63,7 @@ export default function ContactForm({ defaultMessage = "", leadSource = LEAD_SOU
 
   if (status === "error") {
     return (
-      <div className="rounded-2xl border border-[#D92D20]/30 bg-white p-8 text-center">
+      <div className="rounded-2xl border border-[#D92D20]/30 bg-[#0d1c16] p-8 text-center">
         <h3 className="font-display font-bold text-lg text-ink mb-1">Could not save your request</h3>
         <p className="text-sm text-ink-muted mb-5">
           Please try again, or WhatsApp / call us using the contact details on this page.
