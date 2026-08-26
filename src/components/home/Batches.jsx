@@ -21,18 +21,19 @@ function BatchCard({ batch, delay }) {
   const s = STATUS_STYLE[batch.status] || STATUS_STYLE.open;
   const pct = Math.round(((batch.seatsTotal - batch.seatsLeft) / batch.seatsTotal) * 100);
   const course = getCourseBySlug(batch.courseId);
+  const category = batch.shortTitle || course?.shortTitle;
 
   return (
     <Reveal delay={delay}>
-      <div className="flex h-full flex-col gap-4 rounded-2xl border border-[#7CFF00]/20 bg-[#0d1c16] p-6">
+      <div className="flex h-full flex-col gap-4 rounded-2xl border border-brand-primary/20 bg-surface px-5 py-6 sm:px-6 sm:py-7 md:py-8">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            {course?.shortTitle && (
-              <p className="mb-1 text-[11px] font-bold uppercase tracking-wide text-[#7CFF00]">
-                {course.shortTitle}
+            {category && (
+              <p className="mb-1 text-[11px] font-bold uppercase tracking-wide text-brand-primary">
+                {category}
               </p>
             )}
-            <h3 className="text-base font-bold leading-snug font-display text-white">{batch.courseName}</h3>
+            <h3 className="text-base font-bold leading-snug font-display text-ink">{batch.courseName}</h3>
           </div>
           <span className={`shrink-0 flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full ${s.bg} ${s.text}`}>
             <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} /> {s.label}
@@ -67,8 +68,8 @@ function BatchCard({ batch, delay }) {
 
 export default function Batches() {
   return (
-    <section id="batches" className="relative overflow-hidden bg-[#071313] py-12 md:py-28">
-      <OrbitBackdrop variant="night" />
+    <section id="batches" className="relative overflow-hidden bg-surface-bg so-section-lg">
+      <OrbitBackdrop variant="mint" />
       <Container className="relative z-10">
         <SectionHeading eyebrow="Schedule" title="Upcoming Batches" subtitle="New classroom, online and distance learning seats open regularly." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

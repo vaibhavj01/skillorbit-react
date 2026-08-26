@@ -3,9 +3,8 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import FloatingActions from "../components/layout/FloatingActions";
-import GetMeJobLead from "../components/layout/GetMeJobLead";
-import DemoModal from "../components/forms/DemoModal";
-import DataAnalyticsGenAIPromo from "../components/promo/DataAnalyticsGenAIPromo";
+import LazyGetMeJobLead from "../components/layout/LazyGetMeJobLead";
+import LazyDemoModal from "../components/forms/LazyDemoModal";
 import { DemoModalProvider } from "../context/DemoModalContext";
 
 export default function MainLayout() {
@@ -39,19 +38,18 @@ export default function MainLayout() {
 
   return (
     <DemoModalProvider>
-    <div className="flex min-h-screen max-w-full flex-col overflow-x-clip bg-[#071313]">
-        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] bg-[#7CFF00] text-[#071313] px-4 py-2 rounded-lg">
+    <div className="flex min-h-svh max-w-full flex-col overflow-x-clip bg-surface-bg">
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] bg-brand-primary text-[var(--cta-ink)] px-4 py-2 rounded-lg">
           Skip to main content
         </a>
         <Header />
-        <main id="main" className="flex-1">
+        <main id="main" className="min-w-0 flex-1 overflow-x-clip">
           <Outlet />
         </main>
         <Footer />
-        <GetMeJobLead />
+        <LazyGetMeJobLead />
         <FloatingActions />
-        <DataAnalyticsGenAIPromo />
-        <DemoModal />
+        <LazyDemoModal />
       </div>
     </DemoModalProvider>
   );

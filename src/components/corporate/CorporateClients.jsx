@@ -7,11 +7,11 @@ export default function CorporateClients() {
   const loop = [...hiringPartners, ...hiringPartners];
 
   return (
-    <section className="relative overflow-hidden bg-[#050c0a] py-16 md:py-20">
+    <section className="relative overflow-hidden bg-[#050c0a] so-section">
       <Container className="relative z-10">
         <Reveal>
-          <h2 className="text-center font-roboto text-3xl font-black text-white md:text-4xl">
-            Our <span className="text-[#7CFF00]">Clients</span>
+          <h2 className="text-center font-roboto text-3xl font-black text-ink md:text-4xl">
+            Our <span className="text-brand-primary">Clients</span>
           </h2>
           <span className="corporate-divider mt-5" aria-hidden="true" />
         </Reveal>
@@ -35,11 +35,11 @@ export default function CorporateClients() {
         </div>
 
         <Reveal className="mx-auto mt-14 max-w-3xl text-center">
-          <h3 className="font-roboto text-2xl font-black leading-snug text-white sm:text-3xl">
-            How will <span className="text-[#7CFF00]">SkillOrbit’s</span> corporate training
+          <h3 className="font-roboto text-2xl font-black leading-snug text-ink sm:text-3xl">
+            How will <span className="text-brand-primary">SkillOrbit’s</span> corporate training
             develop future leaders?
           </h3>
-          <p className="mt-5 text-sm font-semibold text-[#7CFF00] sm:text-base">
+          <p className="mt-5 text-sm font-semibold text-brand-primary sm:text-base">
             {ROADMAP_TAGLINE}.
           </p>
         </Reveal>

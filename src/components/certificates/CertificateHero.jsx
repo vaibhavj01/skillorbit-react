@@ -12,32 +12,32 @@ const CREDENTIALS = [
 
 export default function CertificateHero() {
   return (
-    <section className="relative overflow-hidden bg-[#071313] pb-12 pt-20 md:pb-20 md:pt-36">
+    <section className="relative overflow-hidden bg-surface-bg so-page-hero">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 18% 20%, rgba(35,159,74,0.22), transparent 36%), radial-gradient(circle at 88% 70%, rgba(124,255,0,0.10), transparent 32%)",
+            "radial-gradient(circle at 18% 20%, rgba(0,184,61,0.22), transparent 36%), radial-gradient(circle at 88% 70%, rgba(0,214,57,0.10), transparent 32%)",
         }}
         aria-hidden="true"
       />
 
       <Container className="relative z-10 grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <Reveal>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-[#7CFF00] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white">
-            <Award size={14} className="text-[#7CFF00]" />
+          <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-brand-primary px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-ink">
+            <Award size={14} className="text-brand-primary" />
             Industry-Recognized Credentials
           </p>
 
-          <h1 className="mb-4 max-w-xl font-roboto text-[1.65rem] font-black uppercase leading-[1.15] tracking-tight text-[#7CFF00] sm:mb-5 sm:text-5xl md:text-[56px]">
+          <h1 className="mb-4 max-w-xl font-roboto text-hero font-black uppercase leading-[1.15] tracking-tight text-brand-primary sm:mb-5">
             Go confidently toward your dreams
           </h1>
 
-          <p className="mb-4 inline-block border-b-2 border-[#7CFF00] pb-1 text-lg font-bold text-white">
+          <p className="mb-4 inline-block border-b-2 border-brand-primary pb-1 text-lg font-bold text-ink">
             At SkillOrbit, we believe:
           </p>
 
-          <p className="mb-8 max-w-xl text-sm leading-7 text-[#C5D5CE] md:text-base">
+          <p className="mb-8 max-w-xl text-sm leading-7 text-ink-light md:text-base">
             A SkillOrbit certificate is more than a document — it is verified proof of the
             skills you built, the projects you completed, and the career you are ready for.
             We stand with you from training through employer verification.
@@ -45,8 +45,8 @@ export default function CertificateHero() {
 
           <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
             {CREDENTIALS.map((label) => (
-              <li key={label} className="flex items-center gap-2.5 text-sm font-semibold text-white">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#7CFF00] text-[#071313]">
+              <li key={label} className="flex items-center gap-2.5 text-sm font-semibold text-ink">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-[var(--cta-ink)]">
                   <Check size={12} strokeWidth={3} />
                 </span>
                 {label}
@@ -70,20 +70,20 @@ export default function CertificateHero() {
             className="cert-shape pointer-events-none absolute -right-6 top-8 hidden h-[78%] w-[58%] sm:block"
             style={{
               clipPath: "polygon(18% 0, 100% 18%, 100% 100%, 0 82%)",
-              background: "linear-gradient(160deg, rgba(124,255,0,0.28), rgba(35,159,74,0.18))",
+              background: "linear-gradient(160deg, rgba(0,214,57,0.28), rgba(0,184,61,0.18))",
             }}
             aria-hidden="true"
           />
 
-          <div className="relative z-10 overflow-hidden rounded-[22px] border-[3px] border-[#7CFF00] bg-white p-1.5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:rounded-[28px] sm:p-2">
+          <div className="relative z-10 overflow-hidden rounded-[22px] border-[3px] border-brand-primary bg-white p-1.5 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:rounded-[28px] sm:p-2">
             <img
-              src="/assets/images/course-certificate.png"
+              src="/assets/images/course-certificate.webp"
               alt="Sample SkillOrbit Academy course certificate of completion"
               className="h-auto w-full rounded-[16px] object-contain sm:rounded-[22px]"
             />
           </div>
 
-          <span className="absolute -bottom-4 -right-2 z-20 flex h-14 w-14 items-center justify-center rounded-full border-4 border-[#071313] bg-[#7CFF00] text-[#071313] shadow-lg sm:h-16 sm:w-16">
+          <span className="absolute -bottom-4 -right-2 z-20 flex h-14 w-14 items-center justify-center rounded-full border-4 border-[var(--text-primary)] bg-brand-primary text-[var(--cta-ink)] shadow-lg sm:h-16 sm:w-16">
             <ShieldCheck size={28} strokeWidth={2.2} />
           </span>
         </Reveal>

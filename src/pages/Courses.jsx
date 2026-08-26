@@ -43,17 +43,17 @@ export default function Courses() {
         description="Browse SkillOrbit Academy's full catalog of IT training programs across full stack development, testing, cloud, data science and more."
         path="/courses"
       />
-      <section className="relative overflow-hidden bg-[#071313] pb-16 pt-20 md:pb-28 md:pt-40">
-        <OrbitBackdrop variant="night" />
+      <section className="relative overflow-hidden bg-surface-bg so-page-hero">
+        <OrbitBackdrop variant="mint" />
         <Container className="relative z-10">
           <div className="mb-8 text-center sm:mb-12">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-[#7CFF00]">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-primary">
               Programs
             </p>
-            <h1 className="font-display text-[1.65rem] font-bold leading-snug text-white sm:text-4xl">
+            <h1 className="font-display text-h2 font-bold text-ink">
               All Courses
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#C5D5CE]">
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-ink-light">
               Filter by category or search to find the right program for your goals.
               Click any course to view full details.
             </p>
@@ -65,7 +65,7 @@ export default function Courses() {
           </div>
 
           <div className="max-w-md mx-auto mb-8">
-            <div className="flex h-12 items-center gap-2 rounded-xl border border-[#7CFF00]/25 bg-[#0d1c16] px-4">
+            <div className="flex h-12 items-center gap-2 rounded-xl border border-brand-primary/25 bg-surface px-4">
               <Search size={16} className="text-ink-muted shrink-0" />
               <input
                 type="search"
@@ -73,7 +73,7 @@ export default function Courses() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by course or technology…"
                 aria-label="Search courses"
-                className="w-full bg-transparent outline-none text-base text-white placeholder:text-ink-muted sm:text-sm"
+                className="w-full bg-transparent outline-none text-base text-ink placeholder:text-ink-muted sm:text-sm"
               />
             </div>
           </div>

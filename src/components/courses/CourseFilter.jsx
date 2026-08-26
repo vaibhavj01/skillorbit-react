@@ -15,7 +15,7 @@ export default function CourseFilter({ active, onChange }) {
               className={`shrink-0 whitespace-nowrap rounded-full border px-3.5 py-2.5 text-sm font-semibold transition-all duration-200 min-h-11 ${
                 isActive
                   ? "bg-ink text-brand-400 border-transparent shadow-md"
-                  : "bg-[#0d1c16] text-ink-light border-[#7CFF00]/25 hover:border-brand-400 hover:text-brand-700"
+                  : "bg-surface text-ink-light border-brand-primary/25 hover:border-brand-400 hover:text-brand-700"
               }`}
             >
               {cat.label}

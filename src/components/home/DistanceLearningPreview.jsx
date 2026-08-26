@@ -15,7 +15,7 @@ function DashboardMockup() {
         <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
         <span className="ml-3 text-xs text-white/60">learn.skillorbit.in</span>
       </div>
-      <div className="flex bg-[#0d1c16]">
+      <div className="flex bg-surface">
         <aside className="w-32 shrink-0 py-4 px-3 space-y-1 bg-surface-muted">
           {["My Courses", "Assignments", "Live Sessions", "Career Hub"].map((n, i) => (
             <div key={n} className={`text-xs font-medium px-2.5 py-2 rounded-lg ${i === 0 ? "bg-brand-500 text-white" : "text-ink-light"}`}>
@@ -50,12 +50,12 @@ export default function DistanceLearningPreview() {
     { icon: Target, title: "Career track", text: "Projects and interview prep built into the journey." },
   ];
   return (
-    <section id="distance" className="relative overflow-hidden bg-[#071313] py-20 md:py-28">
+    <section id="distance" className="relative overflow-hidden bg-surface-bg so-section-lg">
       <OrbitBackdrop variant="night" />
       <Container className="relative z-10 grid items-center gap-14 lg:grid-cols-2">
         <Reveal>
           <Eyebrow>Distance Learning</Eyebrow>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-5 font-display text-ink tracking-tight">
+          <h2 className="mb-5 font-display text-h2 font-bold tracking-tight text-ink">
             Learn remotely. Stay accountable.
           </h2>
           <p className="text-base mb-8 leading-relaxed text-ink-muted">

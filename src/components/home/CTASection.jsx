@@ -6,30 +6,26 @@ export default function CTASection() {
   const { openDemo } = useDemoModal();
 
   return (
-    <section id="demo" className="relative overflow-hidden bg-[#071313] px-4 pb-16 pt-12 sm:px-5 md:px-8 md:pb-24 md:pt-20">
+    <section id="demo" className="so-dark relative overflow-hidden bg-dark so-section">
       <Container>
         <Reveal>
           <div
             className="
-              relative mx-auto max-w-5xl overflow-hidden rounded-[22px]
-              border border-[#7CFF00]/35 px-4 py-10 text-center
-              shadow-[0_0_40px_rgba(124,255,0,0.08)]
-              sm:rounded-[28px] sm:px-12 sm:py-16
+              relative mx-auto max-w-5xl overflow-hidden rounded-[20px]
+              border border-dark-border bg-dark-surface
+              px-[clamp(1rem,4vw,3rem)] py-[clamp(2.25rem,5vw,4rem)] text-center
+              sm:rounded-[28px]
             "
-            style={{
-              background:
-                "radial-gradient(circle at center, #163322 0%, #0b1610 48%, #071313 100%)",
-            }}
           >
-            <p className="mb-4 text-sm font-medium tracking-wide text-[#B7C4BE] sm:text-base">
+            <p className="mb-4 text-sm font-medium tracking-wide text-dark-muted sm:text-base">
               Ready to start your Career?
             </p>
 
-            <h2 className="font-roboto text-[1.5rem] font-black leading-snug text-white sm:text-4xl md:text-5xl">
+            <h2 className="font-display text-h2 font-bold leading-snug text-white">
               Book Your{" "}
-              <span className="relative inline-block text-[#7CFF00]">
+              <span className="relative inline-block text-brand-primary">
                 Free Demo
-                <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-[#7CFF00]" />
+                <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-brand-primary" />
               </span>{" "}
               Class Today!
             </h2>
@@ -38,9 +34,9 @@ export default function CTASection() {
               type="button"
               onClick={() => openDemo()}
               className="
-                mt-6 inline-flex min-h-12 w-full max-w-full items-center justify-center rounded-full
-                bg-white px-5 text-[13px] font-black uppercase tracking-[0.06em] text-[#071313]
-                transition-transform hover:-translate-y-0.5 hover:bg-[#7CFF00]
+                mt-6 inline-flex min-h-12 w-full max-w-full items-center justify-center rounded-xl
+                bg-brand-primary px-5 text-[13px] font-bold uppercase tracking-[0.06em] text-[var(--cta-ink)]
+                transition-colors hover:bg-brand-green
                 sm:mt-8 sm:h-14 sm:w-auto sm:px-10 sm:text-[15px]
               "
             >

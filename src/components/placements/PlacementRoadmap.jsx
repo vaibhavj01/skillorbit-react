@@ -3,7 +3,6 @@ import Container from "../common/Container";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import RoadmapHeader from "./RoadmapHeader";
 import RoadmapTimeline from "./RoadmapTimeline";
-import CareerBenefits from "./CareerBenefits";
 import PlacementCTA from "./PlacementCTA";
 import "../../styles/placement-roadmap.css";
 
@@ -15,12 +14,11 @@ export default function PlacementRoadmap() {
     <section
       id="placements"
       ref={ref}
-      className="relative overflow-hidden bg-[#0d1c16] py-20 md:py-28"
+      className="so-dark relative overflow-hidden bg-dark placement-journey"
     >
       <Container className="relative z-10">
         <RoadmapHeader />
         <RoadmapTimeline visible={visible} activeId={activeId} setActiveId={setActiveId} />
-        <CareerBenefits />
         <PlacementCTA />
       </Container>
     </section>

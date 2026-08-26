@@ -85,9 +85,7 @@ export const FOOTER_LINKS = {
   ],
 
   Resources: [
-    { label: "Blog", to: "/blog" },
     { label: "Student Reviews", to: "/reviews" },
-    { label: "Career Guide", to: "/blog" },
     { label: "FAQs", to: "/#faq" },
   ],
 
@@ -103,9 +101,9 @@ export const FOOTER_LINKS = {
 
 
 export const ASSETS = {
-  logo: "/assets/logo/skillorbit-logo.png",
-  logoFooter: "/assets/logo/skillorbit-logo-footer.png",
+  logo: "/assets/logo/skillorbit-logo.webp",
+  logoFooter: "/assets/logo/skillorbit-logo-footer.webp",
   favicon: "/assets/logo/favicon.png",
-  orbitMark: "/assets/logo/skillorbit-orbit-mark.png",
-  poweredByLogo: "/assets/partners/icloud-training-placement.png",
+  orbitMark: "/assets/logo/skillorbit-orbit-mark.webp",
+  poweredByLogo: "/assets/partners/icloud-training-placement.webp",
 };

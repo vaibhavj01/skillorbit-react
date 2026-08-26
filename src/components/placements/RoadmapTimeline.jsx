@@ -8,7 +8,7 @@ const ROW_TWO = placementJourney.slice(3);
 export default function RoadmapTimeline({ visible, activeId, setActiveId }) {
   return (
     <>
-      <ol className="relative space-y-8 border-l-2 border-[#16A34A]/25 lg:hidden">
+      <ol className="relative space-y-[clamp(0.75rem,2svh,1.1rem)] border-l-2 border-brand-green/30 md:hidden">
         {placementJourney.map((item, index) => (
           <RoadmapStep
             key={item.id}
@@ -23,7 +23,7 @@ export default function RoadmapTimeline({ visible, activeId, setActiveId }) {
         ))}
       </ol>
 
-      <div className="hidden lg:block">
+      <div className="hidden md:block">
         <TimelineRow
           items={ROW_ONE}
           visible={visible}
@@ -37,7 +37,7 @@ export default function RoadmapTimeline({ visible, activeId, setActiveId }) {
           activeId={activeId}
           setActiveId={setActiveId}
           delayStart={0.28}
-          className="mt-12"
+          className="mt-[clamp(1.1rem,2.4svh,1.6rem)]"
         />
       </div>
     </>
@@ -49,9 +49,9 @@ function TimelineRow({ items, visible, activeId, setActiveId, delayStart, classN
 
   return (
     <div className={className}>
-      <div className="relative mb-8">
+      <div className="relative mb-[clamp(0.75rem,1.8svh,1.15rem)]">
         <div
-          className={`roadmap-line pointer-events-none absolute left-[10%] right-[10%] top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-gradient-to-r from-[#BBF7D0] via-[#16A34A] to-[#15803D] ${
+          className={`roadmap-line pointer-events-none absolute left-[8%] right-[8%] top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-gradient-to-r from-[#00D639] via-[#00B83D] to-[#005C2B] ${
             visible ? "is-visible" : ""
           }`}
           aria-hidden="true"
@@ -68,18 +68,18 @@ function TimelineRow({ items, visible, activeId, setActiveId, delayStart, classN
                   onFocus={() => setActiveId(item.id)}
                   onBlur={() => setActiveId(null)}
                   aria-label={`${item.step}. ${item.title}`}
-                  className={`roadmap-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-4 border-[#0d1c16] outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A]/50 ${
+                  className={`roadmap-node relative z-10 flex h-[clamp(2.65rem,5.4svh,3.25rem)] w-[clamp(2.65rem,5.4svh,3.25rem)] items-center justify-center rounded-full border-4 border-[var(--dark-background)] outline-none focus-visible:ring-2 focus-visible:ring-brand-green/50 ${
                     item.featured ? "roadmap-node--final" : ""
                   } ${
                     active
-                      ? "bg-[#16A34A] text-white shadow-[0_8px_20px_rgba(22,163,74,0.35)]"
-                      : "bg-white text-[#15803D] shadow-[0_4px_14px_rgba(17,24,39,0.08)]"
+                      ? "bg-[#00D639] text-[var(--cta-ink)] shadow-btn"
+                      : "bg-white text-[#005C2B] shadow-card"
                   } ${visible ? "is-visible" : "opacity-0"}`}
                   style={{ animationDelay: `${delayStart + index * 0.1}s` }}
                 >
                   <RoadmapIcon name={item.icon} size={22} />
                 </button>
-                <span className="mt-2 font-grotesk text-[11px] font-bold tracking-[0.16em] text-[#16A34A]">
+                <span className="mt-1.5 font-display text-[11px] font-bold tracking-[0.16em] text-[#00D639]">
                   {item.step}
                 </span>
               </li>
@@ -88,7 +88,7 @@ function TimelineRow({ items, visible, activeId, setActiveId, delayStart, classN
         </ol>
       </div>
 
-      <ol className={`grid gap-5 ${columns}`}>
+      <ol className={`grid gap-[clamp(0.7rem,1.4vw,1rem)] ${columns}`}>
         {items.map((item, index) => (
           <RoadmapStep
             key={item.id}

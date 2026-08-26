@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Container from "../common/Container";
 import SectionHeading from "../common/SectionHeading";
 import Reveal from "../common/Reveal";
@@ -17,33 +17,18 @@ function signedOffset(index, active, total) {
 function TestimonialCard({ item, active }) {
   return (
     <article className={`testimonial-cover-card ${active ? "is-active" : ""}`}>
-      <Quote size={28} className={active ? "text-[#7CFF00]" : "text-[#35D0A5]"} />
-      <p className="mt-4 line-clamp-5 font-display text-sm leading-relaxed text-white/90 sm:text-base">
-        “{item.quote}”
-      </p>
-      <div className="mt-5 flex justify-center gap-1">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star
-            key={i}
-            size={15}
-            fill={i < item.rating ? "#7CFF00" : "none"}
-            className="text-[#7CFF00]"
-          />
-        ))}
-      </div>
       <img
         src={item.avatar}
-        alt=""
-        className="mt-5 h-12 w-12 rounded-full object-cover ring-2 ring-[#35D0A5]/50"
+        alt={`${item.name}, ${item.role}`}
+        className="testimonial-cover-card__photo"
         loading="lazy"
         onError={(e) => {
           e.currentTarget.style.display = "none";
         }}
       />
-      <p className="mt-2 text-sm font-bold text-white">{item.name}</p>
-      <p className="text-xs text-white/55">
-        {item.role} · {item.company}
-      </p>
+      <p className="testimonial-cover-card__name">{item.name}</p>
+      <p className="testimonial-cover-card__role">{item.role}</p>
+      <p className="testimonial-cover-card__package">{item.package}</p>
     </article>
   );
 }
@@ -72,17 +57,16 @@ export default function Testimonials() {
   if (!total) return null;
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-[#051912] py-16 sm:py-20 md:py-28">
-      <OrbitBackdrop variant="night" />
+    <section id="testimonials" className="relative overflow-hidden bg-surface-bg so-section-lg">
+      <OrbitBackdrop variant="mint" />
       <Container className="relative z-10 max-w-6xl">
         <SectionHeading
           eyebrow="Voices"
           title="Learner Testimonials"
           subtitle="Hear from learners who trained with SkillOrbit and moved into IT roles."
-          light
         />
         <p className="mb-8 text-center">
-          <Link to="/reviews" className="text-sm font-bold text-[#7CFF00] hover:underline">
+          <Link to="/reviews" className="text-sm font-bold text-brand-primary hover:underline">
             Read all student reviews
           </Link>
         </p>
@@ -92,15 +76,17 @@ export default function Testimonials() {
             <div className="testimonial-stage">
               {testimonials.map((item, i) => {
                 const offset = signedOffset(i, idx, total);
+                const visible = Math.abs(offset) <= 2;
                 return (
                   <button
                     type="button"
                     key={item.id}
-                    className={`testimonial-cover offset-${offset}`}
+                    className={`testimonial-cover offset-${offset}${visible ? "" : " is-hidden"}`}
                     style={{ zIndex: 10 - Math.abs(offset) }}
                     onClick={() => setIdx(i)}
-                    aria-label={`Show testimonial ${i + 1}`}
+                    aria-label={`Show testimonial ${i + 1}: ${item.name}`}
                     aria-current={offset === 0}
+                    tabIndex={visible ? 0 : -1}
                   >
                     <TestimonialCard item={item} active={offset === 0} />
                   </button>
@@ -112,7 +98,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 onClick={() => go(-1)}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#35D0A5]/40 bg-[#071313] text-[#7CFF00] transition-all hover:border-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#071313]"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--brand-green)]/40 bg-surface-bg text-brand-primary transition-all hover:border-brand-green hover:bg-brand-green hover:text-[var(--cta-ink)]"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={20} />
@@ -124,12 +110,12 @@ export default function Testimonials() {
                     key={item.id}
                     type="button"
                     onClick={() => setIdx(i)}
-                    className="h-2 rounded-full bg-[#7CFF00] transition-all"
+                    className="h-2 rounded-full bg-brand-primary transition-all"
                     style={{
                       width: i === idx ? 22 : 8,
                       opacity: i === idx ? 1 : 0.28,
                     }}
-                    aria-label={`Go to testimonial ${i + 1}`}
+                    aria-label={`Go to testimonial ${i + 1}: ${item.name}`}
                   />
                 ))}
               </div>
@@ -137,7 +123,7 @@ export default function Testimonials() {
               <button
                 type="button"
                 onClick={() => go(1)}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#35D0A5]/40 bg-[#071313] text-[#7CFF00] transition-all hover:border-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#071313]"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--brand-green)]/40 bg-surface-bg text-brand-primary transition-all hover:border-brand-green hover:bg-brand-green hover:text-[var(--cta-ink)]"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={20} />

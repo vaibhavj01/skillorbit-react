@@ -66,13 +66,13 @@ const placementBenefits = [
 
 export default function WhyPlacementSupport() {
   return (
-    <section className="relative overflow-hidden bg-[#071313] py-20 md:py-28">
+    <section className="relative overflow-hidden bg-surface-bg so-section-lg">
 
       {/* =========================================
           BACKGROUND DECORATION
       ========================================== */}
 
-      <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-green-200/25 blur-3xl" />
+      <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-brand-green/10 blur-3xl" />
 
       <div className="pointer-events-none absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-lime-200/20 blur-3xl" />
 
@@ -87,26 +87,26 @@ export default function WhyPlacementSupport() {
 
           <div className="mb-4 inline-flex items-center gap-2">
 
-            <span className="h-px w-8 bg-[#7CFF00]/150" />
+            <span className="h-px w-8 bg-brand-primary/40" />
 
-            <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#7CFF00]">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-primary">
               More Than Training
             </span>
 
-            <span className="h-px w-8 bg-[#7CFF00]/150" />
+            <span className="h-px w-8 bg-brand-primary/40" />
 
           </div>
 
 
-          <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl md:text-5xl">
             We Prepare You for the{" "}
-            <span className="text-[#7CFF00]">
+            <span className="text-brand-primary">
               Real World
             </span>
           </h2>
 
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#C5D5CE] md:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-ink-light md:text-base">
             Getting a job takes more than completing a course.
             SkillOrbit combines technical learning, practical
             experience and career preparation to help you become
@@ -128,7 +128,7 @@ export default function WhyPlacementSupport() {
 
           <Reveal>
 
-            <div className="relative h-full min-h-[480px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-green-700 via-green-700 to-green-900 p-7 text-white shadow-[0_20px_60px_rgba(22,101,52,0.18)] md:p-9">
+            <div className="relative h-full min-h-[clamp(18rem,62svh,30rem)] overflow-hidden rounded-[2rem] bg-gradient-brand p-7 text-white md:p-9">
 
               {/* Decorative circles */}
 
@@ -141,7 +141,7 @@ export default function WhyPlacementSupport() {
 
               {/* Icon */}
 
-              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0d1c16]/10 text-lime-300 ring-1 ring-white/10 backdrop-blur-sm">
+              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-surface/10 text-lime-300 ring-1 ring-white/10 backdrop-blur-sm">
 
                 <BriefcaseBusiness
                   size={25}
@@ -226,7 +226,7 @@ export default function WhyPlacementSupport() {
                   delay={index * 0.06}
                 >
 
-                  <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-[#0d1c16] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-green-200 hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
+                  <div className="group relative h-full overflow-hidden rounded-[20px] border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-green">
 
                     {/* Top number */}
 
@@ -238,7 +238,7 @@ export default function WhyPlacementSupport() {
 
                         <div className="absolute inset-0 rounded-xl bg-green-400/20 blur-lg opacity-0 transition duration-500 group-hover:opacity-100" />
 
-                        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-[#7CFF00]/15 text-[#7CFF00] transition-all duration-300 group-hover:bg-green-600 group-hover:text-white">
+                        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-surface-muted text-brand-green transition-all duration-300 group-hover:bg-brand-green group-hover:text-white">
 
                           <Icon
                             size={20}
@@ -250,7 +250,7 @@ export default function WhyPlacementSupport() {
                       </div>
 
 
-                      <span className="text-[11px] font-extrabold tracking-wider text-slate-300 transition-colors duration-300 group-hover:text-green-500">
+                      <span className="text-[11px] font-extrabold tracking-wider text-ink-muted transition-colors duration-300 group-hover:text-brand-green">
                         {item.number}
                       </span>
 
@@ -261,11 +261,11 @@ export default function WhyPlacementSupport() {
 
                     <div className="mt-5">
 
-                      <h3 className="font-display text-lg font-extrabold text-white">
+                      <h3 className="font-display text-lg font-extrabold text-ink">
                         {item.title}
                       </h3>
 
-                      <p className="mt-2 text-sm leading-6 text-[#B7C4BE]">
+                      <p className="mt-2 text-sm leading-6 text-ink-muted">
                         {item.description}
                       </p>
 
@@ -274,7 +274,7 @@ export default function WhyPlacementSupport() {
 
                     {/* Hover arrow */}
 
-                    <div className="mt-5 flex items-center gap-1 text-xs font-bold text-[#7CFF00] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                    <div className="mt-5 flex items-center gap-1 text-xs font-bold text-brand-primary opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
 
                       <span>
                         Career focused
@@ -287,7 +287,7 @@ export default function WhyPlacementSupport() {
 
                     {/* Bottom hover line */}
 
-                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#7CFF00]/150 transition-all duration-500 group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-primary/150 transition-all duration-500 group-hover:w-full" />
 
                   </div>
 
@@ -310,22 +310,22 @@ export default function WhyPlacementSupport() {
           className="mt-10"
         >
 
-          <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 rounded-2xl border border-green-100 bg-[#0d1c16] px-6 py-5 text-center shadow-sm sm:flex-row sm:text-left">
+          <div className="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 rounded-2xl border border-line bg-surface px-6 py-5 text-center shadow-sm sm:flex-row sm:text-left">
 
             <div>
 
-              <p className="text-sm font-extrabold text-white">
+              <p className="text-sm font-extrabold text-ink">
                 Your goal isn't just to finish a course.
               </p>
 
-              <p className="mt-1 text-xs leading-5 text-[#B7C4BE]">
+              <p className="mt-1 text-xs leading-5 text-ink-muted">
                 It's to become confident enough to use what you learn.
               </p>
 
             </div>
 
 
-            <div className="shrink-0 rounded-xl bg-[#7CFF00]/15 px-4 py-2.5 text-xs font-bold text-[#7CFF00]">
+            <div className="shrink-0 rounded-xl bg-brand-primary/15 px-4 py-2.5 text-xs font-bold text-brand-primary">
               Skills → Projects → Interviews → Career
             </div>
 
@@ -348,7 +348,7 @@ function SupportPoint({ text }) {
   return (
     <div className="flex items-center gap-3">
 
-      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#0d1c16]/10 text-lime-300">
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface/10 text-lime-300">
 
         <svg
           width="13"

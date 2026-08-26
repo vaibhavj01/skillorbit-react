@@ -4,7 +4,7 @@ import { useDemoModal } from "../../context/DemoModalContext";
 import DemoForm from "./DemoForm";
 
 export default function DemoModal() {
-  const { isOpen, closeDemo, courseId, campaign } = useDemoModal();
+  const { isOpen, closeDemo, courseId } = useDemoModal();
   const [visible, setVisible] = useState(false);
   const panelRef = useRef(null);
   const closeRef = useRef(null);
@@ -73,20 +73,20 @@ export default function DemoModal() {
         className="
           demo-modal-panel relative z-10 flex w-full max-w-[520px] flex-col
           h-[var(--demo-vvh,100dvh)] max-h-[var(--demo-vvh,100dvh)]
-          overflow-hidden border-0 border-[#7CFF00]/25 bg-[#0d1c16]
-          sm:h-auto sm:max-h-[min(92vh,720px)] sm:rounded-3xl sm:border
+          overflow-hidden border-0 border-brand-primary/25 bg-surface
+          sm:h-auto sm:max-h-[min(92svh,720px)] sm:rounded-3xl sm:border
           sm:shadow-[0_30px_80px_rgba(0,0,0,0.55)]
         "
       >
-        <div className="flex shrink-0 items-start justify-between gap-3 border-b border-[#7CFF00]/15 px-4 py-3.5 sm:px-6 sm:py-4">
+        <div className="flex shrink-0 items-start justify-between gap-3 border-b border-brand-primary/15 px-4 py-3.5 sm:px-6 sm:py-4">
           <div className="min-w-0 pr-2">
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#7CFF00] sm:text-[11px]">
+            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-primary sm:text-[11px]">
               Free demo class
             </p>
-            <h2 id={titleId} className="font-display text-base font-bold leading-snug text-white sm:text-xl">
+            <h2 id={titleId} className="font-display text-base font-bold leading-snug text-ink sm:text-xl">
               Book your free demo
             </h2>
-            <p className="mt-1 text-[13px] leading-5 text-[#B7C4BE] sm:text-sm">
+            <p className="mt-1 text-[13px] leading-5 text-ink-muted sm:text-sm">
               Share your details and a counsellor will help you choose the right program.
             </p>
           </div>
@@ -96,8 +96,8 @@ export default function DemoModal() {
             onClick={closeDemo}
             className="
               flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-              border border-white/15 text-white transition
-              hover:border-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#071313]
+              border border-line text-ink transition
+              hover:border-brand-green hover:bg-surface-muted
             "
             aria-label="Close demo form"
           >
@@ -106,7 +106,7 @@ export default function DemoModal() {
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6 sm:py-6 pb-[max(1rem,env(safe-area-inset-bottom))]">
-          <DemoForm key={`${courseId || "any"}-${campaign || "std"}`} defaultCourseId={courseId} campaign={campaign} />
+          <DemoForm key={courseId || "any"} defaultCourseId={courseId} />
         </div>
       </div>
     </div>

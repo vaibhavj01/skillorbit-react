@@ -6,7 +6,6 @@ export const ANNOUNCEMENT_LINKS = [
   { label: "Webinar", to: "/webinar" },
   { label: "Corporate", to: "/corporate" },
   { label: "CSR", to: "/csr" },
-  { label: "Blogs", to: "/blog" },
   { label: "Students Reviews", to: "/reviews" },
   { label: "Referral", to: "/referral" },
   { label: "Feedback", to: "/feedback" },
@@ -40,7 +39,7 @@ export default function AnnouncementBar({
         `}
         style={{
           background:
-            "linear-gradient(90deg, #063F2A 0%, #087A3E 28%, #1AA34A 55%, #239F4A 78%, #35D0A5 100%)",
+            "linear-gradient(90deg, var(--brand-deep) 0%, var(--brand-dark) 28%, var(--brand-green) 55%, var(--brand-green) 78%, var(--brand-green) 100%)",
         }}
       >
         <div
@@ -52,12 +51,12 @@ export default function AnnouncementBar({
             h-px
             bg-gradient-to-r
             from-transparent
-            via-[#7CFF00]
+            via-brand-primary
             to-transparent
           "
         />
 
-        <div className="mx-auto flex h-full max-w-7xl items-center justify-end px-5 md:px-8">
+        <div className="mx-auto flex h-full max-w-site items-center justify-end px-5 md:px-8">
           <nav className="flex items-center gap-1" aria-label="Quick links">
             {ANNOUNCEMENT_LINKS.map((item) => (
               <Link
@@ -76,9 +75,8 @@ export default function AnnouncementBar({
                   transition-all
                   duration-200
 
-                  hover:bg-[#7CFF00]
-                  hover:text-[#071313]
-                  hover:shadow-[0_0_16px_rgba(124,255,0,0.45)]
+                  hover:bg-brand-green
+                  hover:text-[var(--cta-ink)]
                 "
               >
                 {item.label}
@@ -104,7 +102,7 @@ export default function AnnouncementBar({
           className="
             absolute
             inset-0
-            bg-[#063F2A]/50
+            bg-[var(--brand-deep)]/50
             backdrop-blur-sm
             transition-opacity
             duration-300
@@ -122,7 +120,7 @@ export default function AnnouncementBar({
             w-[88%]
             max-w-[360px]
             flex-col
-            bg-[#0d1c16]
+            bg-surface
             shadow-2xl
             transition-transform
             duration-300
@@ -142,12 +140,12 @@ export default function AnnouncementBar({
             "
             style={{
               background:
-                "linear-gradient(90deg, #087A3E 0%, #239F4A 50%, #35D0A5 100%)",
+                "linear-gradient(90deg, var(--brand-dark) 0%, var(--brand-green) 50%, var(--brand-green) 100%)",
             }}
           >
             <div>
               <p className="text-sm font-bold text-white">SkillOrbit</p>
-              <p className="mt-0.5 text-[11px] font-medium text-[#E7FF00]/90">
+              <p className="mt-0.5 text-[11px] font-medium text-brand-primary/90">
                 Quick links
               </p>
             </div>
@@ -163,11 +161,11 @@ export default function AnnouncementBar({
                 items-center
                 justify-center
                 rounded-full
-                bg-[#7CFF00]
-                text-[#071313]
+                bg-brand-primary
+                text-[var(--cta-ink)]
                 transition-all
                 duration-200
-                hover:bg-[#E7FF00]
+                hover:bg-brand-green
               "
             >
               <X size={19} />
@@ -187,8 +185,8 @@ export default function AnnouncementBar({
                     justify-between
                     rounded-xl
                     border
-                    border-[#7CFF00]/20
-                    bg-[#071313]
+                    border-brand-primary/20
+                    bg-surface-bg
                     px-4
                     py-3.5
                     text-sm
@@ -197,13 +195,13 @@ export default function AnnouncementBar({
                     shadow-none
                     transition-all
                     duration-200
-                    hover:border-[#7CFF00]
-                    hover:bg-[#7CFF00]/15
-                    hover:text-[#7CFF00]
+                    hover:border-brand-green
+                    hover:bg-brand-green/15
+                    hover:text-brand-green
                   "
                 >
                   <span>{item.label}</span>
-                  <ChevronRight size={17} className="text-[#7CFF00]" />
+                  <ChevronRight size={17} className="text-brand-primary" />
                 </Link>
               ))}
             </nav>

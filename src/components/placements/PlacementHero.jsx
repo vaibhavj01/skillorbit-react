@@ -13,17 +13,17 @@ import { CONTACT } from "../../data/siteConfig";
 
 export default function PlacementHero() {
   return (
-    <section className="relative overflow-hidden bg-[#071313] pt-20 pb-16 md:pt-28 md:pb-24">
+    <section className="relative overflow-hidden bg-surface-bg so-page-hero">
       
       {/* =========================
           BACKGROUND DECORATION
       ========================== */}
 
-      <div className="pointer-events-none absolute -left-32 top-20 hidden h-72 w-72 rounded-full bg-green-200/30 blur-3xl md:block" />
+      <div className="pointer-events-none absolute -left-32 top-20 hidden h-72 w-72 rounded-full bg-brand-green/10 blur-3xl md:block" />
 
-      <div className="pointer-events-none absolute -right-32 top-10 hidden h-96 w-96 rounded-full bg-lime-200/30 blur-3xl md:block" />
+      <div className="pointer-events-none absolute -right-32 top-10 hidden h-96 w-96 rounded-full bg-brand-primary/10 blur-3xl md:block" />
 
-      <div className="pointer-events-none absolute right-[25%] bottom-0 hidden h-56 w-56 rounded-full bg-green-100/40 blur-3xl md:block" />
+      <div className="pointer-events-none absolute right-[25%] bottom-0 hidden h-56 w-56 rounded-full bg-brand-green/10 blur-3xl md:block" />
 
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
@@ -37,21 +37,21 @@ export default function PlacementHero() {
 
               {/* Eyebrow */}
 
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-green-200 bg-[#0d1c16] px-4 py-2 shadow-sm">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-green-100 text-[#7CFF00]">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 shadow-sm">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface-muted text-brand-primary">
                   <Sparkles size={14} />
                 </span>
 
-                <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#7CFF00]">
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-brand-primary">
                   Career & Placement Support
                 </span>
               </div>
 
               {/* Heading */}
 
-              <h1 className="font-display text-[1.65rem] font-extrabold leading-[1.15] tracking-tight text-white sm:text-5xl md:text-6xl">
+              <h1 className="font-display text-hero font-extrabold tracking-tight text-ink">
                 Turn Your Skills Into a{" "}
-                <span className="relative inline-block text-[#7CFF00]">
+                <span className="relative inline-block text-brand-primary">
                   Career
                   
                   {/* underline */}
@@ -61,7 +61,7 @@ export default function PlacementHero() {
 
               {/* Description */}
 
-              <p className="mt-6 max-w-xl text-base leading-7 text-[#C5D5CE] md:text-lg md:leading-8">
+              <p className="mt-6 max-w-xl text-base leading-7 text-ink-light md:text-lg md:leading-8">
                 Build industry-ready skills, work on real-world projects,
                 prepare for interviews and get dedicated career support from
                 SkillOrbit.
@@ -104,7 +104,7 @@ export default function PlacementHero() {
 
                 <a
                   href={CONTACT.phoneHref}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 border-white/20 bg-[#0d1c16] px-5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[#7CFF00] hover:text-[#7CFF00] sm:h-14 sm:px-7"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 border-white/20 bg-surface px-5 text-sm font-bold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-green hover:text-brand-green sm:h-14 sm:px-7"
                 >
                   <Phone size={18} />
                   Talk to a Counsellor
@@ -116,12 +116,12 @@ export default function PlacementHero() {
                   TRUST LINE
               ========================== */}
 
-              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-semibold text-[#B7C4BE]">
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-semibold text-ink-muted">
 
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2
                     size={15}
-                    className="text-[#7CFF00]"
+                    className="text-brand-primary"
                   />
                   Live Training
                 </span>
@@ -131,7 +131,7 @@ export default function PlacementHero() {
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2
                     size={15}
-                    className="text-[#7CFF00]"
+                    className="text-brand-primary"
                   />
                   Practical Learning
                 </span>
@@ -141,7 +141,7 @@ export default function PlacementHero() {
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2
                     size={15}
-                    className="text-[#7CFF00]"
+                    className="text-brand-primary"
                   />
                   Career Guidance
                 </span>
@@ -160,27 +160,27 @@ export default function PlacementHero() {
 
               {/* Main Card */}
 
-              <div className="relative overflow-hidden rounded-[2rem] border border-green-100 bg-[#0d1c16] p-5 shadow-[0_25px_70px_rgba(15,23,42,0.12)] sm:p-7">
+              <div className="relative overflow-hidden rounded-[2rem] border border-line bg-surface p-5 shadow-[0_25px_70px_rgba(15,23,42,0.12)] sm:p-7">
 
                 {/* Top gradient */}
 
-                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-green-500 via-lime-400 to-green-600" />
+                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-brand" />
 
                 {/* Header */}
 
                 <div className="flex items-center justify-between">
 
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#7CFF00]">
+                    <p className="text-xs font-bold uppercase tracking-[0.15em] text-brand-primary">
                       Your Career Journey
                     </p>
 
-                    <h2 className="mt-1 text-xl font-extrabold text-white sm:text-2xl">
+                    <h2 className="mt-1 text-xl font-extrabold text-ink sm:text-2xl">
                       From Learning to Placement
                     </h2>
                   </div>
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#7CFF00]/15 text-[#7CFF00]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-primary/15 text-brand-primary">
                     <BriefcaseBusiness size={21} />
                   </div>
 
@@ -232,7 +232,7 @@ export default function PlacementHero() {
 
                 {/* Bottom CTA */}
 
-                <div className="mt-8 rounded-2xl bg-gradient-to-r from-green-600 to-green-700 p-4 text-white">
+                <div className="mt-8 rounded-2xl bg-gradient-to-r from-brand-green to-brand-dark p-4 text-ink">
 
                   <div className="flex items-center justify-between gap-4">
 
@@ -248,7 +248,7 @@ export default function PlacementHero() {
 
                     <a
                       href={CONTACT.phoneHref}
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0d1c16] text-[#7CFF00] transition-transform duration-300 hover:scale-105"
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface text-brand-primary transition-transform duration-300 hover:scale-105"
                       aria-label="Call SkillOrbit"
                     >
                       <Phone size={18} />
@@ -264,20 +264,20 @@ export default function PlacementHero() {
                   FLOATING RATING CARD
               ========================== */}
 
-              <div className="absolute -left-4 top-12 hidden rounded-2xl border border-slate-100 bg-[#0d1c16] p-4 shadow-xl sm:block lg:-left-8">
+              <div className="absolute -left-4 top-12 hidden rounded-2xl border border-slate-100 bg-surface p-4 shadow-xl sm:block lg:-left-8">
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#7CFF00]/15 text-[#7CFF00]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-primary/15 text-brand-primary">
                     <Sparkles size={18} />
                   </div>
 
                   <div>
-                    <p className="text-sm font-extrabold text-white">
+                    <p className="text-sm font-extrabold text-ink">
                       Career Focused
                     </p>
 
-                    <p className="text-[11px] font-medium text-[#B7C4BE]">
+                    <p className="text-[11px] font-medium text-ink-muted">
                       Learn • Build • Grow
                     </p>
                   </div>
@@ -290,20 +290,20 @@ export default function PlacementHero() {
                   FLOATING SUPPORT CARD
               ========================== */}
 
-              <div className="absolute -bottom-5 -right-3 rounded-2xl border border-green-100 bg-[#0d1c16] p-4 shadow-xl sm:-right-7">
+              <div className="absolute -bottom-5 -right-3 rounded-2xl border border-line bg-surface p-4 shadow-xl sm:-right-7">
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-white">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green text-ink">
                     <CheckCircle2 size={19} />
                   </div>
 
                   <div>
-                    <p className="text-sm font-extrabold text-white">
+                    <p className="text-sm font-extrabold text-ink">
                       Placement Support
                     </p>
 
-                    <p className="text-[11px] font-medium text-[#B7C4BE]">
+                    <p className="text-[11px] font-medium text-ink-muted">
                       Career guidance included
                     </p>
                   </div>
@@ -328,8 +328,8 @@ export default function PlacementHero() {
 
 function HeroBenefit({ text }) {
   return (
-    <div className="flex items-center gap-2.5 text-sm font-semibold text-[#C5D5CE]">
-      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-[#7CFF00]">
+    <div className="flex items-center gap-2.5 text-sm font-semibold text-ink-light">
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-brand-primary">
         <CheckCircle2 size={13} strokeWidth={2.5} />
       </span>
 
@@ -357,8 +357,8 @@ function JourneyItem({
       <div
         className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-4 border-white text-xs font-extrabold shadow-sm ${
           active
-            ? "bg-green-600 text-white"
-            : "bg-[#7CFF00]/15 text-[#7CFF00]"
+            ? "bg-brand-green text-ink"
+            : "bg-brand-primary/15 text-brand-primary"
         }`}
       >
         {number}
@@ -368,11 +368,11 @@ function JourneyItem({
 
       <div className="pt-0.5">
 
-        <h3 className="text-sm font-extrabold text-white">
+        <h3 className="text-sm font-extrabold text-ink">
           {title}
         </h3>
 
-        <p className="mt-1 max-w-[350px] text-xs leading-5 text-[#B7C4BE]">
+        <p className="mt-1 max-w-[350px] text-xs leading-5 text-ink-muted">
           {text}
         </p>
 

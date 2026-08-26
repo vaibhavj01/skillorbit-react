@@ -5,17 +5,17 @@ export const placementJourney = [
     title: "Skill Assessment",
     short: "Assessment",
     description:
-      "Understand your current technical level, identify skill gaps, and create a personalized learning path.",
+      "Assess the learner's current technical knowledge, identify skill gaps, and create a focused learning path based on their target career.",
     points: ["Technical baseline", "Skill-gap map", "Personal learning path"],
     icon: "target",
   },
   {
     id: "train",
     step: "02",
-    title: "Designation-Oriented Training",
+    title: "Role-Focused Training",
     short: "Training",
     description:
-      "Learn the exact technical skills required for your target job role — not isolated tools.",
+      "Learn the technical tools, concepts, and workflows required for the learner's target job role through structured industry-focused training.",
     points: [
       "Java Full Stack Developer",
       "Backend Developer",
@@ -29,20 +29,20 @@ export const placementJourney = [
   {
     id: "practice",
     step: "03",
-    title: "Daily Practical Learning",
-    short: "Practical Learning",
+    title: "Practical Learning",
+    short: "Practical Skills",
     description:
-      "Build skills through daily coding tasks, assignments, practical exercises, and real-world development scenarios.",
+      "Build real skills through coding tasks, assignments, projects, case studies, and practical exercises based on real-world scenarios.",
     points: ["Daily assignments", "Coding practice", "Hands-on exercises", "Real-world use cases", "Projects"],
     icon: "terminal",
   },
   {
     id: "profile",
     step: "04",
-    title: "Build Your Professional Profile",
+    title: "Profile Building",
     short: "Profile Building",
     description:
-      "Turn your technical skills into a professional profile that recruiters can scan and trust.",
+      "Turn trained skills into a recruiter-ready profile with a polished resume, GitHub, LinkedIn, and a portfolio that showcases completed work.",
     points: [
       "Resume building",
       "GitHub profile",
@@ -56,10 +56,10 @@ export const placementJourney = [
   {
     id: "interview",
     step: "05",
-    title: "Interview & HR Preparation",
+    title: "Interview Preparation",
     short: "Interview Preparation",
     description:
-      "Handle technical interviews, HR rounds, and professional communication with a repeatable process.",
+      "Prepare for technical rounds, HR interviews, and professional communication through mock interviews and a repeatable interview process.",
     points: [
       "Communication skills",
       "Soft skills",
@@ -73,10 +73,10 @@ export const placementJourney = [
   {
     id: "drives",
     step: "06",
-    title: "Placement Drives & Job Opportunities",
-    short: "Placement Drives",
+    title: "Placement",
+    short: "Placement",
     description:
-      "Connect trained candidates with relevant openings through placement drives and an internal job portal.",
+      "Connect trained learners with relevant openings through placement drives, internships, and recruitment support matched to their target role.",
     points: [
       "Placement drives",
       "Internal job portal",
@@ -90,58 +90,13 @@ export const placementJourney = [
   {
     id: "career",
     step: "07",
-    title: "Start Your Career",
-    short: "Career Success",
+    title: "Career",
+    short: "Career",
     description:
-      "Convert skills, preparation, and interview performance into a real role — the final step of the journey.",
+      "Convert skills, interviews, and offers into a real role — with onboarding support and a plan to grow from placement into a long-term career.",
     points: ["Offer support", "Role onboarding", "Career growth plan"],
     icon: "rocket",
     featured: true,
-  },
-];
-
-export const careerBenefits = [
-  {
-    id: "lms",
-    title: "LMS Access",
-    description: "Structured modules, assignments, and resources in one learning system.",
-    icon: "book",
-  },
-  {
-    id: "resources",
-    title: "Learning Resource Access",
-    description: "Recorded sessions and course resources you can revisit while you train.",
-    icon: "play",
-  },
-  {
-    id: "mentorship",
-    title: "Personalized Mentorship",
-    description: "Doubt-solving, progress checks, and career guidance mapped to your target role.",
-    icon: "users",
-  },
-  {
-    id: "modes",
-    title: "Online / Offline / Hybrid",
-    description: "Classroom, online, or hybrid batches from Baner, Hinjawadi, and Wakad.",
-    icon: "monitor",
-  },
-  {
-    id: "alumni",
-    title: "Alumni Network",
-    description: "Meet alumni, learn from their paths, and grow a professional network.",
-    icon: "network",
-  },
-  {
-    id: "webinars",
-    title: "Industry Expert Webinars",
-    description: "Live sessions on stacks, hiring trends, and how teams actually ship work.",
-    icon: "video",
-  },
-  {
-    id: "certs",
-    title: "Global Certification Benefits",
-    description: "20% off selected global certifications after you complete the program path.",
-    icon: "badge",
   },
 ];
 

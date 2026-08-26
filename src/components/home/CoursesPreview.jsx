@@ -46,18 +46,15 @@ export default function CoursesPreview() {
 
   return (
     <section
-      id="courses"
-      className="
-        relative
-        overflow-hidden
-        bg-[#071313]
-        py-12
-        sm:py-20
-        md:py-24
-        lg:py-28
-      "
-    >
-      <OrbitBackdrop variant="night" />
+    id="courses"
+    className="
+      relative
+      overflow-hidden
+      bg-surface-bg
+      py-10 sm:py-10 md:py-10
+    "
+  >
+      <OrbitBackdrop variant="mint" />
 
       {/* =====================================================
           CONTENT
@@ -93,7 +90,7 @@ export default function CoursesPreview() {
                   left-5
                   top-1/2
                   -translate-y-1/2
-                  text-[#64748B]
+                  text-ink-muted
                 "
               >
                 <svg
@@ -122,20 +119,20 @@ export default function CoursesPreview() {
                   w-full
                   rounded-2xl
                   border
-                  border-[#7CFF00]/25
-                  bg-[#0d1c16]
+                  border-brand-primary/25
+                  bg-surface
                   pl-14
                   pr-5
                   text-[15px]
-                  text-white
+                  text-ink
                   outline-none
                   transition-all
                   duration-300
-                  placeholder:text-[#8AA0A8]
+                  placeholder:text-[var(--text-muted)]
 
-                  focus:border-[#7CFF00]
+                  focus:border-brand-primary
                   focus:ring-4
-                  focus:ring-[#7CFF00]/15
+                  focus:ring-[var(--brand-primary)]/15
                 "
               />
 
@@ -173,8 +170,8 @@ export default function CoursesPreview() {
                 className="
                   rounded-2xl
                   border
-                  border-[#7CFF00]/20
-                  bg-[#0d1c16]
+                  border-brand-primary/20
+                  bg-surface
                   px-6
                   py-16
                   text-center
@@ -184,7 +181,7 @@ export default function CoursesPreview() {
                   className="
                     text-xl
                     font-bold
-                    text-white
+                    text-ink
                   "
                 >
                   No courses found
@@ -194,7 +191,7 @@ export default function CoursesPreview() {
                   className="
                     mt-2
                     text-sm
-                    text-[#64748B]
+                    text-ink-muted
                   "
                 >
                   Try another course name, technology or category.
@@ -223,12 +220,12 @@ export default function CoursesPreview() {
             variant="outline"
             size="md"
             className="
-              border-[#7CFF00]/40
-              text-[#7CFF00]
+              border-brand-primary/40
+              text-brand-primary
 
-              hover:border-[#7CFF00]
-              hover:bg-[#7CFF00]
-              hover:text-[#071313]
+              hover:border-brand-green
+              hover:bg-brand-green
+              hover:text-[var(--cta-ink)]
             "
           >
             View All Courses

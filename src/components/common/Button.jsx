@@ -8,10 +8,10 @@ const SIZES = {
 };
 
 const VARIANTS = {
-  primary: "bg-[#7CFF00] text-[#071313] shadow-btn hover:bg-[#E7FF00]",
-  outline: "bg-transparent text-[#7CFF00] border-[1.5px] border-[#7CFF00]/45 hover:bg-[#7CFF00] hover:text-[#071313]",
-  dark: "bg-[#0d1c16] text-[#7CFF00] border border-[#7CFF00]/25 hover:border-[#7CFF00]",
-  ghost: "bg-transparent text-[#C5D5CE] hover:text-[#7CFF00]",
+  primary: "bg-brand-primary text-[var(--cta-ink)] shadow-btn hover:bg-brand-green",
+  outline: "bg-transparent text-brand-dark border border-line hover:bg-surface-muted hover:border-brand-green",
+  dark: "bg-dark-surface text-brand-primary border border-dark-border hover:border-brand-green",
+  ghost: "bg-transparent text-ink-light hover:text-brand-green",
 };
 
 export default function Button({
@@ -22,19 +22,18 @@ export default function Button({
   href,
   opensDemo = false,
   defaultCourseId = "",
-  campaign = "",
   className = "",
   onClick,
   type,
   ...props
 }) {
   const { openDemo } = useDemoModal();
-  const base = `inline-flex max-w-full items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 touch-manipulation [overflow-wrap:anywhere] hover:-translate-y-0.5 active:translate-y-0 ${SIZES[size]} ${VARIANTS[variant]} ${className}`;
+  const base = `inline-flex max-w-full items-center justify-center gap-2 rounded-xl font-semibold transition-[background-color,border-color,transform,color] duration-200 touch-manipulation [overflow-wrap:anywhere] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green ${SIZES[size]} ${VARIANTS[variant]} ${className}`;
 
   const handleClick = (event) => {
     if (opensDemo) {
       event.preventDefault();
-      openDemo(defaultCourseId, campaign ? { campaign } : {});
+      openDemo(defaultCourseId);
     }
     onClick?.(event);
   };

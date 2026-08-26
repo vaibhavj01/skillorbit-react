@@ -1195,50 +1195,50 @@ export function getRelatedCourses(course, limit = 3) {
 }
 
 const COURSE_COVERS = {
-  "java-fullstack": "/assets/images/courses/java-fullstack.png",
-  "python-fullstack": "/assets/images/courses/python-fullstack.png",
-  "mern-stack": "/assets/images/courses/mern-stack.png",
-  "react-js": "/assets/images/courses/react-js.png",
-  "core-java": "/assets/images/courses/core-java.png",
-  python: "/assets/images/courses/python.png",
-  javascript: "/assets/images/courses/javascript.png",
-  "machine-learning": "/assets/images/courses/machine-learning.png",
-  "data-analytics": "/assets/images/courses/data-analytics.png",
-  "artificial-intelligence": "/assets/images/courses/artificial-intelligence.png",
-  aws: "/assets/images/courses/aws.png",
-  azure: "/assets/images/courses/azure.png",
-  "google-cloud": "/assets/images/courses/google-cloud.png",
-  docker: "/assets/images/courses/docker.png",
-  kubernetes: "/assets/images/courses/kubernetes.png",
-  "selenium-automation": "/assets/images/courses/selenium-automation.png",
-  cybersecurity: "/assets/images/courses/cybersecurity.png",
-  "soft-skills": "/assets/images/courses/soft-skills.png",
-  "data-analytics-genai": "/assets/images/courses/data-analytics-genai.png",
-  "aws-devops-genai": "/assets/images/courses/aws.png",
-  "azure-data-ai": "/assets/images/courses/azure.png",
-  "microsoft-fabric": "/assets/images/courses/machine-learning.png",
-  "business-analysis": "/assets/images/courses/machine-learning.png",
-  "mis-excel-analytics": "/assets/images/courses/machine-learning.png",
-  servicenow: "/assets/images/courses/javascript.png",
-  salesforce: "/assets/images/courses/javascript.png",
-  "sap-sd": "/assets/images/courses/soft-skills.png",
-  "sap-mm": "/assets/images/courses/soft-skills.png",
-  "sap-fico": "/assets/images/courses/soft-skills.png",
-  "sap-abap": "/assets/images/courses/javascript.png",
+  "java-fullstack": "/assets/images/courses/java-fullstack.webp",
+  "python-fullstack": "/assets/images/courses/python-fullstack.webp",
+  "mern-stack": "/assets/images/courses/mern-stack.webp",
+  "react-js": "/assets/images/courses/react-js.webp",
+  "core-java": "/assets/images/courses/core-java.webp",
+  python: "/assets/images/courses/python.webp",
+  javascript: "/assets/images/courses/javascript.webp",
+  "machine-learning": "/assets/images/courses/machine-learning.webp",
+  "data-analytics": "/assets/images/courses/data-analytics.webp",
+  "artificial-intelligence": "/assets/images/courses/artificial-intelligence.webp",
+  aws: "/assets/images/courses/aws.webp",
+  azure: "/assets/images/courses/azure.webp",
+  "google-cloud": "/assets/images/courses/google-cloud.webp",
+  docker: "/assets/images/courses/docker.webp",
+  kubernetes: "/assets/images/courses/kubernetes.webp",
+  "selenium-automation": "/assets/images/courses/selenium-automation.webp",
+  cybersecurity: "/assets/images/courses/cybersecurity.webp",
+  "soft-skills": "/assets/images/courses/soft-skills.webp",
+  "data-analytics-genai": "/assets/images/courses/data-analytics-genai.webp",
+  "aws-devops-genai": "/assets/images/courses/aws.webp",
+  "azure-data-ai": "/assets/images/courses/azure.webp",
+  "microsoft-fabric": "/assets/images/courses/machine-learning.webp",
+  "business-analysis": "/assets/images/courses/machine-learning.webp",
+  "mis-excel-analytics": "/assets/images/courses/machine-learning.webp",
+  servicenow: "/assets/images/courses/javascript.webp",
+  salesforce: "/assets/images/courses/javascript.webp",
+  "sap-sd": "/assets/images/courses/soft-skills.webp",
+  "sap-mm": "/assets/images/courses/soft-skills.webp",
+  "sap-fico": "/assets/images/courses/soft-skills.webp",
+  "sap-abap": "/assets/images/courses/javascript.webp",
 };
 
 const CATEGORY_COVERS = {
-  fullstack: "/assets/images/courses/java-fullstack.png",
-  programming: "/assets/images/courses/python.png",
-  web: "/assets/images/courses/react-js.png",
-  testing: "/assets/images/courses/selenium-automation.png",
-  datascience: "/assets/images/courses/machine-learning.png",
-  cloud: "/assets/images/courses/aws.png",
-  database: "/assets/images/courses/data-analytics.png",
-  cybersecurity: "/assets/images/courses/cybersecurity.png",
-  softskills: "/assets/images/courses/soft-skills.png",
-  certifications: "/assets/images/courses/aws.png",
-  erp: "/assets/images/courses/javascript.png",
+  fullstack: "/assets/images/courses/java-fullstack.webp",
+  programming: "/assets/images/courses/python.webp",
+  web: "/assets/images/courses/react-js.webp",
+  testing: "/assets/images/courses/selenium-automation.webp",
+  datascience: "/assets/images/courses/machine-learning.webp",
+  cloud: "/assets/images/courses/aws.webp",
+  database: "/assets/images/courses/data-analytics.webp",
+  cybersecurity: "/assets/images/courses/cybersecurity.webp",
+  softskills: "/assets/images/courses/soft-skills.webp",
+  certifications: "/assets/images/courses/aws.webp",
+  erp: "/assets/images/courses/javascript.webp",
 };
 
 export function getCourseCover(course) {
@@ -1247,8 +1247,8 @@ export function getCourseCover(course) {
     COURSE_COVERS[course.slug] ||
     COURSE_COVERS[course.id] ||
     CATEGORY_COVERS[course.category] ||
-    "/assets/images/courses/python-fullstack.png";
-  return `${src}?v=7`;
+    "/assets/images/courses/python-fullstack.webp";
+  return `${src}?v=8`;
 }
 
 export const CATEGORIES = [

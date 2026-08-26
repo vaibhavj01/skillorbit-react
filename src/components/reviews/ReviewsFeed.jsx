@@ -5,7 +5,7 @@ import Reveal from "../common/Reveal";
 import ReviewStars from "./ReviewStars";
 import { PLATFORM_RATINGS, testimonials } from "../../data/testimonials";
 
-const AVATAR_COLORS = ["#239F4A", "#087A3E", "#2ECBC7", "#35D0A5"];
+const AVATAR_COLORS = ["var(--brand-green)", "var(--brand-dark)", "#2ECBC7", "var(--brand-green)"];
 
 function initial(name) {
   return name.trim().charAt(0).toUpperCase();
@@ -14,7 +14,7 @@ function initial(name) {
 function PlatformMark({ name, color }) {
   return (
     <span
-      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-black text-white"
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-black text-ink"
       style={{ background: color }}
       aria-hidden="true"
     >
@@ -48,18 +48,19 @@ export default function ReviewsFeed() {
 
   if (!active) return null;
 
-  const long = active.quote.length > 180;
-  const body = !expanded && long ? `${active.quote.slice(0, 170).trim()}…` : active.quote;
+  const quote = active.quote || "";
+  const long = quote.length > 180;
+  const body = !expanded && long ? `${quote.slice(0, 170).trim()}…` : quote;
   const color = AVATAR_COLORS[idx % AVATAR_COLORS.length];
 
   return (
-    <section id="latest-reviews" className="relative overflow-hidden bg-[#050c0a] py-16 md:py-20">
+    <section id="latest-reviews" className="relative overflow-hidden bg-[#050c0a] so-section">
       <Container className="relative z-10">
         <Reveal className="mb-10 max-w-2xl">
-          <h2 className="font-roboto text-3xl font-black text-white md:text-4xl">
-            What our <span className="text-[#7CFF00]">learners say</span>
+          <h2 className="font-roboto text-3xl font-black text-ink md:text-4xl">
+            What our <span className="text-brand-primary">learners say</span>
           </h2>
-          <p className="mt-3 text-sm leading-7 text-[#C5D5CE]">
+          <p className="mt-3 text-sm leading-7 text-ink-light">
             Feedback from classroom, hybrid, and online batches. Stack, campus, and what they
             actually shipped.
           </p>
@@ -67,56 +68,74 @@ export default function ReviewsFeed() {
 
         <div className="grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal>
-            <div className="rounded-3xl border border-white/10 bg-[#0d1c16] p-4 sm:p-6">
+            <div className="rounded-3xl border border-white/10 bg-surface p-4 sm:p-6">
               <div className="mb-5 flex items-center justify-between gap-3">
-                <p className="text-sm font-black text-white">Latest reviews</p>
-                <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[#7CFF00]">
+                <p className="text-sm font-black text-ink">Latest reviews</p>
+                <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-primary">
                   <span className="reviews-live-dot" />
                   Live feed
                 </span>
               </div>
 
-              <article className="rounded-2xl border border-[#7CFF00]/15 bg-[#0d1c16] p-5 sm:p-6">
+              <article className="rounded-2xl border border-brand-primary/15 bg-surface p-5 sm:p-6">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <span
-                      className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-white"
-                      style={{ background: color }}
-                    >
-                      {initial(active.name)}
-                    </span>
+                    {active.avatar ? (
+                      <img
+                        src={active.avatar}
+                        alt=""
+                        className="h-11 w-11 rounded-full object-cover object-[center_18%]"
+                      />
+                    ) : (
+                      <span
+                        className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-ink"
+                        style={{ background: color }}
+                      >
+                        {initial(active.name)}
+                      </span>
+                    )}
                     <div>
-                      <p className="font-roboto text-sm font-black text-white">{active.name}</p>
-                      <p className="text-xs text-[#C5D5CE]">{active.date}</p>
+                      <p className="font-roboto text-sm font-black text-ink">{active.name}</p>
+                      <p className="text-xs text-ink-light">{active.role}</p>
                     </div>
                   </div>
-                  <span className="rounded-md bg-[#071313] px-2 py-1 text-[10px] font-black uppercase tracking-wide text-[#7CFF00]">
-                    {active.platform}
-                  </span>
+                  {active.package ? (
+                    <span className="rounded-md bg-surface-bg px-2 py-1 text-xs font-black text-brand-primary">
+                      {active.package}
+                    </span>
+                  ) : active.platform ? (
+                    <span className="rounded-md bg-surface-bg px-2 py-1 text-[10px] font-black uppercase tracking-wide text-brand-primary">
+                      {active.platform}
+                    </span>
+                  ) : null}
                 </div>
 
-                <div className="mt-3 flex items-center gap-2">
-                  <ReviewStars rating={active.rating} />
-                  <BadgeCheck size={16} className="text-[#239F4A]" />
-                </div>
+                {active.rating ? (
+                  <div className="mt-3 flex items-center gap-2">
+                    <ReviewStars rating={active.rating} />
+                    <BadgeCheck size={16} className="text-[var(--brand-green)]" />
+                  </div>
+                ) : null}
 
                 <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-[#7CFF00]">Course</dt>
-                    <dd className="font-semibold text-white">{active.course}</dd>
+                    <dt className="text-xs font-bold uppercase tracking-wide text-brand-primary">Role</dt>
+                    <dd className="font-semibold text-ink">{active.role}</dd>
                   </div>
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-[#7CFF00]">Campus</dt>
-                    <dd className="font-semibold text-white">{active.campus}</dd>
+                    <dt className="text-xs font-bold uppercase tracking-wide text-brand-primary">Package</dt>
+                    <dd className="font-semibold text-brand-primary">{active.package}</dd>
                   </div>
                 </dl>
 
-                <p className="mt-4 text-sm leading-7 text-[#C5D5CE]">{body}</p>
+                {body ? (
+                  <p className="mt-4 text-sm leading-7 text-ink-light">{body}</p>
+                ) : null}
                 {long ? (
                   <button
                     type="button"
                     onClick={() => setExpanded((value) => !value)}
-                    className="mt-2 text-sm font-bold text-[#7CFF00]"
+                    className="mt-2 text-sm font-bold text-brand-primary"
                   >
                     {expanded ? "Show less" : "Read more"}
                   </button>
@@ -124,14 +143,14 @@ export default function ReviewsFeed() {
               </article>
 
               <div className="mt-4 flex items-center justify-between">
-                <p className="text-xs text-[#B7C4BE]">
+                <p className="text-xs text-ink-muted">
                   {idx + 1} / {total} stories
                 </p>
                 <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => go(-1)}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#071313]"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-brand-primary hover:bg-brand-green hover:text-[var(--cta-ink)]"
                     aria-label="Previous review"
                   >
                     <ChevronLeft size={18} />
@@ -139,7 +158,7 @@ export default function ReviewsFeed() {
                   <button
                     type="button"
                     onClick={() => go(1)}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-[#7CFF00] hover:bg-[#7CFF00] hover:text-[#071313]"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-brand-primary hover:bg-brand-green hover:text-[var(--cta-ink)]"
                     aria-label="Next review"
                   >
                     <ChevronRight size={18} />
@@ -149,10 +168,10 @@ export default function ReviewsFeed() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.08} className="rounded-3xl border border-white/10 bg-[#0d1c16] p-5 sm:p-6">
+          <Reveal delay={0.08} className="rounded-3xl border border-white/10 bg-surface p-5 sm:p-6">
             <div className="mb-5 flex items-end justify-between gap-3">
-              <h3 className="font-roboto text-lg font-black text-white">Platform ratings</h3>
-              <p className="text-sm font-bold text-[#7CFF00]">4.8 / 5 avg</p>
+              <h3 className="font-roboto text-lg font-black text-ink">Platform ratings</h3>
+              <p className="text-sm font-bold text-brand-primary">4.8 / 5 avg</p>
             </div>
             <ul className="space-y-3">
               {PLATFORM_RATINGS.map((platform) => (
@@ -164,11 +183,11 @@ export default function ReviewsFeed() {
                     <PlatformMark name={platform.name} color={platform.color} />
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between gap-2">
-                        <p className="text-sm font-black text-white">{platform.name}</p>
-                        <p className="text-sm font-bold text-white">{platform.score.toFixed(1)} / 5</p>
+                        <p className="text-sm font-black text-ink">{platform.name}</p>
+                        <p className="text-sm font-bold text-ink">{platform.score.toFixed(1)} / 5</p>
                       </div>
-                      <p className="mt-0.5 text-[11px] text-[#7CFF00]">{platform.growth}</p>
-                      <p className="mt-1 text-xs text-[#B7C4BE]">{platform.reviewsLabel}</p>
+                      <p className="mt-0.5 text-[11px] text-brand-primary">{platform.growth}</p>
+                      <p className="mt-1 text-xs text-ink-muted">{platform.reviewsLabel}</p>
                       <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10">
                         <div
                           className="h-full rounded-full"

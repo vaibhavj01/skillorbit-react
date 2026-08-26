@@ -24,8 +24,8 @@ export default function Contact() {
       />
       <PageHero title="Visit or Message Us" subtitle="Train with us in Baner, Hinjawadi or Wakad — or reach us online for a free demo." />
 
-      <section className="relative overflow-hidden bg-[#071313] py-12 pb-16 md:py-20 md:pb-28">
-        <OrbitBackdrop variant="night" />
+      <section className="relative overflow-hidden bg-surface-bg so-section-lg">
+        <OrbitBackdrop variant="mint" />
         <Container className="relative z-10 grid items-start gap-10 lg:grid-cols-2">
           <Reveal className="grid sm:grid-cols-2 gap-4">
             {CARDS.map((c) => (
@@ -34,7 +34,7 @@ export default function Contact() {
                 href={c.href}
                 target={c.label === "WhatsApp" || c.label === "Location" ? "_blank" : undefined}
                 rel={c.label === "WhatsApp" || c.label === "Location" ? "noopener noreferrer" : undefined}
-                className="flex flex-col gap-2 rounded-2xl border border-[#7CFF00]/20 bg-[#0d1c16] p-5 transition-transform hover:-translate-y-0.5"
+                className="flex flex-col gap-2 rounded-2xl border border-brand-primary/20 bg-surface p-5 transition-transform hover:-translate-y-0.5"
               >
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-brand-100">
                   <c.icon size={18} className="text-brand-700" />
@@ -48,7 +48,7 @@ export default function Contact() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="rounded-3xl border border-[#7CFF00]/20 bg-[#0d1c16] p-8">
+          <Reveal delay={0.1} className="rounded-3xl border border-brand-primary/20 bg-surface p-8">
             <h3 className="text-lg font-bold mb-2 font-display text-ink">Send us a message</h3>
             <p className="text-sm mb-6 text-ink-muted">Fill in your details and we'll get back to you within one business day.</p>
             <ContactForm />

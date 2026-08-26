@@ -1,17 +1,28 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Search, X } from "lucide-react";
 
-import { courses } from "../../data/courses";
 import useClickOutside from "../../hooks/useClickOutside";
 
 export default function HeaderSearch({ variant = "desktop" }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [catalog, setCatalog] = useState(null);
 
   const ref = useRef(null);
 
   const isMobile = variant === "mobile";
+
+  useEffect(() => {
+    if (!open && query.trim().length < 2) return undefined;
+    let cancelled = false;
+    import("../../data/courses").then((mod) => {
+      if (!cancelled) setCatalog(mod.courses);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [open, query]);
 
   useClickOutside(
     ref,
@@ -26,8 +37,8 @@ export default function HeaderSearch({ variant = "desktop" }) {
   ========================================================= */
 
   const results =
-    query.trim().length > 1
-      ? courses
+    catalog && query.trim().length > 1
+      ? catalog
           .filter((course) => {
             const searchText = query.toLowerCase();
 
@@ -85,8 +96,8 @@ export default function HeaderSearch({ variant = "desktop" }) {
           items-center
           rounded-xl
           border
-          border-[#7CFF00]/30
-          bg-[#0d1c16]
+          border-brand-primary/30
+          bg-surface
 
           transition-all
           duration-300
@@ -115,10 +126,10 @@ export default function HeaderSearch({ variant = "desktop" }) {
           strokeWidth={2}
           className="
             shrink-0
-            text-[#7CFF00]
+            text-brand-primary
             transition-colors
             duration-200
-            group-focus-within:text-[#7CFF00]
+            group-focus-within:text-brand-primary
           "
         />
 
@@ -139,10 +150,10 @@ export default function HeaderSearch({ variant = "desktop" }) {
             min-w-0
             flex-1
             bg-transparent
-            text-white
+            text-ink
             outline-none
 
-            placeholder:text-[#8AA0A8]
+            placeholder:text-[var(--text-muted)]
 
             ${
               isMobile
@@ -169,7 +180,7 @@ export default function HeaderSearch({ variant = "desktop" }) {
               text-[#55727C]
               transition-colors
               duration-200
-              hover:text-[#7CFF00]
+              hover:text-brand-green
             "
           >
             <X size={isMobile ? 12 : 14} />
@@ -190,8 +201,8 @@ export default function HeaderSearch({ variant = "desktop" }) {
             overflow-hidden
             rounded-xl
             border
-            border-[#7CFF00]/20
-            bg-[#0d1c16]
+            border-brand-primary/20
+            bg-surface
             shadow-[0_15px_40px_rgba(0,0,0,0.45)]
 
             ${
@@ -250,13 +261,13 @@ export default function HeaderSearch({ variant = "desktop" }) {
                       flex-col
                       gap-0.5
                       border-b
-                      border-[#35D0A5]/10
+                      border-[var(--brand-green)]/10
                       px-3
                       py-3
                       transition-all
                       duration-200
                       last:border-b-0
-                      hover:bg-[#7CFF00]/10
+                      hover:bg-brand-green/10
                     "
                   >
                     {/* Course Name */}
@@ -264,9 +275,9 @@ export default function HeaderSearch({ variant = "desktop" }) {
                     <span
                       className={`
                         font-bold
-                        text-white
+                        text-ink
                         transition-colors
-                        group-hover:text-[#7CFF00]
+                        group-hover:text-brand-green
 
                         ${
                           isMobile
@@ -282,7 +293,7 @@ export default function HeaderSearch({ variant = "desktop" }) {
 
                     <span
                       className={`
-                        text-[#8AA0A8]
+                        text-[var(--text-muted)]
 
                         ${
                           isMobile

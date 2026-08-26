@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { ASSETS, STATS } from "../../data/siteConfig";
 import useCounter from "../../hooks/useCounter";
 import useScrollReveal from "../../hooks/useScrollReveal";
+import "../../styles/hero-orbit.css";
 
 const ORBIT_RINGS = [
   { id: 1, size: "34%", duration: "25s", reverse: false, dashed: false },
@@ -30,8 +30,6 @@ const TECHNOLOGIES = [
 ];
 
 function CentralLogo() {
-  const [logoOk, setLogoOk] = useState(false);
-
   return (
     <div className="so-orbit-logo">
       <span className="so-orbit-logo__glow" aria-hidden="true" />
@@ -39,23 +37,12 @@ function CentralLogo() {
         <img
           src={ASSETS.orbitMark}
           alt="SkillOrbit Academy"
+          width={88}
+          height={88}
           className="so-orbit-logo__img"
-          onLoad={() => setLogoOk(true)}
-          onError={() => setLogoOk(false)}
-          style={{ display: logoOk ? "block" : "none" }}
+          fetchPriority="high"
+          decoding="async"
         />
-        {!logoOk && (
-          <svg viewBox="0 0 88 88" className="so-orbit-logo__mark" aria-hidden="true">
-            <path
-              d="M30 54c2.4-13 10-22 22-22 8 0 13.2 3.8 13.2 9.8 0 5.6-4.2 8.8-11.2 10L40 56.4c-2.4.4-3.6 1.8-3.6 3.6 0 2.6 2.6 4.2 7.2 4.2 6 0 10.8-2.4 14.2-6.6"
-              fill="none"
-              stroke="#fff"
-              strokeWidth="5.4"
-              strokeLinecap="round"
-            />
-            <circle cx="60" cy="26" r="3.2" fill="#fff" />
-          </svg>
-        )}
       </span>
     </div>
   );

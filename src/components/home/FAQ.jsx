@@ -36,12 +36,12 @@ function FAQItem({ item, isOpen, onClick, index }) {
 export default function FAQ() {
   const [open, setOpen] = useState(0);
   return (
-    <section id="faq" className="relative overflow-hidden bg-[#071313] py-12 md:py-28">
-      <OrbitBackdrop variant="night" />
+    <section id="faq" className="relative overflow-hidden bg-surface-bg so-section-lg">
+      <OrbitBackdrop variant="mint" />
       <Container className="relative z-10 grid gap-12 lg:grid-cols-5">
         <Reveal className="lg:col-span-2">
           <Eyebrow>Support</Eyebrow>
-          <h2 className="text-xl font-bold leading-tight mb-4 font-display text-ink tracking-tight sm:text-3xl">Frequently Asked Questions</h2>
+          <h2 className="mb-4 font-display text-h2 font-bold tracking-tight text-ink">Frequently Asked Questions</h2>
           <p className="text-base mb-6 text-ink-muted">Answers about courses, modes, certificates and career support.</p>
           <Button opensDemo variant="primary" size="md" className="w-full sm:w-auto">
             Book a Demo

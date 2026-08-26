@@ -1,19 +1,12 @@
+import { lazy, Suspense } from "react";
 import Seo from "../components/common/Seo";
 import Hero from "../components/home/Hero";
 import Stats from "../components/home/Stats";
-import GenAIBatchAd from "../components/home/GenAIBatchAd";
 import Partners from "../components/home/Partners";
 import WhyFeatures from "../components/home/WhyFeatures";
-import CoursesPreview from "../components/home/CoursesPreview";
-import Batches from "../components/home/Batches";
-import Projects from "../components/home/Projects";
-import PlacementRoadmap from "../components/placements/PlacementRoadmap";
-import Testimonials from "../components/home/Testimonials";
-import IsoCertification from "../components/home/IsoCertification";
-import BlogPreview from "../components/home/BlogPreview";
-import FAQ from "../components/home/FAQ";
-import RoadmapPerks from "../components/home/RoadmapPerks";
-import CTASection from "../components/home/CTASection";
+import PageFallback from "../components/common/PageFallback";
+
+const HomeBelowFold = lazy(() => import("./HomeBelowFold"));
 
 export default function Home() {
   return (
@@ -25,19 +18,11 @@ export default function Home() {
       />
       <Hero />
       <Stats />
-      <GenAIBatchAd />
       <Partners />
       <WhyFeatures />
-      <CoursesPreview />
-      <Batches />
-      <Projects />
-      <PlacementRoadmap />
-      <Testimonials />
-      <IsoCertification />
-      <BlogPreview />
-      <FAQ />
-      <RoadmapPerks />
-      <CTASection />
+      <Suspense fallback={<PageFallback />}>
+        <HomeBelowFold />
+      </Suspense>
     </>
   );
 }

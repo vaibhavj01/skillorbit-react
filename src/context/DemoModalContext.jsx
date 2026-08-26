@@ -3,7 +3,6 @@ import { createContext, useCallback, useContext, useMemo, useState } from "react
 const DemoModalContext = createContext({
   isOpen: false,
   courseId: "",
-  campaign: "",
   openDemo: () => {},
   closeDemo: () => {},
 });
@@ -11,11 +10,9 @@ const DemoModalContext = createContext({
 export function DemoModalProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [courseId, setCourseId] = useState("");
-  const [campaign, setCampaign] = useState("");
 
-  const openDemo = useCallback((nextCourseId = "", options = {}) => {
+  const openDemo = useCallback((nextCourseId = "") => {
     setCourseId(nextCourseId || "");
-    setCampaign(options?.campaign || "");
     setIsOpen(true);
   }, []);
 
@@ -24,8 +21,8 @@ export function DemoModalProvider({ children }) {
   }, []);
 
   const value = useMemo(
-    () => ({ isOpen, courseId, campaign, openDemo, closeDemo }),
-    [isOpen, courseId, campaign, openDemo, closeDemo],
+    () => ({ isOpen, courseId, openDemo, closeDemo }),
+    [isOpen, courseId, openDemo, closeDemo],
   );
 
   return <DemoModalContext.Provider value={value}>{children}</DemoModalContext.Provider>;

@@ -200,21 +200,9 @@ export default function Header() {
           ${navHidden ? "-translate-y-[calc(100%+2.5rem)]" : "translate-y-0"}
         `}
         style={{
-          background: scrolled
-            ? "rgba(7,19,19,0.94)"
-            : "rgba(7,19,19,0.78)",
-
-          backdropFilter: "blur(16px)",
-
-          WebkitBackdropFilter:
-            "blur(16px)",
-
-          borderBottom:
-            "1px solid rgba(124,255,0,0.18)",
-
-          boxShadow: scrolled
-            ? "0 8px 30px rgba(0,0,0,0.35)"
-            : "none",
+          background: "rgba(248, 250, 249, 0.92)",
+          borderBottom: "1px solid var(--border)",
+          boxShadow: scrolled ? "0 8px 24px rgba(3, 21, 12, 0.06)" : "none",
         }}
       >
         <div
@@ -222,7 +210,7 @@ export default function Header() {
             mx-auto
             flex
             h-[72px]
-            max-w-7xl
+            max-w-site
             items-center
             gap-5
             px-5
@@ -245,12 +233,14 @@ export default function Header() {
             <img
               src={ASSETS.logo}
               alt="SkillOrbit Academy"
+              width={155}
+              height={40}
+              fetchPriority="high"
+              decoding="async"
               className="
+                h-auto
                 w-[138px]
                 object-contain
-                brightness-0
-                invert
-                drop-shadow-[0_0_10px_rgba(124,255,0,0.35)]
                 xl:w-[155px]
               "
             />
@@ -295,8 +285,8 @@ export default function Header() {
                         duration-200
                         ${
                           active
-                            ? "bg-[#7CFF00]/15 text-[#7CFF00]"
-                            : "text-white hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
+                            ? "bg-brand-green/10 text-brand-green"
+                            : "text-ink hover:bg-surface-muted hover:text-brand-green"
                         }
                       `}
                     >
@@ -325,7 +315,7 @@ export default function Header() {
                         group-focus-within:opacity-100
                       "
                     >
-                      <div className="overflow-hidden rounded-xl border border-[#7CFF00]/20 bg-[#0d1c16] py-2 shadow-[0_16px_40px_rgba(0,0,0,0.45)]">
+                      <div className="overflow-hidden rounded-xl border border-line bg-surface py-2 shadow-card">
                         {item.children.map((child) => (
                           <Link
                             key={child.to}
@@ -339,8 +329,8 @@ export default function Header() {
                               transition
                               ${
                                 pathname === child.to
-                                  ? "bg-[#7CFF00]/15 text-[#7CFF00]"
-                                  : "text-white hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
+                                  ? "bg-brand-green/10 text-brand-green"
+                                  : "text-ink hover:bg-surface-muted hover:text-brand-green"
                               }
                             `}
                           >
@@ -371,9 +361,9 @@ export default function Header() {
                     transition-all
                     duration-200
                     ${
-                      active
-                        ? "bg-[#7CFF00]/15 text-[#7CFF00]"
-                        : "text-white hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
+                        active
+                          ? "bg-brand-green/10 text-brand-green"
+                          : "text-ink hover:bg-surface-muted hover:text-brand-green"
                     }
                   `}
                 >
@@ -437,9 +427,9 @@ export default function Header() {
           justify-between
 
           border-b
-          border-[#7CFF00]/20
+          border-line
 
-          bg-[#071313]/92
+          bg-[rgba(248,250,249,0.92)]
 
           px-3
 
@@ -470,10 +460,11 @@ export default function Header() {
             items-center
             justify-center
             rounded-xl
-            text-[#7CFF00]
+            text-ink
             transition-all
             duration-200
-            hover:bg-[#7CFF00]/10
+            hover:bg-surface-muted
+            hover:text-brand-green
             active:scale-95
           "
         >
@@ -499,12 +490,14 @@ export default function Header() {
           <img
             src={ASSETS.logo}
             alt="SkillOrbit Academy"
+            width={125}
+            height={32}
+            fetchPriority="high"
+            decoding="async"
             className="
+              h-auto
               w-[108px]
               object-contain
-              brightness-0
-              invert
-              drop-shadow-[0_0_8px_rgba(124,255,0,0.35)]
               min-[380px]:w-[125px]
             "
           />
@@ -555,7 +548,7 @@ export default function Header() {
             absolute
             inset-0
 
-            bg-[#071313]/70
+            bg-dark/70
 
             backdrop-blur-[3px]
 
@@ -585,9 +578,9 @@ export default function Header() {
 
             overflow-hidden
 
-            bg-[#0d1c16]
+            bg-surface
 
-            shadow-[12px_0_40px_rgba(0,0,0,0.45)]
+            shadow-card
 
             transition-transform
             duration-300
@@ -611,10 +604,7 @@ export default function Header() {
               items-center
               justify-between
 
-              bg-gradient-to-r
-              from-[#063F2A]
-              via-[#087A3E]
-              to-[#239F4A]
+              bg-gradient-brand
 
               px-5
             "
@@ -706,7 +696,7 @@ export default function Header() {
                 uppercase
                 tracking-[0.2em]
 
-                text-[#7CFF00]
+                text-brand-green
               "
             >
               Main Navigation
@@ -742,8 +732,8 @@ export default function Header() {
                         active:scale-[0.98]
                         ${
                           active
-                            ? "bg-[#7CFF00]/15 text-[#7CFF00]"
-                            : "text-white hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
+                            ? "bg-brand-green/10 text-brand-green"
+                            : "text-ink hover:bg-surface-muted hover:text-brand-green"
                         }
                       `}
                     >
@@ -751,12 +741,12 @@ export default function Header() {
                       <ArrowRight
                         size={17}
                         strokeWidth={2.5}
-                        className="shrink-0 text-[#7CFF00] transition-transform duration-200 group-hover:translate-x-1"
+                        className="shrink-0 text-brand-green transition-transform duration-200 group-hover:translate-x-1"
                       />
                     </Link>
 
                     {item.children?.length ? (
-                      <div className="mb-2 ml-3 mt-1 space-y-1 border-l border-[#7CFF00]/25 pl-3">
+                      <div className="mb-2 ml-3 mt-1 space-y-1 border-l border-line pl-3">
                         {item.children.map((child) => (
                           <Link
                             key={child.to}
@@ -772,8 +762,8 @@ export default function Header() {
                               font-semibold
                               ${
                                 pathname === child.to
-                                  ? "bg-[#7CFF00]/15 text-[#7CFF00]"
-                                  : "text-[#C5D5CE] hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
+                                  ? "bg-brand-green/10 text-brand-green"
+                                  : "text-ink-light hover:bg-surface-muted hover:text-brand-green"
                               }
                             `}
                           >
@@ -787,7 +777,7 @@ export default function Header() {
               })}
             </div>
 
-            <p className="mb-2 mt-6 px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#7CFF00]">
+            <p className="mb-2 mt-6 px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-green">
               More
             </p>
             <div className="grid grid-cols-2 gap-1.5">
@@ -796,7 +786,7 @@ export default function Header() {
                   key={link.to}
                   to={link.to}
                   onClick={closeHeaderDrawer}
-                  className="rounded-lg px-3 py-3 text-[13px] font-semibold text-[#C5D5CE] hover:bg-[#7CFF00]/10 hover:text-[#7CFF00]"
+                  className="rounded-lg px-3 py-3 text-[13px] font-semibold text-ink-light hover:bg-surface-muted hover:text-brand-green"
                 >
                   {link.label}
                 </Link>
@@ -813,9 +803,9 @@ export default function Header() {
               shrink-0
 
               border-t
-              border-[#7CFF00]/15
+              border-line
 
-              bg-[#071313]
+              bg-surface-muted
 
               p-4
               pb-[max(1rem,env(safe-area-inset-bottom))]

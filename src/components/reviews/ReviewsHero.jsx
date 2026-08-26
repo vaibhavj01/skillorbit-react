@@ -36,12 +36,12 @@ export default function ReviewsHero() {
   if (!active) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#071313] pb-16 pt-28 md:pb-20 md:pt-36">
+    <section className="relative overflow-hidden bg-surface-bg so-page-hero">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 16% 18%, rgba(35,159,74,0.22), transparent 38%), radial-gradient(circle at 88% 72%, rgba(124,255,0,0.08), transparent 32%)",
+            "radial-gradient(circle at 16% 18%, rgba(0,184,61,0.22), transparent 38%), radial-gradient(circle at 88% 72%, rgba(0,214,57,0.08), transparent 32%)",
         }}
         aria-hidden="true"
       />
@@ -49,29 +49,29 @@ export default function ReviewsHero() {
       <Container className="relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <Reveal>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#7CFF00] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white">
-              <Star size={13} className="text-[#7CFF00]" fill="currentColor" />
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-primary px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-ink">
+              <Star size={13} className="text-brand-primary" fill="currentColor" />
               Trusted by 10,000+ learners
             </p>
-            <h1 className="max-w-xl font-roboto text-4xl font-black leading-tight text-white sm:text-5xl">
+            <h1 className="max-w-xl font-roboto text-hero font-black leading-tight text-ink">
               Hear from our{" "}
-              <span className="text-[#7CFF00]">successful learners</span>
+              <span className="text-brand-primary">successful learners</span>
             </h1>
-            <p className="mt-5 max-w-lg text-sm leading-7 text-[#C5D5CE] md:text-base">
+            <p className="mt-5 max-w-lg text-sm leading-7 text-ink-light md:text-base">
               Short, technical notes from Data Analytics, Java Full Stack, and Python Full
               Stack batches in Baner, Hinjawadi, Wakad, and online.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#latest-reviews"
-                className="inline-flex h-12 items-center gap-2 rounded-xl bg-[#7CFF00] px-5 text-sm font-black text-[#071313] transition hover:-translate-y-0.5 hover:bg-[#E7FF00]"
+                className="inline-flex h-12 items-center gap-2 rounded-xl bg-brand-primary px-5 text-sm font-black text-[var(--cta-ink)] transition hover:-translate-y-0.5 hover:bg-brand-green"
               >
                 <Play size={16} fill="currentColor" />
                 Watch success stories
               </a>
               <a
                 href="#latest-reviews"
-                className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/20 px-5 text-sm font-bold text-white transition hover:border-[#7CFF00] hover:text-[#7CFF00]"
+                className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/20 px-5 text-sm font-bold text-ink transition hover:border-brand-green hover:text-brand-green"
               >
                 Read all reviews
                 <ChevronRight size={16} />
@@ -80,19 +80,31 @@ export default function ReviewsHero() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <article className="reviews-quote-glow rounded-3xl border border-white/10 bg-[#0d1c16] p-7 sm:p-8">
-              <p className="font-roboto text-5xl font-black leading-none text-[#7CFF00]">“</p>
-              <p className="mt-3 text-sm leading-7 text-white/90 md:text-base">
-                {active.quote}
-              </p>
+            <article className="reviews-quote-glow rounded-3xl border border-white/10 bg-surface p-7 sm:p-8">
+              {active.quote ? (
+                <>
+                  <p className="font-roboto text-5xl font-black leading-none text-brand-primary">“</p>
+                  <p className="mt-3 text-sm leading-7 text-ink/90 md:text-base">
+                    {active.quote}
+                  </p>
+                </>
+              ) : (
+                <img
+                  src={active.avatar}
+                  alt={`${active.name}, ${active.role}`}
+                  className="mx-auto h-28 w-28 rounded-full object-cover object-[center_18%] ring-[3px] ring-brand-green/40"
+                />
+              )}
               <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="font-roboto text-sm font-black text-white">{active.name}</p>
-                  <p className="text-xs text-[#B7C4BE]">
-                    {active.course} · {active.campus}
-                  </p>
+                  <p className="font-roboto text-sm font-black text-ink">{active.name}</p>
+                  <p className="text-xs text-ink-muted">{active.role}</p>
                 </div>
-                <ReviewStars rating={active.rating} />
+                {active.package ? (
+                  <p className="font-display text-lg font-bold text-brand-primary">{active.package}</p>
+                ) : (
+                  <ReviewStars rating={active.rating} />
+                )}
               </div>
               <div className="mt-6 flex items-center justify-center gap-2">
                 {featuredTestimonials.map((item, index) => (
@@ -100,7 +112,7 @@ export default function ReviewsHero() {
                     key={item.id}
                     type="button"
                     onClick={() => setIdx(index)}
-                    className="h-2 rounded-full bg-[#7CFF00] transition-all"
+                    className="h-2 rounded-full bg-brand-primary transition-all"
                     style={{
                       width: index === idx ? 22 : 8,
                       opacity: index === idx ? 1 : 0.28,
@@ -118,9 +130,9 @@ export default function ReviewsHero() {
             const Icon = STAT_ICONS[stat.id] || Users;
             return (
               <Reveal key={stat.id} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-5">
-                <Icon size={18} className="text-[#7CFF00]" />
-                <p className="mt-3 font-roboto text-2xl font-black text-white">{stat.value}</p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#B7C4BE]">
+                <Icon size={18} className="text-brand-primary" />
+                <p className="mt-3 font-roboto text-2xl font-black text-ink">{stat.value}</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-ink-muted">
                   {stat.label}
                 </p>
               </Reveal>

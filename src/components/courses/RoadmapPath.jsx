@@ -1,6 +1,6 @@
 const LEAF_COLORS = [
   "#FACC15",
-  "#7CFF00",
+  "var(--brand-primary)",
   "#22D3EE",
   "#F97316",
   "#34D399",

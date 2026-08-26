@@ -14,9 +14,9 @@ function CompanyCard({ company }) {
         group
         relative
         flex
-        h-[52px]
-        w-[105px]
-        min-w-[105px]
+        h-[clamp(3.25rem,12vw,3.5rem)]
+        w-[clamp(6.5rem,28vw,7.2rem)]
+        min-w-[clamp(6.5rem,28vw,7.2rem)]
         shrink-0
         items-center
         justify-center
@@ -36,16 +36,8 @@ function CompanyCard({ company }) {
         ease-out
 
         hover:-translate-y-1
-        hover:border-[#7CFF00]
-        hover:shadow-[0_5px_14px_rgba(124,255,0,0.30)]
-
-        sm:h-[54px]
-        sm:w-[110px]
-        sm:min-w-[110px]
-
-        md:h-[56px]
-        md:w-[115px]
-        md:min-w-[115px]
+        hover:border-brand-green
+        hover:shadow-[0_5px_14px_rgba(0,214,57,0.30)]
       "
     >
       {/* =================================================
@@ -172,15 +164,8 @@ export default function Partners() {
       className="
         relative
         overflow-hidden
-        bg-[#071313]
-
-        py-10
-
-        sm:py-11
-
-        md:py-12
-
-        lg:py-14
+        bg-surface-bg
+        so-section-tight
       "
     >
       <OrbitBackdrop variant="mesh" />
@@ -208,11 +193,11 @@ export default function Partners() {
     z-20
 
     h-full
-    w-[90px]
+    w-[min(5.625rem,18vw)]
 
     bg-gradient-to-r
-    from-[#071313]
-    via-[#071313]/90
+    from-surface-bg
+    via-[var(--text-primary)]/90
     to-transparent
 
     blur-[5px]
@@ -229,11 +214,11 @@ export default function Partners() {
     z-20
 
     h-full
-    w-[90px]
+    w-[min(5.625rem,18vw)]
 
     bg-gradient-to-l
-    from-[#071313]
-    via-[#071313]/90
+    from-surface-bg
+    via-[var(--text-primary)]/90
     to-transparent
 
     blur-[5px]
@@ -265,7 +250,7 @@ export default function Partners() {
               uppercase
               tracking-[0.35em]
 
-              text-[#E7FF00]
+              text-brand-primary
 
               sm:text-[10px]
 
@@ -285,10 +270,11 @@ export default function Partners() {
             className="
               font-display
               font-extrabold
-              leading-[1.05]
-              tracking-tight
+              uppercase
+              leading-[1.2]
+              tracking-[1.2px]
 
-              text-white
+              text-ink
 
               text-2xl
 
@@ -302,6 +288,8 @@ export default function Partners() {
             "
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
+              lineHeight: 1.2,
+              letterSpacing: "1.2px",
             }}
           >
             Where Our Learners
@@ -310,9 +298,9 @@ export default function Partners() {
 
             <span
               className="
-                text-[#7CFF00]
+                text-brand-primary
 
-                drop-shadow-[0_0_18px_rgba(124,255,0,0.20)]
+                drop-shadow-[0_0_18px_rgba(0,214,57,0.20)]
               "
             >
               Aim to Work
@@ -333,7 +321,7 @@ export default function Partners() {
               font-medium
               leading-5
 
-              text-[#EFFFFB]
+              text-[var(--dark-muted)]
 
               sm:text-xs
               sm:leading-6
@@ -361,9 +349,9 @@ export default function Partners() {
 
               rounded-full
 
-              bg-[#7CFF00]
+              bg-brand-primary
 
-              shadow-[0_0_18px_rgba(124,255,0,0.65)]
+              shadow-[0_0_18px_rgba(0,214,57,0.65)]
             "
           />
 
@@ -478,7 +466,7 @@ export default function Partners() {
                 uppercase
                 tracking-[0.12em]
 
-                text-white
+                text-ink
 
                 backdrop-blur-md
 
@@ -498,9 +486,9 @@ export default function Partners() {
 
                   rounded-full
 
-                  bg-[#7CFF00]
+                  bg-brand-primary
 
-                  shadow-[0_0_10px_rgba(124,255,0,0.70)]
+                  shadow-[0_0_10px_rgba(0,214,57,0.70)]
                 "
               />
 

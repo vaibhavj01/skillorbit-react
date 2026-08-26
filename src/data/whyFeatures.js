@@ -13,7 +13,7 @@ export const whyFeatures = [
     icon: "🛡️",
     title: "Hands-On Projects",
     text: "Build practical projects based on real-world requirements.",
-    to: "/#projects",
+    to: "/courses",
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ export const whyFeatures = [
     id: 8,
     number: "08",
     icon: "🌐",
-    title: "Online & Offline",
+    title: "Online",
     text: "Learn through flexible online and offline modes.",
     to: "/distance-learning",
   },

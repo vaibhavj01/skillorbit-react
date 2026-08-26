@@ -17,7 +17,7 @@ const ACTIONS = [
     label: "Call",
     href: CONTACT.phoneHref,
     external: false,
-    className: "bg-[#7CFF00] text-[#071313]",
+    className: "bg-brand-primary text-[var(--cta-ink)]",
     icon: Phone,
   },
 ];
@@ -37,7 +37,7 @@ export default function FloatingActions() {
       {showTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-[#7CFF00]/30 bg-[#0d1c16] text-[#7CFF00] shadow-lg sm:h-11 sm:w-11"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-primary/30 bg-surface text-brand-primary shadow-lg sm:h-11 sm:w-11"
           aria-label="Back to top"
         >
           <ArrowUp size={18} />

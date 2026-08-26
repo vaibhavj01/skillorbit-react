@@ -3,7 +3,6 @@ import PlacementDreams from "../components/placements/PlacementDreams";
 import Stats from "../components/home/Stats";
 import Partners from "../components/home/Partners";
 import PlacementRoadmap from "../components/placements/PlacementRoadmap";
-import Projects from "../components/home/Projects";
 import Testimonials from "../components/home/Testimonials";
 import CTASection from "../components/home/CTASection";
 
@@ -17,10 +16,9 @@ export default function Placements() {
       />
       <PlacementDreams />
       <Stats />
-      <div className="pt-8" />
+      <div className="pt-3" />
       <PlacementRoadmap />
       <Partners />
-      <Projects />
       <Testimonials />
       <CTASection />
     </>
