@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import PageFallback from "./components/common/PageFallback";
+import ProtectedRoute from "./roadmap/auth/ProtectedRoute";
+import GuestOnly from "./roadmap/auth/GuestOnly";
 
 const Home = lazy(() => import("./pages/Home"));
 const Courses = lazy(() => import("./pages/Courses"));
@@ -21,11 +23,37 @@ const Certificates = lazy(() => import("./pages/Certificates"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+const RoadmapRoot = lazy(() => import("./roadmap/RoadmapRoot"));
+const RoadmapExplore = lazy(() => import("./roadmap/pages/Explore"));
+const RoadmapLogin = lazy(() => import("./roadmap/pages/Login"));
+const RoadmapRegister = lazy(() => import("./roadmap/pages/Register"));
+const RoadmapForgot = lazy(() => import("./roadmap/pages/ForgotPassword"));
+const RoadmapDashboard = lazy(() => import("./roadmap/pages/Dashboard"));
+const RoadmapProgress = lazy(() => import("./roadmap/pages/Progress"));
+const RoadmapBookmarks = lazy(() => import("./roadmap/pages/Bookmarks"));
+const RoadmapResources = lazy(() => import("./roadmap/pages/Resources"));
+const RoadmapProfile = lazy(() => import("./roadmap/pages/Profile"));
+const RoadmapSettings = lazy(() => import("./roadmap/pages/Settings"));
+const RoadmapView = lazy(() => import("./roadmap/pages/RoadmapView"));
+
 export default function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<PageFallback />}>
         <Routes>
+          <Route path="/roadmap" element={<RoadmapRoot />}>
+            <Route index element={<RoadmapExplore />} />
+            <Route path="login" element={<GuestOnly><RoadmapLogin /></GuestOnly>} />
+            <Route path="register" element={<GuestOnly><RoadmapRegister /></GuestOnly>} />
+            <Route path="forgot-password" element={<GuestOnly><RoadmapForgot /></GuestOnly>} />
+            <Route path="dashboard" element={<ProtectedRoute><RoadmapDashboard /></ProtectedRoute>} />
+            <Route path="progress" element={<ProtectedRoute><RoadmapProgress /></ProtectedRoute>} />
+            <Route path="bookmarks" element={<ProtectedRoute><RoadmapBookmarks /></ProtectedRoute>} />
+            <Route path="resources" element={<ProtectedRoute><RoadmapResources /></ProtectedRoute>} />
+            <Route path="profile" element={<ProtectedRoute><RoadmapProfile /></ProtectedRoute>} />
+            <Route path="settings" element={<ProtectedRoute><RoadmapSettings /></ProtectedRoute>} />
+            <Route path=":slug" element={<ProtectedRoute><RoadmapView /></ProtectedRoute>} />
+          </Route>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
