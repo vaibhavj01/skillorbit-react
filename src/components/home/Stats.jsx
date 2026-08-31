@@ -60,7 +60,7 @@ function StatItem({ stat, index }) {
             {stat.suffix}
           </span>
         </div>
-        <p className="mt-0.5 text-[9px] font-bold uppercase leading-snug tracking-[0.04em] text-ink-muted sm:mt-1 sm:text-[11px] lg:text-[10px] xl:text-[11px]">
+        <p className="mt-0.5 text-[11px] font-bold uppercase leading-snug tracking-[0.04em] text-ink-muted sm:mt-1 sm:text-[11px]">
           {stat.label}
         </p>
       </div>
@@ -96,9 +96,9 @@ export default function Stats() {
                 onClick={() => openDemo()}
                 className="
                   group flex h-11 min-w-[150px] items-center justify-center gap-2 rounded-xl
-                  bg-brand-primary px-5 text-xs font-extrabold uppercase tracking-[0.06em]
+                  bg-brand-lime px-5 text-xs font-extrabold uppercase tracking-[0.06em]
                   text-[var(--cta-ink)] shadow-btn
-                  transition-colors duration-200 hover:bg-brand-green
+                  transition-colors duration-200 hover:bg-[var(--color-lime-hover)]
                 "
               >
                 Book Free Demo

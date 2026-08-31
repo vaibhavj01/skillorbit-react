@@ -51,7 +51,7 @@ function TimelineRow({ items, visible, activeId, setActiveId, delayStart, classN
     <div className={className}>
       <div className="relative mb-[clamp(0.75rem,1.8svh,1.15rem)]">
         <div
-          className={`roadmap-line pointer-events-none absolute left-[8%] right-[8%] top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-gradient-to-r from-[#00D639] via-[#00B83D] to-[#005C2B] ${
+          className={`roadmap-line pointer-events-none absolute left-[8%] right-[8%] top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-gradient-to-r from-[#00C853] via-[#00C853] to-[#005C2B] ${
             visible ? "is-visible" : ""
           }`}
           aria-hidden="true"
@@ -72,14 +72,14 @@ function TimelineRow({ items, visible, activeId, setActiveId, delayStart, classN
                     item.featured ? "roadmap-node--final" : ""
                   } ${
                     active
-                      ? "bg-[#00D639] text-[var(--cta-ink)] shadow-btn"
-                      : "bg-white text-[#005C2B] shadow-card"
+                      ? "bg-[#00C853] text-[var(--cta-ink)] shadow-btn"
+                      : "bg-white text-[var(--brand-dark)] shadow-card"
                   } ${visible ? "is-visible" : "opacity-0"}`}
                   style={{ animationDelay: `${delayStart + index * 0.1}s` }}
                 >
                   <RoadmapIcon name={item.icon} size={22} />
                 </button>
-                <span className="mt-1.5 font-display text-[11px] font-bold tracking-[0.16em] text-[#00D639]">
+                <span className="mt-1.5 font-display text-[11px] font-bold tracking-[0.16em] text-[#00C853]">
                   {item.step}
                 </span>
               </li>

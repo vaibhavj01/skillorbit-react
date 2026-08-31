@@ -62,10 +62,10 @@ export default function CourseRoadmap() {
             <p className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
               <Map size={14} /> Course roadmap
             </p>
-            <h1 className="font-display text-3xl font-bold text-ink md:text-4xl">
+            <h1 className="font-display text-3xl font-bold text-white md:text-4xl">
               {course.name}
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-ink/70 md:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-dark-muted md:text-lg">
               {roadmap.intro}
             </p>
             <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-brand-primary/40 bg-brand-primary/10 px-4 py-2 text-sm font-semibold text-brand-primary">
@@ -90,7 +90,7 @@ export default function CourseRoadmap() {
             </Button>
           </Reveal>
 
-          <p className="mt-6 text-center text-xs text-ink/45">
+          <p className="mt-6 text-center text-xs text-dark-muted">
             This is SkillOrbit’s in-house learning path for {categoryLabel(course.category)}.
           </p>
         </Container>

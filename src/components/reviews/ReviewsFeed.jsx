@@ -57,10 +57,10 @@ export default function ReviewsFeed() {
     <section id="latest-reviews" className="relative overflow-hidden bg-[#050c0a] so-section">
       <Container className="relative z-10">
         <Reveal className="mb-10 max-w-2xl">
-          <h2 className="font-roboto text-3xl font-black text-ink md:text-4xl">
+          <h2 className="font-display text-h2 font-bold text-white">
             What our <span className="text-brand-primary">learners say</span>
           </h2>
-          <p className="mt-3 text-sm leading-7 text-ink-light">
+          <p className="mt-3 text-sm leading-7 text-dark-muted">
             Feedback from classroom, hybrid, and online batches. Stack, campus, and what they
             actually shipped.
           </p>

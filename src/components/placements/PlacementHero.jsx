@@ -13,17 +13,8 @@ import { CONTACT } from "../../data/siteConfig";
 
 export default function PlacementHero() {
   return (
-    <section className="relative overflow-hidden bg-surface-bg so-page-hero">
-      
-      {/* =========================
-          BACKGROUND DECORATION
-      ========================== */}
-
-      <div className="pointer-events-none absolute -left-32 top-20 hidden h-72 w-72 rounded-full bg-brand-green/10 blur-3xl md:block" />
-
-      <div className="pointer-events-none absolute -right-32 top-10 hidden h-96 w-96 rounded-full bg-brand-primary/10 blur-3xl md:block" />
-
-      <div className="pointer-events-none absolute right-[25%] bottom-0 hidden h-56 w-56 rounded-full bg-brand-green/10 blur-3xl md:block" />
+    <section className="so-hero-dark relative overflow-hidden so-page-hero">
+      <div className="so-hero-glow" aria-hidden="true" />
 
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
@@ -37,31 +28,31 @@ export default function PlacementHero() {
 
               {/* Eyebrow */}
 
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 shadow-sm">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-surface-muted text-brand-primary">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-lime/25 bg-white/5 px-4 py-2">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-brand-lime">
                   <Sparkles size={14} />
                 </span>
 
-                <span className="text-xs font-bold uppercase tracking-[0.12em] text-brand-primary">
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-brand-lime">
                   Career & Placement Support
                 </span>
               </div>
 
               {/* Heading */}
 
-              <h1 className="font-display text-hero font-extrabold tracking-tight text-ink">
+              <h1 className="font-display text-hero font-extrabold tracking-tight text-ink-inverse">
                 Turn Your Skills Into a{" "}
-                <span className="relative inline-block text-brand-primary">
+                <span className="relative inline-block text-brand-lime">
                   Career
                   
                   {/* underline */}
-                  <span className="absolute -bottom-1 left-0 h-1 w-full rounded-full bg-lime-400/70 md:-bottom-2" />
+                  <span className="absolute -bottom-1 left-0 h-1 w-full rounded-full bg-brand-lime/70 md:-bottom-2" />
                 </span>
               </h1>
 
               {/* Description */}
 
-              <p className="mt-6 max-w-xl text-base leading-7 text-ink-light md:text-lg md:leading-8">
+              <p className="mt-6 max-w-xl text-base leading-7 text-ink-dim md:text-lg md:leading-8">
                 Build industry-ready skills, work on real-world projects,
                 prepare for interviews and get dedicated career support from
                 SkillOrbit.
@@ -104,7 +95,7 @@ export default function PlacementHero() {
 
                 <a
                   href={CONTACT.phoneHref}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 border-white/20 bg-surface px-5 text-sm font-bold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-green hover:text-brand-green sm:h-14 sm:px-7"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-brand-primary bg-transparent px-5 text-sm font-bold text-brand-lime transition-all duration-300 hover:-translate-y-0.5 hover:bg-[rgba(0,200,83,0.10)] sm:h-14 sm:px-7"
                 >
                   <Phone size={18} />
                   Talk to a Counsellor
@@ -116,7 +107,7 @@ export default function PlacementHero() {
                   TRUST LINE
               ========================== */}
 
-              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-semibold text-ink-muted">
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-semibold text-ink-dim">
 
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2
@@ -232,7 +223,7 @@ export default function PlacementHero() {
 
                 {/* Bottom CTA */}
 
-                <div className="mt-8 rounded-2xl bg-gradient-to-r from-brand-green to-brand-dark p-4 text-ink">
+                <div className="mt-8 rounded-2xl bg-gradient-to-r from-brand-green to-brand-dark p-4 text-white">
 
                   <div className="flex items-center justify-between gap-4">
 

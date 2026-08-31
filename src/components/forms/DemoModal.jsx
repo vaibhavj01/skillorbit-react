@@ -80,7 +80,7 @@ export default function DemoModal() {
       >
         <div className="flex shrink-0 items-start justify-between gap-3 border-b border-brand-primary/15 px-4 py-3.5 sm:px-6 sm:py-4">
           <div className="min-w-0 pr-2">
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-primary sm:text-[11px]">
+            <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-green">
               Free demo class
             </p>
             <h2 id={titleId} className="font-display text-base font-bold leading-snug text-ink sm:text-xl">

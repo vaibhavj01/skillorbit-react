@@ -7,16 +7,16 @@ export default function CorporateAbout() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[#050c0a] so-section">
+    <section className="relative overflow-hidden bg-[var(--color-bg-dark)] so-section">
       <Container className="relative z-10">
         <Reveal className="text-center">
           <a
             href="#corporate-demo"
-            className="inline-flex h-11 items-center justify-center rounded-full bg-brand-primary px-7 text-sm font-black uppercase tracking-[0.08em] text-[var(--cta-ink)] transition hover:-translate-y-0.5 hover:bg-brand-green"
+            className="inline-flex h-11 items-center justify-center rounded-full bg-brand-lime px-7 text-sm font-black uppercase tracking-[0.08em] text-[var(--cta-ink)] shadow-btn transition hover:-translate-y-0.5 hover:bg-[var(--color-lime-hover)]"
           >
             Book free demo
           </a>
-          <h2 className="mt-8 font-roboto text-3xl font-black text-brand-primary md:text-4xl">
+          <h2 className="mt-8 font-display text-h2 font-bold text-white md:text-[2.25rem]">
             About Our Program
           </h2>
         </Reveal>
@@ -36,7 +36,7 @@ export default function CorporateAbout() {
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="inline-flex h-11 items-center justify-center rounded-full bg-surface-bg px-8 text-sm font-bold text-ink transition hover:bg-[var(--brand-deep)] hover:text-brand-green"
+              className="inline-flex h-11 items-center justify-center rounded-full bg-surface-bg px-8 text-sm font-bold text-ink transition hover:bg-brand-primary hover:text-[var(--cta-ink)]"
             >
               {open ? "Show less" : "Read more..."}
             </button>

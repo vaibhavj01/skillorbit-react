@@ -96,8 +96,8 @@ export default function HeaderSearch({ variant = "desktop" }) {
           items-center
           rounded-xl
           border
-          border-brand-primary/30
-          bg-surface
+          border-dark-border
+          bg-white/5
 
           transition-all
           duration-300
@@ -126,10 +126,10 @@ export default function HeaderSearch({ variant = "desktop" }) {
           strokeWidth={2}
           className="
             shrink-0
-            text-brand-primary
+            text-brand-lime
             transition-colors
             duration-200
-            group-focus-within:text-brand-primary
+            group-focus-within:text-brand-lime
           "
         />
 
@@ -150,10 +150,10 @@ export default function HeaderSearch({ variant = "desktop" }) {
             min-w-0
             flex-1
             bg-transparent
-            text-ink
+            text-ink-inverse
             outline-none
 
-            placeholder:text-[var(--text-muted)]
+            placeholder:text-ink-dim
 
             ${
               isMobile
@@ -177,10 +177,10 @@ export default function HeaderSearch({ variant = "desktop" }) {
               items-center
               justify-center
               rounded-full
-              text-[#55727C]
+              text-ink-dim
               transition-colors
               duration-200
-              hover:text-brand-green
+              hover:text-brand-lime
             "
           >
             <X size={isMobile ? 12 : 14} />
@@ -277,7 +277,7 @@ export default function HeaderSearch({ variant = "desktop" }) {
                         font-bold
                         text-ink
                         transition-colors
-                        group-hover:text-brand-green
+                        group-hover:text-brand-dark
 
                         ${
                           isMobile

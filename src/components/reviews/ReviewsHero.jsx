@@ -36,42 +36,35 @@ export default function ReviewsHero() {
   if (!active) return null;
 
   return (
-    <section className="relative overflow-hidden bg-surface-bg so-page-hero">
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 16% 18%, rgba(0,184,61,0.22), transparent 38%), radial-gradient(circle at 88% 72%, rgba(0,214,57,0.08), transparent 32%)",
-        }}
-        aria-hidden="true"
-      />
+    <section className="so-hero-dark relative overflow-hidden so-page-hero">
+      <div className="so-hero-glow" aria-hidden="true" />
 
       <Container className="relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <Reveal>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-primary px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-ink">
-              <Star size={13} className="text-brand-primary" fill="currentColor" />
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-lime/40 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-lime">
+              <Star size={13} className="text-brand-lime" fill="currentColor" />
               Trusted by 10,000+ learners
             </p>
-            <h1 className="max-w-xl font-roboto text-hero font-black leading-tight text-ink">
+            <h1 className="max-w-xl font-display text-hero font-extrabold leading-tight text-ink-inverse">
               Hear from our{" "}
-              <span className="text-brand-primary">successful learners</span>
+              <span className="text-brand-lime">successful learners</span>
             </h1>
-            <p className="mt-5 max-w-lg text-sm leading-7 text-ink-light md:text-base">
+            <p className="mt-5 max-w-lg text-sm leading-7 text-ink-dim md:text-base">
               Short, technical notes from Data Analytics, Java Full Stack, and Python Full
               Stack batches in Baner, Hinjawadi, Wakad, and online.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#latest-reviews"
-                className="inline-flex h-12 items-center gap-2 rounded-xl bg-brand-primary px-5 text-sm font-black text-[var(--cta-ink)] transition hover:-translate-y-0.5 hover:bg-brand-green"
+                className="inline-flex h-12 items-center gap-2 rounded-xl bg-brand-lime px-5 text-sm font-bold text-[var(--cta-ink)] shadow-btn transition hover:-translate-y-0.5 hover:bg-[var(--color-lime-hover)]"
               >
                 <Play size={16} fill="currentColor" />
                 Watch success stories
               </a>
               <a
                 href="#latest-reviews"
-                className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/20 px-5 text-sm font-bold text-ink transition hover:border-brand-green hover:text-brand-green"
+                className="inline-flex h-12 items-center gap-2 rounded-xl border border-brand-primary px-5 text-sm font-bold text-brand-lime transition hover:bg-[rgba(0,200,83,0.10)]"
               >
                 Read all reviews
                 <ChevronRight size={16} />

@@ -113,10 +113,10 @@ export default function About() {
       <section className="bg-[#0a1612] so-section">
         <Container>
           <Reveal className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="mb-3 font-display text-xl font-bold text-ink sm:text-2xl md:text-3xl">
+            <h2 className="mb-3 font-display text-xl font-bold text-white sm:text-2xl md:text-3xl">
               Mission: Learn → Build → Certify → Prepare → Get Placed → Grow
             </h2>
-            <p className="text-base text-ink-muted">
+            <p className="text-base text-dark-muted">
               We exist to make premium technology education accessible, practical and career-aligned.
             </p>
           </Reveal>

@@ -14,7 +14,7 @@ export default function CorporateLeadership() {
       />
       <Container className="relative z-10">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="font-roboto text-3xl font-black leading-tight text-brand-primary sm:text-4xl">
+          <h2 className="font-display text-h2 font-bold leading-tight text-ink">
             Role-ready communication for IT teams
           </h2>
           <p className="mt-6 text-sm leading-7 text-ink-light md:text-base">

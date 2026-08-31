@@ -1,6 +1,6 @@
 .placement-journey {
   --pj-pad: clamp(1.2rem, 3svh, 2.1rem);
-  background: #03150c;
+  background: #031814;
   padding-block: var(--pj-pad);
   scroll-margin-top: var(--so-header-offset);
 }
@@ -16,7 +16,7 @@
 
 .roadmap-header__copy {
   margin-top: clamp(0.35rem, 0.85svh, 0.55rem);
-  color: #a8b5ae;
+  color: var(--dark-muted);
   font-size: clamp(0.8125rem, 0.72rem + 0.28vw, 0.95rem);
   line-height: 1.5;
 }

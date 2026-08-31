@@ -10,8 +10,8 @@ export default function PlacementCTA() {
 
   return (
     <>
-      <Reveal className="mt-[clamp(1.15rem,2.4svh,1.65rem)] rounded-3xl border border-[#00D639]/20 bg-white px-5 py-6 text-center sm:px-8 sm:py-7">
-        <h3 className="font-display text-lg font-bold text-[#071A12] md:text-xl">
+      <Reveal className="mt-[clamp(1.15rem,2.4svh,1.65rem)] rounded-3xl border border-[#00C853]/20 bg-white px-5 py-6 text-center sm:px-8 sm:py-7">
+        <h3 className="font-display text-lg font-bold text-[var(--color-text-dark)] md:text-xl">
           Ready to Turn Your Skills Into a Career?
         </h3>
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
@@ -20,7 +20,7 @@ export default function PlacementCTA() {
             onClick={() => setOpen(true)}
             aria-haspopup="dialog"
             aria-expanded={open}
-            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-primary px-5 text-sm font-bold text-[var(--cta-ink)] transition hover:-translate-y-0.5 hover:bg-brand-green sm:w-auto"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-lime px-5 text-sm font-bold text-[var(--cta-ink)] shadow-btn transition hover:-translate-y-0.5 hover:bg-[var(--color-lime-hover)] sm:w-auto"
           >
             Start Your Placement Journey
             <ArrowRight size={16} />

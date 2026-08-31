@@ -31,15 +31,15 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at center, rgba(0, 214, 57, 0.10), transparent 46%),
-    radial-gradient(circle at 78% 22%, rgba(0, 184, 61, 0.12), transparent 32%);
+    radial-gradient(circle at center, rgba(102, 255, 0, 0.10), transparent 46%),
+    radial-gradient(circle at 78% 22%, rgba(0, 200, 83, 0.12), transparent 32%);
 }
 
 .so-orbit-bg__dots {
   position: absolute;
   inset: 0;
   opacity: 0.35;
-  background-image: radial-gradient(rgba(0, 184, 61, 0.22) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 200, 83, 0.28) 1px, transparent 1px);
   background-size: 22px 22px;
   mask-image: radial-gradient(circle at center, black 42%, transparent 78%);
 }
@@ -59,7 +59,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #239f4a;
+  background: var(--brand-primary);
   opacity: 0.28;
   box-shadow: 0 0 10px rgba(0, 184, 61, 0.35);
 }
@@ -94,7 +94,7 @@
 
 .so-orbit-decor__plus {
   position: absolute;
-  color: #239f4a;
+  color: var(--brand-primary);
   font-size: 11px;
   font-weight: 600;
   opacity: 0.22;
@@ -110,7 +110,7 @@
 .so-orbit-decor__arc {
   position: absolute;
   inset: 6%;
-  border: 1px solid rgba(0, 184, 61, 0.08);
+  border: 1px solid rgba(102, 255, 0, 0.16);
   border-radius: 50%;
   border-left-color: transparent;
   border-bottom-color: transparent;
@@ -134,7 +134,7 @@
   width: var(--orbit-size);
   height: var(--orbit-size);
   margin: auto;
-  border: 1px solid rgba(0, 184, 61, 0.14);
+  border: 1px solid rgba(0, 200, 83, 0.22);
   border-radius: 50%;
   transform: translateZ(0);
   animation: so-orbit-spin var(--orbit-duration) linear infinite var(--orbit-direction);
@@ -171,8 +171,8 @@
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 8px 25px rgba(50, 100, 50, 0.08);
   backdrop-filter: blur(8px);
-  color: #239f4a;
-  font-family: "Space Grotesk", "Manrope", sans-serif;
+  color: var(--brand-primary);
+  font-family: var(--so-font);
   font-size: 11px;
   font-weight: 700;
   line-height: 1.2;
@@ -202,7 +202,7 @@
   position: absolute;
   inset: -22px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 184, 61, 0.32) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(102, 255, 0, 0.22) 0%, transparent 68%);
   animation: so-orbit-pulse 4.6s ease-in-out infinite;
 }
 
@@ -217,10 +217,10 @@
   isolation: isolate;
   border: 3px solid rgba(255, 255, 255, 0.92);
   border-radius: 50%;
-  background: linear-gradient(160deg, #35d06a 0%, #239f4a 55%, #087a3e 100%);
+  background: linear-gradient(160deg, #00c853 0%, #087a4b 55%, #031814 100%);
   box-shadow:
-    0 16px 36px rgba(0, 184, 61, 0.22),
-    0 0 0 8px rgba(255, 255, 255, 0.55);
+    0 16px 36px rgba(0, 200, 83, 0.22),
+    0 0 0 8px rgba(245, 247, 245, 0.12);
   animation: so-orbit-float 5.2s ease-in-out infinite;
 }
 
@@ -271,8 +271,8 @@
 
 .so-orbit-stat__value {
   margin: 0;
-  color: #239f4a;
-  font-family: "Space Grotesk", sans-serif;
+  color: var(--brand-primary);
+  font-family: var(--so-font);
   font-size: 22px;
   font-weight: 800;
   line-height: 1;

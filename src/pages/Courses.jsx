@@ -7,7 +7,6 @@ import Button from "../components/common/Button";
 import CourseFilter from "../components/courses/CourseFilter";
 import CourseGrid from "../components/courses/CourseGrid";
 import { CATEGORIES, courses, orderCourses } from "../data/courses";
-import OrbitBackdrop from "../components/common/OrbitBackdrop";
 
 export default function Courses() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,17 +42,17 @@ export default function Courses() {
         description="Browse SkillOrbit Academy's full catalog of IT training programs across full stack development, testing, cloud, data science and more."
         path="/courses"
       />
-      <section className="relative overflow-hidden bg-surface-bg so-page-hero">
-        <OrbitBackdrop variant="mint" />
+      <section className="so-hero-dark relative overflow-hidden so-page-hero">
+        <div className="so-hero-glow" aria-hidden="true" />
         <Container className="relative z-10">
           <div className="mb-8 text-center sm:mb-12">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-primary">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-lime">
               Programs
             </p>
-            <h1 className="font-display text-h2 font-bold text-ink">
+            <h1 className="font-display text-h1 font-bold text-ink-inverse">
               All Courses
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-ink-light">
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-ink-dim">
               Filter by category or search to find the right program for your goals.
               Click any course to view full details.
             </p>
@@ -64,22 +63,26 @@ export default function Courses() {
             </div>
           </div>
 
-          <div className="max-w-md mx-auto mb-8">
-            <div className="flex h-12 items-center gap-2 rounded-xl border border-brand-primary/25 bg-surface px-4">
-              <Search size={16} className="text-ink-muted shrink-0" />
+          <div className="mx-auto mb-8 max-w-md">
+            <div className="flex h-12 items-center gap-2 rounded-xl border border-dark-border bg-white/5 px-4">
+              <Search size={16} className="shrink-0 text-brand-lime" />
               <input
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search by course or technology…"
                 aria-label="Search courses"
-                className="w-full bg-transparent outline-none text-base text-ink placeholder:text-ink-muted sm:text-sm"
+                className="w-full bg-transparent text-base text-ink-inverse outline-none placeholder:text-ink-dim sm:text-sm"
               />
             </div>
           </div>
 
-          <CourseFilter active={category} onChange={setCategory} />
-          <CourseGrid courses={filtered} emptyLabel="No courses match your search. Try a different category or keyword." />
+          <CourseFilter active={category} onChange={setCategory} align="start" variant="dark" />
+          <CourseGrid
+            variant="catalog"
+            courses={filtered}
+            emptyLabel="No courses match your search. Try a different category or keyword."
+          />
         </Container>
       </section>
     </>

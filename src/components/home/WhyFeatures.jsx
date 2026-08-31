@@ -35,14 +35,14 @@ export default function WhyFeatures() {
 
       <div className="relative z-10 mx-auto max-w-site px-[var(--so-gutter)]">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="why-section__eyebrow font-display font-extrabold uppercase tracking-[0.16em] text-brand-primary">
+          <p className="why-section__eyebrow font-display font-extrabold uppercase tracking-[0.16em] text-brand-lime">
             WHY SKILLORBIT?
           </p>
 
           <h2 className="why-section__title font-display font-bold tracking-tight text-white">
             Your Journey from{" "}
-            <span className="text-brand-primary">Learning</span> to{" "}
-            <span className="text-brand-primary">Earning</span>
+            <span className="text-brand-lime">Learning</span> to{" "}
+            <span className="text-brand-lime">Earning</span>
           </h2>
 
           <p className="why-section__copy mx-auto max-w-2xl font-medium text-dark-muted">
@@ -67,14 +67,14 @@ export default function WhyFeatures() {
                 }`}
               >
                 <div className="flex w-full min-w-0 items-center">
-                  <div className="why-section__icon flex shrink-0 items-center justify-center rounded-xl bg-[rgba(0,184,61,0.12)] text-brand-primary">
+                  <div className="why-section__icon flex shrink-0 items-center justify-center rounded-xl bg-[rgba(0,200,83,0.12)] text-brand-primary">
                     <Icon size={18} strokeWidth={1.8} className="sm:hidden" />
                     <span className="why-section__emoji hidden sm:inline" aria-hidden="true">
                       {item.icon}
                     </span>
                   </div>
 
-                  <span className="why-section__label min-w-0 font-display font-bold leading-snug text-white transition-colors duration-300 group-hover:text-brand-primary">
+                  <span className="why-section__label min-w-0 font-display font-bold leading-snug text-white transition-colors duration-300 group-hover:text-brand-lime">
                     {item.title}
                   </span>
                 </div>
@@ -86,7 +86,7 @@ export default function WhyFeatures() {
         <div className="why-section__cta flex justify-center px-4">
   <Link
     to="/contact"
-    className="group inline-flex w-full max-w-sm items-center justify-center gap-3 rounded-xl bg-brand-primary px-6 py-3 text-sm font-bold text-[var(--cta-ink)] shadow-btn transition-colors duration-200 hover:bg-brand-green"
+    className="group inline-flex w-full max-w-sm items-center justify-center gap-3 rounded-xl bg-brand-lime px-6 py-3 text-sm font-bold text-[var(--cta-ink)] shadow-btn transition-colors duration-200 hover:bg-[var(--color-lime-hover)]"
   >
     Start Your Journey
     <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">

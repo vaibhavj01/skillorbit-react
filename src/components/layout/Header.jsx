@@ -200,9 +200,9 @@ export default function Header() {
           ${navHidden ? "-translate-y-[calc(100%+2.5rem)]" : "translate-y-0"}
         `}
         style={{
-          background: "rgba(248, 250, 249, 0.92)",
-          borderBottom: "1px solid var(--border)",
-          boxShadow: scrolled ? "0 8px 24px rgba(3, 21, 12, 0.06)" : "none",
+          background: "rgba(3, 24, 20, 0.94)",
+          borderBottom: "1px solid var(--color-border-lime)",
+          boxShadow: scrolled ? "0 8px 28px rgba(3, 24, 20, 0.45)" : "none",
         }}
       >
         <div
@@ -275,18 +275,18 @@ export default function Header() {
                         rounded-lg
                         px-2
                         py-3
-                        text-[12px]
+                        text-[14px]
                         font-semibold
                         xl:px-2.5
-                        xl:text-[13px]
+                        xl:text-[15px]
                         2xl:px-3
-                        2xl:text-[14px]
+                        2xl:text-[15px]
                         transition-all
                         duration-200
                         ${
                           active
-                            ? "bg-brand-green/10 text-brand-green"
-                            : "text-ink hover:bg-surface-muted hover:text-brand-green"
+                            ? "bg-[var(--color-emerald)] text-brand-lime"
+                            : "text-ink-inverse hover:text-brand-lime"
                         }
                       `}
                     >
@@ -315,7 +315,7 @@ export default function Header() {
                         group-focus-within:opacity-100
                       "
                     >
-                      <div className="overflow-hidden rounded-xl border border-line bg-surface py-2 shadow-card">
+                      <div className="overflow-hidden rounded-xl border border-dark-border bg-[var(--color-bg-emerald)] py-2 shadow-card">
                         {item.children.map((child) => (
                           <Link
                             key={child.to}
@@ -329,8 +329,8 @@ export default function Header() {
                               transition
                               ${
                                 pathname === child.to
-                                  ? "bg-brand-green/10 text-brand-green"
-                                  : "text-ink hover:bg-surface-muted hover:text-brand-green"
+                                  ? "bg-[var(--color-emerald)] text-brand-lime"
+                                  : "text-ink-inverse hover:bg-white/5 hover:text-brand-lime"
                               }
                             `}
                           >
@@ -352,18 +352,18 @@ export default function Header() {
                     rounded-lg
                     px-2
                     py-3
-                    text-[12px]
+                    text-[14px]
                     font-semibold
                     xl:px-2.5
-                    xl:text-[13px]
+                    xl:text-[15px]
                     2xl:px-3
-                    2xl:text-[14px]
+                    2xl:text-[15px]
                     transition-all
                     duration-200
                     ${
                         active
-                          ? "bg-brand-green/10 text-brand-green"
-                          : "text-ink hover:bg-surface-muted hover:text-brand-green"
+                          ? "bg-[var(--color-emerald)] text-brand-lime"
+                          : "text-ink-inverse hover:text-brand-lime"
                     }
                   `}
                 >
@@ -427,9 +427,9 @@ export default function Header() {
           justify-between
 
           border-b
-          border-line
+          border-dark-border
 
-          bg-[rgba(248,250,249,0.92)]
+          bg-[rgba(3,24,20,0.96)]
 
           px-3
 
@@ -460,11 +460,11 @@ export default function Header() {
             items-center
             justify-center
             rounded-xl
-            text-ink
+            text-ink-inverse
             transition-all
             duration-200
-            hover:bg-surface-muted
-            hover:text-brand-green
+            hover:bg-white/10
+            hover:text-brand-lime
             active:scale-95
           "
         >
@@ -578,7 +578,7 @@ export default function Header() {
 
             overflow-hidden
 
-            bg-surface
+            bg-[var(--color-bg-dark)]
 
             shadow-card
 
@@ -696,7 +696,7 @@ export default function Header() {
                 uppercase
                 tracking-[0.2em]
 
-                text-brand-green
+                text-brand-lime
               "
             >
               Main Navigation
@@ -732,8 +732,8 @@ export default function Header() {
                         active:scale-[0.98]
                         ${
                           active
-                            ? "bg-brand-green/10 text-brand-green"
-                            : "text-ink hover:bg-surface-muted hover:text-brand-green"
+                            ? "bg-[var(--color-emerald)] text-brand-lime"
+                            : "text-ink-inverse hover:bg-white/5 hover:text-brand-lime"
                         }
                       `}
                     >
@@ -741,12 +741,12 @@ export default function Header() {
                       <ArrowRight
                         size={17}
                         strokeWidth={2.5}
-                        className="shrink-0 text-brand-green transition-transform duration-200 group-hover:translate-x-1"
+                        className="shrink-0 text-brand-lime transition-transform duration-200 group-hover:translate-x-1"
                       />
                     </Link>
 
                     {item.children?.length ? (
-                      <div className="mb-2 ml-3 mt-1 space-y-1 border-l border-line pl-3">
+                      <div className="mb-2 ml-3 mt-1 space-y-1 border-l border-dark-border pl-3">
                         {item.children.map((child) => (
                           <Link
                             key={child.to}
@@ -758,12 +758,12 @@ export default function Header() {
                               rounded-lg
                               px-3
                               py-3
-                              text-[13px]
+                              text-[15px]
                               font-semibold
                               ${
                                 pathname === child.to
-                                  ? "bg-brand-green/10 text-brand-green"
-                                  : "text-ink-light hover:bg-surface-muted hover:text-brand-green"
+                                  ? "bg-[var(--color-emerald)] text-brand-lime"
+                                  : "text-ink-dim hover:bg-white/5 hover:text-brand-lime"
                               }
                             `}
                           >
@@ -777,7 +777,7 @@ export default function Header() {
               })}
             </div>
 
-            <p className="mb-2 mt-6 px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-green">
+            <p className="mb-2 mt-6 px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-lime">
               More
             </p>
             <div className="grid grid-cols-2 gap-1.5">
@@ -786,7 +786,7 @@ export default function Header() {
                   key={link.to}
                   to={link.to}
                   onClick={closeHeaderDrawer}
-                  className="rounded-lg px-3 py-3 text-[13px] font-semibold text-ink-light hover:bg-surface-muted hover:text-brand-green"
+                  className="rounded-lg px-3 py-3 text-[15px] font-semibold text-ink-dim hover:bg-white/5 hover:text-brand-lime"
                 >
                   {link.label}
                 </Link>
@@ -803,9 +803,9 @@ export default function Header() {
               shrink-0
 
               border-t
-              border-line
+              border-dark-border
 
-              bg-surface-muted
+              bg-[var(--color-bg-emerald)]
 
               p-4
               pb-[max(1rem,env(safe-area-inset-bottom))]

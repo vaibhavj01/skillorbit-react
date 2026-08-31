@@ -16,7 +16,7 @@ export default function CorporateInquiry() {
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-brand-primary">
             Plan a cohort
           </p>
-          <h2 className="mb-3 font-roboto text-3xl font-black text-ink">
+          <h2 className="mb-3 font-display text-h2 font-bold text-ink">
             Train with us in Baner, Hinjawadi or Wakad
           </h2>
           <p className="text-sm leading-7 text-ink-light">

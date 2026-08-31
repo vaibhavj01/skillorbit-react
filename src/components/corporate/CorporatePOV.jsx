@@ -34,7 +34,7 @@ export default function CorporatePOV() {
               SkillOrbit Academy
             </span>
             <span className="absolute inset-0 flex items-center justify-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-primary text-[var(--cta-ink)] shadow-[0_0_28px_rgba(0,214,57,0.45)] transition group-hover:scale-110">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-primary text-[var(--cta-ink)] shadow-[0_0_28px_rgba(102,255,0,0.18)] transition group-hover:scale-110">
                 <Play size={26} fill="currentColor" className="ml-0.5" />
               </span>
             </span>
@@ -48,7 +48,7 @@ export default function CorporatePOV() {
           <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-primary">
             A SkillOrbit point of view
           </p>
-          <h2 className="mb-6 font-roboto text-2xl font-black text-ink md:text-3xl">
+          <h2 className="mb-6 font-display text-2xl font-bold text-ink md:text-3xl">
             What changes when your people train on real work
           </h2>
           <ul className="space-y-5">

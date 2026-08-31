@@ -59,7 +59,7 @@ export default function MobileMenu({ open, onClose }) {
           w-[88vw]
           max-w-[390px]
           flex-col
-          bg-[#050505]
+          bg-[#031814]
           shadow-2xl
           transition-transform
           duration-300
@@ -136,14 +136,14 @@ export default function MobileMenu({ open, onClose }) {
                       rounded-xl
                       px-4
                       py-3.5
-                      text-sm
+                      text-[15px]
                       font-semibold
                       transition-all
 
                       ${
                         isActive
-                          ? "bg-[#FF6B00] text-white"
-                          : "text-white/80 hover:bg-white/10 hover:text-white"
+                          ? "bg-[var(--color-emerald)] text-brand-lime"
+                          : "text-ink-inverse hover:bg-white/10 hover:text-brand-lime"
                       }
                     `
                   }

@@ -35,7 +35,7 @@ export default function Certificates() {
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-brand-primary">
               Verify or request
             </p>
-            <h2 className="mb-4 font-roboto text-3xl font-black text-ink">
+            <h2 className="mb-4 font-display text-h2 font-bold text-ink">
               Need a certificate or verification?
             </h2>
             <p className="mb-6 max-w-md text-sm leading-7 text-ink-light">

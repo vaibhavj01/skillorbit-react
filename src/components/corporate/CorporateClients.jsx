@@ -10,7 +10,7 @@ export default function CorporateClients() {
     <section className="relative overflow-hidden bg-[#050c0a] so-section">
       <Container className="relative z-10">
         <Reveal>
-          <h2 className="text-center font-roboto text-3xl font-black text-ink md:text-4xl">
+          <h2 className="text-center font-display text-h2 font-bold text-white">
             Our <span className="text-brand-primary">Clients</span>
           </h2>
           <span className="corporate-divider mt-5" aria-hidden="true" />
@@ -35,7 +35,7 @@ export default function CorporateClients() {
         </div>
 
         <Reveal className="mx-auto mt-14 max-w-3xl text-center">
-          <h3 className="font-roboto text-2xl font-black leading-snug text-ink sm:text-3xl">
+          <h3 className="font-display text-2xl font-bold leading-snug text-white sm:text-3xl">
             How will <span className="text-brand-primary">SkillOrbit’s</span> corporate training
             develop future leaders?
           </h3>

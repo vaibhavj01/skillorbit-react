@@ -13,7 +13,7 @@ export default function RoadmapInclusions({ variant = "dark" }) {
       >
         Included with every SkillOrbit roadmap
       </p>
-      <h2 className="mb-8 text-center font-roboto text-2xl font-black md:text-3xl">
+      <h2 className="mb-8 text-center font-display text-2xl font-bold md:text-3xl">
         {ROADMAP_TAGLINE}
       </h2>
 
@@ -38,7 +38,7 @@ export default function RoadmapInclusions({ variant = "dark" }) {
                     className={`mt-0.5 shrink-0 ${isDark ? "text-brand-primary" : "text-[var(--brand-green)]"}`}
                     strokeWidth={2.8}
                   />
-                  <span className={isDark ? "text-white/80" : "text-ink-light"}>{item}</span>
+                  <span className={isDark ? "text-white/90" : "text-ink-light"}>{item}</span>
                 </li>
               ))}
             </ul>

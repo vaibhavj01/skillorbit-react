@@ -38,8 +38,7 @@ export default function AnnouncementBar({
           ${hidden ? "-translate-y-full" : "translate-y-0"}
         `}
         style={{
-          background:
-            "linear-gradient(90deg, var(--brand-deep) 0%, var(--brand-dark) 28%, var(--brand-green) 55%, var(--brand-green) 78%, var(--brand-green) 100%)",
+          background: "var(--announcement-gradient)",
         }}
       >
         <div
@@ -70,13 +69,13 @@ export default function AnnouncementBar({
                   text-[11px]
                   font-bold
                   tracking-wide
-                  text-white/90
+                  text-white
 
                   transition-all
                   duration-200
 
-                  hover:bg-brand-green
-                  hover:text-[var(--cta-ink)]
+                  hover:bg-black/15
+                  hover:text-white
                 "
               >
                 {item.label}
@@ -120,7 +119,7 @@ export default function AnnouncementBar({
             w-[88%]
             max-w-[360px]
             flex-col
-            bg-surface
+            bg-[var(--color-bg-dark)]
             shadow-2xl
             transition-transform
             duration-300
@@ -139,13 +138,12 @@ export default function AnnouncementBar({
               px-5
             "
             style={{
-              background:
-                "linear-gradient(90deg, var(--brand-dark) 0%, var(--brand-green) 50%, var(--brand-green) 100%)",
+              background: "var(--announcement-gradient)",
             }}
           >
             <div>
               <p className="text-sm font-bold text-white">SkillOrbit</p>
-              <p className="mt-0.5 text-[11px] font-medium text-brand-primary/90">
+              <p className="mt-0.5 text-[11px] font-medium text-white/85">
                 Quick links
               </p>
             </div>
@@ -161,11 +159,11 @@ export default function AnnouncementBar({
                 items-center
                 justify-center
                 rounded-full
-                bg-brand-primary
+                bg-brand-lime
                 text-[var(--cta-ink)]
                 transition-all
                 duration-200
-                hover:bg-brand-green
+                hover:bg-[var(--color-lime-hover)]
               "
             >
               <X size={19} />
@@ -185,23 +183,23 @@ export default function AnnouncementBar({
                     justify-between
                     rounded-xl
                     border
-                    border-brand-primary/20
-                    bg-surface-bg
+                    border-dark-border
+                    bg-white/5
                     px-4
                     py-3.5
                     text-sm
                     font-semibold
-                    text-white
+                    text-ink-inverse
                     shadow-none
                     transition-all
                     duration-200
-                    hover:border-brand-green
-                    hover:bg-brand-green/15
-                    hover:text-brand-green
+                    hover:border-brand-lime
+                    hover:bg-[var(--color-emerald)]
+                    hover:text-brand-lime
                   "
                 >
                   <span>{item.label}</span>
-                  <ChevronRight size={17} className="text-brand-primary" />
+                  <ChevronRight size={17} className="text-brand-lime" />
                 </Link>
               ))}
             </nav>

@@ -8,7 +8,7 @@ export default function ReviewStars({ rating = 5, size = 16, className = "" }) {
           height={size}
           viewBox="0 0 24 24"
           aria-hidden="true"
-          className={index < rating ? "text-brand-primary" : "text-white/20"}
+          className={index < rating ? "text-brand-primary" : "text-ink/25"}
         >
           <path
             fill="currentColor"

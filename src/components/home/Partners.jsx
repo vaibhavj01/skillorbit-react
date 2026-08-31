@@ -256,9 +256,6 @@ export default function Partners() {
 
               md:text-xs
             "
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-            }}
           >
             Career Network
           </p>
@@ -286,11 +283,6 @@ export default function Partners() {
 
               xl:text-[48px]
             "
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              lineHeight: 1.2,
-              letterSpacing: "1.2px",
-            }}
           >
             Where Our Learners
 
@@ -328,9 +320,6 @@ export default function Partners() {
 
               md:text-sm
             "
-            style={{
-              fontFamily: "'Inter', sans-serif",
-            }}
           >
             Our learners prepare for opportunities
             across leading technology organizations.
@@ -351,7 +340,7 @@ export default function Partners() {
 
               bg-brand-primary
 
-              shadow-[0_0_18px_rgba(0,214,57,0.65)]
+              shadow-[0_0_18px_rgba(102,255,0,0.35)]
             "
           />
 
@@ -488,7 +477,7 @@ export default function Partners() {
 
                   bg-brand-primary
 
-                  shadow-[0_0_10px_rgba(0,214,57,0.70)]
+                  shadow-[0_0_10px_rgba(102,255,0,0.40)]
                 "
               />
 

@@ -8,20 +8,13 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="so-hero relative overflow-hidden bg-surface-bg font-body"
+      className="so-hero so-hero-dark relative overflow-hidden font-body"
     >
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 18% 12%, rgba(0,184,61,0.10), transparent 38%), radial-gradient(circle at 88% 78%, rgba(0,92,43,0.06), transparent 34%)",
-        }}
-        aria-hidden="true"
-      />
+      <div className="so-hero-glow" aria-hidden="true" />
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
-          backgroundImage: "radial-gradient(rgba(0,184,61,0.14) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(102,255,0,0.12) 1px, transparent 1px)",
           backgroundSize: "26px 26px",
           maskImage: "radial-gradient(circle at 70% 48%, black 20%, transparent 72%)",
           WebkitMaskImage: "radial-gradient(circle at 70% 48%, black 20%, transparent 72%)",
@@ -53,21 +46,21 @@ export default function Hero() {
               gap-2
               rounded-xl
               border
-              border-line
-              bg-surface-muted
+              border-brand-lime/20
+              bg-white/5
               px-3
               py-1.5
-              text-[10px]
+              text-[11px]
               font-bold
               uppercase
               tracking-[0.14em]
-              text-brand-green
+              text-brand-lime
               sm:mb-5
               sm:text-xs
               md:text-sm
             "
           >
-            <Sparkles size={13} className="text-brand-green" />
+            <Sparkles size={13} className="text-brand-lime" />
             Data Analytics · GenAI · Career Training
           </p>
 
@@ -78,7 +71,7 @@ export default function Hero() {
               font-display
               font-extrabold
               text-hero
-              text-ink
+              text-ink-inverse
               sm:mb-5
             "
           >
@@ -87,7 +80,7 @@ export default function Hero() {
             {" "}
             Build Careers.
             <br />
-            <span className="text-brand-green">
+            <span className="text-brand-lime">
               Build Your Future.
             </span>
           </h1>
@@ -99,7 +92,7 @@ export default function Hero() {
               text-[16px]
               font-medium
               leading-6
-              text-ink-light
+              text-ink-dim
               sm:mb-6
               sm:text-[17px]
               sm:leading-7
@@ -138,7 +131,7 @@ export default function Hero() {
 
             <Button
               to="/courses"
-              variant="outline"
+              variant="dark"
               size="md"
               className="w-full sm:w-auto sm:h-14 sm:px-8 sm:text-base"
             >
@@ -156,7 +149,7 @@ export default function Hero() {
               text-[12px]
               font-medium
               leading-5
-              text-ink-light
+              text-ink-dim
               sm:text-xs
               md:text-sm
             "
@@ -165,12 +158,12 @@ export default function Hero() {
               to="/#batches"
               className="
                 font-semibold
-                text-brand-green
+                text-brand-lime
                 underline
                 decoration-dotted
                 underline-offset-4
                 transition-colors
-                hover:text-brand-dark
+                hover:text-brand-lime/80
               "
             >
               View Upcoming Batches
@@ -183,12 +176,12 @@ export default function Hero() {
               className="
                 hidden
                 font-semibold
-                text-brand-green
+                text-brand-lime
                 underline
                 decoration-dotted
                 underline-offset-4
                 transition-colors
-                hover:text-brand-dark
+                hover:text-brand-lime/80
                 sm:inline
               "
             >

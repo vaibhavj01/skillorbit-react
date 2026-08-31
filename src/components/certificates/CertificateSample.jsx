@@ -44,6 +44,7 @@ export default function CertificateSample() {
       <OrbitBackdrop variant="mint" />
       <Container className="relative z-10">
         <SectionHeading
+          light
           eyebrow="Sample credential"
           title="Course Certificate of Completion"
           subtitle="Learners who finish assessments receive a SkillOrbit Academy certificate like this — with course name, dates and a unique ID."
@@ -52,7 +53,7 @@ export default function CertificateSample() {
         <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
           <Reveal>
             <CertificateFrame />
-            <p className="mt-4 text-center text-xs font-medium tracking-wide text-ink-muted sm:text-sm">
+            <p className="mt-4 text-center text-xs font-medium tracking-wide text-dark-muted sm:text-sm">
               Sample certificate · issued after successful course completion
             </p>
           </Reveal>

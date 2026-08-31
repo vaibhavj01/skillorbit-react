@@ -23,9 +23,9 @@ export default function CTASection() {
 
             <h2 className="font-display text-h2 font-bold leading-snug text-white">
               Book Your{" "}
-              <span className="relative inline-block text-brand-primary">
+              <span className="relative inline-block text-brand-lime">
                 Free Demo
-                <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-brand-primary" />
+                <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-brand-lime" />
               </span>{" "}
               Class Today!
             </h2>
@@ -35,8 +35,8 @@ export default function CTASection() {
               onClick={() => openDemo()}
               className="
                 mt-6 inline-flex min-h-12 w-full max-w-full items-center justify-center rounded-xl
-                bg-brand-primary px-5 text-[13px] font-bold uppercase tracking-[0.06em] text-[var(--cta-ink)]
-                transition-colors hover:bg-brand-green
+                bg-brand-lime px-5 text-[13px] font-bold uppercase tracking-[0.06em] text-[var(--cta-ink)]
+                shadow-btn transition-colors hover:bg-[var(--color-lime-hover)]
                 sm:mt-8 sm:h-14 sm:w-auto sm:px-10 sm:text-[15px]
               "
             >

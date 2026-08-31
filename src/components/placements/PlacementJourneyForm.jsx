@@ -86,7 +86,7 @@ export default function PlacementJourneyForm() {
   if (status === "error") {
     return (
       <div className="rounded-2xl border border-[#D92D20]/30 bg-white p-6 text-center">
-        <h3 className="font-display mb-1 text-base font-bold text-[#071A12]">Could not save your request</h3>
+        <h3 className="font-display mb-1 text-base font-bold text-[var(--cta-ink)]">Could not save your request</h3>
         <p className="mb-4 font-body text-xs text-[#52605A]">Please try again, or call / WhatsApp us to get started.</p>
         {errors.form && (
           <p className="mb-3 text-xs text-[#D92D20]" role="alert">
@@ -96,7 +96,7 @@ export default function PlacementJourneyForm() {
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[#00D639]/40 px-4 text-sm font-semibold text-[#005C2B] transition hover:bg-[#00D639]/10"
+          className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[#00C853]/40 px-4 text-sm font-semibold text-[#005C2B] transition hover:bg-[#00C853]/10"
         >
           Try again
         </button>
@@ -106,9 +106,9 @@ export default function PlacementJourneyForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-[#00D639]/20 bg-[#F3FFF6] p-6 text-center sm:p-8">
-        <CheckCircle2 size={36} className="mx-auto mb-3 text-[#00D639]" />
-        <h3 className="font-display mb-2 text-xl font-bold text-[#071A12]">Thank You!</h3>
+      <div className="rounded-2xl border border-[#00C853]/20 bg-[#F3FFF6] p-6 text-center sm:p-8">
+        <CheckCircle2 size={36} className="mx-auto mb-3 text-[#00C853]" />
+        <h3 className="font-display mb-2 text-xl font-bold text-[var(--cta-ink)]">Thank You!</h3>
         <p className="font-body text-sm leading-6 text-[#52605A]">
           We&apos;ve received your details. Our career team will contact you shortly.
         </p>
@@ -232,7 +232,7 @@ export default function PlacementJourneyForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="mt-1 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#00D639] px-5 text-sm font-bold text-[#071A12] transition hover:-translate-y-0.5 hover:bg-[#00c433] disabled:pointer-events-none disabled:opacity-70"
+        className="mt-1 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-lime px-5 text-sm font-bold text-[var(--cta-ink)] shadow-btn transition hover:-translate-y-0.5 hover:bg-[var(--color-lime-hover)] disabled:pointer-events-none disabled:opacity-70"
       >
         {status === "loading" ? (
           <>

@@ -12,6 +12,7 @@ import CourseCard from "../components/courses/CourseCard";
 import DemoForm from "../components/forms/DemoForm";
 import { getCourseBySlug, getRelatedCourses, categoryLabel, getCourseCover } from "../data/courses";
 import OrbitBackdrop from "../components/common/OrbitBackdrop";
+import CourseBannerMark from "../components/courses/CourseBannerMark";
 
 export default function CourseDetails() {
   const { slug } = useParams();
@@ -57,11 +58,14 @@ export default function CourseDetails() {
 
               <p className="text-base leading-relaxed mb-8 text-ink-muted">{course.description}</p>
 
-              <img
-                src={getCourseCover(course)}
-                alt=""
-                className="mb-8 w-full rounded-2xl border border-brand-primary/20 object-cover object-center aspect-[16/9]"
-              />
+              <div className="course-banner relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-brand-primary/20">
+                <img
+                  src={getCourseCover(course)}
+                  alt=""
+                  className="h-full w-full object-cover object-center"
+                />
+                <CourseBannerMark />
+              </div>
 
               <div className="flex flex-wrap gap-2 mb-10">
                 {(course.technologies || []).map((t) => (
@@ -93,7 +97,7 @@ export default function CourseDetails() {
                   <ol className="space-y-3 mb-10">
                     {course.curriculum.map((step, i) => (
                       <li key={step} className="flex items-start gap-3 rounded-xl border border-brand-primary/20 bg-surface p-4">
-                        <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-ink bg-gradient-brand shrink-0 font-display">
+                        <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-[var(--cta-ink)] bg-gradient-brand shrink-0 font-display">
                           {i + 1}
                         </span>
                         <span className="text-sm text-ink-light pt-0.5">{step}</span>

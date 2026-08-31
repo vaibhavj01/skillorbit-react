@@ -1,6 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    "bg-brand-lime",
+    "text-brand-lime",
+    "border-brand-lime",
+    "text-ink-inverse",
+    "text-ink-dim",
+    "hover:text-brand-lime",
+    "hover:bg-brand-lime",
+    "group-hover:text-brand-lime",
+  ],
   theme: {
     extend: {
       colors: {
@@ -8,6 +18,7 @@ export default {
           DEFAULT: "var(--brand-primary)",
           primary: "var(--brand-primary)",
           green: "var(--brand-green)",
+          lime: "var(--brand-lime)",
           dark: "var(--brand-dark)",
           deep: "var(--brand-deep)",
           50: "var(--surface-soft)",
@@ -25,6 +36,8 @@ export default {
           DEFAULT: "var(--text-primary)",
           light: "var(--text-secondary)",
           muted: "var(--text-muted)",
+          inverse: "var(--color-text-light)",
+          dim: "var(--color-text-muted)",
         },
         surface: {
           DEFAULT: "var(--surface)",
@@ -48,27 +61,32 @@ export default {
         error: "var(--error)",
       },
       fontFamily: {
-        display: ["Space Grotesk", "Inter", "sans-serif"],
-        body: ["Inter", "sans-serif"],
-        roboto: ["Space Grotesk", "Inter", "sans-serif"],
-        grotesk: ["Space Grotesk", "Inter", "sans-serif"],
-        mono: ["Space Grotesk", "Inter", "sans-serif"],
+        sans: ["Manrope", "sans-serif"],
+        display: ["Manrope", "sans-serif"],
+        body: ["Manrope", "sans-serif"],
+        roboto: ["Manrope", "sans-serif"],
+        grotesk: ["Manrope", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "monospace"],
       },
       fontSize: {
-        hero: ["var(--so-fs-hero)", { lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "800" }],
+        hero: ["var(--so-fs-hero)", { lineHeight: "1.12", letterSpacing: "-0.03em", fontWeight: "800" }],
+        h1: ["var(--so-fs-h1)", { lineHeight: "1.15", letterSpacing: "-0.028em", fontWeight: "800" }],
         h2: ["var(--so-fs-h2)", { lineHeight: "1.18", letterSpacing: "-0.025em", fontWeight: "700" }],
+        h3: ["var(--so-fs-h3)", { lineHeight: "1.28", letterSpacing: "-0.02em", fontWeight: "700" }],
+        h4: ["var(--so-fs-h4)", { lineHeight: "1.3", letterSpacing: "-0.015em", fontWeight: "600" }],
       },
       maxWidth: {
         site: "1200px",
       },
       boxShadow: {
-        card: "0 10px 30px rgba(3, 21, 12, 0.06)",
-        "card-hover": "0 16px 36px rgba(0, 184, 61, 0.12)",
-        btn: "0 8px 20px rgba(0, 214, 57, 0.22)",
+        card: "0 10px 30px rgba(3, 24, 20, 0.06)",
+        "card-hover": "0 16px 36px rgba(0, 200, 83, 0.12)",
+        btn: "var(--lime-glow)",
       },
       backgroundImage: {
         "gradient-brand": "var(--brand-gradient)",
-        "gradient-dark": "linear-gradient(150deg, #03150C 0%, #0A2116 48%, #005C2B 100%)",
+        "gradient-dark": "var(--hero-gradient)",
+        "gradient-hero": "var(--hero-gradient)",
       },
       keyframes: {
         "orbit-spin": { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } },

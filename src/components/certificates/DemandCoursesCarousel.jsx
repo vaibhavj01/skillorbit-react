@@ -4,6 +4,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Users } from "lucide-react";
 import Container from "../common/Container";
 import { courses, getCourseCover } from "../../data/courses";
 import { useDemoModal } from "../../context/DemoModalContext";
+import CourseBannerMark from "../courses/CourseBannerMark";
 
 const FEATURED_IDS = [
   "java-fullstack",
@@ -53,7 +54,7 @@ export default function DemandCoursesCarousel() {
       />
 
       <Container className="relative z-10">
-        <h2 className="mb-8 text-center font-roboto text-[1.5rem] font-black text-ink sm:mb-10 md:text-4xl">
+        <h2 className="mb-8 text-center font-display text-h2 font-bold text-ink sm:mb-10">
           Explore Other <span className="text-brand-primary">Demanding</span> Courses
         </h2>
 
@@ -92,18 +93,19 @@ export default function DemandCoursesCarousel() {
                     : "border-white/20 hover:border-brand-green hover:shadow-[0_0_28px_rgba(0,214,57,0.18)]"}
                 `}
               >
-                <div className="relative h-[clamp(11rem,38vw,14.5rem)] overflow-hidden">
+                <div className="course-banner relative h-[clamp(11rem,38vw,14.5rem)] overflow-hidden">
                   <img
                     src={getCourseCover(course)}
                     alt=""
                     className="h-full w-full object-cover object-center opacity-80 transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface-bg via-[var(--text-primary)]/55 to-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c1812] via-[#0c1812]/70 to-black/25" />
+                  <CourseBannerMark />
                   <div className="absolute inset-x-0 bottom-0 px-5 pb-4 text-center">
-                    <h3 className="font-roboto text-2xl font-black leading-tight text-ink">
+                    <h3 className="font-display text-xl font-bold leading-tight text-white sm:text-2xl">
                       {course.name.replace(" Development", "")}
                     </h3>
-                    <p className="mt-2 line-clamp-2 text-[13px] leading-5 text-ink/80">
+                    <p className="mt-2 line-clamp-2 text-sm leading-5 text-white/85">
                       {course.description}
                     </p>
                   </div>
@@ -112,22 +114,22 @@ export default function DemandCoursesCarousel() {
                 <div className="px-5 pb-4 pt-1">
                   <Link
                     to={`/courses/${course.slug || course.id}`}
-                    className="mx-auto flex h-10 w-full max-w-[210px] items-center justify-center gap-2 rounded-full bg-white text-sm font-extrabold text-[var(--cta-ink)] transition hover:bg-brand-green"
+                    className="mx-auto flex h-10 w-full max-w-[210px] items-center justify-center gap-2 rounded-full bg-white text-sm font-bold text-[var(--cta-ink)] transition hover:bg-brand-green"
                   >
                     Explore Course <ArrowRight size={16} />
                   </Link>
                 </div>
 
                 <div className="flex flex-col gap-2 border-t border-white/15 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="flex min-w-0 items-center gap-2 text-[12px] font-semibold text-ink">
+                  <p className="flex min-w-0 items-center gap-2 text-[12px] font-semibold text-white">
                     <Users size={15} className="shrink-0 text-brand-primary" />
                     <span className="text-brand-primary">{learnersFor(course.id)}</span>
-                    <span className="truncate text-ink/80">Learning Today</span>
+                    <span className="truncate text-white/80">Learning Today</span>
                   </p>
                   <button
                     type="button"
                     onClick={() => openDemo(course.id)}
-                    className="shrink-0 self-start rounded-full bg-brand-primary px-3.5 py-1.5 text-[11px] font-extrabold text-[var(--cta-ink)] transition hover:bg-brand-green sm:self-auto"
+                    className="shrink-0 self-start rounded-full bg-brand-lime px-3.5 py-1.5 text-[11px] font-bold text-[var(--cta-ink)] transition hover:bg-[var(--color-lime-hover)] sm:self-auto"
                   >
                     Enroll Now
                   </button>
