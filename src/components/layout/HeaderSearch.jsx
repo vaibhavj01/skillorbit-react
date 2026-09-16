@@ -96,9 +96,6 @@ export default function HeaderSearch({ variant = "desktop" }) {
           items-center
           rounded-xl
           border
-          border-dark-border
-          bg-white/5
-
           transition-all
           duration-300
 
@@ -108,13 +105,18 @@ export default function HeaderSearch({ variant = "desktop" }) {
                 h-10
                 w-full
                 rounded-lg
+                border-dark-border
+                bg-white/5
                 px-3
               `
               : `
                 h-10
                 w-40
+                border-[rgba(77,108,93,0.22)]
+                bg-white
                 px-3
                 focus-within:w-64
+                focus-within:border-[var(--green-chip)]
               `
           }
         `}
@@ -150,15 +152,12 @@ export default function HeaderSearch({ variant = "desktop" }) {
             min-w-0
             flex-1
             bg-transparent
-            text-ink-inverse
             outline-none
-
-            placeholder:text-ink-dim
 
             ${
               isMobile
-                ? "ml-1.5 text-base sm:text-sm"
-                : "ml-2 text-sm"
+                ? "ml-1.5 text-base text-ink-inverse placeholder:text-ink-dim sm:text-sm"
+                : "ml-2 text-sm text-[var(--header-ink)] placeholder:text-[var(--text-muted)]"
             }
           `}
         />
@@ -170,18 +169,18 @@ export default function HeaderSearch({ variant = "desktop" }) {
             type="button"
             aria-label="Clear search"
             onClick={closeSearch}
-            className="
+            className={`
               ml-1
               flex
               shrink-0
               items-center
               justify-center
               rounded-full
-              text-ink-dim
+              ${isMobile ? "text-ink-dim" : "text-[var(--text-muted)]"}
               transition-colors
               duration-200
               hover:text-brand-lime
-            "
+            `}
           >
             <X size={isMobile ? 12 : 14} />
           </button>
@@ -228,7 +227,7 @@ export default function HeaderSearch({ variant = "desktop" }) {
             <div className="px-3 py-4">
               <p
                 className={`
-                  text-[#55727C]
+                  text-dark-muted
                   ${
                     isMobile
                       ? "text-[9px]"
@@ -275,9 +274,9 @@ export default function HeaderSearch({ variant = "desktop" }) {
                     <span
                       className={`
                         font-bold
-                        text-ink
+                        text-white
                         transition-colors
-                        group-hover:text-brand-dark
+                        group-hover:text-brand-lime
 
                         ${
                           isMobile

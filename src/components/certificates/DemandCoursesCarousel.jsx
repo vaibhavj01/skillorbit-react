@@ -55,7 +55,7 @@ export default function DemandCoursesCarousel() {
 
       <Container className="relative z-10">
         <h2 className="mb-8 text-center font-display text-h2 font-bold text-ink sm:mb-10">
-          Explore Other <span className="text-brand-primary">Demanding</span> Courses
+          Explore Other <span className="text-brand-lime">Demanding</span> Courses
         </h2>
 
         <div className="relative">
@@ -114,7 +114,7 @@ export default function DemandCoursesCarousel() {
                 <div className="px-5 pb-4 pt-1">
                   <Link
                     to={`/courses/${course.slug || course.id}`}
-                    className="mx-auto flex h-10 w-full max-w-[210px] items-center justify-center gap-2 rounded-full bg-white text-sm font-bold text-[var(--cta-ink)] transition hover:bg-brand-green"
+                    className="mx-auto flex h-10 w-full max-w-[210px] items-center justify-center gap-2 rounded-[13px] bg-brand-lime text-sm font-bold text-[var(--cta-ink)] transition hover:bg-[var(--color-lime-hover)]"
                   >
                     Explore Course <ArrowRight size={16} />
                   </Link>

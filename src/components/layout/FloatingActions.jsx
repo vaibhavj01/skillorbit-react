@@ -17,7 +17,7 @@ const ACTIONS = [
     label: "Call",
     href: CONTACT.phoneHref,
     external: false,
-    className: "bg-brand-primary text-[var(--cta-ink)]",
+    className: "bg-[#39FF14] text-[#021A12] shadow-[0_8px_20px_rgba(57,255,20,0.22)]",
     icon: Phone,
   },
 ];
@@ -37,7 +37,7 @@ export default function FloatingActions() {
       {showTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-primary/30 bg-surface text-brand-primary shadow-lg sm:h-11 sm:w-11"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(57,255,20,0.25)] bg-[#063522] text-[#B8FF5A] shadow-[0_8px_20px_rgba(2,26,18,0.35)] transition-colors duration-200 hover:border-[rgba(57,255,20,0.45)] hover:text-[#39FF14] sm:h-11 sm:w-11"
           aria-label="Back to top"
         >
           <ArrowUp size={18} />

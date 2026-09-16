@@ -38,7 +38,7 @@ export default function MainLayout() {
 
   return (
     <DemoModalProvider>
-    <div className="flex min-h-svh max-w-full flex-col overflow-x-clip bg-surface-bg">
+    <div className="flex min-h-svh max-w-full flex-col overflow-x-clip bg-[var(--bg-primary)]">
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] bg-brand-primary text-[var(--cta-ink)] px-4 py-2 rounded-lg">
           Skip to main content
         </a>

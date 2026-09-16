@@ -14,28 +14,28 @@ export default function IsoCertification() {
   return (
     <section
       id="iso"
-      className="relative overflow-hidden bg-surface-bg so-section"
+      className="relative overflow-hidden bg-[var(--bg-secondary)] so-section"
     >
-      <OrbitBackdrop variant="mint" />
+      <OrbitBackdrop variant="mesh" />
       <Container className="relative z-10">
-        <div className="grid items-center gap-8 rounded-2xl border border-brand-primary/20 bg-surface-bg px-4 py-6 sm:gap-10 sm:rounded-3xl sm:px-8 sm:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:px-12 lg:py-12">
+        <div className="grid items-center gap-8 rounded-2xl border border-dark-border bg-dark-surface px-4 py-6 sm:gap-10 sm:rounded-3xl sm:px-8 sm:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:px-12 lg:py-12">
           <Reveal>
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-primary/40 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-primary">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand-lime/40 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-lime">
               <ShieldCheck size={14} />
               Quality certification
             </p>
-            <h2 className="mb-3 font-display text-h2 font-bold leading-snug text-ink sm:mb-4">
+            <h2 className="mb-3 font-display text-h2 font-extrabold leading-snug text-white sm:mb-4">
               ISO-aligned quality for every SkillOrbit program
             </h2>
-            <p className="mb-6 max-w-xl text-sm leading-7 text-ink-light sm:text-base">
+            <p className="mb-6 max-w-xl text-sm leading-7 text-dark-muted sm:text-base">
               Our training, assessment and learner-support process follows ISO-aligned
               quality management principles — so every batch is delivered with the same
               professional standard.
             </p>
             <ul className="space-y-3">
               {POINTS.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-sm text-ink-light">
-                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-brand-primary" />
+                <li key={point} className="flex items-start gap-3 text-sm text-dark-muted">
+                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-brand-lime" />
                   <span>{point}</span>
                 </li>
               ))}

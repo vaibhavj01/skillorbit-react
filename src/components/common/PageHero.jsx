@@ -1,14 +1,14 @@
 import Container from "./Container";
 import Reveal from "./Reveal";
 
-export default function PageHero({ title, subtitle }) {
+export default function PageHero({ title, subtitle, className = "" }) {
   return (
-    <section className="so-page-hero so-hero-dark relative overflow-hidden px-0">
+    <section className={`so-page-hero so-hero-dark relative overflow-hidden px-0 ${className}`}>
       <div className="so-hero-glow" aria-hidden="true" />
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
-          backgroundImage: "radial-gradient(rgba(102,255,0,0.10) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(57,255,20,0.10) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
         aria-hidden="true"

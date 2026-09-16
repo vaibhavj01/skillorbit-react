@@ -38,7 +38,7 @@ export default function CorporatePOV() {
                 <Play size={26} fill="currentColor" className="ml-0.5" />
               </span>
             </span>
-            <span className="absolute bottom-4 left-4 right-4 rounded-lg bg-white/95 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.08em] text-[var(--cta-ink)]">
+            <span className="absolute bottom-4 left-4 right-4 rounded-lg bg-[var(--bg-card)]/95 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.08em] text-brand-lime">
               Book a free demo for your team
             </span>
           </a>

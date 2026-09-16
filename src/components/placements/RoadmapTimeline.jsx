@@ -51,7 +51,7 @@ function TimelineRow({ items, visible, activeId, setActiveId, delayStart, classN
     <div className={className}>
       <div className="relative mb-[clamp(0.75rem,1.8svh,1.15rem)]">
         <div
-          className={`roadmap-line pointer-events-none absolute left-[8%] right-[8%] top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-gradient-to-r from-[#00C853] via-[#00C853] to-[#005C2B] ${
+          className={`roadmap-line pointer-events-none absolute left-[8%] right-[8%] top-1/2 h-[3px] -translate-y-1/2 rounded-full bg-gradient-to-r from-[var(--green-primary)] via-[var(--green-bright)] to-[var(--green-dark)] ${
             visible ? "is-visible" : ""
           }`}
           aria-hidden="true"
@@ -68,18 +68,18 @@ function TimelineRow({ items, visible, activeId, setActiveId, delayStart, classN
                   onFocus={() => setActiveId(item.id)}
                   onBlur={() => setActiveId(null)}
                   aria-label={`${item.step}. ${item.title}`}
-                  className={`roadmap-node relative z-10 flex h-[clamp(2.65rem,5.4svh,3.25rem)] w-[clamp(2.65rem,5.4svh,3.25rem)] items-center justify-center rounded-full border-4 border-[var(--dark-background)] outline-none focus-visible:ring-2 focus-visible:ring-brand-green/50 ${
+                  className={`roadmap-node relative z-10 flex h-[clamp(2.65rem,5.4svh,3.25rem)] w-[clamp(2.65rem,5.4svh,3.25rem)] items-center justify-center rounded-full border-4 border-[var(--bg-primary)] outline-none focus-visible:ring-2 focus-visible:ring-brand-lime/50 ${
                     item.featured ? "roadmap-node--final" : ""
                   } ${
                     active
-                      ? "bg-[#00C853] text-[var(--cta-ink)] shadow-btn"
-                      : "bg-white text-[var(--brand-dark)] shadow-card"
+                      ? "bg-brand-lime text-[var(--cta-ink)] shadow-btn"
+                      : "bg-dark-surface text-brand-lime shadow-card border border-dark-border"
                   } ${visible ? "is-visible" : "opacity-0"}`}
                   style={{ animationDelay: `${delayStart + index * 0.1}s` }}
                 >
                   <RoadmapIcon name={item.icon} size={22} />
                 </button>
-                <span className="mt-1.5 font-display text-[11px] font-bold tracking-[0.16em] text-[#00C853]">
+                <span className="mt-1.5 font-display text-[11px] font-bold tracking-[0.16em] text-brand-lime">
                   {item.step}
                 </span>
               </li>

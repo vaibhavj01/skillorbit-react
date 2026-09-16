@@ -24,10 +24,10 @@ export default function OrbitVisual() {
           return (
             <div
               key={i}
-              className="absolute w-11 h-11 rounded-xl flex items-center justify-center bg-white shadow-lg animate-orbit-spin-reverse"
-              style={{ left: x, top: y, boxShadow: "0 8px 20px rgba(13,77,43,0.14)" }}
+              className="absolute w-11 h-11 rounded-xl flex items-center justify-center bg-dark-surface border border-dark-border shadow-lg animate-orbit-spin-reverse"
+              style={{ left: x, top: y, boxShadow: "0 8px 20px rgba(0,0,0,0.35)" }}
             >
-              <Icon size={20} className="text-brand-700" />
+              <Icon size={20} className="text-brand-lime" />
             </div>
           );
         })}

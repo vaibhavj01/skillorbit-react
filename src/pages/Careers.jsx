@@ -19,7 +19,7 @@ export default function Careers() {
             <h2 className="font-display font-bold text-xl text-ink mb-2">No open positions right now</h2>
             <p className="text-sm text-ink-muted mb-6 leading-relaxed">
               This is a placeholder careers page. Send your resume to{" "}
-              <a href={`mailto:${CONTACT.email}`} className="text-brand-700 underline decoration-dotted">{CONTACT.email}</a>{" "}
+              <a href={`mailto:${CONTACT.email}`} className="text-brand-lime underline decoration-dotted">{CONTACT.email}</a>{" "}
               with the subject "Careers — [Role]" and we will keep you in mind for future openings.
             </p>
             <Button to="/contact" variant="primary" size="md">Contact Us</Button>

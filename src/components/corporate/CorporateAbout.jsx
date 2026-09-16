@@ -36,7 +36,7 @@ export default function CorporateAbout() {
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="inline-flex h-11 items-center justify-center rounded-full bg-surface-bg px-8 text-sm font-bold text-ink transition hover:bg-brand-primary hover:text-[var(--cta-ink)]"
+              className="inline-flex h-11 items-center justify-center rounded-[13px] border border-dark-border bg-dark-surface px-8 text-sm font-bold text-white transition hover:border-brand-lime hover:text-brand-lime"
             >
               {open ? "Show less" : "Read more..."}
             </button>

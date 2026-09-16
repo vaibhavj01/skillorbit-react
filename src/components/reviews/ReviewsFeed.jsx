@@ -14,7 +14,7 @@ function initial(name) {
 function PlatformMark({ name, color }) {
   return (
     <span
-      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-black text-ink"
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-black text-[var(--cta-ink)]"
       style={{ background: color }}
       aria-hidden="true"
     >
@@ -88,7 +88,7 @@ export default function ReviewsFeed() {
                       />
                     ) : (
                       <span
-                        className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-ink"
+                        className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-[var(--cta-ink)]"
                         style={{ background: color }}
                       >
                         {initial(active.name)}

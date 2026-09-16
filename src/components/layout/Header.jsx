@@ -9,9 +9,7 @@ import {
 
 import Button from "../common/Button";
 import HeaderSearch from "./HeaderSearch";
-import AnnouncementBar, { ANNOUNCEMENT_LINKS } from "./AnnouncementBar";
 import { ASSETS } from "../../data/siteConfig";
-import { CORPORATE_PROGRAMS } from "../../data/corporate";
 
 /* =========================================================
    DESKTOP + MOBILE MAIN NAVIGATION
@@ -20,20 +18,8 @@ import { CORPORATE_PROGRAMS } from "../../data/corporate";
 const DESKTOP_NAV = [
   { label: "Home", to: "/" },
   { label: "All Courses", to: "/courses" },
+  { label: "Roadmaps", to: "/roadmap" },
   { label: "About Us", to: "/about" },
-  { label: "Placement", to: "/placements" },
-  {
-    label: "Corporate",
-    to: "/corporate",
-    children: [
-      { label: "Corporate Training", to: "/corporate" },
-      ...CORPORATE_PROGRAMS.map((program) => ({
-        label: program.label,
-        to: `/courses/${program.slug}`,
-      })),
-    ],
-  },
-  { label: "Teaching", to: "/about#teaching" },
   { label: "Contact Us", to: "/contact" },
 ];
 
@@ -75,13 +61,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
   const lastScrollY = useRef(0);
-
-  /* Mobile drawers */
-  const [announcementOpen, setAnnouncementOpen] =
-    useState(false);
-
-  const [headerOpen, setHeaderOpen] =
-    useState(false);
+  const [headerOpen, setHeaderOpen] = useState(false);
 
   /* =========================================================
      SCROLL EFFECT
@@ -89,7 +69,6 @@ export default function Header() {
 
   useEffect(() => {
     setHeaderOpen(false);
-    setAnnouncementOpen(false);
   }, [pathname, search, hash]);
 
   useEffect(() => {
@@ -99,7 +78,7 @@ export default function Header() {
 
       setScrolled(currentY > 20);
 
-      if (announcementOpen || headerOpen || window.innerWidth < 1024) {
+      if (headerOpen || window.innerWidth < 1024) {
         setNavHidden(false);
         lastScrollY.current = currentY;
         return;
@@ -122,40 +101,23 @@ export default function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [announcementOpen, headerOpen]);
+  }, [headerOpen]);
 
   /* =========================================================
      PREVENT BODY SCROLL WHEN DRAWER IS OPEN
   ========================================================= */
 
   useEffect(() => {
-    const drawerOpen =
-      announcementOpen || headerOpen;
-
-    document.body.style.overflow = drawerOpen
-      ? "hidden"
-      : "";
+    document.body.style.overflow = headerOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [
-    announcementOpen,
-    headerOpen,
-  ]);
-
-  /* =========================================================
-     OPEN MAIN NAV DRAWER
-  ========================================================= */
+  }, [headerOpen]);
 
   const openHeaderDrawer = () => {
-    setAnnouncementOpen(false);
     setHeaderOpen(true);
   };
-
-  /* =========================================================
-     CLOSE RIGHT DRAWER
-  ========================================================= */
 
   const closeHeaderDrawer = () => {
     setHeaderOpen(false);
@@ -163,24 +125,6 @@ export default function Header() {
 
   return (
     <>
-      {/* =====================================================
-          ANNOUNCEMENT BAR
-
-          DESKTOP:
-          Top announcement links.
-
-          MOBILE:
-          Opens from LEFT when hamburger is clicked.
-      ====================================================== */}
-
-      <AnnouncementBar
-        hidden={navHidden}
-        mobileOpen={announcementOpen}
-        onClose={() =>
-          setAnnouncementOpen(false)
-        }
-      />
-
       {/* =====================================================
           DESKTOP MAIN HEADER
       ====================================================== */}
@@ -190,19 +134,19 @@ export default function Header() {
           fixed
           left-0
           right-0
-          top-10
+          top-0
           z-50
           hidden
           lg:block
           transition-all
           duration-300
           ease-out
-          ${navHidden ? "-translate-y-[calc(100%+2.5rem)]" : "translate-y-0"}
+          ${navHidden ? "-translate-y-full" : "translate-y-0"}
         `}
         style={{
-          background: "rgba(3, 24, 20, 0.94)",
-          borderBottom: "1px solid var(--color-border-lime)",
-          boxShadow: scrolled ? "0 8px 28px rgba(3, 24, 20, 0.45)" : "none",
+          background: "var(--header-bg)",
+          borderBottom: "1px solid rgba(77, 108, 93, 0.16)",
+          boxShadow: scrolled ? "0 8px 24px rgba(2, 26, 20, 0.08)" : "none",
         }}
       >
         <div
@@ -286,7 +230,7 @@ export default function Header() {
                         ${
                           active
                             ? "bg-[var(--color-emerald)] text-brand-lime"
-                            : "text-ink-inverse hover:text-brand-lime"
+                            : "text-[var(--header-ink)] hover:text-[var(--green-chip)]"
                         }
                       `}
                     >
@@ -363,7 +307,7 @@ export default function Header() {
                     ${
                         active
                           ? "bg-[var(--color-emerald)] text-brand-lime"
-                          : "text-ink-inverse hover:text-brand-lime"
+                          : "text-[var(--header-ink)] hover:text-[var(--green-chip)]"
                     }
                   `}
                 >
@@ -427,9 +371,9 @@ export default function Header() {
           justify-between
 
           border-b
-          border-dark-border
+          border-[rgba(77,108,93,0.16)]
 
-          bg-[rgba(3,24,20,0.96)]
+          bg-[var(--header-bg)]
 
           px-3
 
@@ -460,11 +404,11 @@ export default function Header() {
             items-center
             justify-center
             rounded-xl
-            text-ink-inverse
+            text-[var(--header-ink)]
             transition-all
             duration-200
-            hover:bg-white/10
-            hover:text-brand-lime
+            hover:bg-black/5
+            hover:text-[var(--green-chip)]
             active:scale-95
           "
         >
@@ -604,7 +548,7 @@ export default function Header() {
               items-center
               justify-between
 
-              bg-gradient-brand
+              bg-[var(--bg-tertiary)]
 
               px-5
             "
@@ -616,7 +560,7 @@ export default function Header() {
                 className="
                   text-base
                   font-bold
-                  text-white
+                  text-brand-lime
                 "
               >
                 SkillOrbit
@@ -775,22 +719,6 @@ export default function Header() {
                   </div>
                 );
               })}
-            </div>
-
-            <p className="mb-2 mt-6 px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-lime">
-              More
-            </p>
-            <div className="grid grid-cols-2 gap-1.5">
-              {ANNOUNCEMENT_LINKS.filter((link) => !["Corporate", "Contact Us"].includes(link.label)).map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={closeHeaderDrawer}
-                  className="rounded-lg px-3 py-3 text-[15px] font-semibold text-ink-dim hover:bg-white/5 hover:text-brand-lime"
-                >
-                  {link.label}
-                </Link>
-              ))}
             </div>
           </nav>
 

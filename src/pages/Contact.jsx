@@ -36,16 +36,25 @@ export default function Contact() {
                 rel={c.label === "WhatsApp" || c.label === "Location" ? "noopener noreferrer" : undefined}
                 className="flex flex-col gap-2 rounded-2xl border border-brand-primary/20 bg-surface p-5 transition-transform hover:-translate-y-0.5"
               >
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-brand-100">
-                  <c.icon size={18} className="text-brand-700" />
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-[rgba(57,255,20,0.12)]">
+                  <c.icon size={18} className="text-brand-lime" />
                 </div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">{c.label}</p>
                 <p className="text-sm font-medium text-ink">{c.value}</p>
               </a>
             ))}
-            <div className="sm:col-span-2 rounded-2xl overflow-hidden border border-line h-48 bg-surface-muted flex items-center justify-center">
-              <img src="/assets/images/placeholders/map.svg" alt="Map showing SkillOrbit Academy location in Pune" className="h-full w-full object-cover" loading="lazy" />
-            </div>
+            <div className="sm:col-span-2 rounded-2xl overflow-hidden border border-line h-64 md:h-80 bg-surface-muted">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.217344139965!2d73.78013777465314!3d18.564237567839925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf40aa7e9bb9%3A0xc500a2125885cc03!2sSkill%20Orbit%20Academy%20Private%20Limited!5e0!3m2!1sen!2sin!4v1789542657514!5m2!1sen!2sin"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="strict-origin-when-cross-origin"
+    title="SkillOrbit Academy location in Pune"
+  />
+</div>
           </Reveal>
 
           <Reveal delay={0.1} className="rounded-3xl border border-brand-primary/20 bg-surface p-8">

@@ -6,14 +6,16 @@ export default function CTASection() {
   const { openDemo } = useDemoModal();
 
   return (
-    <section id="demo" className="so-dark relative overflow-hidden bg-dark so-section">
-      <Container>
+    <section id="demo" className="so-dark relative overflow-hidden bg-[var(--bg-primary)] so-section">
+      <div className="so-hero-glow" aria-hidden="true" />
+      <Container className="relative z-10">
         <Reveal>
           <div
             className="
-              relative mx-auto max-w-5xl overflow-hidden rounded-[20px]
-              border border-dark-border bg-dark-surface
+              relative mx-auto max-w-5xl overflow-hidden rounded-[22px]
+              border border-[rgba(57,255,20,0.28)] bg-dark-surface
               px-[clamp(1rem,4vw,3rem)] py-[clamp(2.25rem,5vw,4rem)] text-center
+              shadow-[0_10px_50px_rgba(0,255,56,0.10)]
               sm:rounded-[28px]
             "
           >
@@ -21,7 +23,7 @@ export default function CTASection() {
               Ready to start your Career?
             </p>
 
-            <h2 className="font-display text-h2 font-bold leading-snug text-white">
+            <h2 className="font-display text-h2 font-extrabold leading-snug text-white">
               Book Your{" "}
               <span className="relative inline-block text-brand-lime">
                 Free Demo
@@ -34,9 +36,9 @@ export default function CTASection() {
               type="button"
               onClick={() => openDemo()}
               className="
-                mt-6 inline-flex min-h-12 w-full max-w-full items-center justify-center rounded-xl
+                mt-6 inline-flex min-h-12 w-full max-w-full items-center justify-center rounded-[13px]
                 bg-brand-lime px-5 text-[13px] font-bold uppercase tracking-[0.06em] text-[var(--cta-ink)]
-                shadow-btn transition-colors hover:bg-[var(--color-lime-hover)]
+                shadow-btn transition-all hover:-translate-y-0.5 hover:bg-[var(--color-lime-hover)]
                 sm:mt-8 sm:h-14 sm:w-auto sm:px-10 sm:text-[15px]
               "
             >

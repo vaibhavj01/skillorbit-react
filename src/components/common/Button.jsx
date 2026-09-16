@@ -9,11 +9,11 @@ const SIZES = {
 
 const VARIANTS = {
   primary:
-    "bg-[var(--brand-lime)] text-[var(--cta-ink)] font-bold shadow-btn hover:bg-[var(--color-lime-hover)]",
+    "so-btn-primary bg-[var(--green-bright)] text-[var(--cta-ink)] font-bold shadow-btn hover:bg-[var(--color-lime-hover)]",
   outline:
-    "bg-transparent text-brand-dark border border-brand-primary font-semibold hover:bg-[rgba(0,200,83,0.10)] hover:border-brand-primary",
+    "so-btn-secondary bg-transparent text-[var(--green-bright)] border border-[rgba(57,255,20,0.45)] font-bold hover:bg-[rgba(57,255,20,0.08)] hover:border-[var(--green-bright)]",
   dark:
-    "bg-transparent text-[var(--brand-lime)] border border-brand-primary font-semibold hover:bg-[rgba(0,200,83,0.10)]",
+    "so-btn-secondary bg-transparent text-[var(--green-bright)] border border-[rgba(57,255,20,0.45)] font-bold hover:bg-[rgba(57,255,20,0.08)]",
   ghost: "bg-transparent text-ink-light font-semibold hover:text-[var(--brand-lime)]",
 };
 
@@ -31,7 +31,7 @@ export default function Button({
   ...props
 }) {
   const { openDemo } = useDemoModal();
-  const base = `inline-flex max-w-full items-center justify-center gap-2 rounded-xl transition-[background-color,border-color,transform,color,box-shadow] duration-200 touch-manipulation [overflow-wrap:anywhere] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-lime ${SIZES[size]} ${VARIANTS[variant]} ${className}`;
+  const base = `inline-flex max-w-full items-center justify-center gap-2 rounded-[13px] transition-[background-color,border-color,transform,color,box-shadow] duration-200 touch-manipulation [overflow-wrap:anywhere] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-lime ${SIZES[size]} ${VARIANTS[variant]} ${className}`;
 
   const handleClick = (event) => {
     if (opensDemo) {

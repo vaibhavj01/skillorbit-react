@@ -141,11 +141,11 @@ export default function GetMeJobLead() {
         onClick={() => setOpen(true)}
         className="
           fixed left-0 top-1/2 z-40 hidden -translate-y-1/2 sm:flex
-          items-center gap-2 rounded-r-xl bg-brand-primary px-4 py-3
+          items-center gap-2 rounded-r-xl bg-[var(--green-bright)] px-4 py-3
           font-extrabold text-[var(--cta-ink)]
-          shadow-[0_0_25px_rgba(0,214,57,0.30)]
+          shadow-[0_0_25px_rgba(57,255,20,0.22)]
           transition-all duration-300
-          hover:bg-brand-green hover:px-6 hover:shadow-[0_0_35px_rgba(0,214,57,0.45)]
+          hover:bg-[var(--color-lime-hover)] hover:px-6 hover:shadow-[0_0_32px_rgba(57,255,20,0.28)]
         "
         aria-haspopup="dialog"
         aria-expanded={open}
@@ -182,7 +182,7 @@ export default function GetMeJobLead() {
             <aside
               className="
                 relative hidden overflow-hidden md:flex md:flex-col
-                bg-[linear-gradient(180deg,#0a1a14_0%,var(--text-primary)_48%,var(--brand-deep)_100%)]
+                bg-[linear-gradient(180deg,#021a14_0%,#031f18_48%,#041c17_100%)]
               "
             >
               <div className="relative z-10 px-8 pt-8">
@@ -191,7 +191,7 @@ export default function GetMeJobLead() {
                 </h2>
 
                 <p className="mt-5 flex items-center gap-2.5 font-roboto text-[22px] font-black text-white">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--brand-green)] text-white">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--green-bright)] text-[var(--cta-ink)]">
                     <Briefcase size={18} />
                   </span>
                   {students?.value?.toLocaleString("en-IN") || "10,000"}
@@ -226,7 +226,7 @@ export default function GetMeJobLead() {
                 Take The First Step Toward A Brighter Career.
               </p>
 
-              <div className="mx-4 mb-4 rounded-full bg-[var(--brand-green)] py-2.5 text-center text-sm font-bold text-white">
+              <div className="mx-4 mb-4 rounded-full bg-[var(--green-bright)] py-2.5 text-center text-sm font-bold text-[var(--cta-ink)]">
                 Register Now to Know More!
               </div>
             </aside>
@@ -238,7 +238,7 @@ export default function GetMeJobLead() {
                 onClick={closeModal}
                 className="
                   absolute right-4 top-4 flex h-8 w-8 items-center justify-center
-                  rounded-md bg-[var(--brand-green)] text-white transition-colors hover:bg-[var(--brand-dark)]
+                  rounded-md bg-[var(--green-bright)] text-[var(--cta-ink)] transition-colors hover:bg-[var(--color-lime-hover)]
                 "
                 aria-label="Close"
               >
@@ -272,7 +272,7 @@ export default function GetMeJobLead() {
                   <button
                     type="button"
                     onClick={() => setStatus("idle")}
-                    className="mt-6 rounded-full bg-[var(--brand-green)] px-6 py-2.5 text-sm font-bold text-white hover:bg-[var(--brand-dark)]"
+                    className="mt-6 rounded-[13px] bg-[var(--green-bright)] px-6 py-2.5 text-sm font-bold text-[var(--cta-ink)] hover:bg-[var(--color-lime-hover)]"
                   >
                     Submit another request
                   </button>
@@ -286,7 +286,7 @@ export default function GetMeJobLead() {
                   <button
                     type="button"
                     onClick={() => setStatus("idle")}
-                    className="mt-6 rounded-full bg-[var(--brand-green)] px-6 py-2.5 text-sm font-bold text-white hover:bg-[var(--brand-dark)]"
+                    className="mt-6 rounded-[13px] bg-[var(--green-bright)] px-6 py-2.5 text-sm font-bold text-[var(--cta-ink)] hover:bg-[var(--color-lime-hover)]"
                   >
                     Try again
                   </button>
@@ -397,11 +397,11 @@ export default function GetMeJobLead() {
                     type="submit"
                     disabled={status === "loading"}
                     className="
-                      mt-3 inline-flex h-12 items-center justify-center rounded-full
-                      bg-[linear-gradient(180deg,#35D06A_0%,var(--brand-green)_55%,#1B8A3F_100%)]
-                      font-roboto text-[15px] font-black text-white
-                      shadow-[0_8px_20px_rgba(0,184,61,0.28)]
-                      transition-transform hover:-translate-y-0.5
+                      mt-3 inline-flex h-12 items-center justify-center rounded-[13px]
+                      bg-[var(--green-bright)]
+                      font-display text-[15px] font-bold text-[var(--cta-ink)]
+                      shadow-[0_8px_20px_rgba(57,255,20,0.18)]
+                      transition-transform hover:-translate-y-0.5 hover:bg-[var(--color-lime-hover)]
                       disabled:cursor-not-allowed disabled:opacity-70
                     "
                   >

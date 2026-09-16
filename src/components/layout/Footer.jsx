@@ -1,124 +1,300 @@
+
 import { Link } from "react-router-dom";
-import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
+import {
+  FaLinkedinIn,
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
+
 import Container from "../common/Container";
-import { FOOTER_LINKS, CONTACT, ASSETS } from "../../data/siteConfig";
+import { useDemoModal } from "../../context/DemoModalContext";
+
+import {
+  CONTACT,
+  ASSETS,
+  FOOTER_QUICK_LINKS,
+  FOOTER_POPULAR_COURSES,
+  FOOTER_SUPPORT_LINKS,
+  FOOTER_LEGAL_LINKS,
+  SOCIAL_LINKS,
+} from "../../data/siteConfig";
+
+/* ---------------------------------------
+   Social Media Icons
+--------------------------------------- */
+
+const SOCIAL_ICONS = {
+  linkedin: FaLinkedinIn,
+  instagram: FaInstagram,
+  facebook: FaFacebookF,
+  youtube: FaYoutube,
+};
+
+/* ---------------------------------------
+   Footer Navigation Link
+--------------------------------------- */
+
+function FooterNavLink({ item, onDemo }) {
+  if (item.action === "demo") {
+    return (
+      <button
+        type="button"
+        className="so-footer__link"
+        onClick={onDemo}
+      >
+        {item.label}
+      </button>
+    );
+  }
+
+  if (item.href) {
+    const external = item.href.startsWith("http");
+
+    return (
+      <a
+        href={item.href}
+        className="so-footer__link"
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+      >
+        {item.label}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      to={item.to}
+      className="so-footer__link"
+    >
+      {item.label}
+    </Link>
+  );
+}
+
+/* ---------------------------------------
+   Footer Column
+--------------------------------------- */
+
+function FooterColumn({ title, links, onDemo }) {
+  return (
+    <nav
+      className="so-footer__col"
+      aria-label={title}
+    >
+      <h2 className="so-footer__heading">
+        {title}
+      </h2>
+
+      <ul>
+        {links.map((item) => (
+          <li key={item.label}>
+            <FooterNavLink
+              item={item}
+              onDemo={onDemo}
+            />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+/* ---------------------------------------
+   Social Links
+--------------------------------------- */
+
+function SocialLinks({ className = "" }) {
+  return (
+    <ul
+      className={`so-footer__socials ${className}`.trim()}
+      aria-label="Social media links"
+    >
+      {SOCIAL_LINKS.map((item) => {
+        const Icon = SOCIAL_ICONS[item.id];
+
+        // If an icon isn't configured,
+        // don't render an empty/broken icon.
+        if (!Icon) {
+          return null;
+        }
+
+        return (
+          <li key={item.id}>
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="so-footer__social"
+              aria-label={`Visit SkillOrbit on ${item.label}`}
+              title={item.label}
+            >
+              <Icon
+                size={16}
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+/* ---------------------------------------
+   Footer
+--------------------------------------- */
 
 export default function Footer() {
+  const { openDemo } = useDemoModal();
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="so-footer so-dark relative overflow-hidden border-t border-dark-border bg-dark font-body text-dark-muted">
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 12% 0%, rgba(102,255,0,0.08), transparent 34%), radial-gradient(circle at 90% 100%, rgba(0,200,83,0.08), transparent 28%)",
-        }}
-        aria-hidden="true"
-      />
+    <footer className="so-footer">
+      <div className="so-footer__body">
 
-      <Container className="so-footer__inner relative z-10">
-        <div className="so-footer__grid">
-          <div className="so-footer__brand">
-            <Link to="/" className="so-footer__logo" aria-label="SkillOrbit Academy home">
-              <img
-                src={ASSETS.logo}
-                alt="SkillOrbit Academy"
-                width={140}
-                height={36}
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
-            <p className="so-footer__desc">
-              Premium IT training and distance learning from Pune — learn, build, certify and grow your career.
-            </p>
-            <p className="so-footer__mobile-loc">
-              <MapPin size={13} className="shrink-0 text-brand-primary" />
-              Baner · Hinjawadi · Wakad
-            </p>
-            <div className="so-footer__mobile-actions">
-              <a
-                href={`mailto:${CONTACT.email}`}
-                className="so-footer__icon-btn"
-                aria-label={`Email ${CONTACT.email}`}
+        {/* Decorative background glow */}
+        <div
+          className="so-footer__glow"
+          aria-hidden="true"
+        />
+
+        <Container className="so-footer__inner">
+
+          {/* --------------------------------
+              Footer Main Grid
+          -------------------------------- */}
+
+          <div className="so-footer__grid">
+
+            {/* --------------------------------
+                Brand & Contact
+            -------------------------------- */}
+
+            <section
+              className="so-footer__brand"
+              aria-label="SkillOrbit"
+            >
+              <Link
+                to="/"
+                className="so-footer__logo"
+                aria-label="SkillOrbit Academy home"
               >
-                <Mail size={15} />
-              </a>
-              <a
-                href={CONTACT.phoneHref}
-                className="so-footer__icon-btn"
-                aria-label={`Call ${CONTACT.phoneDisplay}`}
-              >
-                <Phone size={15} />
-              </a>
-              <a
-                href={CONTACT.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="so-footer__icon-btn"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle size={15} />
-              </a>
-            </div>
-            <ul className="so-footer__contact">
-              <li>
-                <span className="so-footer__contact-icon" aria-hidden="true">
-                  <MapPin size={14} />
-                </span>
-                <span>Baner, Hinjawadi &amp; Wakad, Pune</span>
-              </li>
-              <li>
-                <span className="so-footer__contact-icon" aria-hidden="true">
-                  <Mail size={14} />
-                </span>
-                <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-              </li>
-              <li>
-                <span className="so-footer__contact-icon" aria-hidden="true">
-                  <Phone size={14} />
-                </span>
-                <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>
-              </li>
-              <li>
-                <span className="so-footer__contact-icon" aria-hidden="true">
-                  <MessageCircle size={14} />
-                </span>
-                <a href={CONTACT.whatsappHref} target="_blank" rel="noopener noreferrer">
-                  WhatsApp
+                <img
+                  src={ASSETS.logo}
+                  alt="SkillOrbit Academy"
+                  width={150}
+                  height={40}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </Link>
+
+              <p className="so-footer__desc">
+                Industry-ready IT education for students,
+                professionals and career changers.
+              </p>
+
+              <div className="so-footer__meta">
+
+                <p className="so-footer__meta-label">
+                  Location
+                </p>
+
+                <p className="so-footer__meta-value">
+                  {CONTACT.location}
+                </p>
+
+                <a
+                  className="so-footer__meta-link"
+                  href={`mailto:${CONTACT.email}`}
+                  aria-label={`Email SkillOrbit at ${CONTACT.email}`}
+                >
+                  {CONTACT.email}
                 </a>
-              </li>
-            </ul>
-          </div>
 
-          <div className="so-footer__links">
-            {Object.entries(FOOTER_LINKS).map(([title, links]) => (
-              <div key={title} className="so-footer__col min-w-0">
-                <h4 className="so-footer__heading font-display">{title}</h4>
-                <ul>
-                  {links.map((l) => (
-                    <li key={l.label}>
-                      <Link to={l.to} className="so-footer__link">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <a
+                  className="so-footer__meta-link"
+                  href={CONTACT.phoneHref}
+                  aria-label={`Call SkillOrbit at ${CONTACT.phoneDisplay}`}
+                >
+                  {CONTACT.phoneDisplay}
+                </a>
+
               </div>
-            ))}
-          </div>
-        </div>
-      </Container>
+            </section>
 
-      <div className="so-footer__legal relative z-10">
-        <Container className="so-footer__legal-inner">
-          <p>© {new Date().getFullYear()} {CONTACT.name}</p>
-          <div className="so-footer__legal-links">
-            <Link to="/privacy">Privacy</Link>
-            <Link to="/terms">Terms</Link>
-            <Link to="/refund">Refunds</Link>
+            {/* Quick Links */}
+
+            <FooterColumn
+              title="Quick Links"
+              links={FOOTER_QUICK_LINKS}
+            />
+
+            {/* Popular Courses */}
+
+            <FooterColumn
+              title="Popular Courses"
+              links={FOOTER_POPULAR_COURSES}
+            />
+
+            {/* Career & Support */}
+
+            <FooterColumn
+              title="Career & Support"
+              links={FOOTER_SUPPORT_LINKS}
+              onDemo={openDemo}
+            />
+
           </div>
+
+          {/* --------------------------------
+              Divider
+          -------------------------------- */}
+
+          <div
+            className="so-footer__rule"
+            aria-hidden="true"
+          />
+
+          {/* --------------------------------
+              Footer Bottom
+          -------------------------------- */}
+
+          <div className="so-footer__bottom">
+
+            {/* Copyright */}
+
+            <p className="so-footer__copy">
+              © {year} {CONTACT.name}. All rights reserved.
+            </p>
+
+            {/* Social Media */}
+
+            <SocialLinks />
+
+            {/* Legal Links */}
+
+            <nav
+              className="so-footer__legal"
+              aria-label="Legal"
+            >
+              {FOOTER_LEGAL_LINKS.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+          </div>
+
         </Container>
       </div>
     </footer>
   );
 }
+

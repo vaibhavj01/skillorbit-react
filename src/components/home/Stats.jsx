@@ -35,15 +35,15 @@ function StatItem({ stat, index }) {
         sm:gap-3 sm:px-4 sm:py-4
         md:justify-center lg:col-span-1 lg:flex-1 lg:px-3 xl:px-4
         ${isLast ? "col-span-2 justify-center lg:justify-center" : ""}
-        ${isLeftCol ? "border-r border-line" : ""}
-        ${index < 4 ? "border-b border-line" : ""}
+        ${isLeftCol ? "border-r border-white/10" : ""}
+        ${index < 4 ? "border-b border-white/10" : ""}
         ${isLast ? "lg:border-r-0" : "lg:border-r lg:border-b-0"}
       `}
     >
       <div
         className="
           flex h-8 w-8 shrink-0 items-center justify-center rounded-xl
-          border border-line bg-surface-muted text-brand-green
+          border border-dark-border bg-[rgba(57,255,20,0.10)] text-brand-lime
           sm:h-10 sm:w-10 lg:h-11 lg:w-11
         "
       >
@@ -53,14 +53,14 @@ function StatItem({ stat, index }) {
 
       <div className="min-w-0">
         <div className="flex items-baseline leading-none">
-          <span className="font-display text-[18px] font-extrabold tracking-tight text-ink sm:text-[24px] lg:text-[23px] xl:text-[25px]">
+          <span className="font-display text-[18px] font-extrabold tracking-tight text-white sm:text-[24px] lg:text-[23px] xl:text-[25px]">
             {value.toLocaleString("en-IN")}
           </span>
-          <span className="ml-0.5 text-[14px] font-extrabold text-brand-green sm:text-[19px] lg:text-[18px] xl:text-[20px]">
+          <span className="ml-0.5 text-[14px] font-extrabold text-brand-lime sm:text-[19px] lg:text-[18px] xl:text-[20px]">
             {stat.suffix}
           </span>
         </div>
-        <p className="mt-0.5 text-[11px] font-bold uppercase leading-snug tracking-[0.04em] text-ink-muted sm:mt-1 sm:text-[11px]">
+        <p className="mt-0.5 text-[11px] font-bold uppercase leading-snug tracking-[0.04em] text-dark-muted sm:mt-1 sm:text-[11px]">
           {stat.label}
         </p>
       </div>
@@ -72,12 +72,12 @@ export default function Stats() {
   const { openDemo } = useDemoModal();
 
   return (
-    <section className="relative z-20 -mt-4 bg-surface-bg px-[var(--so-gutter)] sm:-mt-8 lg:-mt-9">
+    <section className="relative z-20 -mt-4 bg-[var(--bg-primary)] px-[var(--so-gutter)] sm:-mt-8 lg:-mt-9">
       <div className="mx-auto w-full max-w-site">
         <div
           className="
-            relative overflow-hidden rounded-[20px] border border-line
-            bg-surface shadow-card
+            relative overflow-hidden rounded-[20px] border border-dark-border
+            bg-dark-surface shadow-card
             sm:rounded-[1.5rem]
           "
         >
@@ -90,7 +90,7 @@ export default function Stats() {
               ))}
             </div>
 
-            <div className="hidden border-t border-line p-3 lg:block lg:border-l lg:border-t-0 lg:p-2">
+            <div className="hidden border-t border-white/10 p-3 lg:block lg:border-l lg:border-t-0 lg:p-2">
               <button
                 type="button"
                 onClick={() => openDemo()}

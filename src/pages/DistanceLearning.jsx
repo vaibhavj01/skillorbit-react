@@ -44,8 +44,8 @@ export default function DistanceLearning() {
             {BENEFITS.map((b, i) => (
               <Reveal key={b.title} delay={i * 0.06}>
                 <div className="h-full p-6 rounded-2xl border border-line bg-surface-bg">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-brand-100">
-                    <b.icon size={19} className="text-brand-700" />
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-[rgba(57,255,20,0.12)]">
+                    <b.icon size={19} className="text-brand-lime" />
                   </div>
                   <h3 className="font-bold text-sm mb-1 text-ink">{b.title}</h3>
                   <p className="text-sm text-ink-muted">{b.text}</p>

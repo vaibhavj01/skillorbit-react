@@ -67,7 +67,7 @@ export default function WhyFeatures() {
                 }`}
               >
                 <div className="flex w-full min-w-0 items-center">
-                  <div className="why-section__icon flex shrink-0 items-center justify-center rounded-xl bg-[rgba(0,200,83,0.12)] text-brand-primary">
+                  <div className="why-section__icon flex shrink-0 items-center justify-center rounded-xl bg-[rgba(57,255,20,0.12)] text-brand-lime">
                     <Icon size={18} strokeWidth={1.8} className="sm:hidden" />
                     <span className="why-section__emoji hidden sm:inline" aria-hidden="true">
                       {item.icon}
@@ -86,7 +86,7 @@ export default function WhyFeatures() {
         <div className="why-section__cta flex justify-center px-4">
   <Link
     to="/contact"
-    className="group inline-flex w-full max-w-sm items-center justify-center gap-3 rounded-xl bg-brand-lime px-6 py-3 text-sm font-bold text-[var(--cta-ink)] shadow-btn transition-colors duration-200 hover:bg-[var(--color-lime-hover)]"
+    className="group inline-flex w-full max-w-sm items-center justify-center gap-3 rounded-[13px] bg-brand-lime px-6 py-3 text-sm font-bold text-[var(--cta-ink)] shadow-btn transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-lime-hover)]"
   >
     Start Your Journey
     <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">

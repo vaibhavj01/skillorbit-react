@@ -13,9 +13,9 @@
   box-shadow: 0 0 40px rgba(0, 214, 57, 0.18);
   overflow: hidden;
   background:
-    linear-gradient(90deg, #f8fcf8 0 48%, transparent 48%),
-    radial-gradient(circle at 18px 18px, rgba(255, 255, 255, 0.55) 2px, transparent 2.4px) 52% 0 / 28px 28px,
-    var(--brand-green);
+    linear-gradient(90deg, #041c17 0 48%, transparent 48%),
+    radial-gradient(circle at 18px 18px, rgba(57, 255, 20, 0.22) 2px, transparent 2.4px) 52% 0 / 28px 28px,
+    var(--green-dark);
 }
 
 .placement-portrait__ring img {
@@ -35,8 +35,8 @@
   justify-content: center;
   border-radius: 14px;
   border: 1px solid rgba(0, 214, 57, 0.35);
-  background: var(--text-primary);
-  color: var(--brand-primary);
+  background: var(--bg-card);
+  color: var(--brand-lime);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 

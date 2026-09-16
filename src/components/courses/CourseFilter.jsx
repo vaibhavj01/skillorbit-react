@@ -5,7 +5,7 @@ export default function CourseFilter({
   active,
   onChange,
   align = "center",
-  variant = "light",
+  variant = "dark",
   className = "",
 }) {
   return (
@@ -23,13 +23,7 @@ export default function CourseFilter({
               key={cat.id}
               onClick={() => onChange(cat.id)}
               className={`course-chip inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap rounded-full border px-3.5 text-sm font-semibold leading-none transition-colors duration-200 ${
-                variant === "dark"
-                  ? isActive
-                    ? "course-chip--active-dark"
-                    : "course-chip--idle-dark"
-                  : isActive
-                    ? "bg-ink text-brand-400 border-transparent shadow-md"
-                    : "bg-surface text-ink-light border-brand-primary/25 hover:border-brand-400 hover:text-brand-700"
+                isActive ? "course-chip--active-dark" : "course-chip--idle-dark"
               }`}
             >
               {cat.label}

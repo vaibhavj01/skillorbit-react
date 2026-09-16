@@ -48,13 +48,14 @@ export default function CoursesPreview() {
     <section
     id="courses"
     className="
+      so-dark
       relative
       overflow-hidden
-      bg-surface-bg
-      py-10 sm:py-10 md:py-10
+      bg-[var(--bg-secondary)]
+      so-section
     "
   >
-      <OrbitBackdrop variant="mint" />
+      <OrbitBackdrop variant="mesh" />
 
       {/* =====================================================
           CONTENT
@@ -119,20 +120,20 @@ export default function CoursesPreview() {
                   w-full
                   rounded-2xl
                   border
-                  border-brand-primary/25
-                  bg-surface
+                  border-[rgba(57,255,20,0.20)]
+                  bg-[var(--bg-input)]
                   pl-14
                   pr-5
                   text-[15px]
-                  text-ink
+                  text-white
                   outline-none
                   transition-all
                   duration-300
-                  placeholder:text-[var(--text-muted)]
+                  placeholder:text-[var(--color-placeholder)]
 
-                  focus:border-brand-primary
+                  focus:border-brand-lime
                   focus:ring-4
-                  focus:ring-[var(--brand-primary)]/15
+                  focus:ring-[rgba(57,255,20,0.10)]
                 "
               />
 
@@ -170,8 +171,8 @@ export default function CoursesPreview() {
                 className="
                   rounded-2xl
                   border
-                  border-brand-primary/20
-                  bg-surface
+                  border-dark-border
+                  bg-dark-surface
                   px-6
                   py-16
                   text-center
@@ -181,7 +182,7 @@ export default function CoursesPreview() {
                   className="
                     text-xl
                     font-bold
-                    text-ink
+                    text-white
                   "
                 >
                   No courses found
@@ -191,7 +192,7 @@ export default function CoursesPreview() {
                   className="
                     mt-2
                     text-sm
-                    text-ink-muted
+                    text-dark-muted
                   "
                 >
                   Try another course name, technology or category.
@@ -217,16 +218,8 @@ export default function CoursesPreview() {
         >
           <Button
             to="/courses"
-            variant="outline"
+            variant="dark"
             size="md"
-            className="
-              border-brand-primary/40
-              text-brand-primary
-
-              hover:border-brand-green
-              hover:bg-brand-green
-              hover:text-[var(--cta-ink)]
-            "
           >
             View All Courses
           </Button>

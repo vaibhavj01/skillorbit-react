@@ -1,9 +1,9 @@
 const TONES = {
-  brand: "bg-surface-muted text-brand-green",
+  brand: "bg-[rgba(57,255,20,0.12)] text-brand-lime",
   dark: "bg-dark-surface text-brand-primary border border-dark-border",
-  amber: "bg-surface-muted text-warning",
-  red: "bg-red-50 text-error",
-  neutral: "bg-surface-muted text-ink-light",
+  amber: "bg-[rgba(245,158,11,0.12)] text-warning",
+  red: "bg-[rgba(239,68,68,0.12)] text-error",
+  neutral: "bg-[rgba(255,255,255,0.06)] text-ink-light",
 };
 
 export default function Badge({ children, tone = "brand", icon: Icon, className = "" }) {

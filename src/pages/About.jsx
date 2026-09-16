@@ -1,37 +1,27 @@
-import { Target, Handshake, Sprout, MonitorPlay, Users, BookOpen } from "lucide-react";
+import { MonitorPlay, Users, BookOpen } from "lucide-react";
 import Seo from "../components/common/Seo";
 import PageHero from "../components/common/PageHero";
 import Container from "../components/common/Container";
 import Reveal from "../components/common/Reveal";
 import { Eyebrow } from "../components/common/SectionHeading";
-import Stats from "../components/home/Stats";
-import Testimonials from "../components/home/Testimonials";
-import IsoCertification from "../components/home/IsoCertification";
-import CTASection from "../components/home/CTASection";
 import { CONTACT, STATS } from "../data/siteConfig";
 import OrbitBackdrop from "../components/common/OrbitBackdrop";
-
-const VALUES = [
-  { icon: Target, title: "Outcome focus", text: "Every module ties back to skills employers need." },
-  { icon: Handshake, title: "Mentorship", text: "Human guidance alongside digital content." },
-  { icon: Sprout, title: "Growth mindset", text: "Continuous learning beyond the first job." },
-];
 
 const TEACHING = [
   {
     icon: Users,
-    title: "Mentor-led classroom",
-    text: "Learn in Pune classrooms with live labs, doubt-solving and peer collaboration.",
+    title: "Industry Expert Trainers",
+    text: "Learn directly from experienced industry professionals with practical knowledge, real-world examples, project guidance, and career-focused mentoring.",
   },
   {
     icon: MonitorPlay,
-    title: "Live online teaching",
-    text: "Join interactive sessions from anywhere without losing instructor guidance.",
+    title: "Dedicated HR & Career Support",
+    text: "Get dedicated HR support for resume guidance, interview preparation, communication skills, doubt-solving sessions, and personalized career guidance.",
   },
   {
     icon: BookOpen,
-    title: "Structured practice",
-    text: "Projects, assessments and feedback keep every learner accountable and job-ready.",
+    title: "Weekly Mock Interviews & Assessments",
+    text: "Participate in mock technical and HR interviews every 15 days with feedback, performance analysis, and real industry-style interview exposure.",
   },
 ];
 
@@ -46,9 +36,10 @@ export default function About() {
       <PageHero
         title="About SKILLORBIT Academy"
         subtitle="A Pune-based IT training and distance learning institute focused on career-ready skills."
+        className="!pb-6 sm:!pb-8"
       />
 
-      <section className="relative overflow-hidden bg-surface-bg so-section">
+      <section className="relative overflow-hidden bg-[var(--bg-secondary)] so-section !pt-6 !pb-6 sm:!pt-8 sm:!pb-8">
         <OrbitBackdrop variant="mint" />
         <Container className="relative z-10 grid items-center gap-14 lg:grid-cols-2">
           <Reveal className="relative mx-auto w-full max-w-xl pb-8 lg:mx-0">
@@ -95,12 +86,18 @@ export default function About() {
               Skills that orbit your career
             </h2>
             <p className="text-base leading-relaxed mb-3 text-ink-light">
-              SKILLORBIT Academy Pvt. Ltd. delivers industry-focused IT programs through classroom, online, hybrid,
-              self-paced and distance learning models.
+              Skill Orbit is a career-focused IT training academy dedicated to helping students, freshers, working
+              professionals and career switchers build industry-relevant skills and prepare for successful careers
+              in technology.
+            </p>
+            <p className="text-base leading-relaxed mb-3 text-ink-muted">
+              In today’s competitive job market, a degree or certification alone is not enough. Employers look for
+              candidates who have practical knowledge, relevant technical skills, real-world project experience and
+              the confidence to perform in professional environments.
             </p>
             <p className="text-base leading-relaxed mb-6 text-ink-muted">
-              We combine mentor-led teaching, real projects and career support so learners can move from
-              fundamentals to job-ready confidence.
+              At Skill Orbit, we bridge this gap through industry-oriented training, hands-on learning, expert trainers
+              and comprehensive career preparation.
             </p>
             <p className="text-sm font-semibold text-ink">{CONTACT.name}</p>
             <p className="text-sm text-ink-muted">
@@ -110,50 +107,21 @@ export default function About() {
         </Container>
       </section>
 
-      <section className="bg-[#0a1612] so-section">
-        <Container>
-          <Reveal className="text-center max-w-3xl mx-auto mb-14">
+      <section id="teaching" className="relative overflow-hidden bg-[var(--bg-primary)] so-section !pt-6 sm:!pt-8">
+        <Container className="relative z-10">
+          <Reveal className="mx-auto mb-8 max-w-3xl text-center md:mb-10">
             <h2 className="mb-3 font-display text-xl font-bold text-white sm:text-2xl md:text-3xl">
-              Mission: Learn → Build → Certify → Prepare → Get Placed → Grow
+              We Don't Just Teach. We Prepare You for the Industry.
             </h2>
             <p className="text-base text-dark-muted">
-              We exist to make premium technology education accessible, practical and career-aligned.
-            </p>
-          </Reveal>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {VALUES.map((v, i) => (
-              <Reveal key={v.title} delay={i * 0.08}>
-                <div className="rounded-2xl border border-brand-primary/20 bg-surface p-7 text-center">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 bg-brand-100">
-                    <v.icon size={22} className="text-brand-700" />
-                  </div>
-                  <h3 className="font-bold text-base mb-1.5 font-display text-ink">{v.title}</h3>
-                  <p className="text-sm text-ink-muted">{v.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="teaching" className="relative overflow-hidden bg-surface-bg so-section">
-        <OrbitBackdrop variant="mint" />
-        <Container className="relative z-10">
-          <Reveal className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
-            <Eyebrow>Teaching</Eyebrow>
-            <h2 className="mb-3 font-display text-2xl font-bold text-ink md:text-3xl">
-              How SkillOrbit teaches technology
-            </h2>
-            <p className="text-sm leading-7 text-ink-light md:text-base">
-              Teaching at SkillOrbit is mentor-led, project-driven and aligned to hiring needs —
-              whether you learn in the classroom, live online, or in a hybrid format.
+              Industry-led training, personal mentorship and continuous interview practice — everything you need to become career-ready.
             </p>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {TEACHING.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
                 <article className="h-full rounded-2xl border border-brand-primary/20 bg-surface p-6">
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#12261d] text-brand-primary">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(57,255,20,0.12)] text-brand-lime">
                     <item.icon size={20} />
                   </div>
                   <h3 className="mb-2 font-display text-lg font-bold text-ink">{item.title}</h3>
@@ -165,10 +133,10 @@ export default function About() {
         </Container>
       </section>
 
-      <Stats />
+      {/* <Stats />
       <Testimonials />
       <IsoCertification />
-      <CTASection />
+      <CTASection /> */}
     </>
   );
 }

@@ -74,7 +74,7 @@ export default function WhyPlacementSupport() {
 
       <div className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-brand-green/10 blur-3xl" />
 
-      <div className="pointer-events-none absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-lime-200/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 bottom-10 h-96 w-96 rounded-full bg-[rgba(57,255,20,0.08)] blur-3xl" />
 
 
       <Container>

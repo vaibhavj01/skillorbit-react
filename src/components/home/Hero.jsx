@@ -14,7 +14,7 @@ export default function Hero() {
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
-          backgroundImage: "radial-gradient(rgba(102,255,0,0.12) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(57,255,20,0.12) 1px, transparent 1px)",
           backgroundSize: "26px 26px",
           maskImage: "radial-gradient(circle at 70% 48%, black 20%, transparent 72%)",
           WebkitMaskImage: "radial-gradient(circle at 70% 48%, black 20%, transparent 72%)",

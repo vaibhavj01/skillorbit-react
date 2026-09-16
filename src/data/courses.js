@@ -3,7 +3,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.9,
     "mode": [
       "Classroom",
@@ -49,7 +49,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.8,
     "mode": [
       "Classroom",
@@ -88,7 +88,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.8,
     "mode": [
       "Classroom",
@@ -127,7 +127,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.7,
     "mode": [
       "Classroom",
@@ -167,7 +167,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Classroom",
@@ -204,7 +204,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.7,
     "mode": [
       "Classroom",
@@ -241,7 +241,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Classroom",
@@ -277,7 +277,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.5,
     "mode": [
       "Classroom",
@@ -312,7 +312,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.5,
     "mode": [
       "Classroom",
@@ -348,7 +348,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.7,
     "mode": [
       "Classroom",
@@ -385,7 +385,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Online",
@@ -421,7 +421,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.8,
     "mode": [
       "Classroom",
@@ -458,7 +458,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Classroom",
@@ -488,13 +488,13 @@ export const courses = [
     "name": "Data Analytics",
     "category": "datascience",
     "description": "Analyze business data with Excel, SQL, Python and visualization tools.",
-    "duration": "3 Months",
-    "durationMonths": 3
+    "duration": "3.5 Months",
+    "durationMonths": 3.5
   },
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.7,
     "mode": [
       "Classroom",
@@ -530,7 +530,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.7,
     "mode": [
       "Classroom",
@@ -569,7 +569,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Classroom",
@@ -605,7 +605,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.5,
     "mode": [
       "Classroom",
@@ -640,7 +640,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Online",
@@ -675,7 +675,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.7,
     "mode": [
       "Classroom",
@@ -709,7 +709,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Classroom",
@@ -746,7 +746,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.5,
     "mode": [
       "Classroom",
@@ -781,7 +781,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Classroom",
@@ -817,7 +817,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.4,
     "mode": [
       "Classroom",
@@ -852,7 +852,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.5,
     "mode": [
       "Online",
@@ -887,7 +887,7 @@ export const courses = [
   {
     "placementSupport": true,
     "certificate": true,
-    "fees": "Contact for fees",
+    "fees": "25000",
     "rating": 4.6,
     "mode": [
       "Online",
@@ -921,7 +921,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.8,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -943,7 +943,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.8,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -959,13 +959,13 @@ export const courses = [
     shortTitle: "AWS + DevOps + AI",
     category: "cloud",
     description: "Build cloud and DevOps skills on AWS, then use Generative AI tools to accelerate delivery and operations.",
-    duration: "5 Months",
-    durationMonths: 5,
+    duration: "4.5 Months",
+    durationMonths: 4.5,
   },
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.8,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -987,7 +987,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.7,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -1009,7 +1009,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.8,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Beginner",
@@ -1031,7 +1031,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.7,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Beginner",
@@ -1053,7 +1053,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.7,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -1075,7 +1075,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.8,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -1097,7 +1097,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.7,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -1119,7 +1119,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.7,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -1141,7 +1141,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.7,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -1163,7 +1163,7 @@ export const courses = [
   {
     placementSupport: true,
     certificate: true,
-    fees: "Contact for fees",
+    fees: "25000",
     rating: 4.7,
     mode: ["Classroom", "Online", "Hybrid"],
     level: "Intermediate",
@@ -1271,3 +1271,17 @@ export function orderCourses(list) {
   const rest = list.filter((course) => !PINNED_COURSE_IDS.includes(course.id));
   return [...pinned, ...rest];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

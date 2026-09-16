@@ -9,7 +9,7 @@ function DashboardMockup() {
   const bars = [40, 65, 50, 80, 70, 90];
   return (
     <div className="rounded-2xl overflow-hidden shadow-2xl border border-line">
-      <div className="flex items-center gap-2 px-4 py-3 bg-ink">
+      <div className="flex items-center gap-2 px-4 py-3 bg-[var(--bg-primary)]">
         <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
         <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
@@ -18,7 +18,7 @@ function DashboardMockup() {
       <div className="flex bg-surface">
         <aside className="w-32 shrink-0 py-4 px-3 space-y-1 bg-surface-muted">
           {["My Courses", "Assignments", "Live Sessions", "Career Hub"].map((n, i) => (
-            <div key={n} className={`text-xs font-medium px-2.5 py-2 rounded-lg ${i === 0 ? "bg-brand-500 text-white" : "text-ink-light"}`}>
+            <div key={n} className={`text-xs font-medium px-2.5 py-2 rounded-lg ${i === 0 ? "bg-brand-lime text-[var(--cta-ink)]" : "text-ink-light"}`}>
               {n}
             </div>
           ))}
@@ -50,7 +50,7 @@ export default function DistanceLearningPreview() {
     { icon: Target, title: "Career track", text: "Projects and interview prep built into the journey." },
   ];
   return (
-    <section id="distance" className="relative overflow-hidden bg-surface-bg so-section-lg">
+    <section id="distance" className="relative overflow-hidden bg-[var(--bg-tertiary)] so-section-lg">
       <OrbitBackdrop variant="night" />
       <Container className="relative z-10 grid items-center gap-14 lg:grid-cols-2">
         <Reveal>
@@ -65,8 +65,8 @@ export default function DistanceLearningPreview() {
           <div className="space-y-5 mb-8">
             {features.map((f) => (
               <div key={f.title} className="flex gap-4">
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 bg-brand-100">
-                  <f.icon size={19} className="text-brand-700" />
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 bg-[rgba(57,255,20,0.12)]">
+                  <f.icon size={19} className="text-brand-lime" />
                 </div>
                 <div>
                   <h3 className="font-bold text-sm mb-0.5 text-ink">{f.title}</h3>

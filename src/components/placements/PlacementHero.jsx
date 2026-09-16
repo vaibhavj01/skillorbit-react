@@ -255,7 +255,7 @@ export default function PlacementHero() {
                   FLOATING RATING CARD
               ========================== */}
 
-              <div className="absolute -left-4 top-12 hidden rounded-2xl border border-slate-100 bg-surface p-4 shadow-xl sm:block lg:-left-8">
+              <div className="absolute -left-4 top-12 hidden rounded-2xl border border-dark-border bg-surface p-4 shadow-xl sm:block lg:-left-8">
 
                 <div className="flex items-center gap-3">
 
@@ -285,7 +285,7 @@ export default function PlacementHero() {
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green text-ink">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-lime text-[var(--cta-ink)]">
                     <CheckCircle2 size={19} />
                   </div>
 
@@ -346,10 +346,10 @@ function JourneyItem({
       {/* Number */}
 
       <div
-        className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-4 border-white text-xs font-extrabold shadow-sm ${
+        className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-4 border-[var(--bg-card)] text-xs font-extrabold shadow-sm ${
           active
-            ? "bg-brand-green text-ink"
-            : "bg-brand-primary/15 text-brand-primary"
+            ? "bg-brand-lime text-[var(--cta-ink)]"
+            : "bg-[rgba(57,255,20,0.12)] text-brand-lime"
         }`}
       >
         {number}

@@ -8,9 +8,9 @@ import { getCourseBySlug } from "../../data/courses";
 import OrbitBackdrop from "../common/OrbitBackdrop";
 
 const STATUS_STYLE = {
-  open: { dot: "bg-brand-500", bg: "bg-brand-100", text: "text-brand-700", label: "Seats open" },
+  open: { dot: "bg-brand-lime", bg: "bg-[rgba(57,255,20,0.12)]", text: "text-brand-lime", label: "Seats open" },
   filling: { dot: "bg-[#F79009]", bg: "bg-[#F79009]/15", text: "text-[#F79009]", label: "Filling fast" },
-  full: { dot: "bg-[#D92D20]", bg: "bg-[#FDEDEC]", text: "text-[#B42318]", label: "Full" },
+  full: { dot: "bg-[#D92D20]", bg: "bg-[#D92D20]/15", text: "text-[#FCA5A5]", label: "Full" },
 };
 
 function formatDate(iso) {
@@ -25,7 +25,7 @@ function BatchCard({ batch, delay }) {
 
   return (
     <Reveal delay={delay}>
-      <div className="flex h-full flex-col gap-4 rounded-2xl border border-brand-primary/20 bg-surface px-5 py-6 sm:px-6 sm:py-7 md:py-8">
+      <div className="flex h-full flex-col gap-4 rounded-2xl border border-dark-border bg-dark-surface px-5 py-6 sm:px-6 sm:py-7 md:py-8">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             {category && (
@@ -33,13 +33,13 @@ function BatchCard({ batch, delay }) {
                 {category}
               </p>
             )}
-            <h3 className="text-base font-bold leading-snug font-display text-ink">{batch.courseName}</h3>
+            <h3 className="text-base font-bold leading-snug font-display text-white">{batch.courseName}</h3>
           </div>
           <span className={`shrink-0 flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-1 rounded-full ${s.bg} ${s.text}`}>
             <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} /> {s.label}
           </span>
         </div>
-        <div className="space-y-2 text-sm text-ink-light">
+        <div className="space-y-2 text-sm text-dark-muted">
           <p className="flex items-center gap-2">
             <Calendar size={14} className="text-brand-600" /> Starts {formatDate(batch.startDate)}
           </p>
@@ -58,7 +58,7 @@ function BatchCard({ batch, delay }) {
             {batch.seatsLeft} of {batch.seatsTotal} seats left
           </p>
         </div>
-        <Button to={course ? `/courses/${course.slug}` : "/contact"} variant="outline" size="sm" className="w-full mt-auto">
+        <Button to={course ? `/courses/${course.slug}` : "/contact"} variant="dark" size="sm" className="w-full mt-auto">
           {batch.status === "full" ? "Join Waitlist" : "Reserve Seat"}
         </Button>
       </div>
@@ -68,8 +68,8 @@ function BatchCard({ batch, delay }) {
 
 export default function Batches() {
   return (
-    <section id="batches" className="relative overflow-hidden bg-surface-bg so-section-lg">
-      <OrbitBackdrop variant="mint" />
+    <section id="batches" className="so-dark relative overflow-hidden bg-[var(--bg-primary)] so-section-lg">
+      <OrbitBackdrop variant="night" />
       <Container className="relative z-10">
         <SectionHeading eyebrow="Schedule" title="Upcoming Batches" subtitle="New classroom, online and distance learning seats open regularly." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

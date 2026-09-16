@@ -72,16 +72,16 @@ export default function PlacementJourneyModal({ open, onClose }) {
         className="
           pj-modal-panel relative z-10 flex w-full max-w-[500px] flex-col overflow-hidden
           max-h-[min(92dvh,calc(var(--pj-vvh,100dvh)-2rem))]
-          rounded-[20px] border border-[#00C853]/25 bg-white
-          shadow-[0_20px_60px_rgba(0,92,43,0.18)]
+          rounded-[20px] border border-dark-border bg-[var(--bg-card)]
+          shadow-[0_20px_60px_rgba(0,0,0,0.45)]
         "
       >
-        <div className="flex shrink-0 items-start justify-between gap-3 border-b border-[#00C853]/15 px-5 py-4 sm:px-6">
+        <div className="flex shrink-0 items-start justify-between gap-3 border-b border-white/10 px-5 py-4 sm:px-6">
           <div className="min-w-0 pr-2">
-            <h2 id={titleId} className="font-display text-lg font-bold leading-snug text-[var(--color-text-dark)] sm:text-xl">
+            <h2 id={titleId} className="font-display text-lg font-bold leading-snug text-white sm:text-xl">
               Start Your Placement Journey
             </h2>
-            <p className="mt-1 font-body text-[13px] leading-5 text-[#52605A] sm:text-sm">
+            <p className="mt-1 font-body text-[13px] leading-5 text-dark-muted sm:text-sm">
               Tell us a little about yourself and our career team will help you choose the right path.
             </p>
           </div>
@@ -91,8 +91,8 @@ export default function PlacementJourneyModal({ open, onClose }) {
             onClick={onClose}
             className="
               flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-              border border-[#00C853]/25 text-[var(--color-text-dark)] transition
-              hover:border-[#00C853] hover:bg-[#F3FFF6]
+              border border-dark-border text-white transition
+              hover:border-brand-lime hover:bg-white/5
             "
             aria-label="Close placement journey form"
           >

@@ -42,7 +42,7 @@ export default function CourseCard({ course, delay = 0 }) {
           <ul className="so-course-card__features">
             <Detail label="Duration" value={course.duration} />
             <Detail label="Fees" value={course.fees} />
-            <Detail label="Placement" value={placement} />
+            {/* <Detail label="Placement" value={placement} /> */}
           </ul>
 
           <div className="so-course-card__footer">

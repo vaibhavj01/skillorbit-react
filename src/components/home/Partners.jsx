@@ -164,7 +164,7 @@ export default function Partners() {
       className="
         relative
         overflow-hidden
-        bg-surface-bg
+        bg-[var(--bg-secondary)]
         so-section-tight
       "
     >
@@ -196,8 +196,8 @@ export default function Partners() {
     w-[min(5.625rem,18vw)]
 
     bg-gradient-to-r
-    from-surface-bg
-    via-[var(--text-primary)]/90
+    from-[var(--bg-secondary)]
+    via-[var(--bg-secondary)]/90
     to-transparent
 
     blur-[5px]
@@ -217,8 +217,8 @@ export default function Partners() {
     w-[min(5.625rem,18vw)]
 
     bg-gradient-to-l
-    from-surface-bg
-    via-[var(--text-primary)]/90
+    from-[var(--bg-secondary)]
+    via-[var(--bg-secondary)]/90
     to-transparent
 
     blur-[5px]

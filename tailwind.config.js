@@ -43,6 +43,8 @@ export default {
           DEFAULT: "var(--surface)",
           bg: "var(--background)",
           muted: "var(--surface-soft)",
+          alt: "var(--bg-tertiary)",
+          card: "var(--bg-card)",
           dark: "var(--dark-surface)",
         },
         line: {
@@ -71,7 +73,7 @@ export default {
       fontSize: {
         hero: ["var(--so-fs-hero)", { lineHeight: "1.12", letterSpacing: "-0.03em", fontWeight: "800" }],
         h1: ["var(--so-fs-h1)", { lineHeight: "1.15", letterSpacing: "-0.028em", fontWeight: "800" }],
-        h2: ["var(--so-fs-h2)", { lineHeight: "1.18", letterSpacing: "-0.025em", fontWeight: "700" }],
+        h2: ["var(--so-fs-h2)", { lineHeight: "1.18", letterSpacing: "-0.025em", fontWeight: "800" }],
         h3: ["var(--so-fs-h3)", { lineHeight: "1.28", letterSpacing: "-0.02em", fontWeight: "700" }],
         h4: ["var(--so-fs-h4)", { lineHeight: "1.3", letterSpacing: "-0.015em", fontWeight: "600" }],
       },
@@ -79,8 +81,8 @@ export default {
         site: "1200px",
       },
       boxShadow: {
-        card: "0 10px 30px rgba(3, 24, 20, 0.06)",
-        "card-hover": "0 16px 36px rgba(0, 200, 83, 0.12)",
+        card: "0 10px 30px rgba(2, 26, 20, 0.35)",
+        "card-hover": "0 10px 35px rgba(0, 255, 56, 0.12)",
         btn: "var(--lime-glow)",
       },
       backgroundImage: {
